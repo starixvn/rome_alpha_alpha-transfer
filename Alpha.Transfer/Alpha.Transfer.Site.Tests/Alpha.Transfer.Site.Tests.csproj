@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E1DF47B4-7FF7-486A-AEB2-6CB23F1FF834}</ProjectGuid>
+    <ProjectGuid>{D88D4BD4-13AD-42F9-8959-08050447A660}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Alpha.Transfer.Site.Tests</RootNamespace>

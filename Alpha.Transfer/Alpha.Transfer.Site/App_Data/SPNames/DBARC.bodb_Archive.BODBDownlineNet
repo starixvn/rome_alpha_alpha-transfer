@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Functions>
-  <Function Name="Win Loss">
-    <Setting Key="Age_BetList_SelWinLossByDate_Mem_Old" SpName="Age_BetList_SelWinLossByDate_Mem_Old" DbName="DBARC.bodb_Archive.BODBDownlineNet" Plain="0" />
-  </Function>
-</Functions>

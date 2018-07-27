@@ -1,0 +1,10 @@
+{
+  "ServerUri": "http://sonarqube-dev.nexdev.net/",
+  "ProjectKey": "Alpha-MemberInfo",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "cs-sonar-way-80515",
+      "ProfileTimestamp": "2018-05-30T11:15:26+07:00"
+    }
+  }
+}

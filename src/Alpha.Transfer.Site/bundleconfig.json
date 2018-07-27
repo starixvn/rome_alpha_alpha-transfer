@@ -1,0 +1,32 @@
+﻿[
+  {
+    "outputFileName": "assets/bundles/default.css",
+    "inputFiles": [
+      "assets/styles/site.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-all-clear-credit.css",
+    "inputFiles": [
+      "assets/styles/transfer-all-clear-credit.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-all-clear-credit/calculation.js",
+    "inputFiles": [
+      "assets/scripts/transfer-all-clear-credit/calculation.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-all-clear-credit/transfer-result.js",
+    "inputFiles": [
+      "assets/scripts/transfer-all-clear-credit/transfer-result.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/cash-balance-transfer/cash-balance.js",
+    "inputFiles": [
+      "assets/scripts/cash-balance-transfer/cash-balance.js"
+    ]
+  }
+]

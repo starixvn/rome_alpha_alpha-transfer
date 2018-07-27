@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Transfer/_HintLayout.cshtml";
+}
+
+<p>Giao dịch với Tổng số tiền giao dịch</p>
+<ul>
+    <li>Chỉ có thể thanh toán toàn bộ đối với Tổng số tiền giao dịch.</li>
+    <li>Giao dịch chỉ được thực hiện khi Tổng số tiền giao dịch của tài khoản khác 0.</li>
+</ul>
+<p>Giao dịch với Số dư tài khoản</p>
+<ul>
+    <li>Đối với giao dịch Negative: giá trị giao dịch không thể vượt quá (Số dư tài khoản của cấp dưới - Tiền chưa xử lý).</li>
+    <li>Đối với giao dịch Positive: giá trị giao dịch không thể vượt quá Số dư tài khoản của bạn.</li>
+    <li>Cụm từ "Số dư tài khoản" sẽ được ghi trong phần Chi tiết giao dịch.</li>
+</ul>
+<p>Ghi chú</p>
+<ul>
+    @if (!string.IsNullOrEmpty(Model.AllowTransfer))
+    {
+        <li>@Html.Raw(Model.AllowTransfer)</li>
+    }
+    @if (!string.IsNullOrEmpty(Model.WarningTransfer))
+    {
+        <li>@Html.Raw(Model.WarningTransfer)</li>
+    }
+    <li>Bạn có thể thực hiện nhiều giao dịch trong một ngày (cho cả Tổng số tiền giao dịch và Số dư tài khoản).</li>
+    <li>Để đảm bảo tính chính xác của dữ liệu, tất cả giao dịch chuyển khoản không thể thực hiện trong quá trình xử lý dữ liệu.</li>
+</ul>

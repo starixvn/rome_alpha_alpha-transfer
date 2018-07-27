@@ -1,0 +1,17 @@
+﻿$p-color: #045ace;
+
+body {
+    background: transparent;
+    height: auto;
+}
+.hint {
+    p {
+        color: $p-color;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    ul {
+        list-style: initial;
+        padding-left: 40px;
+    }
+}

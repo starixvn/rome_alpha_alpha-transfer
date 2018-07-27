@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "assets/styles/site.css",
+    "inputFile": "assets/styles/site.scss"
+  },
+  {
+    "outputFile": "assets/styles/transfer-all-clear-credit.css",
+    "inputFile": "assets/styles/transfer-all-clear-credit.scss"
+  },
+  {
+    "outputFile": "assets/bundles/cash-balance-transfer.css",
+    "inputFile": "assets/styles/cash-balance-transfer.scss"
+  },
+  {
+    "outputFile": "assets/bundles/transfer-hint.css",
+    "inputFile": "assets/styles/transfer-hint.scss"
+  }
+]

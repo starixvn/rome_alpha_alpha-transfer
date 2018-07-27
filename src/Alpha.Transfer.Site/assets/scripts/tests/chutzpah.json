@@ -1,0 +1,30 @@
+﻿{
+  "Framework": "jasmine",
+  "EnableCodeCoverage": "true",
+  "Compile": {
+    "Mode": "External",
+    "Extensions": [ ".ts" ]
+  },
+  "CodeCoverageExcludes": [
+    "*\\libs\\*"
+  ],
+  "CodeCoverageIgnores": [
+    "*\\tests\\*"
+  ],
+
+  "CodeCoverageExecutionMode": "Manual",
+  "References": [
+    { "Path": "libs/jquery/jquery-1.11.3.js" },
+    { "Path": "libs/jasmine.js" },
+    { "Path": "libs/jasmine-jquery.js" },
+
+    { "Path": "libs/jquery/blockUI.js" },
+    { "Path": "../cash-balance-transfer/cash-balance.ts" }
+  ],
+  "Tests": [
+    {
+      "Path": "apps/cash-balance-transfer",
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+﻿.tblRpt .head-row {
+    background-color: #666;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+}
+
+#tbl-rpt {
+    width: 800px;
+}
+
+.tblRpt tbody td {
+    &.align-right {
+        text-align: right;
+    }
+
+    &.align-center {
+        text-align: center;
+    }
+}
+
+.changed-figure {
+    background-color: #00FF00;
+    color: #FFF;
+    display: inline-block;
+    padding: 0 5px;
+}

@@ -1,0 +1,199 @@
+﻿@model TransferResultViewModel
+@{
+    ViewBag.Title = "Transfer All And Clear Credit";
+}
+@section Styles {
+    @StaticResources.RenderStyles("~/assets/bundles/transfer-all-clear-credit")
+}
+<div class="page-title">
+    <span class="pull-left">@Resources.TransferAllAndClearCredit</span>
+    <span id="icon-information" class="icon-information-outline pull-right"></span>
+</div>
+
+<div id="box_header">
+    <div id="msg-result" class="msg msg-@Model.MessageType">@Model.MessageResult</div>
+    <form id="transfer-clear-credit-form" class="form-inline demo-form-inline filter" role="form" action="Index">
+        <div class="form-group">
+            <label>@Resources.Username</label>
+            <input type="text" id="txt-username" name="Username" placeholder="@Resources.UsernamePlaceHolder" value="@Model.Username" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn-submit">@Resources.Calculate</button>
+        </div>
+    </form>
+</div>
+<div id="box-content">
+    @if (Model.IsSuccess)
+    {
+        <table id="tbl-rpt" class="tblRpt tblRpt-bordered alternative-row-table">
+            <tr>
+                <td colspan="4">
+                    <input type="checkbox" disabled="disabled" checked="checked" />
+                    <label>@Resources.TransferAll</label>
+                </td>
+            </tr>
+            <tr class="head-row">
+                <td>#</td>
+                <td>@Resources.Step</td>
+                <td>@Resources.TransferredAmount</td>
+                <td>@Resources.MemberOutstanding</td>
+            </tr>
+            @if (Model.TransferSteps.Any())
+            {
+                var index = 1;
+
+                foreach (var step in Model.TransferSteps)
+                {
+                    <tr class="@(index%2==0 ? "even-row" : "")">
+                        <td class="align-center">@index</td>
+                        <td>@step.Name</td>
+                        <td class="align-right">@HtmlHelpers.FormatNumber(step.TransferableAmount)</td>
+                        <td class="align-right">
+                            <div class="@(step.HasChanged ? "changed-figure" : "")">@Model.GetOutstandingText(step.Outstanding)</div>
+                        </td>
+                    </tr>
+
+                    index++;
+                }
+            }
+            else
+            {
+                <tr><td colspan="4" align="center">@Resources.NoInformationIsAvailable</td></tr>
+            }
+
+            @if (Model.IsClearCredit)
+            {
+                <tr>
+                    <td colspan="4">
+                        <input id="chk-clear-credit" type="checkbox" name="IsClearCredit" checked="checked" />
+                        <label for="chk-clear-credit">@Resources.ClearCredit</label>
+                    </td>
+                </tr>
+                <tr class="head-row">
+                    <td>#</td>
+                    <td>@Resources.Level</td>
+                    <td>@Resources.GivenCredit</td>
+                    <td>@Resources.ClearedCredit</td>
+                </tr>
+                if (Model.ClearCreditSteps.Any())
+                {
+                    var index = 1;
+
+                    foreach (var step in Model.ClearCreditSteps)
+                    {
+                        <tr class="@(index%2==0 ? "even-row" : "")">
+                            <td class="align-center">@index</td>
+                            <td>@step.Level</td>
+                            <td class="align-right">@HtmlHelpers.FormatNumber(step.GivenCredit)</td>
+                            <td class="align-right">
+                                <div class="@(step.HasChanged ? "changed-figure" : "")">@HtmlHelpers.FormatNumber(step.ClearableCredit)</div>
+                            </td>
+                        </tr>
+
+                        index++;
+                    }
+                }
+                else
+                {
+                    <tr><td colspan="4" align="center">@Resources.NoInformationIsAvailable</td></tr>
+                }
+            }
+
+        </table>
+        <div class="content-row">
+            <input type="button" class="btn-submit" value="@Resources.Submit" disabled="disabled" />
+        </div>
+    }
+    else
+    {
+        <table id="tbl-rpt" class="tblRpt tblRpt-bordered alternative-row-table">
+            <tr>
+                <td colspan="4">
+                    <input type="checkbox" disabled="disabled" checked="checked" />
+                    <label>@Resources.TransferAll</label>
+                </td>
+            </tr>
+            <tr class="head-row">
+                <td>#</td>
+                <td>@Resources.Step</td>
+                <td>@Resources.TransferableAmount</td>
+                <td>@Resources.MemberOutstanding</td>
+            </tr>
+            @if (Model.TransferSteps.Any())
+            {
+                var index = 1;
+
+                foreach (var step in Model.TransferSteps)
+                {
+                    <tr class="@(index%2==0 ? "even-row" : "")">
+                        <td class="align-center">@index</td>
+                        <td>@step.Name</td>
+                        <td class="align-right">@HtmlHelpers.FormatNumber(step.TransferableAmount)</td>
+                        <td class="align-right">@Model.GetOutstandingText(step.Outstanding)</td>
+                    </tr>
+
+                    index++;
+                }
+            }
+            else
+            {
+                <tr><td colspan="4" align="center">@Resources.NoInformationIsAvailable</td></tr>
+            }
+            <tr>
+                <td colspan="4">
+                    <input id="chk-clear-credit" type="checkbox" name="IsClearCredit" @(Model.IsClearCredit ? "checked=\"checked\"" : "") />
+                    <label for="chk-clear-credit">@Resources.ClearCredit</label>
+                </td>
+            </tr>
+            <tr class="head-row">
+                <td>#</td>
+                <td>@Resources.Level</td>
+                <td>@Resources.GivenCredit</td>
+                <td>@Resources.ClearableCredit</td>
+            </tr>
+            @if (Model.ClearCreditSteps.Any())
+            {
+                var index = 1;
+
+                foreach (var step in Model.ClearCreditSteps)
+                {
+                    <tr class="@(index%2==0 ? "even-row" : "")">
+                        <td class="align-center">@index</td>
+                        <td>@step.Level</td>
+                        <td class="align-right">@HtmlHelpers.FormatNumber(step.GivenCredit)</td>
+                        <td class="align-right">@HtmlHelpers.FormatNumber(step.ClearableCredit)</td>
+                    </tr>
+
+                    index++;
+                }
+            }
+            else
+            {
+                <tr><td colspan="4" align="center">@Resources.NoInformationIsAvailable</td></tr>
+            }
+        </table>
+        <div class="content-row">
+            <form id="transfer-result-form" class="hide" role="form" action="TransferResult">
+                <input id="txt-username-transfer" type="text" name="Username" value="@Model.Username" />
+                <input id="IsClearCredit" type="text" name="IsClearCredit" value="false" />
+                @Html.Hidden("TransferSteps", Model.TransferStepsJson)
+                @Html.Hidden("ClearCreditSteps", Model.ClearCreditStepsJson)
+            </form>
+            <input id="btn-submit" type="button" class="btn-submit" value="@Resources.Submit" />
+        </div>
+    }
+
+    <div class="note">
+        <span class="star">*</span>@Resources.TransferAllAndClearCreditNote
+    </div>
+    <div class="shadow" id="shadow"></div>
+    <div class="output" id="output"></div>
+    @Html.Hidden("usernameAutoSuggestionPath", Model.UsernameAutoSuggestionPath)
+    @Html.Hidden("ClearCreditConfirm", Resources.ClearCreditConfirm)
+    @Html.Hidden("TransferAllConfirm", Resources.TransferAllConfirm)
+</div>
+
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/transfer-all-clear-credit/transfer-result")
+}

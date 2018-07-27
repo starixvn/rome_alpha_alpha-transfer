@@ -1,0 +1,9 @@
+﻿@helper FormatNumber(decimal value)
+{
+    @value.ToString($"#,##0.00")
+}
+
+@helper FormatNumber(int value)
+{
+    @value.ToString($"#,##0")
+}

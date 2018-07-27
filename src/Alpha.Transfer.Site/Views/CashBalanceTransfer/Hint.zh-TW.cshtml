@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Transfer/_HintLayout.cshtml";
+}
+
+<p>以昨天余額轉賬</p>
+<ul>
+    <li>昨天余額只能全數轉賬</li>
+    <li>只有在會員的昨天余額不為零時才能進行轉賬</li>
+</ul>
+<p>以現金余額轉賬</p>
+<ul>
+    <li>負數轉賬：轉賬數額不能超過（下線現金未完成交易額）。</li>
+    <li>正數轉賬：轉賬數額不能超過您的現金余額</li>
+    <li>"現金余額" 將在轉賬細節中註明</li>
+</ul>
+<p>備註</p>
+<ul>
+    @if (!string.IsNullOrEmpty(Model.AllowTransfer))
+    {
+        <li>@Html.Raw(Model.AllowTransfer)</li>
+    }
+    @if (!string.IsNullOrEmpty(Model.WarningTransfer))
+    {
+        <li>@Html.Raw(Model.WarningTransfer)</li>
+    }
+    <li>您可以根據自己的需要每天做無限次交易（包括昨天余額和現金余額）。</li>
+    <li>為了確保處理數據時的準確性，所有交易均無法進行。</li>
+</ul>

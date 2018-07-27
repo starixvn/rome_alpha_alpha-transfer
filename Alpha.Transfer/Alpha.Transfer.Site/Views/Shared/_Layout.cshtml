@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@(ViewBag.Title ?? "Alpha - Sites")</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
+
+    @StaticResources.AssetStyles.RenderCommon("/bundles/common/common")
+    @StaticResources.AssetStyles.Render("/bundles/site-betlists/default")
+    @StaticResources.RenderStyles("~/assets/bundles/default")
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    @RenderBody()
+    @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
+    @StaticResources.AssetScripts.Render("/bundles/site-betlists/default")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

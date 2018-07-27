@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Functions>
+  <Function Name="Base Functions">
+    <Setting Key="Age_SelBalanceUpDay" SpName="Age_SelBalanceUpDay" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+  </Function>
+  <Function Name="Check Belonging">
+    <Setting Key="Age_CustomerSelCheckBelonging" SpName="Age_CustomerSelCheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustSubPageAccessSel" SpName="Age_CustSubPageAccessSel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" SpName="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+  </Function>
+</Functions>

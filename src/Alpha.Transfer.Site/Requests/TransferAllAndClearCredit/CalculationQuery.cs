@@ -1,15 +1,20 @@
 ﻿namespace Alpha.Transfer.Site.Requests.TransferAllAndClearCredit
 {
+    using System.Web.Mvc;
     using MediatR;
     using Transfer.Models;
     using ViewModels.TransferAllAndClearCredit;
 
-    public class CalculationQuery : TransferBaseQuery, IAsyncRequest<CalculationViewModel>
+    public class CalculationQuery : TransferBaseQuery, IRequest<CalculationViewModel>
     {
         public CalculationQuery(IUser viewer) : base(viewer)
         {
+            IsInternal = viewer.IsInternal;
         }
 
+        [AllowHtml]
         public string Username { get; set; }
+
+        public bool IsInternal { get; }
     }
 }

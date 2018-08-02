@@ -17,5 +17,13 @@
         string SubAccName { get; }
 
         string IP { get; }
+
+        bool AllowAllDayBalanceTransfer { get; }
+
+        bool AllowTotalBalanceTransfer { get; }
+
+        int UserId { get; }
+
+        bool IsInternal { get; }
     }
 }

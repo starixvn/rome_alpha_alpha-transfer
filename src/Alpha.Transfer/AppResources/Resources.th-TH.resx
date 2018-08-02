@@ -219,4 +219,55 @@
   <data name="InvalidValue" xml:space="preserve">
     <value>มูลค่าไม่ถูกต้อง</value>
   </data>
+  <data name="MultipleTransfer" xml:space="preserve">
+    <value>การส่งยอดเงินพร้อมกัน</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="AllYesterdayBalance" xml:space="preserve">
+    <value>ยอดเงินรวมของของเมื่อวาน</value>
+  </data>
+  <data name="Status_0" xml:space="preserve">
+    <value>ทั้งหมด</value>
+  </data>
+  <data name="Status_1" xml:space="preserve">
+    <value>เปิด</value>
+  </data>
+  <data name="Status_2" xml:space="preserve">
+    <value>การแข่งขันถูกระงับ</value>
+  </data>
+  <data name="Status_3" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="Status_4" xml:space="preserve">
+    <value>ปิดการใช้งาน</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>เมื่อวาน</value>
+  </data>
+  <data name="YesterdayBalance" xml:space="preserve">
+    <value>ยอดคงเหลือเมื่อวาน</value>
+  </data>
+  <data name="MasterBalance" xml:space="preserve">
+    <value>ตัวแทนหลัก ยอดคงเหลือ</value>
+  </data>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>ยอดเงินสดคงเหลือของเมื่อวาน</value>
+  </data>
+  <data name="MasterCash" xml:space="preserve">
+    <value>ตัวแทนหลัก เงินสด</value>
+  </data>
+  <data name="Outstanding" xml:space="preserve">
+    <value>การเดิมพันที่ยังไม่สิ้นสุด</value>
+  </data>
+  <data name="UsedCredit" xml:space="preserve">
+    <value>เครดิตที่ใช้ไป</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>นามสกุล</value>
+  </data>
 </root>

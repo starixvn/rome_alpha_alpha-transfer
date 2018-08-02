@@ -3,4 +3,7 @@
   <Function Name="Cash Balance Transfer">
     <Setting Key="Age_Transfer_CashBalance_Ins" SpName="Age_Transfer_CashBalance_Ins" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
   </Function>
+  <Function Name="Transfer All and Clear Credit">
+    <Setting Key="Age_Transfer_All_Ins" SpName="Age_Transfer_All_Ins" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
+  </Function>
 </Functions>

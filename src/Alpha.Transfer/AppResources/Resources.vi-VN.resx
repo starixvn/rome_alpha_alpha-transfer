@@ -219,4 +219,55 @@
   <data name="InvalidValue" xml:space="preserve">
     <value>Giá trị không có thực.</value>
   </data>
+  <data name="MultipleTransfer" xml:space="preserve">
+    <value>Chuyển khoản đồng loạt</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="AllYesterdayBalance" xml:space="preserve">
+    <value>Tất cả số dư tính đến hôm qua</value>
+  </data>
+  <data name="Status_0" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="Status_1" xml:space="preserve">
+    <value>Mở</value>
+  </data>
+  <data name="Status_2" xml:space="preserve">
+    <value>Bị đình chỉ</value>
+  </data>
+  <data name="Status_3" xml:space="preserve">
+    <value>Bị khóa</value>
+  </data>
+  <data name="Status_4" xml:space="preserve">
+    <value>Vô hiệu hóa</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>Hôm qua</value>
+  </data>
+  <data name="YesterdayBalance" xml:space="preserve">
+    <value>Số dư đến hết hôm qua</value>
+  </data>
+  <data name="MasterBalance" xml:space="preserve">
+    <value>Tổng tiền giao dịch của Master</value>
+  </data>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>Số dư tài khoản đến hết  hôm qua</value>
+  </data>
+  <data name="MasterCash" xml:space="preserve">
+    <value>Số dư tài khoản của Master</value>
+  </data>
+  <data name="Outstanding" xml:space="preserve">
+    <value>Tiền chưa xử lý</value>
+  </data>
+  <data name="UsedCredit" xml:space="preserve">
+    <value>Hạn mức tín dụng đã dùng</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Họ</value>
+  </data>
 </root>

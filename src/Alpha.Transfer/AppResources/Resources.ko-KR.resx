@@ -219,4 +219,55 @@
   <data name="InvalidValue" xml:space="preserve">
     <value>잘못된 값입니다.</value>
   </data>
+  <data name="MultipleTransfer" xml:space="preserve">
+    <value>복합 전송</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상황</value>
+  </data>
+  <data name="AllYesterdayBalance" xml:space="preserve">
+    <value>어제의 총 잔액</value>
+  </data>
+  <data name="Status_0" xml:space="preserve">
+    <value>모든</value>
+  </data>
+  <data name="Status_1" xml:space="preserve">
+    <value>열기</value>
+  </data>
+  <data name="Status_2" xml:space="preserve">
+    <value>보류</value>
+  </data>
+  <data name="Status_3" xml:space="preserve">
+    <value>중지</value>
+  </data>
+  <data name="Status_4" xml:space="preserve">
+    <value>비활성화</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>어제</value>
+  </data>
+  <data name="YesterdayBalance" xml:space="preserve">
+    <value>어제의 잔액</value>
+  </data>
+  <data name="MasterBalance" xml:space="preserve">
+    <value>마스터 잔액</value>
+  </data>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>어제의 현금</value>
+  </data>
+  <data name="MasterCash" xml:space="preserve">
+    <value>마스터 현금</value>
+  </data>
+  <data name="Outstanding" xml:space="preserve">
+    <value>대기 포인트</value>
+  </data>
+  <data name="UsedCredit" xml:space="preserve">
+    <value>사용된 크레딧</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>이름</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>성</value>
+  </data>
 </root>

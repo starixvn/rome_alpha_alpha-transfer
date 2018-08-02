@@ -28,5 +28,12 @@
     "inputFiles": [
       "assets/scripts/cash-balance-transfer/cash-balance.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/multiple-transfer/customer-list.js",
+    "inputFiles": [
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/multiple-transfer/customer-list.js"
+    ]
   }
 ]

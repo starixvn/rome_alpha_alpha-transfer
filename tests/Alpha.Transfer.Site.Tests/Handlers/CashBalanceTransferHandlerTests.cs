@@ -7,9 +7,9 @@
     using Requests.CashBalanceTransfer;
     using Services;
     using Site.Handlers;
+    using Site.ViewModels.CashBalanceTransfer;
     using Transfer.Models;
     using Transfer.Models.CashBalanceTransfer;
-    using ViewModels.CashBalanceTransfer;
     using Xunit;
 
     [Trait("Category", "CashBalanceTransfer")]

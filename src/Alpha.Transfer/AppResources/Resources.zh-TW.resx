@@ -219,4 +219,55 @@
   <data name="InvalidValue" xml:space="preserve">
     <value>數值無效</value>
   </data>
+  <data name="MultipleTransfer" xml:space="preserve">
+    <value>多重轉帳</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="AllYesterdayBalance" xml:space="preserve">
+    <value>所有昨天餘額</value>
+  </data>
+  <data name="Status_0" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Status_1" xml:space="preserve">
+    <value>開啟</value>
+  </data>
+  <data name="Status_2" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="Status_3" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Status_4" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>昨天</value>
+  </data>
+  <data name="YesterdayBalance" xml:space="preserve">
+    <value>昨天餘額</value>
+  </data>
+  <data name="MasterBalance" xml:space="preserve">
+    <value>總代理餘額</value>
+  </data>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>昨天現金余額</value>
+  </data>
+  <data name="MasterCash" xml:space="preserve">
+    <value>總代理現金</value>
+  </data>
+  <data name="Outstanding" xml:space="preserve">
+    <value>未完成交易</value>
+  </data>
+  <data name="UsedCredit" xml:space="preserve">
+    <value>已用額度</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>姓</value>
+  </data>
 </root>

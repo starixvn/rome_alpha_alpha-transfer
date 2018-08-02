@@ -314,5 +314,47 @@
             // Assert
             Assert.True(actualIsUplineOf);
         }
+
+        [Fact]
+        public void IsEqualOrUplineOf_Equal_ReturnsTrue()
+        {
+            // Arrange
+            var userLevel = UserLevel.Master;
+            var custLevel = UserLevel.Master;
+
+            // Act
+            var actualIsUplineOf = userLevel.IsEqualOrUplineOf(custLevel);
+
+            // Assert
+            Assert.True(actualIsUplineOf);
+        }
+
+        [Fact]
+        public void IsEqualOrUplineOf_Upline_ReturnsTrue()
+        {
+            // Arrange
+            var userLevel = UserLevel.Master;
+            var custLevel = UserLevel.Agent;
+
+            // Act
+            var actualIsUplineOf = userLevel.IsEqualOrUplineOf(custLevel);
+
+            // Assert
+            Assert.True(actualIsUplineOf);
+        }
+
+        [Fact]
+        public void IsEqualOrUplineOf_NotEqualAndUpline_ReturnsFalse()
+        {
+            // Arrange
+            var userLevel = UserLevel.Master;
+            var custLevel = UserLevel.Super;
+
+            // Act
+            var actualIsUplineOf = userLevel.IsEqualOrUplineOf(custLevel);
+
+            // Assert
+            Assert.False(actualIsUplineOf);
+        }
     }
 }

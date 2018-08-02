@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TransferAllAndClearCredit>
+  <Transfer>
+    <RowId>1</RowId>
+    <TransferredAmount>1.5</TransferredAmount>
+    <MemberOutStanding>0</MemberOutStanding>
+  </Transfer>
+</TransferAllAndClearCredit>

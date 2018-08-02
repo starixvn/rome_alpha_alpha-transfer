@@ -48,8 +48,8 @@
     <CodeAnalysisRuleSet>Alpha.Transfer.Site.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.Auth, Version=3.0.1.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Auth.3.0.1.7\lib\net40\Alpha.Auth.dll</HintPath>
+    <Reference Include="Alpha.Auth, Version=3.0.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Auth.3.0.1.9\lib\net40\Alpha.Auth.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Alpha.SecurityCode, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
@@ -60,8 +60,8 @@
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Alpha.Web, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Web.1.0.1.2\lib\net40\Alpha.Web.dll</HintPath>
+    <Reference Include="Alpha.Web, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Web.1.0.1.7-transfer-02\lib\net40\Alpha.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Couchbase, Version=1.2.6.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
@@ -112,8 +112,8 @@
       <HintPath>..\..\packages\Fanex.Logging.Extensions.Web.1.0.6\lib\net40\Fanex.Logging.Extensions.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Products, Version=0.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Products.1.0.0.0\lib\net40\Fanex.Products.dll</HintPath>
+    <Reference Include="Fanex.Products, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Products.1.0.0.5\lib\net461\Fanex.Products.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -181,8 +181,8 @@
       <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.3.0\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.4.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.4.1\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -264,6 +264,8 @@
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\multiple-transfer\customer-list.js" />
+    <Content Include="assets\bundles\multiple-transfer\customer-list.min.js" />
     <Content Include="assets\bundles\transfer-all-clear-credit.css" />
     <Content Include="assets\bundles\transfer-all-clear-credit.min.css">
       <DependentUpon>transfer-all-clear-credit.css</DependentUpon>
@@ -324,175 +326,121 @@
     <Content Include="Views\CashBalanceTransfer\Hint.zh-CN.cshtml" />
     <Content Include="Views\CashBalanceTransfer\Hint.zh-TW.cshtml" />
     <Content Include="Views\CashBalanceTransfer\_HintLayout.cshtml" />
-    <None Include="Web.AppSettings.backupMNL3.config">
+    <Content Include="Web.AppSettings.backupMNL3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNL4.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNL4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLExNap3.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNLNap3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLExNap4.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNLNap4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLNap3.config">
+    </Content>
+    <Content Include="Web.AppSettings.local.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLNap4.config">
+    </Content>
+    <Content Include="Web.AppSettings.napinternal3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.local.config">
+    </Content>
+    <Content Include="Web.AppSettings.napinternal4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napexternal3.config">
+    </Content>
+    <Content Include="Web.AppSettings.pro3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napexternal4.config">
+    </Content>
+    <Content Include="Web.AppSettings.pro4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napinternal3.config">
+    </Content>
+    <Content Include="Web.AppSettings.sit3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napinternal4.config">
+    </Content>
+    <Content Include="Web.AppSettings.sit4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.pro3.config">
+    </Content>
+    <Content Include="Web.AppSettings.uat3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.pro4.config">
+    </Content>
+    <Content Include="Web.AppSettings.uat4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.sit3.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.sit4.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.uat3.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.uat4.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNL3.config">
+    </Content>
+    <Content Include="Web.backupMNL3.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNL4.config">
+    </Content>
+    <Content Include="Web.backupMNL4.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLExNap3.config">
+    </Content>
+    <Content Include="Web.napinternal3.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLExNap4.config">
+    </Content>
+    <Content Include="Web.napinternal4.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLNap3.config">
+    </Content>
+    <Content Include="Web.pro3.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLNap4.config">
+    </Content>
+    <Content Include="Web.pro4.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napexternal3.config">
+    </Content>
+    <Content Include="Web.sit3.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napexternal4.config">
+    </Content>
+    <Content Include="Web.sit4.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napinternal3.config">
+    </Content>
+    <Content Include="Web.uat2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napinternal4.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.pro3.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.pro4.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.sit3.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.sit4.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.uat2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNL.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNL.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNL2.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNL2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLExNap.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNLNap.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLExNap2.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNLNap2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLNap.config">
+    </Content>
+    <Content Include="Web.AppSettings.napinternal.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLNap2.config">
+    </Content>
+    <Content Include="Web.AppSettings.napinternal2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napexternal.config">
+    </Content>
+    <Content Include="Web.AppSettings.pro.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napexternal2.config">
+    </Content>
+    <Content Include="Web.AppSettings.pro2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napinternal.config">
+    </Content>
+    <Content Include="Web.AppSettings.sit.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napinternal2.config">
+    </Content>
+    <Content Include="Web.AppSettings.sit2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.pro.config">
+    </Content>
+    <Content Include="Web.AppSettings.uat.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.pro2.config">
+    </Content>
+    <Content Include="Web.AppSettings.uat2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.sit.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.sit2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.uat.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.uat2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNL.config">
+    </Content>
+    <Content Include="Web.backupMNL.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNL2.config">
+    </Content>
+    <Content Include="Web.backupMNL2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLExNap.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLExNap2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLNap.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLNap2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
+    </Content>
     <Content Include="Web.config" />
-    <None Include="Web.uat3.config">
+    <Content Include="Web.uat3.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.uat4.config">
+    </Content>
+    <Content Include="Web.uat4.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs">
@@ -501,6 +449,7 @@
     <Compile Include="App_Start\RouteConfig.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
+    <Compile Include="Controllers\MultipleTransferController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\TransferAllAndClearCreditController.cs" />
     <Compile Include="Controllers\CashBalanceTransferController.cs" />
@@ -510,18 +459,21 @@
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\CashBalanceTransferHandler.cs" />
+    <Compile Include="Handlers\MultipleTransferHandler.cs" />
     <Compile Include="Handlers\TransferAllAndClearCreditHandler.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\CashBalanceTransfer\CashBalanceTransferCommand.cs" />
     <Compile Include="Requests\CashBalanceTransfer\CashBalanceTransferQuery.cs" />
     <Compile Include="Requests\CashBalanceTransfer\HintTransferQuery.cs" />
+    <Compile Include="Requests\MultipleTransfer\CustomerListQuery.cs" />
     <Compile Include="Requests\QueryEntityModelBinder.cs" />
     <Compile Include="Requests\TransferAllAndClearCredit\CalculationQuery.cs" />
     <Compile Include="Requests\TransferAllAndClearCredit\TransferResultQuery.cs" />
     <Compile Include="Requests\TransferBaseQuery.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\CashBalanceTransferViewModel.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\HintTransferViewModel.cs" />
+    <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferResultViewModel.cs" />
   </ItemGroup>
@@ -532,7 +484,9 @@
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="App_Data\AuthorizationSection.config" />
+    <Content Include="App_Data\AuthorizationSection.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="assets\styles\site.scss" />
     <Content Include="assets\styles\_variables.scss" />
     <Content Include="bundleconfig.json" />
@@ -540,43 +494,41 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <None Include="Web.AppSettings.config">
+    <Content Include="Web.AppSettings.config">
       <SubType>Designer</SubType>
-    </None>
+    </Content>
+    <Content Include="Views\MultipleTransfer\CustomerList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="Web.local.config" />
-    <None Include="Web.napexternal.config">
+    <Content Include="Web.napexternal.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napexternal2.config">
+    </Content>
+    <Content Include="Web.napinternal.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napinternal.config">
+    </Content>
+    <Content Include="Web.napinternal2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napinternal2.config">
+    </Content>
+    <Content Include="Web.pro.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.pro.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
+    </Content>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <None Include="Web.pro2.config">
+    <Content Include="Web.pro2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.sit.config">
+    </Content>
+    <Content Include="Web.sit.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.sit2.config">
+    </Content>
+    <Content Include="Web.sit2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.uat.config">
+    </Content>
+    <Content Include="Web.uat.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -586,6 +538,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
+    <TypeScriptCompile Include="assets\scripts\multiple-transfer\customer-list.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\transfer-result.ts" />
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\calculation.ts" />

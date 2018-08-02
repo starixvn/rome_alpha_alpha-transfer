@@ -73,5 +73,23 @@
             // Assert
             Assert.Null(actualExcelption);
         }
+
+        [Fact]
+        public void AllowedTotalBalanceTransferSuperIds_Always_ReturnsValueFromConfig()
+        {
+            // Arrange
+            var configValue = anyValueCreatorFixture.Create<string>();
+            var excpectedValue = configValue;
+            AppSettings.AppSettingValues = new NameValueCollection
+            {
+                ["AllowedTotalBalanceTransferSuperIds"] = configValue
+            };
+
+            // Act
+            var actualValue = AppSettings.AllowedTotalBalanceTransferSuperIds;
+
+            // Assert
+            Assert.Equal(excpectedValue, actualValue);
+        }
     }
 }

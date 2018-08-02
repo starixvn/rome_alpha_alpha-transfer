@@ -146,26 +146,37 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
+    <Compile Include="Constants\PagerConstant.cs" />
+    <Compile Include="Constants\StatusConstant.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\AddCashBalanceTransferCriteria.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\GetCashBalanceTransferCriteria.cs" />
     <Compile Include="Criteria\GetTransferOptionCriteria.cs" />
-    <Compile Include="Criteria\TransferAllAndClearCredit\GetClearCreditStepsCriteria.cs" />
-    <Compile Include="Criteria\TransferAllAndClearCredit\GetTransferResultCriteria.cs" />
-    <Compile Include="Criteria\TransferAllAndClearCredit\GetTransferStepsCriteria.cs" />
+    <Compile Include="Criteria\MultipleTransfer\GetCustomerListCriteria.cs" />
+    <Compile Include="Criteria\TransferAllAndClearCredit\ClearCreditCriteria.cs" />
+    <Compile Include="Criteria\TransferAllAndClearCredit\GetCalculateResultCriteria.cs" />
+    <Compile Include="Criteria\TransferAllAndClearCredit\TransferAllCriteria.cs" />
+    <Compile Include="DataAccesses\MultipleTransferDataAccess.cs" />
+    <Compile Include="DataAccesses\TransferObjectDbFactory.cs" />
     <Compile Include="DataAccesses\TransferAllAndClearCreditDataAccess.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Models\CashBalanceTransfer\CashBalanceTransfer.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\IUser.cs" />
+    <Compile Include="Models\MultipleTransfer\CustomerInformation.cs" />
+    <Compile Include="Models\MultipleTransfer\CustomerListModel.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\ClearCreditStep.cs" />
+    <Compile Include="Models\TransferAllAndClearCredit\ClearCreditResult.cs" />
+    <Compile Include="Models\TransferAllAndClearCredit\TransferAllResult.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferResult.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferStep.cs" />
     <Compile Include="Models\UserLevel.cs" />
+    <Compile Include="Params\MultipleTransfer\GetCustomerListParam.cs" />
     <Compile Include="Params\TransferAllAndClearCredit\GetTransferResultParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CashBalanceTransferService.cs" />
+    <Compile Include="Services\MultipleTransferService.cs" />
     <Compile Include="Services\TransferAllAndClearCreditService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +193,7 @@
     <EmbeddedResource Include="AppResources\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Resources.th-TH.resx" />
     <EmbeddedResource Include="AppResources\Resources.vi-VN.resx" />

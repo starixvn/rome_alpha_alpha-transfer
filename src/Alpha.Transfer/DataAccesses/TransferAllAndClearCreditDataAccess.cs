@@ -2,101 +2,130 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using Criteria.TransferAllAndClearCredit;
     using Fanex.Common;
-    using Fanex.Data;
     using Models.TransferAllAndClearCredit;
 
     public interface TransferAllAndClearCreditDataAccess
     {
-        TransferResult GetTransferResult(GetTransferResultCriteria criteria);
+        TransferResult GetCalculateResult(GetCalculateResultCriteria criteria);
+
+        TransferAllResult TransferAll(TransferAllCriteria criteria);
+
+        ClearCreditResult ClearCredit(ClearCreditCriteria criteria);
     }
 
     public class TransferAllAndClearCreditDataAccessImpl : TransferAllAndClearCreditDataAccess
     {
-        public TransferResult GetTransferResult(GetTransferResultCriteria criteria)
+        public TransferResult GetCalculateResult(GetCalculateResultCriteria criteria)
         {
-            return StubResult1();
-
             var transferSteps = new List<TransferStep>();
             var clearCreditSteps = new List<ClearCreditStep>();
-            bool isSuccess;
-            string errorMessage;
 
-            using (var objectDb = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+            using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                using (var reader = objectDb.ExecuteReader(criteria))
+                using (var reader = objectDb.ExecuteReader(criteria.GetSpParams()))
                 {
                     if (reader != null)
                     {
                         while (reader.Read())
                         {
-                            transferSteps.Add(new TransferStep(
-                                Converter.ToString2(reader["Step"]),
-                                Converter.ToDecimal(reader["Amount"]),
-                                reader["Outstanding"] == DBNull.Value ? (decimal?)null : Converter.ToDecimal(reader["ToDecimal"])));
+                            var transferStep = new TransferStep(
+                                Converter.To<byte>(reader["RowId"]),
+                                Converter.ToDecimal(reader["TransferableAmount"]),
+                                reader["MemberOutStanding"] == DBNull.Value ? (decimal?)null : Converter.ToDecimal(reader["MemberOutStanding"]));
+                            transferSteps.Add(transferStep);
                         }
 
                         if (reader.NextResult())
                         {
                             while (reader.Read())
                             {
-                                clearCreditSteps.Add(new ClearCreditStep(
-                                    Converter.ToString2(reader["Level"]),
+                                var clearCreditStep = new ClearCreditStep(
+                                    Converter.To<byte>(reader["RowId"]),
                                     Converter.ToDecimal(reader["GivenCredit"]),
-                                    Converter.ToDecimal(reader["Amount"])));
+                                    Converter.ToDecimal(reader["ClearableCredit"]));
+                                clearCreditSteps.Add(clearCreditStep);
                             }
+                        }
+
+                        reader.Close();
+                    }
+                }
+            }
+
+            return new TransferResult(transferSteps, clearCreditSteps);
+        }
+
+        public TransferAllResult TransferAll(TransferAllCriteria criteria)
+        {
+            var steps = new List<TransferStep>();
+            int errCode;
+            string errMsg;
+
+            using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+            {
+                using (var reader = objectDb.ExecuteReader(criteria.GetSpParams()))
+                {
+                    if (reader != null)
+                    {
+                        while (reader.Read())
+                        {
+                            steps.Add(MapTransferStep(reader));
                         }
 
                         reader.Close();
                     }
 
                     var output = objectDb.GetOuputParams();
-                    isSuccess = Converter.ToBool(output["IsSuccess"]);
-                    errorMessage = Converter.ToString2(output["Message"]);
+                    errCode = Converter.ToInt(output["ErrCode"]);
+                    errMsg = Converter.ToString2(output["ErrMsg"]);
                 }
             }
 
-            return new TransferResult(isSuccess, errorMessage, transferSteps, clearCreditSteps);
+            return new TransferAllResult(steps, errCode, errMsg);
         }
 
-        public TransferResult StubResult1()
+        public ClearCreditResult ClearCredit(ClearCreditCriteria criteria)
         {
-            var transferSteps = new List<TransferStep>
+            var steps = new List<ClearCreditStep>();
+            int errCode;
+            string errMsg;
+
+            using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                new TransferStep("Member to Agent", 10000, 5),
-                new TransferStep("Agent to CHU01", 660, null),
-                new TransferStep("CHU01 to your account", 330, null)
-            };
+                using (var reader = objectDb.ExecuteReader(criteria.GetSpParams()))
+                {
+                    if (reader != null)
+                    {
+                        while (reader.Read())
+                        {
+                            steps.Add(MapClearCreditStep(reader));
+                        }
 
-            var clearCreditSteps = new List<ClearCreditStep> { };
+                        reader.Close();
+                    }
 
-            bool isSuccess = true;
-            string errorMessage = "Some Errors Occurred";
+                    var output = objectDb.GetOuputParams();
+                    errCode = Converter.ToInt(output["ErrCode"]);
+                    errMsg = Converter.ToString2(output["ErrMsg"]);
+                }
+            }
 
-            return new TransferResult(isSuccess, errorMessage, transferSteps, clearCreditSteps);
+            return new ClearCreditResult(steps, errCode, errMsg);
         }
 
-        public TransferResult StubResult()
-        {
-            var transferSteps = new List<TransferStep>
-            {
-                new TransferStep("Member to Agent", 10000, 8),
-                new TransferStep("Agent to CHU01", 660, null),
-                new TransferStep("CHU01 to your account", 330, null)
-            };
+        private TransferStep MapTransferStep(IDataReader reader)
+            => new TransferStep(
+                Converter.To<byte>(reader["RowId"]),
+                Converter.ToDecimal(reader["TransferredAmount"]),
+                reader["MemberOutStanding"] == DBNull.Value ? (decimal?)null : Converter.ToDecimal(reader["MemberOutStanding"]));
 
-            var clearCreditSteps = new List<ClearCreditStep>
-            {
-                new ClearCreditStep("CHU01's Members", 10000, 9900),
-                new ClearCreditStep("CHU01's Agent", 20000, 1900),
-                new ClearCreditStep("CHU01", 40000, 39991)
-            };
-
-            bool isSuccess = true;
-            string errorMessage = "Some Errors Occurred";
-
-            return new TransferResult(isSuccess, errorMessage, transferSteps, clearCreditSteps);
-        }
+        private ClearCreditStep MapClearCreditStep(IDataReader reader)
+           => new ClearCreditStep(
+               Converter.To<byte>(reader["RowId"]),
+               Converter.ToDecimal(reader["GivenCredit"]),
+               Converter.ToDecimal(reader["ClearedCredit"]));
     }
 }

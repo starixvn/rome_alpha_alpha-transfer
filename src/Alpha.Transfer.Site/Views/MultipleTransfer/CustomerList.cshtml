@@ -1,0 +1,137 @@
+﻿@model CustomerListViewModel
+@{
+    ViewBag.Title = "Multiple Transfer";
+}
+<div class="page-title">
+    <span class="pull-left">@Resources.MultipleTransfer</span>
+</div>
+<div id="box_header">
+    <form id="customer-list-form" class="form-inline demo-form-inline filter" role="form" action="CustomerList">
+        <div class="form-group">
+            <label>@Resources.Username</label>
+            <input type="text" id="txt-username" name="Username" placeholder="@Resources.UsernamePlaceHolder" value="@Model.Username" />
+        </div>
+        <div class="form-group">
+            <label>@Resources.Status</label>
+            <select id="dropdown-status">
+                @foreach (var s in Model.StatusOptions)
+                {
+                    <option value="@s" @(Model.Status == s ? " selected=\"selected\"" : string.Empty)>@Resources.ResourceManager.GetString("Status_" + s)</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="chk-all-yesterday-balance" name="chk-all-yesterday-balance"
+                   @(Model.AllYesterdayBalance ? "checked=\"checked\"" : "") />
+
+            <label for="chk-all-yesterday-balance">@Resources.AllYesterdayBalance</label>
+        </div>
+        <div class="form-group">
+            <button id="btn-submit" type="submit" class="btn-submit">@Resources.Submit</button>
+        </div>
+        @if (Model.AllowAllDayBalanceTransfer)
+        {
+            <div class="form-group">
+                <span id="icon-information" class="icon-information-outline"></span>
+            </div>
+        }
+
+        @Html.Hidden("Status", Model.Status)
+        @Html.Hidden("AllYesterdayBalance", Model.AllYesterdayBalance ? "true" : "false")
+    </form>
+</div>
+<div id="box-content">
+    <table id="tbl-rpt" class="tblRpt tblRpt-bordered alternative-row-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>
+                    <input type="checkbox" id="chk-yesterday" />@Resources.Yesterday
+                </th>
+                <th>@Resources.Username</th>
+                <th>@Resources.YesterdayBalance</th>
+                <th>@Resources.MasterBalance</th>
+                <th>@Resources.YesterdayCashBalance</th>
+                <th>@Resources.MasterCash</th>
+                <th>@Resources.Outstanding</th>
+                <th>@Resources.GivenCredit</th>
+                <th>@Resources.UsedCredit</th>
+                <th>@Resources.FirstName</th>
+                <th>@Resources.LastName</th>
+                <th>@Resources.Username</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.CustomerListModel.CustomerList.Any())
+            {
+                var index = 1;
+
+                foreach (var customer in Model.CustomerListModel.CustomerList)
+                {
+                    <tr>
+                        <td class="align-center">@index</td>
+                        <td class="align-center">
+                            <input class="chk-transfer-yesterday"
+                                   data-yesterday-value="@customer.YesterdayBalance"
+                                   data-custid="@customer.CustId"
+                                   type="checkbox" @(Model.CanTransferYesterday(customer) ? "" : "disabled=\"disabled\"") />
+                        </td>
+                        <td class="align-left">@customer.Username</td>
+                        <td class="align-right @Model.GetYesterdayBalanceColor(customer)">
+                            @if (Model.ShowYesterdayBalanceLink(customer))
+                            {
+                                <a class="transfer-link">@HtmlHelpers.FormatNumber2(customer.YesterdayBalance)</a>
+                            }
+                            else
+                            {
+                                @HtmlHelpers.FormatNumber2(customer.YesterdayBalance)
+                            }
+                        </td>
+                        <td class="align-right @Model.GetBalanceColor(customer)">
+                            @if (Model.ShowBalanceLink(customer))
+                            {
+                                <a class="transfer-link">@HtmlHelpers.FormatNumber2(customer.Balance)</a>
+                            }
+                            else
+                            {
+                                @HtmlHelpers.FormatNumber2(customer.Balance)
+                            }
+                        </td>
+                        <td class="align-right @Model.GetCashBalanceColor(customer.YesterdayCashBalance)">
+                            @HtmlHelpers.FormatNumber2(customer.YesterdayCashBalance)
+                        </td>
+                        <td class="align-right @Model.GetCashBalanceColor(customer.CashBalance)">
+                            @if (Model.ShowCashBalanceLink(customer))
+                            {
+                                <a class="transfer-link">@HtmlHelpers.FormatNumber2(customer.CashBalance)</a>
+                            }
+                            else
+                            {
+                                @HtmlHelpers.FormatNumber2(customer.CashBalance)
+                            }
+                        </td>
+                        <td class="align-right">@HtmlHelpers.FormatNumber2(customer.Outstanding)</td>
+                        <td class="align-right">@HtmlHelpers.FormatNumber2(customer.GivenCredit)</td>
+                        <td class="align-right">@HtmlHelpers.FormatNumber2(customer.UsedCredit)</td>
+                        <td class="align-left">@customer.FirstName</td>
+                        <td class="align-left">@customer.LastName</td>
+                        <td class="align-left">@customer.Username</td>
+                    </tr>
+
+                    index++;
+                }
+            }
+            else
+            {
+                <tr><td colspan="13" align="center">@Resources.NoInformationIsAvailable</td></tr>
+            }
+        </tbody>
+    </table>
+    <div class="shadow" id="shadow"></div>
+    <div class="output" id="output"></div>
+    @Html.Hidden("usernameAutoSuggestionPath", Model.UsernameAutoSuggestionPath)
+    @Html.Hidden("TransferInformationPath", Model.TransferInformationPath)
+</div>
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/multiple-transfer/customer-list")
+}

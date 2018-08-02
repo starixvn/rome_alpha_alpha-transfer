@@ -9,21 +9,17 @@
         {
         }
 
-        public ClearCreditStep(string level, decimal givenCredit, decimal clearableCredit)
+        public ClearCreditStep(byte id, decimal givenCredit, decimal clearableCredit)
         {
-            Level = level;
+            Id = id;
             GivenCredit = givenCredit;
             ClearableCredit = clearableCredit;
         }
 
-        public string Level { get; set; }
+        public byte Id { get; set; }
 
         public decimal GivenCredit { get; set; }
 
         public decimal ClearableCredit { get; set; }
-
-        public decimal OldClearableCredit { get; set; }
-
-        public bool HasChanged => OldClearableCredit != ClearableCredit;
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace Alpha.Transfer.Site.Controllers
 {
-    using System.Threading.Tasks;
     using System.Web.Mvc;
     using System.Web.SessionState;
     using MediatR;
@@ -15,25 +14,25 @@
         }
 
         [HttpGet]
-        public async Task<ActionResult> Index(CalculationQuery message)
+        public ActionResult Index(CalculationQuery message)
         {
             if (message == null || !message.IsValid())
             {
                 return View(InvalidPageViewPath);
             }
 
-            return View(await mediator.SendAsync(message));
+            return View(mediator.Send(message));
         }
 
         [HttpGet]
-        public async Task<ActionResult> TransferResult(TransferResultQuery message)
+        public ActionResult TransferResult(TransferResultQuery message)
         {
             if (message == null || !message.IsValid())
             {
                 return View(InvalidPageViewPath);
             }
 
-            return View(await mediator.SendAsync(message));
+            return View(mediator.Send(message));
         }
     }
 }

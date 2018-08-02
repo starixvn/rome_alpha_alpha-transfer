@@ -19,6 +19,10 @@
             userSession.SubAccId.Returns(0);
             userSession.UserLoginIp.Returns("192.168.1.1");
             userSession.LangKey.Returns("E");
+            userSession.SubUserName.Returns("SubAccName");
+            userSession.IsAllDayBalTransfer.Returns(false);
+            userSession.IsAllowedTotalBalanceTransfer.Returns(false);
+            userSession.UserId.Returns(1);
 
             // Act
             var user = new User(userSession);
@@ -31,7 +35,11 @@
                 && user.Language == "en-US"
                 && user.SubAccId == 0
                 && user.IP == "192.168.1.1"
-                && user.LanguageKey == "E");
+                && user.LanguageKey == "E"
+                && user.SubAccName == "SubAccName"
+                && user.AllowAllDayBalanceTransfer == false
+                && user.AllowTotalBalanceTransfer == false
+                && user.UserId == 1);
         }
     }
 }

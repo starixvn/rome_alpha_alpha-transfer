@@ -18,6 +18,8 @@
 
         public static string StoreProcedurePath => GetConfigValue("StoredProcedurePath");
 
+        public static string AllowedTotalBalanceTransferSuperIds => GetConfigValue("AllowedTotalBalanceTransferSuperIds");
+
         public static string GetConfigValue(string configName) => AppSettingValues[configName];
 
         public static void Verify()

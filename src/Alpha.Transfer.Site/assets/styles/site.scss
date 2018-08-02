@@ -1,6 +1,11 @@
 ﻿@import "variables";
 @import "_mixins.scss";
 
+body {
+    background: transparent;
+    font-size: 13px;
+}
+
 .page-title {
     display: table;
     width: 100%;
@@ -17,7 +22,7 @@
 
 #tbl-report {
     margin-top: 12px;
-    width: 750px;
+    width: 850px;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -53,11 +58,6 @@ input[type="button"][disabled] {
 }
 
 .filter {
-    display: table;
-    width: 100%;
-    clear: both;
-    padding-top: 0;
-
     .multiselect .multiselect-selected-text {
         width: 130px;
     }
@@ -145,7 +145,7 @@ input[type="button"][disabled] {
 
 #box_header {
     //margin-top: 12px;
-    width: 750px;
+    width: 850px;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -179,13 +179,17 @@ input[type="button"][disabled] {
     padding-right: 8px;
 }
 
+.lbl-username {
+    width: 50px;
+}
+
 .output {
     @include border-radius(1px);
     @include box-shadow-multiple('0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)');
     background: #fff;
     position: absolute;
     top: 85px;
-    left: 81px;
+    left: 58px;
     width: 230px;
     z-index: 9999;
 
@@ -197,4 +201,77 @@ input[type="button"][disabled] {
         cursor: pointer;
         background: #dedede;
     }
+}
+
+
+.tblRpt .head-row {
+    background-color: #666;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+}
+
+#tbl-rpt {
+    width: 800px;
+    border: none;
+    margin-bottom: 12px;
+}
+
+.tblRpt td {
+    &.align-right {
+        text-align: right;
+    }
+
+    &.align-center {
+        text-align: center;
+    }
+
+    &[colspan='4'] {
+        background-color: #f4f4f4;
+        padding: 4px 0;
+
+        label {
+            margin: 0 0 0 4px;
+        }
+    }
+}
+
+.tblRpt.tblRpt-bordered > tbody > tr[class^='title'] > td[colspan='4'] {
+    border: none;
+}
+
+#box-content {
+    margin-top: 12px;
+
+    .btn-submit {
+        margin-bottom: 12px;
+
+        &[disabled] {
+            background-color: #bfbfbf;
+            pointer-events: none;
+            color: #fff;
+        }
+    }
+}
+
+
+.favorite {
+    color: #b50000;
+
+    a.transfer-link {
+        color: inherit;
+    }
+}
+
+.underdog {
+    color: #00f;
+
+    a.transfer-link {
+        color: inherit;
+    }
+}
+
+a.transfer-link {
+    text-decoration: none;
+    cursor: pointer;
 }

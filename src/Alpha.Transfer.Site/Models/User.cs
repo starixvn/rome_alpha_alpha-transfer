@@ -27,5 +27,13 @@
         public string SubAccName => userSession.SubUserName;
 
         public string IP => userSession.UserLoginIp;
+
+        public bool AllowAllDayBalanceTransfer => userSession.IsAllDayBalTransfer;
+
+        public bool AllowTotalBalanceTransfer => userSession.IsAllowedTotalBalanceTransfer;
+
+        public int UserId => userSession.UserId;
+
+        public bool IsInternal => userSession.IsInternal;
     }
 }

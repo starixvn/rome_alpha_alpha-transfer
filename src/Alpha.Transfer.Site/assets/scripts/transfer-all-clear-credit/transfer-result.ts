@@ -27,6 +27,7 @@ class TransferResult {
 
         var queryUsernameURL = this.$usernameAutoSuggestionPath.val() + "?" +
             this.$.param({
+                isDir: 1,
                 issub: 0,
                 ismember: 0
             });
@@ -34,6 +35,19 @@ class TransferResult {
         initAutoComplete(this.$username[0], queryUsernameURL);
         this.$output.css("top", this.$username.offset().top + 30);
         this.$submit.click(this.submitTransferAndClearCredit);
+        this.$("#transfer-clear-credit-form").submit((e) => {
+            if (this.$username.val().trim() == "") {
+                e.preventDefault();
+            }
+        });
+
+        this.$username.keyup(() => {
+            if (this.$username.val().trim() == "") {
+                this.$username.addClass("text-italic");
+            } else {
+                this.$username.removeClass("text-italic");
+            }
+        });
     };
 
     cacheElements = () => {
@@ -54,7 +68,7 @@ class TransferResult {
         var isClearCredit = this.$chkClearCredit.is(":checked");
         var message = isClearCredit ? this.clearCreditConfirm : this.transferAllConfirm;
         this.topWindow.bootboxConfirm(message, null, () => {
-            this.$usernameTransfer.val(this.$username.val());
+            this.$.blockUI();
             this.$IsClearCredit.val(isClearCredit.toString());
             this.$transferResultForm.submit();
         });

@@ -1,15 +1,15 @@
 ﻿namespace Alpha.Transfer.Site.Handlers
 {
-    using System.Threading.Tasks;
     using MediatR;
     using Params.TransferAllAndClearCredit;
     using Requests.TransferAllAndClearCredit;
     using Services;
+    using Transfer.Models.TransferAllAndClearCredit;
     using ViewModels.TransferAllAndClearCredit;
 
     public class TransferAllAndClearCreditHandler :
-        IAsyncRequestHandler<CalculationQuery, CalculationViewModel>,
-        IAsyncRequestHandler<TransferResultQuery, TransferResultViewModel>
+        IRequestHandler<CalculationQuery, CalculationViewModel>,
+        IRequestHandler<TransferResultQuery, TransferResultViewModel>
     {
         private readonly TransferAllAndClearCreditService transferAllAndClearCreditService;
 
@@ -18,23 +18,32 @@
             this.transferAllAndClearCreditService = transferAllAndClearCreditService;
         }
 
-        public async Task<CalculationViewModel> Handle(CalculationQuery message)
+        public CalculationViewModel Handle(CalculationQuery message)
         {
-            var transferSteps = transferAllAndClearCreditService.GetTransferSteps(message.Username);
-            var clearCreditSteps = transferAllAndClearCreditService.GetClearCreditSteps(message.Username);
+            var calculationResult =
+                string.IsNullOrWhiteSpace(message.Username)
+                ? new TransferResult()
+                : transferAllAndClearCreditService.GetCalculateResult(message.CustId, message.Username);
 
-            return new CalculationViewModel(message, transferSteps, clearCreditSteps);
+            return new CalculationViewModel(message, calculationResult);
         }
 
-        public async Task<TransferResultViewModel> Handle(TransferResultQuery message)
+        public TransferResultViewModel Handle(TransferResultQuery message)
         {
             var param = new GetTransferResultParam(
-                message.Username,
+                message.CustId,
+                message.UserId,
+                message.SubAccId,
                 message.IsClearCredit,
+                message.Username,
+                message.AllowedTotalBalanceTransferSuperIds,
+                message.IP,
+                message.LanguageKey,
                 message.TransferSteps,
-                message.ClearCreditSteps);
+                message.ClearCreditSteps,
+                message.IsAllDayBalanceTransfer);
 
-            var transferResult = transferAllAndClearCreditService.GetTransferResult(param);
+            var transferResult = message.IsInternal ? null : transferAllAndClearCreditService.GetTransferResult(param);
 
             return new TransferResultViewModel(message, param, transferResult);
         }

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TransferAllAndClearCredit>
+  <Credit>
+    <RowId>1</RowId>
+    <GivenCredit>1.2</GivenCredit>
+    <ClearedCredit>0</ClearedCredit>
+  </Credit>
+</TransferAllAndClearCredit>

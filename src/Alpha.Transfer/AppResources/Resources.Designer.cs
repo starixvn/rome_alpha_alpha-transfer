@@ -79,6 +79,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All yesterday balance.
+        /// </summary>
+        public static string AllYesterdayBalance {
+            get {
+                return ResourceManager.GetString("AllYesterdayBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount.
         /// </summary>
         public static string Amount {
@@ -124,6 +133,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear credit.
+        /// </summary>
+        public static string Clear_credit {
+            get {
+                return ResourceManager.GetString("Clear_credit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clearable Credit.
         /// </summary>
         public static string ClearableCredit {
@@ -147,6 +165,69 @@ namespace Alpha.Transfer.AppResources {
         public static string ClearCreditConfirm {
             get {
                 return ResourceManager.GetString("ClearCreditConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agent {0}.
+        /// </summary>
+        public static string ClearCreditStep_Master_Agent {
+            get {
+                return ResourceManager.GetString("ClearCreditStep_Master_Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Members.
+        /// </summary>
+        public static string ClearCreditStep_Master_Member {
+            get {
+                return ResourceManager.GetString("ClearCreditStep_Master_Member", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}&apos;s Agents.
+        /// </summary>
+        public static string ClearCreditStep_Super_Agent {
+            get {
+                return ResourceManager.GetString("ClearCreditStep_Super_Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.
+        /// </summary>
+        public static string ClearCreditStep_Super_Master {
+            get {
+                return ResourceManager.GetString("ClearCreditStep_Super_Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}&apos;s Members.
+        /// </summary>
+        public static string ClearCreditStep_Super_Member {
+            get {
+                return ResourceManager.GetString("ClearCreditStep_Super_Member", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear credit successfully..
+        /// </summary>
+        public static string ClearCreditSuccess {
+            get {
+                return ResourceManager.GetString("ClearCreditSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear credit unsuccessfully. Please try again..
+        /// </summary>
+        public static string ClearCreditUnsuccessfully {
+            get {
+                return ResourceManager.GetString("ClearCreditUnsuccessfully", resourceCulture);
             }
         }
         
@@ -183,6 +264,15 @@ namespace Alpha.Transfer.AppResources {
         public static string DataChangedWarning {
             get {
                 return ResourceManager.GetString("DataChangedWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
             }
         }
         
@@ -241,6 +331,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level.
         /// </summary>
         public static string Level {
@@ -255,6 +354,24 @@ namespace Alpha.Transfer.AppResources {
         public static string Master {
             get {
                 return ResourceManager.GetString("Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Master Balance.
+        /// </summary>
+        public static string MasterBalance {
+            get {
+                return ResourceManager.GetString("MasterBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Master Cash.
+        /// </summary>
+        public static string MasterCash {
+            get {
+                return ResourceManager.GetString("MasterCash", resourceCulture);
             }
         }
         
@@ -286,6 +403,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Multiple Transfer.
+        /// </summary>
+        public static string MultipleTransfer {
+            get {
+                return ResourceManager.GetString("MultipleTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No information is available.
         /// </summary>
         public static string NoInformationIsAvailable {
@@ -304,6 +430,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Outstanding.
+        /// </summary>
+        public static string Outstanding {
+            get {
+                return ResourceManager.GetString("Outstanding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Out. Txn.
         /// </summary>
         public static string OutstandingShortcut {
@@ -318,6 +453,60 @@ namespace Alpha.Transfer.AppResources {
         public static string Saturday {
             get {
                 return ResourceManager.GetString("Saturday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string Status_0 {
+            get {
+                return ResourceManager.GetString("Status_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string Status_1 {
+            get {
+                return ResourceManager.GetString("Status_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspended.
+        /// </summary>
+        public static string Status_2 {
+            get {
+                return ResourceManager.GetString("Status_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed.
+        /// </summary>
+        public static string Status_3 {
+            get {
+                return ResourceManager.GetString("Status_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disabled.
+        /// </summary>
+        public static string Status_4 {
+            get {
+                return ResourceManager.GetString("Status_4", resourceCulture);
             }
         }
         
@@ -367,6 +556,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Transfer all.
+        /// </summary>
+        public static string Transfer_all {
+            get {
+                return ResourceManager.GetString("Transfer_all", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Transferable Amount.
         /// </summary>
         public static string TransferableAmount {
@@ -385,7 +583,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transfer all &amp; Clear Credit.
+        ///   Looks up a localized string similar to Transfer All &amp; Clear Credit.
         /// </summary>
         public static string TransferAllAndClearCredit {
             get {
@@ -403,20 +601,29 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transfer all &amp; clear credit successfully..
-        /// </summary>
-        public static string TransferAllAndClearCreditSuccess {
-            get {
-                return ResourceManager.GetString("TransferAllAndClearCreditSuccess", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to transfer all?.
         /// </summary>
         public static string TransferAllConfirm {
             get {
                 return ResourceManager.GetString("TransferAllConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer all successfully..
+        /// </summary>
+        public static string TransferAllSuccess {
+            get {
+                return ResourceManager.GetString("TransferAllSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer all unsuccessfully. Please try again..
+        /// </summary>
+        public static string TransferAllUnsuccessfully {
+            get {
+                return ResourceManager.GetString("TransferAllUnsuccessfully", resourceCulture);
             }
         }
         
@@ -448,6 +655,51 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} to your account.
+        /// </summary>
+        public static string TransferStep_Master_Agent {
+            get {
+                return ResourceManager.GetString("TransferStep_Master_Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member to {0}.
+        /// </summary>
+        public static string TransferStep_Master_Member {
+            get {
+                return ResourceManager.GetString("TransferStep_Master_Member", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agent to {0}.
+        /// </summary>
+        public static string TransferStep_Super_Agent {
+            get {
+                return ResourceManager.GetString("TransferStep_Super_Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} to your account.
+        /// </summary>
+        public static string TransferStep_Super_Master {
+            get {
+                return ResourceManager.GetString("TransferStep_Super_Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member to Agent.
+        /// </summary>
+        public static string TransferStep_Super_Member {
+            get {
+                return ResourceManager.GetString("TransferStep_Super_Member", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Transfer successfully.
         /// </summary>
         public static string TransferSuccessfully {
@@ -462,6 +714,15 @@ namespace Alpha.Transfer.AppResources {
         public static string Tuesday {
             get {
                 return ResourceManager.GetString("Tuesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Used Credit.
+        /// </summary>
+        public static string UsedCredit {
+            get {
+                return ResourceManager.GetString("UsedCredit", resourceCulture);
             }
         }
         
@@ -498,6 +759,33 @@ namespace Alpha.Transfer.AppResources {
         public static string Wednesday {
             get {
                 return ResourceManager.GetString("Wednesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yesterday.
+        /// </summary>
+        public static string Yesterday {
+            get {
+                return ResourceManager.GetString("Yesterday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yesterday Balance.
+        /// </summary>
+        public static string YesterdayBalance {
+            get {
+                return ResourceManager.GetString("YesterdayBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yesterday Cash Balance.
+        /// </summary>
+        public static string YesterdayCashBalance {
+            get {
+                return ResourceManager.GetString("YesterdayCashBalance", resourceCulture);
             }
         }
     }

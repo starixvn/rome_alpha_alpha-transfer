@@ -36,7 +36,6 @@ class TransferAllAndClearCredit {
 
         initAutoComplete(this.$username[0], queryUsernameURL);
         this.$output.css("top", this.$username.offset().top + 30);
-        this.$submit.click(this.submitTransferAndClearCredit);
 
         this.$username.keyup(() => {
             if (this.$username.val().trim() == "") {
@@ -55,6 +54,8 @@ class TransferAllAndClearCredit {
                     this.$submit.off("click");
                 }
             });
+        } else {
+            this.$submit.click(this.submitTransferAndClearCredit);
         }
     };
 

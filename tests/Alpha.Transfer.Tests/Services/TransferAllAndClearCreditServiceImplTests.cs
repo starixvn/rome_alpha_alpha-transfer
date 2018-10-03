@@ -47,7 +47,7 @@
         public void GetTransferResult_NotClearCredit_ReturnsDataFromRepository()
         {
             // Arrange
-            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 1, string.Empty);
+            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 1, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty);
 
@@ -66,7 +66,7 @@
         public void GetTransferResult_ClearCreditAndTransferFailed_ReturnsDataFromRepository()
         {
             // Arrange
-            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 1, string.Empty);
+            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 1, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty);
 
@@ -85,7 +85,7 @@
         public void GetTransferResult_ClearCreditAndTransferSuccessfully_ReturnsDataFromRepository()
         {
             // Arrange
-            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty);
+            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
 
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty);
@@ -106,7 +106,7 @@
         public void GetTransferResult_SkipTransferAndClearCredit_CallRepositoryClearCredit()
         {
             // Arrange
-            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty);
+            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
 
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty);
@@ -126,7 +126,7 @@
         public void GetTransferResult_SkipTransferAndNotClearCredit_NotCallRepositoryClearCredit()
         {
             // Arrange
-            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty);
+            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
 
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty);
@@ -162,7 +162,7 @@
         public void GetTransferResult_NotSkipTransfer_CallRepositoryTransferAll()
         {
             // Arrange
-            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty);
+            var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
 
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty);

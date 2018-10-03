@@ -22,6 +22,7 @@
         {
             var transferSteps = new List<TransferStep>();
             var clearCreditSteps = new List<ClearCreditStep>();
+            var conditions = new List<string>();
 
             using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
@@ -31,11 +32,19 @@
                     {
                         while (reader.Read())
                         {
-                            var transferStep = new TransferStep(
-                                Converter.To<byte>(reader["RowId"]),
-                                Converter.ToDecimal(reader["TransferableAmount"]),
-                                reader["MemberOutStanding"] == DBNull.Value ? (decimal?)null : Converter.ToDecimal(reader["MemberOutStanding"]));
-                            transferSteps.Add(transferStep);
+                            conditions.Add(Converter.ToString2(reader["Content"]));
+                        }
+
+                        if (reader.NextResult())
+                        {
+                            while (reader.Read())
+                            {
+                                var transferStep = new TransferStep(
+                                    Converter.To<byte>(reader["RowId"]),
+                                    Converter.ToDecimal(reader["TransferableAmount"]),
+                                    reader["MemberOutStanding"] == DBNull.Value ? (decimal?)null : Converter.ToDecimal(reader["MemberOutStanding"]));
+                                transferSteps.Add(transferStep);
+                            }
                         }
 
                         if (reader.NextResult())
@@ -55,7 +64,7 @@
                 }
             }
 
-            return new TransferResult(transferSteps, clearCreditSteps);
+            return new TransferResult(transferSteps, clearCreditSteps, conditions);
         }
 
         public TransferAllResult TransferAll(TransferAllCriteria criteria)
@@ -63,6 +72,7 @@
             var steps = new List<TransferStep>();
             int errCode;
             string errMsg;
+            var conditions = new List<string>();
 
             using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
@@ -72,7 +82,15 @@
                     {
                         while (reader.Read())
                         {
-                            steps.Add(MapTransferStep(reader));
+                            conditions.Add(Converter.ToString2(reader["Content"]));
+                        }
+
+                        if (reader.NextResult())
+                        {
+                            while (reader.Read())
+                            {
+                                steps.Add(MapTransferStep(reader));
+                            }
                         }
 
                         reader.Close();
@@ -84,7 +102,7 @@
                 }
             }
 
-            return new TransferAllResult(steps, errCode, errMsg);
+            return new TransferAllResult(steps, errCode, errMsg, conditions);
         }
 
         public ClearCreditResult ClearCredit(ClearCreditCriteria criteria)

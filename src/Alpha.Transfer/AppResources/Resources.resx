@@ -360,4 +360,7 @@
   <data name="ClearCreditStep_Master_Agent" xml:space="preserve">
     <value>Agent {0}</value>
   </data>
+  <data name="TransferAll_ClearCredit_Errors" xml:space="preserve">
+    <value>The Transfer All &amp; Clear Credit actions are unavailable because of the following reason(s):</value>
+  </data>
 </root>

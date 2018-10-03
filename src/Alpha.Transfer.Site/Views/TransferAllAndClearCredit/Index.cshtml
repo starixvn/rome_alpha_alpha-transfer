@@ -20,6 +20,19 @@
         </div>
     </form>
 </div>
+@if (Model.Conditions.Any())
+{
+    <div class="condition-container">
+        <div>@Resources.TransferAll_ClearCredit_Errors</div>
+        <ul class="condition-list">
+            @foreach (var m in Model.Conditions)
+            {
+                <li>@m</li>
+            }
+        </ul>
+    </div>
+}
+
 <div id="box-content">
     @if (Model.IsShowCalculation)
     {

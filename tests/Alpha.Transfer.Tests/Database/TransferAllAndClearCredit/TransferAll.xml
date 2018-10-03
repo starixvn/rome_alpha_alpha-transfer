@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TransferAllAndClearCredit>
+  <Error>
+    <RowId>1</RowId>
+    <Content>Error 1</Content>
+  </Error>
   <Transfer>
     <RowId>1</RowId>
     <TransferredAmount>1.5</TransferredAmount>

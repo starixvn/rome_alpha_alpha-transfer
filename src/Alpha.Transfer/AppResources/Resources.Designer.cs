@@ -583,6 +583,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Transfer All &amp; Clear Credit actions are unavailable because of the following reason(s):.
+        /// </summary>
+        public static string TransferAll_ClearCredit_Errors {
+            get {
+                return ResourceManager.GetString("TransferAll_ClearCredit_Errors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Transfer All &amp; Clear Credit.
         /// </summary>
         public static string TransferAllAndClearCredit {

@@ -169,7 +169,7 @@
             // Arrange
             var transferSteps = new List<TransferStep>();
             var clearCreditSteps = new List<ClearCreditStep>();
-            var calculationResult = new TransferResult(transferSteps, clearCreditSteps);
+            var calculationResult = new TransferResult(transferSteps, clearCreditSteps, new List<string>());
             var viewModel = new CalculationViewModel(query, calculationResult);
 
             // Act
@@ -190,7 +190,7 @@
                 new ClearCreditStep(1, 1, 0)
             };
 
-            var calculationResult = new TransferResult(transferSteps, clearCreditSteps);
+            var calculationResult = new TransferResult(transferSteps, clearCreditSteps, new List<string>());
             var viewModel = new CalculationViewModel(query, calculationResult);
 
             // Act
@@ -210,7 +210,7 @@
                 new ClearCreditStep(1, 1, 0)
             };
 
-            var calculationResult = new TransferResult(transferSteps, clearCreditSteps);
+            var calculationResult = new TransferResult(transferSteps, clearCreditSteps, new List<string>());
             var viewModel = new CalculationViewModel(query, calculationResult);
 
             // Act
@@ -226,7 +226,7 @@
             // Arrange
             var transferSteps = new List<TransferStep>();
             var clearCreditSteps = new List<ClearCreditStep>();
-            var calculationResult = new TransferResult(transferSteps, clearCreditSteps);
+            var calculationResult = new TransferResult(transferSteps, clearCreditSteps, new List<string>());
             var viewModel = new CalculationViewModel(query, calculationResult);
 
             // Act
@@ -247,7 +247,7 @@
             };
             var clearCreditSteps = new List<ClearCreditStep>();
 
-            var calculationResult = new TransferResult(transferSteps, clearCreditSteps);
+            var calculationResult = new TransferResult(transferSteps, clearCreditSteps, new List<string>());
             var viewModel = new CalculationViewModel(query, calculationResult);
 
             // Act
@@ -267,7 +267,7 @@
             };
             var clearCreditSteps = new List<ClearCreditStep>();
 
-            var calculationResult = new TransferResult(transferSteps, clearCreditSteps);
+            var calculationResult = new TransferResult(transferSteps, clearCreditSteps, new List<string>());
             var viewModel = new CalculationViewModel(query, calculationResult);
 
             // Act
@@ -287,7 +287,7 @@
                 new ClearCreditStep(1, 1, 2),
                 new ClearCreditStep(1, 1, 0)
             };
-            var calculationResult = new TransferResult(transferSteps, clearCreditSteps);
+            var calculationResult = new TransferResult(transferSteps, clearCreditSteps, new List<string>());
             var viewModel = new CalculationViewModel(query, calculationResult);
 
             // Act
@@ -312,7 +312,7 @@
                 new ClearCreditStep(1, 1, 0)
             };
 
-            var calculationResult = new TransferResult(transferSteps, clearCreditSteps);
+            var calculationResult = new TransferResult(transferSteps, clearCreditSteps, new List<string>());
             var viewModel = new CalculationViewModel(query, calculationResult);
 
             // Act
@@ -336,7 +336,7 @@
                 new ClearCreditStep(1, 1, 0)
             };
 
-            var calculationResult = new TransferResult(transferSteps, clearCreditSteps);
+            var calculationResult = new TransferResult(transferSteps, clearCreditSteps, new List<string>());
             var viewModel = new CalculationViewModel(query, calculationResult);
 
             // Act

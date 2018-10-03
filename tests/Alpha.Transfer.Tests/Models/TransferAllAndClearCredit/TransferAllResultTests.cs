@@ -13,7 +13,7 @@
         public void IsSuccess_Always_ReturnsCorrectValue(int errorCode, bool expectedValue)
         {
             // Arrange
-            var model = new TransferAllResult(Enumerable.Empty<TransferStep>(), errorCode, string.Empty);
+            var model = new TransferAllResult(Enumerable.Empty<TransferStep>(), errorCode, string.Empty, Enumerable.Empty<string>());
 
             // Act
             var actualValue = model.IsSuccess;

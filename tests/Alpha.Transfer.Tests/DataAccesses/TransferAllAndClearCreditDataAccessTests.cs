@@ -3,6 +3,7 @@
     using System.Collections;
     using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
     using Database.TransferAllAndClearCredit;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
@@ -36,7 +37,7 @@
             IDataReader dataReader = null;
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataReader);
 
-            var expectedData = new TransferResult(new List<TransferStep>(), new List<ClearCreditStep>());
+            var expectedData = new TransferResult(new List<TransferStep>(), new List<ClearCreditStep>(), new List<string>());
 
             // Act
             var actualData = dataAccessImpl.GetCalculateResult(criteria);
@@ -60,7 +61,7 @@
                 new TransferStep(2, (decimal)1.3, null)
             };
 
-            var expectedData = new TransferResult(transferSteps, new List<ClearCreditStep>());
+            var expectedData = new TransferResult(transferSteps, new List<ClearCreditStep>(), new List<string> { "Error 1" });
 
             // Act
             var actualData = dataAccessImpl.GetCalculateResult(criteria);
@@ -89,7 +90,25 @@
                 new ClearCreditStep(1, (decimal)1.2, 0)
             };
 
-            var expectedData = new TransferResult(transferSteps, creditSteps);
+            var expectedData = new TransferResult(transferSteps, creditSteps, new List<string> { "Error 2" });
+
+            // Act
+            var actualData = dataAccessImpl.GetCalculateResult(criteria);
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedData, actualData).AreEqual);
+        }
+
+        [Fact]
+        public void GetCalculateResult_NoTransferAndNoCredit_ReturnsDataFromObjectDb()
+        {
+            // Arrange
+            var criteria = new GetCalculateResultCriteria(0, string.Empty);
+
+            var dataSet = TransferAllAndClearCreditDatabase.Calculation_NoTransferAndNoCredit.CreateDataReader();
+            objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
+
+            var expectedData = new TransferResult(new List<TransferStep>(), new List<ClearCreditStep>(), new List<string> { "Error 3" });
 
             // Act
             var actualData = dataAccessImpl.GetCalculateResult(criteria);
@@ -112,7 +131,30 @@
                 ["ErrMsg"] = string.Empty
             });
 
-            var expectedData = new TransferAllResult(new List<TransferStep>(), 1, string.Empty);
+            var expectedData = new TransferAllResult(new List<TransferStep>(), 1, string.Empty, new List<string>());
+
+            // Act
+            var actualData = dataAccessImpl.TransferAll(criteria);
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedData, actualData).AreEqual);
+        }
+
+        [Fact]
+        public void TransferAll_HasErrorAndNoData_ReturnsCorrectData()
+        {
+            // Arrange
+            var criteria = new TransferAllCriteria(0, 1, 2, string.Empty, string.Empty, string.Empty, string.Empty, false);
+
+            var dataSet = TransferAllAndClearCreditDatabase.TransferAllHasErrorAndNoData.CreateDataReader();
+            objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
+            objectDbFixture.ObjectDb.GetOuputParams().Returns(new Hashtable
+            {
+                ["ErrCode"] = 0,
+                ["ErrMsg"] = string.Empty
+            });
+
+            var expectedData = new TransferAllResult(new List<TransferStep>(), 0, string.Empty, new List<string> { "Error 2" });
 
             // Act
             var actualData = dataAccessImpl.TransferAll(criteria);
@@ -140,7 +182,7 @@
                 new TransferStep(1, (decimal)1.5, 0)
             };
 
-            var expectedData = new TransferAllResult(transferSteps, 0, string.Empty);
+            var expectedData = new TransferAllResult(transferSteps, 0, string.Empty, new List<string> { "Error 1" });
 
             // Act
             var actualData = dataAccessImpl.TransferAll(criteria);

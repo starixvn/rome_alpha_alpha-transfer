@@ -9,14 +9,17 @@
         {
             TransferSteps = Enumerable.Empty<TransferStep>();
             ClearCreditSteps = Enumerable.Empty<ClearCreditStep>();
+            Conditions = Enumerable.Empty<string>();
         }
 
         public TransferResult(
             IEnumerable<TransferStep> transferSteps,
-            IEnumerable<ClearCreditStep> clearCreditSteps)
+            IEnumerable<ClearCreditStep> clearCreditSteps,
+            IEnumerable<string> conditions)
         {
             TransferSteps = transferSteps;
             ClearCreditSteps = clearCreditSteps;
+            Conditions = conditions;
         }
 
         public TransferResult(TransferAllResult transferAllResult, ClearCreditResult clearCreditResult, bool skipTransfer)
@@ -28,6 +31,7 @@
             ErrCodeClearCredit = clearCreditResult.ErrCode;
             ErrMsgClearCredit = clearCreditResult.ErrMsg;
             SkipTransfer = skipTransfer;
+            Conditions = transferAllResult.Conditions;
         }
 
         public int ErrCodeTransfer { get; set; }
@@ -43,5 +47,7 @@
         public IEnumerable<TransferStep> TransferSteps { get; }
 
         public IEnumerable<ClearCreditStep> ClearCreditSteps { get; }
+
+        public IEnumerable<string> Conditions { get; }
     }
 }

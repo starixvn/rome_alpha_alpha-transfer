@@ -25,6 +25,7 @@
             {
                 TransferSteps = param.TransferSteps;
                 ClearCreditSteps = param.ClearCreditSteps;
+                Conditions = new List<string>();
             }
             else
             {
@@ -44,6 +45,7 @@
                     : string.IsNullOrWhiteSpace(transferResult.ErrMsgClearCredit) ? Resources.ClearCreditUnsuccessfully
                     : transferResult.ErrMsgClearCredit;
                 SkipTransfer = transferResult.SkipTransfer;
+                Conditions = transferResult.Conditions;
             }
         }
 
@@ -72,6 +74,8 @@
         public IEnumerable<TransferStep> TransferSteps { get; }
 
         public IEnumerable<ClearCreditStep> ClearCreditSteps { get; }
+
+        public IEnumerable<string> Conditions { get; }
 
         public string TransferStepsJson => JsonHelper.ToJsonFunc(TransferSteps).Replace("\"", "'");
 

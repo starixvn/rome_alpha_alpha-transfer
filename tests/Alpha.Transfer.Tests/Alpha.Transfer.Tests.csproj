@@ -204,7 +204,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\TransferAllAndClearCredit\Calculation_NoTransferAndNoCredit.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Database\TransferAllAndClearCredit\ClearCredit.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\TransferAllAndClearCredit\TransferAll_HasErrorAndNoData.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\TransferAllAndClearCredit\TransferAll.xml">

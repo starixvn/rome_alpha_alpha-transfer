@@ -34,7 +34,7 @@
             var skipTransfer = param.SkipTransfer();
 
             var transferResult = skipTransfer ?
-                new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty) :
+                new TransferAllResult() :
                 transferAllAndClearCreditDataAccess.TransferAll(new TransferAllCriteria(
                     param.CustId,
                     param.UserId,

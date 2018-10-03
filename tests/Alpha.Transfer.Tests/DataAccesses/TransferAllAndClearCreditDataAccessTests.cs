@@ -205,7 +205,7 @@
                 ["ErrMsg"] = string.Empty
             });
 
-            var expectedData = new ClearCreditResult(new List<ClearCreditStep>(), 1, string.Empty);
+            var expectedData = new ClearCreditResult(new List<ClearCreditStep>(), 1, string.Empty, new List<string>());
 
             // Act
             var actualData = dataAccessImpl.ClearCredit(criteria);
@@ -233,7 +233,30 @@
                 new ClearCreditStep(1, (decimal)1.2, 0)
             };
 
-            var expectedData = new ClearCreditResult(transferSteps, 0, string.Empty);
+            var expectedData = new ClearCreditResult(transferSteps, 0, string.Empty, new List<string> { "Error 3" });
+
+            // Act
+            var actualData = dataAccessImpl.ClearCredit(criteria);
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedData, actualData).AreEqual);
+        }
+
+        [Fact]
+        public void ClearCredit_NoData_ReturnsCorrectData()
+        {
+            // Arrange
+            var criteria = new ClearCreditCriteria(0, 1, 2, string.Empty, string.Empty, string.Empty);
+
+            var dataSet = TransferAllAndClearCreditDatabase.ClearCreditNoData.CreateDataReader();
+            objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
+            objectDbFixture.ObjectDb.GetOuputParams().Returns(new Hashtable
+            {
+                ["ErrCode"] = 0,
+                ["ErrMsg"] = string.Empty
+            });
+
+            var expectedData = new ClearCreditResult(new List<ClearCreditStep>(), 0, string.Empty, new List<string> { "Error 3" });
 
             // Act
             var actualData = dataAccessImpl.ClearCredit(criteria);

@@ -36,7 +36,7 @@
         {
             // Arrange
             var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), errorCode, string.Empty, Enumerable.Empty<string>());
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty, Enumerable.Empty<string>());
             var transferResult = new TransferResult(transferAllResult, clearCreditResult, false);
             var viewModel = new TransferResultViewModel(query, param, transferResult);
 
@@ -54,7 +54,7 @@
         {
             // Arrange
             var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 1, string.Empty, Enumerable.Empty<string>());
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), errorCode, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), errorCode, string.Empty, Enumerable.Empty<string>());
             var transferResult = new TransferResult(transferAllResult, clearCreditResult, false);
             var viewModel = new TransferResultViewModel(query, param, transferResult);
 
@@ -196,7 +196,7 @@
             };
 
             var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty, Enumerable.Empty<string>());
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty, Enumerable.Empty<string>());
             var transferResult = new TransferResult(transferAllResult, clearCreditResult, false);
             var viewModel = new TransferResultViewModel(query, param, transferResult);
 

@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TransferAllAndClearCredit>
+  <Error>
+    <RowId>1</RowId>
+    <Content>Error 3</Content>
+  </Error>
   <Credit>
     <RowId>1</RowId>
     <GivenCredit>1.2</GivenCredit>

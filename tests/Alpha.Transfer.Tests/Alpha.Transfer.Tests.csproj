@@ -207,6 +207,9 @@
     <Content Include="Database\TransferAllAndClearCredit\Calculation_NoTransferAndNoCredit.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Database\TransferAllAndClearCredit\ClearCredit_NoData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Database\TransferAllAndClearCredit\ClearCredit.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

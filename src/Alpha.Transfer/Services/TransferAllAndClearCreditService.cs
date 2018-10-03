@@ -53,7 +53,7 @@
                     param.Username,
                     param.IP,
                     param.Language))
-                    : new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty);
+                    : new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty, Enumerable.Empty<string>());
 
             return new TransferResult(transferResult, clearCreditResult, skipTransfer);
         }

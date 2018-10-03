@@ -49,7 +49,7 @@
             // Arrange
             var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 1, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty, Enumerable.Empty<string>());
 
             var transferSteps = "[{'Id': 1, 'TransferableAmount': 2, 'Outstanding': 3}]";
             var param = new GetTransferResultParam(1, 2, 3, false, string.Empty, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false);
@@ -68,7 +68,7 @@
             // Arrange
             var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 1, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty, Enumerable.Empty<string>());
 
             var transferSteps = "[{'Id': 1, 'TransferableAmount': 2, 'Outstanding': 3}]";
             var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false);
@@ -88,7 +88,7 @@
             var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
 
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty, Enumerable.Empty<string>());
             repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
             var transferSteps = "[{'Id': 1, 'TransferableAmount': 2, 'Outstanding': 3}]";
@@ -109,7 +109,7 @@
             var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
 
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty, Enumerable.Empty<string>());
             repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
             var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false);
@@ -129,7 +129,7 @@
             var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
 
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty, Enumerable.Empty<string>());
             repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
             var param = new GetTransferResultParam(4, 5, 6, false, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false);
@@ -146,7 +146,7 @@
         public void GetTransferResult_SkipTransfer_NotCallRepositoryTransferAll()
         {
             // Arrange
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty, Enumerable.Empty<string>());
             repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
             var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false);
@@ -165,7 +165,7 @@
             var transferAllResult = new TransferAllResult(Enumerable.Empty<TransferStep>(), 0, string.Empty, Enumerable.Empty<string>());
             repository.TransferAll(Arg.Any<TransferAllCriteria>()).Returns(transferAllResult);
 
-            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty);
+            var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty, Enumerable.Empty<string>());
             repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
             var transferSteps = "[{'Id': 1, 'TransferableAmount': 2, 'Outstanding': 3}]";

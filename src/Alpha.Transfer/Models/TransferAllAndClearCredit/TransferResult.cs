@@ -31,7 +31,19 @@
             ErrCodeClearCredit = clearCreditResult.ErrCode;
             ErrMsgClearCredit = clearCreditResult.ErrMsg;
             SkipTransfer = skipTransfer;
-            Conditions = transferAllResult.Conditions;
+
+            var conditions = new List<string>();
+            if(transferAllResult.Conditions.Any())
+            {
+                conditions.AddRange(transferAllResult.Conditions);
+            }
+
+            if(clearCreditResult.Conditions.Any())
+            {
+                conditions.AddRange(clearCreditResult.Conditions);
+            }
+
+            Conditions = conditions;
         }
 
         public int ErrCodeTransfer { get; set; }

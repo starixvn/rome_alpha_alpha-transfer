@@ -110,6 +110,7 @@
             var steps = new List<ClearCreditStep>();
             int errCode;
             string errMsg;
+            var conditions = new List<string>();
 
             using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
@@ -119,7 +120,15 @@
                     {
                         while (reader.Read())
                         {
-                            steps.Add(MapClearCreditStep(reader));
+                            conditions.Add(Converter.ToString2(reader["Content"]));
+                        }
+
+                        if (reader.NextResult())
+                        {
+                            while (reader.Read())
+                            {
+                                steps.Add(MapClearCreditStep(reader));
+                            }
                         }
 
                         reader.Close();
@@ -131,7 +140,7 @@
                 }
             }
 
-            return new ClearCreditResult(steps, errCode, errMsg);
+            return new ClearCreditResult(steps, errCode, errMsg, conditions);
         }
 
         private TransferStep MapTransferStep(IDataReader reader)

@@ -8,7 +8,7 @@
 
     public interface TransferAllAndClearCreditService
     {
-        TransferResult GetCalculateResult(int custId, string username);
+        TransferResult GetCalculateResult(int custId, string username, string language);
 
         TransferResult GetTransferResult(GetTransferResultParam param);
     }
@@ -22,9 +22,9 @@
             this.transferAllAndClearCreditDataAccess = transferAllAndClearCreditDataAccess;
         }
 
-        public TransferResult GetCalculateResult(int custId, string username)
+        public TransferResult GetCalculateResult(int custId, string username, string language)
         {
-            var criteria = new GetCalculateResultCriteria(custId, username);
+            var criteria = new GetCalculateResultCriteria(custId, username, language);
             var transferResult = transferAllAndClearCreditDataAccess.GetCalculateResult(criteria);
             return transferResult;
         }

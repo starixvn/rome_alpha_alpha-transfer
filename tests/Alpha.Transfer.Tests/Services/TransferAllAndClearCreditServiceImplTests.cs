@@ -37,7 +37,7 @@
             repository.GetCalculateResult(Arg.Any<GetCalculateResultCriteria>()).Returns(transferResult);
 
             // Act
-            var actualData = serviceImpl.GetCalculateResult(1, string.Empty);
+            var actualData = serviceImpl.GetCalculateResult(1, string.Empty, string.Empty);
 
             // Assert
             Assert.True(compareLogic.Compare(transferResult, actualData).AreEqual);

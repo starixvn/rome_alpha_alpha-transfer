@@ -55,7 +55,7 @@
             };
 
             var calculationResult = new TransferResult();
-            service.GetCalculateResult(0, "username").Returns(calculationResult);
+            service.GetCalculateResult(0, "username", string.Empty).Returns(calculationResult);
 
             var expectedViewModel = new CalculationViewModel(message, calculationResult);
 

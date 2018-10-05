@@ -11,7 +11,7 @@
         {
             // Arrange
             var expectedSettingKey = "Age_Transfer_Credit_All_Sel";
-            var criteria = new GetCalculateResultCriteria(1, string.Empty);
+            var criteria = new GetCalculateResultCriteria(1, string.Empty, string.Empty);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -29,7 +29,7 @@
         public void IsValid_CustId_ReturnsTrue(string username, bool expectedValue)
         {
             // Arrange
-            var criteria = new GetCalculateResultCriteria(1, username);
+            var criteria = new GetCalculateResultCriteria(1, username, string.Empty);
 
             // Act
             var actualValue = criteria.IsValid();

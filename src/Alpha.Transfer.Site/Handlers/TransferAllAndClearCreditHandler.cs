@@ -23,7 +23,7 @@
             var calculationResult =
                 string.IsNullOrWhiteSpace(message.Username)
                 ? new TransferResult()
-                : transferAllAndClearCreditService.GetCalculateResult(message.CustId, message.Username);
+                : transferAllAndClearCreditService.GetCalculateResult(message.CustId, message.Username, message.Language);
 
             return new CalculationViewModel(message, calculationResult);
         }

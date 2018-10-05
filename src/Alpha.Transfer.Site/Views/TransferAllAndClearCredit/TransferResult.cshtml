@@ -10,17 +10,16 @@
 </div>
 
 <div id="box_header">
-    @if (Model.Conditions.Any())
+    @if (Model.IsInternal)
+    {
+        <div class="msg msg-error">@Resources.NotAuthorized</div>
+    }
+    else if (Model.Conditions.Any())
     {
         foreach (var m in Model.Conditions)
         {
             <div class="msg msg-error">@m</div>
         }
-    }
-
-    @if (Model.IsInternal)
-    {
-        <div class="msg msg-error">@Resources.NotAuthorized</div>
     }
     else if (!Model.IsTransferSuccess)
     {

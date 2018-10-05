@@ -20,10 +20,14 @@
 
         public CalculationViewModel Handle(CalculationQuery message)
         {
-            var calculationResult =
-                string.IsNullOrWhiteSpace(message.Username)
-                ? new TransferResult()
-                : transferAllAndClearCreditService.GetCalculateResult(message.CustId, message.Username, message.Language);
+            var param = new GetCalculationResultParam(
+                message.CustId,
+                message.Username,
+                message.LanguageKey,
+                message.AllowedTotalBalanceTransferSuperIds,
+                message.IsAllDayBalanceTransfer);
+
+            var calculationResult = string.IsNullOrWhiteSpace(message.Username) ? new TransferResult() : transferAllAndClearCreditService.GetCalculateResult(param);
 
             return new CalculationViewModel(message, calculationResult);
         }

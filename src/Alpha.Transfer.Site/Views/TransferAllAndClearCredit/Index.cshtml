@@ -103,7 +103,8 @@
             }
         </table>
         <div class="content-row">
-            <form id="transfer-result-form" class="hide" role="form" action="TransferResult">
+            <form id="transfer-result-form" class="hide" role="form" action="TransferResult" method="post">
+                @Html.AntiForgeryToken()
                 <input id="txt-username-transfer" type="text" name="Username" value="@Model.Username" />
                 <input id="IsClearCredit" type="text" name="IsClearCredit" value="false" />
                 @Html.Hidden("TransferSteps", Model.TransferStepsJson)

@@ -24,7 +24,7 @@
             return View(mediator.Send(message));
         }
 
-        [HttpGet]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult TransferResult(TransferResultQuery message)
         {
             if (message == null || !message.IsValid())

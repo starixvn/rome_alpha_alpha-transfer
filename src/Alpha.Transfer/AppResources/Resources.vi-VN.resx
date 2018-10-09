@@ -270,4 +270,94 @@
   <data name="LastName" xml:space="preserve">
     <value>Họ</value>
   </data>
+  <data name="TransferAllAndClearCredit" xml:space="preserve">
+    <value>Tất toán và Xóa tín dụng</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Tính toán</value>
+  </data>
+  <data name="TransferAllAndClearCreditNote" xml:space="preserve">
+    <value>Chức năng "Tất toán và Xóa tín dụng" vẫn tuân theo các quy tắc hiện tại, nhưng sẽ được áp dụng cho tất cả các cấp được liệt kê</value>
+  </data>
+  <data name="DataChangedWarning" xml:space="preserve">
+    <value>Một số dữ liệu đã thay đổi trong quá trình tính toán. Vui lòng kiểm tra các số liệu được tô sáng trong các bảng bên dưới.</value>
+  </data>
+  <data name="TransferAll" xml:space="preserve">
+    <value>Tất toán</value>
+  </data>
+  <data name="ClearCredit" xml:space="preserve">
+    <value>Xóa tín dụng</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>Bước</value>
+  </data>
+  <data name="TransferableAmount" xml:space="preserve">
+    <value>Tiền có thể chuyển khoản</value>
+  </data>
+  <data name="ClearableCredit" xml:space="preserve">
+    <value>Tín dụng có thể xóa</value>
+  </data>
+  <data name="ClearCreditConfirm" xml:space="preserve">
+    <value>Bạn có chắc muốn Tất toán và Xóa tín dụng?</value>
+  </data>
+  <data name="TransferAllConfirm" xml:space="preserve">
+    <value>Bạn có chắc muốn Tất toán?</value>
+  </data>
+  <data name="TransferredAmount" xml:space="preserve">
+    <value>Tiền đã chuyển khoản</value>
+  </data>
+  <data name="ClearedCredit" xml:space="preserve">
+    <value>Tín dụng đã xóa</value>
+  </data>
+  <data name="TransferStep_Super_Member" xml:space="preserve">
+    <value>Member tới Agent</value>
+  </data>
+  <data name="TransferStep_Super_Agent" xml:space="preserve">
+    <value>Agent tới  {0}</value>
+  </data>
+  <data name="TransferStep_Super_Master" xml:space="preserve">
+    <value>{0} tới tài khoản của bạn</value>
+  </data>
+  <data name="ClearCreditStep_Super_Member" xml:space="preserve">
+    <value>Members của {0}</value>
+  </data>
+  <data name="ClearCreditStep_Super_Agent" xml:space="preserve">
+    <value>Agents của {0}</value>
+  </data>
+  <data name="ClearCreditStep_Super_Master" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="TransferAllSuccess" xml:space="preserve">
+    <value>Tất toán thành công.</value>
+  </data>
+  <data name="ClearCreditSuccess" xml:space="preserve">
+    <value>Xóa tín dụng thành công.</value>
+  </data>
+  <data name="Transfer_all" xml:space="preserve">
+    <value>Tất toán</value>
+  </data>
+  <data name="Clear_credit" xml:space="preserve">
+    <value>Xóa tín dụng</value>
+  </data>
+  <data name="TransferAllUnsuccessfully" xml:space="preserve">
+    <value>Tất toán không thành công. Vui lòng thử lại.</value>
+  </data>
+  <data name="ClearCreditUnsuccessfully" xml:space="preserve">
+    <value>Xóa tín dụng không thành công. Vui lòng thử lại.</value>
+  </data>
+  <data name="TransferStep_Master_Member" xml:space="preserve">
+    <value>Member tới {0}</value>
+  </data>
+  <data name="TransferStep_Master_Agent" xml:space="preserve">
+    <value>{0} tới tài khoản của bạn</value>
+  </data>
+  <data name="ClearCreditStep_Master_Member" xml:space="preserve">
+    <value>Tất cả Member</value>
+  </data>
+  <data name="ClearCreditStep_Master_Agent" xml:space="preserve">
+    <value>Agent {0}</value>
+  </data>
+  <data name="TransferAll_ClearCredit_Errors" xml:space="preserve">
+    <value>Không thể Tất toán và Xóa tín dụng vì những lý do sau:</value>
+  </data>
 </root>

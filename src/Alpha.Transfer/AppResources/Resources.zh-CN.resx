@@ -270,4 +270,85 @@
   <data name="LastName" xml:space="preserve">
     <value>姓</value>
   </data>
+  <data name="TransferAllAndClearCredit" xml:space="preserve">
+    <value>转全部的账并清除信用额度</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>计算</value>
+  </data>
+  <data name="TransferAllAndClearCreditNote" xml:space="preserve">
+    <value>转全部的账和清除信用额度还是依据原有的规则，但是这些将适用于所有列出的级别。</value>
+  </data>
+  <data name="DataChangedWarning" xml:space="preserve">
+    <value>有些数据在计算过程中已经更改。请您检查下图所显示突出的的数额。</value>
+  </data>
+  <data name="TransferAll" xml:space="preserve">
+    <value>转全部的账</value>
+  </data>
+  <data name="ClearCredit" xml:space="preserve">
+    <value>清除信用额度</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>步骤</value>
+  </data>
+  <data name="TransferableAmount" xml:space="preserve">
+    <value>可转账的金额</value>
+  </data>
+  <data name="ClearableCredit" xml:space="preserve">
+    <value>可清除的额度</value>
+  </data>
+  <data name="ClearCreditConfirm" xml:space="preserve">
+    <value>你肯定转全部的账并清除信用额度吗？</value>
+  </data>
+  <data name="TransferAllConfirm" xml:space="preserve">
+    <value>你肯定转全部的账吗？</value>
+  </data>
+  <data name="TransferStep_Super_Member" xml:space="preserve">
+    <value>会员去代理</value>
+  </data>
+  <data name="TransferStep_Super_Agent" xml:space="preserve">
+    <value>代理去 {0}</value>
+  </data>
+  <data name="TransferStep_Super_Master" xml:space="preserve">
+    <value>{0} 去您的账号</value>
+  </data>
+  <data name="ClearCreditStep_Super_Member" xml:space="preserve">
+    <value>{0} 的会员们</value>
+  </data>
+  <data name="ClearCreditStep_Super_Agent" xml:space="preserve">
+    <value>{0} 的代理们</value>
+  </data>
+  <data name="ClearCreditStep_Super_Master" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="TransferAllSuccess" xml:space="preserve">
+    <value>全部转账成功。</value>
+  </data>
+  <data name="ClearCreditSuccess" xml:space="preserve">
+    <value>信用额度清空成功。</value>
+  </data>
+  <data name="Transfer_all" xml:space="preserve">
+    <value>转全部的账</value>
+  </data>
+  <data name="Clear_credit" xml:space="preserve">
+    <value>清除信用额度</value>
+  </data>
+  <data name="TransferAllUnsuccessfully" xml:space="preserve">
+    <value>转全部的账不成功。请再试一次。</value>
+  </data>
+  <data name="ClearCreditUnsuccessfully" xml:space="preserve">
+    <value>清除信用额度不成功。请再试一次。</value>
+  </data>
+  <data name="TransferStep_Master_Member" xml:space="preserve">
+    <value>会员到{0}</value>
+  </data>
+  <data name="TransferStep_Master_Agent" xml:space="preserve">
+    <value>{0} 去您的账号</value>
+  </data>
+  <data name="ClearCreditStep_Master_Member" xml:space="preserve">
+    <value>所有会员</value>
+  </data>
+  <data name="ClearCreditStep_Master_Agent" xml:space="preserve">
+    <value>代理{0}</value>
+  </data>
 </root>

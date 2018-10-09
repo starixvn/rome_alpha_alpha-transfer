@@ -270,4 +270,58 @@
   <data name="LastName" xml:space="preserve">
     <value>นามสกุล</value>
   </data>
+  <data name="TransferAllAndClearCredit" xml:space="preserve">
+    <value>โอนยอดทั้งหมด และเคลียร์เครดิต</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>คำนวณ</value>
+  </data>
+  <data name="TransferAllAndClearCreditNote" xml:space="preserve">
+    <value>โอนยอดทั้งหมด และการเคลียร์เครดิตคงเป็นไปตามกฎปัจจุบัน แต่จะแยกกรณีออกไปของแต่ละขั้น</value>
+  </data>
+  <data name="DataChangedWarning" xml:space="preserve">
+    <value>ระบบมีการเปลี่ยนข้อมูลบางส่วนในระหว่างการคำนวณ. กรุณาตรวจสอบตัวเลขที่ได้ระบายสีไว้ให้ยังด้านล่างนี้</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>ขั้นตอน</value>
+  </data>
+  <data name="TransferableAmount" xml:space="preserve">
+    <value>จำนวนยอดที่สามารถโอนได้</value>
+  </data>
+  <data name="ClearableCredit" xml:space="preserve">
+    <value>เคลียร์เครดิต</value>
+  </data>
+  <data name="TransferStep_Super_Member" xml:space="preserve">
+    <value>สมาชิกไปยังเอเยนต์</value>
+  </data>
+  <data name="TransferStep_Super_Agent" xml:space="preserve">
+    <value>เอเยนต์ ไปยัง {0}</value>
+  </data>
+  <data name="TransferStep_Super_Master" xml:space="preserve">
+    <value>{0} ไปยัง บัญชีคุณ</value>
+  </data>
+  <data name="ClearCreditStep_Super_Member" xml:space="preserve">
+    <value>{0} สมาชิก</value>
+  </data>
+  <data name="ClearCreditStep_Super_Agent" xml:space="preserve">
+    <value>{0} เอเยนต์</value>
+  </data>
+  <data name="ClearCreditStep_Super_Master" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="TransferAllSuccess" xml:space="preserve">
+    <value>โอนเงินทั้งหมดเรียบร้อยแล้ว</value>
+  </data>
+  <data name="ClearCreditSuccess" xml:space="preserve">
+    <value>เคลียเครดิตเรียบร้อยแล้ว</value>
+  </data>
+  <data name="TransferStep_Master_Agent" xml:space="preserve">
+    <value>{0} ไปยัง บัญชีคุณ</value>
+  </data>
+  <data name="ClearCreditStep_Master_Member" xml:space="preserve">
+    <value>สมาชิกทั้งหมด</value>
+  </data>
+  <data name="ClearCreditStep_Master_Agent" xml:space="preserve">
+    <value>ตัวแทน {0}</value>
+  </data>
 </root>

@@ -7,7 +7,6 @@
     using Requests.TransferAllAndClearCredit;
     using Transfer.Models;
     using Transfer.Models.TransferAllAndClearCredit;
-    using Web.Helpers;
 
     public class TransferResultViewModel
     {
@@ -80,12 +79,6 @@
         public string TransferStepsJson => JsonHelper.ToJsonFunc(TransferSteps).Replace("\"", "'");
 
         public string ClearCreditStepsJson => JsonHelper.ToJsonFunc(ClearCreditSteps).Replace("\"", "'");
-
-        public string GetOutstandingText(decimal? outstanding)
-            => outstanding.HasValue ? outstanding.Value.ToString($"#,##0.00") : "N/A";
-
-        public string UsernameAutoSuggestionPath
-            => MicroSites.OldMainUrl("~/_GlobalResources/Handlers/QueryUserName.ashx");
 
         public string GetTransferStepName(TransferStep step)
             => string.Format(Resources.ResourceManager.GetString("TransferStep_" + StepKey(step.Id)), Username);

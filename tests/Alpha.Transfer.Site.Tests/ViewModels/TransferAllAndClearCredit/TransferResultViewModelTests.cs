@@ -66,35 +66,6 @@
         }
 
         [Fact]
-        public void GetOutstandingText_NullOutstanding_ReturnNA()
-        {
-            // Arrange
-            var viewModel = new TransferResultViewModel(query, param, new TransferResult());
-            var expectedValue = "N/A";
-
-            // Act
-            var actualValue = viewModel.GetOutstandingText(null);
-
-            // Assert
-            Assert.Equal(expectedValue, actualValue);
-        }
-
-        [Fact]
-        public void GetOutstandingText_HasOutstanding_ReturnCorrectValue()
-        {
-            // Arrange
-            var viewModel = new TransferResultViewModel(query, param, new TransferResult());
-            var outstanding = 1000;
-            var expectedValue = "1,000.00";
-
-            // Act
-            var actualValue = viewModel.GetOutstandingText(outstanding);
-
-            // Assert
-            Assert.Equal(expectedValue, actualValue);
-        }
-
-        [Fact]
         public void GetTransferStepName_SuperLevelAndMemberStep_ReturnCorrectValue()
         {
             // Arrange

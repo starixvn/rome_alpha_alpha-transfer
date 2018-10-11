@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/CashBalanceTransfer/_HintLayout.cshtml";
+}
+
+<p>Transfer with Yesterday Balance</p>
+<ul>
+    <li>Yesterday Balance can only be fully transferred.</li>
+    <li>Transfer can only be performed when the account's yesterday balance is not zero.</li>
+</ul>
+<p>Transfer with Cash Balance</p>
+<ul>
+    <li>For negative transfer: the transfer value should not exceed (Downline's Cash Balance – Outstanding).</li>
+    <li>For positive transfer: the transfer value should not exceed your Cash Balance value.</li>
+    <li>"Cash Balance" phrase will be noted in transfer details accordingly.</li>
+</ul>
+<p>Remark</p>
+<ul>
+    @if (!string.IsNullOrEmpty(Model.AllowTransfer))
+    {
+        <li>@Html.Raw(Model.AllowTransfer)</li>
+    }
+    @if (!string.IsNullOrEmpty(Model.WarningTransfer))
+    {
+        <li>@Html.Raw(Model.WarningTransfer)</li>
+    }
+    <li>You can make as many transactions as you wish per day (for both Yesterday Balance and Cash Balance).</li>
+    <li>To ensure the accuracy of data while being processed, all transfer transaction cannot be executed at that time.</li>
+</ul>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="SonarQube - Alpha / Alpha Member Info Nexcel way" ToolsVersion="14.0">
+  <Include Path="..\..\build\analysisrules\fanexrules.error.ruleset" Action="Default" />
+  <Include Path="..\..\sonarqube\alpha-memberinfocsharp.ruleset" Action="Default" />
+</RuleSet>

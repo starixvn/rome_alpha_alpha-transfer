@@ -1,0 +1,31 @@
+﻿
+.changed-figure {
+    border-radius: 2px;
+    background-color: #0B893E;
+    color: #FFF;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.title-clear-credit label {
+    margin-top: 12px;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.condition-container {
+    color: red;
+    padding-top: 15px;
+    font-weight: bold;
+
+    .condition-list {
+        list-style: outside;
+        padding-left: 40px;
+
+        li {
+            padding: 5px 0;
+        }
+    }
+}

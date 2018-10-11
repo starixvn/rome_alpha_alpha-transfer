@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NoInformationIsAvailable" xml:space="preserve">
+    <value>没资料显示</value>
+  </data>
+  <data name="UsernamePlaceHolder" xml:space="preserve">
+    <value>用户名或名/姓</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="MemberOutstanding" xml:space="preserve">
+    <value>会员未结束交易</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>阶层</value>
+  </data>
+  <data name="GivenCredit" xml:space="preserve">
+    <value>信用额度</value>
+  </data>
+  <data name="TransferSuccessfully" xml:space="preserve">
+    <value>成功转账</value>
+  </data>
+  <data name="AllowTransfer" xml:space="preserve">
+    <value>您的转账设定为</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>星期五</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>星期一</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>星期六</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>星期日</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>星期四</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>星期二</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>星期三</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>每天</value>
+  </data>
+  <data name="HintNotAvailableToTransfer" xml:space="preserve">
+    <value>转账现金余额不足</value>
+  </data>
+  <data name="HintRangeTransfer" xml:space="preserve">
+    <value>You can transfer from {0} to {1}.</value>
+  </data>
+  <data name="AvailableRangeTransfer" xml:space="preserve">
+    <value>Amount to transfer must be between {0} and {1}.</value>
+  </data>
+  <data name="Super" xml:space="preserve">
+    <value>超级</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>总代理</value>
+  </data>
+  <data name="Agent" xml:space="preserve">
+    <value>代理</value>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>会员</value>
+  </data>
+  <data name="WarningMultipleTransfer" xml:space="preserve">
+    <value>注意： 若已转账 “昨天余额” ，以下重点显示的会员投注额度将会出现负数，此会员有可能会输超过他的信用额度</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>您没有使用此功能的权限</value>
+  </data>
+  <data name="TransferButton" xml:space="preserve">
+    <value>转账</value>
+  </data>
+  <data name="CashBalance" xml:space="preserve">
+    <value>现金余额</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>资料</value>
+  </data>
+  <data name="OutstandingShortcut" xml:space="preserve">
+    <value>未完成交易</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>金额</value>
+  </data>
+  <data name="ConfirmTransfer" xml:space="preserve">
+    <value>是否确定转账?</value>
+  </data>
+  <data name="TransferAmountIs" xml:space="preserve">
+    <value>Transfer amount is</value>
+  </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>数值无效</value>
+  </data>
+  <data name="MultipleTransfer" xml:space="preserve">
+    <value>多重转账</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="AllYesterdayBalance" xml:space="preserve">
+    <value>所有昨天余额</value>
+  </data>
+  <data name="Status_0" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Status_1" xml:space="preserve">
+    <value>开启</value>
+  </data>
+  <data name="Status_2" xml:space="preserve">
+    <value>暫停</value>
+  </data>
+  <data name="Status_3" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Status_4" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>昨天</value>
+  </data>
+  <data name="YesterdayBalance" xml:space="preserve">
+    <value>昨天餘額</value>
+  </data>
+  <data name="MasterBalance" xml:space="preserve">
+    <value>总代理馀额</value>
+  </data>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>昨天现金余额</value>
+  </data>
+  <data name="MasterCash" xml:space="preserve">
+    <value>总代理现金</value>
+  </data>
+  <data name="Outstanding" xml:space="preserve">
+    <value>未完成交易</value>
+  </data>
+  <data name="UsedCredit" xml:space="preserve">
+    <value>已用額度</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>姓</value>
+  </data>
+  <data name="TransferAllAndClearCredit" xml:space="preserve">
+    <value>转全部的账并清除信用额度</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>计算</value>
+  </data>
+  <data name="TransferAllAndClearCreditNote" xml:space="preserve">
+    <value>转全部的账和清除信用额度还是依据原有的规则，但是这些将适用于所有列出的级别。</value>
+  </data>
+  <data name="DataChangedWarning" xml:space="preserve">
+    <value>有些数据在计算过程中已经更改。请您检查下图所显示突出的的数额。</value>
+  </data>
+  <data name="TransferAll" xml:space="preserve">
+    <value>转全部的账</value>
+  </data>
+  <data name="ClearCredit" xml:space="preserve">
+    <value>清除信用额度</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>步骤</value>
+  </data>
+  <data name="TransferableAmount" xml:space="preserve">
+    <value>可转账的金额</value>
+  </data>
+  <data name="ClearableCredit" xml:space="preserve">
+    <value>可清除的额度</value>
+  </data>
+  <data name="ClearCreditConfirm" xml:space="preserve">
+    <value>你肯定转全部的账并清除信用额度吗？</value>
+  </data>
+  <data name="TransferAllConfirm" xml:space="preserve">
+    <value>你肯定转全部的账吗？</value>
+  </data>
+  <data name="TransferStep_Super_Member" xml:space="preserve">
+    <value>会员去代理</value>
+  </data>
+  <data name="TransferStep_Super_Agent" xml:space="preserve">
+    <value>代理去 {0}</value>
+  </data>
+  <data name="TransferStep_Super_Master" xml:space="preserve">
+    <value>{0} 去您的账号</value>
+  </data>
+  <data name="ClearCreditStep_Super_Member" xml:space="preserve">
+    <value>{0} 的会员们</value>
+  </data>
+  <data name="ClearCreditStep_Super_Agent" xml:space="preserve">
+    <value>{0} 的代理们</value>
+  </data>
+  <data name="ClearCreditStep_Super_Master" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="TransferAllSuccess" xml:space="preserve">
+    <value>全部转账成功。</value>
+  </data>
+  <data name="ClearCreditSuccess" xml:space="preserve">
+    <value>信用额度清空成功。</value>
+  </data>
+  <data name="Transfer_all" xml:space="preserve">
+    <value>转全部的账</value>
+  </data>
+  <data name="Clear_credit" xml:space="preserve">
+    <value>清除信用额度</value>
+  </data>
+  <data name="TransferAllUnsuccessfully" xml:space="preserve">
+    <value>转全部的账不成功。请再试一次。</value>
+  </data>
+  <data name="ClearCreditUnsuccessfully" xml:space="preserve">
+    <value>清除信用额度不成功。请再试一次。</value>
+  </data>
+  <data name="TransferStep_Master_Member" xml:space="preserve">
+    <value>会员到{0}</value>
+  </data>
+  <data name="TransferStep_Master_Agent" xml:space="preserve">
+    <value>{0} 去您的账号</value>
+  </data>
+  <data name="ClearCreditStep_Master_Member" xml:space="preserve">
+    <value>所有会员</value>
+  </data>
+  <data name="ClearCreditStep_Master_Agent" xml:space="preserve">
+    <value>代理{0}</value>
+  </data>
+</root>

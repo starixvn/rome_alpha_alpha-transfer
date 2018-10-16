@@ -473,6 +473,7 @@
     <Compile Include="ViewModels\CashBalanceTransfer\HintTransferViewModel.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModel.cs" />
+    <Compile Include="ViewModels\TransferAllAndClearCredit\TransferAllAndClearCreditViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferResultViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -495,23 +496,23 @@
     <Content Include="Web.AppSettings.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\MultipleTransfer\CustomerList.cshtml" />    
+    <Content Include="Views\MultipleTransfer\CustomerList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="Web.local.config" />
-	<Content Include="Web.backupMNLNap.config">
-		<DependentUpon>Web.local.config</DependentUpon>
-	</Content>
+    <Content Include="Web.backupMNLNap.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </Content>
     <Content Include="Web.backupMNLNap2.config">
-		<DependentUpon>Web.local.config</DependentUpon>
-	</Content>
+      <DependentUpon>Web.local.config</DependentUpon>
+    </Content>
     <Content Include="Web.backupMNLNap3.config">
-		<DependentUpon>Web.local.config</DependentUpon>
-	</Content>
+      <DependentUpon>Web.local.config</DependentUpon>
+    </Content>
     <Content Include="Web.backupMNLNap4.config">
-		<DependentUpon>Web.local.config</DependentUpon>
-	</Content>
+      <DependentUpon>Web.local.config</DependentUpon>
+    </Content>
     <Content Include="Web.napinternal.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>

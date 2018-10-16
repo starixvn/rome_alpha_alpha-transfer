@@ -66,11 +66,14 @@
             AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
 
-        [Fact]
-        public void HandlerTransferResultQuery_Always_ReturnsCorrectViewModel()
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void HandlerTransferResultQuery_Always_ReturnsCorrectViewModel(bool isInternal)
         {
             // Arrange
             user.LevelId.Returns((byte)3);
+            user.IsInternal.Returns(isInternal);
             var message = new TransferResultQuery(user)
             {
                 TransferSteps = string.Empty,

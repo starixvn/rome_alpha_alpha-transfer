@@ -23,6 +23,7 @@
             userSession.IsAllDayBalTransfer.Returns(false);
             userSession.IsAllowedTotalBalanceTransfer.Returns(false);
             userSession.UserId.Returns(1);
+            userSession.IsInternal.Returns(false);
 
             // Act
             var user = new User(userSession);
@@ -39,7 +40,8 @@
                 && user.SubAccName == "SubAccName"
                 && user.AllowAllDayBalanceTransfer == false
                 && user.AllowTotalBalanceTransfer == false
-                && user.UserId == 1);
+                && user.UserId == 1
+                && user.IsInternal == false);
         }
     }
 }

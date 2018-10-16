@@ -59,7 +59,7 @@
                         <td class="align-center">@index</td>
                         <td>@Model.GetTransferStepName(step)</td>
                         <td class="align-right">@HtmlHelpers.FormatNumber(step.TransferableAmount)</td>
-                        <td class="align-right">@Model.GetOutstandingText(step.Outstanding)</td>
+                        <td class="align-right">@TransferAllAndClearCreditViewModel.GetOutstandingText(step.Outstanding)</td>
                     </tr>
 
                     index++;
@@ -119,7 +119,7 @@
 
     <div class="shadow" id="shadow"></div>
     <div class="output" id="output"></div>
-    @Html.Hidden("usernameAutoSuggestionPath", Model.UsernameAutoSuggestionPath)
+    @Html.Hidden("usernameAutoSuggestionPath", TransferAllAndClearCreditViewModel.UsernameAutoSuggestionPath)
     @Html.Hidden("ClearCreditConfirm", Resources.ClearCreditConfirm)
     @Html.Hidden("TransferAllConfirm", Resources.TransferAllConfirm)
     @Html.Hidden("CanTransfer", Model.CanTransfer() ? "1" : "0")

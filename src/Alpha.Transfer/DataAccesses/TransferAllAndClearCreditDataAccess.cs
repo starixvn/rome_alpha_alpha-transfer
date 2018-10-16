@@ -5,6 +5,7 @@
     using System.Data;
     using Criteria.TransferAllAndClearCredit;
     using Fanex.Common;
+    using Fanex.Data.Repository;
     using Models.TransferAllAndClearCredit;
 
     public interface TransferAllAndClearCreditDataAccess
@@ -69,45 +70,21 @@
 
         public TransferAllResult TransferAll(TransferAllCriteria criteria)
         {
-            var steps = new List<TransferStep>();
-            int errCode;
-            string errMsg;
-            var conditions = new List<string>();
+            var result = DoAction(criteria, MapTransferStep);
 
-            using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
-            {
-                using (var reader = objectDb.ExecuteReader(criteria.GetSpParams()))
-                {
-                    if (reader != null)
-                    {
-                        while (reader.Read())
-                        {
-                            conditions.Add(Converter.ToString2(reader["Content"]));
-                        }
-
-                        if (reader.NextResult())
-                        {
-                            while (reader.Read())
-                            {
-                                steps.Add(MapTransferStep(reader));
-                            }
-                        }
-
-                        reader.Close();
-                    }
-
-                    var output = objectDb.GetOuputParams();
-                    errCode = Converter.ToInt(output["ErrCode"]);
-                    errMsg = Converter.ToString2(output["ErrMsg"]);
-                }
-            }
-
-            return new TransferAllResult(steps, errCode, errMsg, conditions);
+            return new TransferAllResult((IEnumerable<TransferStep>)result[0], (int)result[1], (string)result[2], (IEnumerable<string>)result[3]);
         }
 
         public ClearCreditResult ClearCredit(ClearCreditCriteria criteria)
         {
-            var steps = new List<ClearCreditStep>();
+            var result = DoAction(criteria, MapClearCreditStep);
+
+            return new ClearCreditResult((IEnumerable<ClearCreditStep>)result[0], (int)result[1], (string)result[2], (IEnumerable<string>)result[3]);
+        }
+
+        public List<object> DoAction<T>(ICriteria criteria, Func<IDataReader, T> createData)
+        {
+            var steps = new List<T>();
             int errCode;
             string errMsg;
             var conditions = new List<string>();
@@ -127,7 +104,7 @@
                         {
                             while (reader.Read())
                             {
-                                steps.Add(MapClearCreditStep(reader));
+                                steps.Add(createData(reader));
                             }
                         }
 
@@ -140,7 +117,7 @@
                 }
             }
 
-            return new ClearCreditResult(steps, errCode, errMsg, conditions);
+            return new List<object> { steps, errCode, errMsg, conditions };
         }
 
         private TransferStep MapTransferStep(IDataReader reader)

@@ -43,6 +43,26 @@
         }
 
         [Fact]
+        public void GetTransferResult_Always_CallsMediatorSendQuery()
+        {
+            // Arrange
+            user.Language.Returns("en-US");
+            user.LevelId.Returns((byte)3);
+            var message = new CalculationQuery(user)
+            {
+                CustId = 1,
+                CustName = "CustName",
+                CustLevelId = 2
+            };
+
+            // Act
+            controller.TransferResult(message);
+
+            // Assert
+            mediator.Received().Send(message);
+        }
+
+        [Fact]
         public void Index_NullQuery_ReturnsInvalidPage()
         {
             // Act
@@ -96,7 +116,7 @@
         public void TransferResult_NullQuery_ReturnsInvalidPage()
         {
             // Act
-            var actualValue = controller.TransferResult(null);
+            var actualValue = controller.TransferResult((TransferResultQuery)null);
 
             // Assert
             Assert.Equal("~/Views/Shared/InvalidPage.cshtml", ((ViewResult)actualValue).ViewName);

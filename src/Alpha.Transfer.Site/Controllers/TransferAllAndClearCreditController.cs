@@ -24,6 +24,17 @@
             return View(mediator.Send(message));
         }
 
+        [HttpGet]
+        public ActionResult TransferResult(CalculationQuery message)
+        {
+            if (message == null || !message.IsValid())
+            {
+                return View(InvalidPageViewPath);
+            }
+
+            return View("~/Views/TransferAllAndClearCredit/Index.cshtml", mediator.Send(message));
+        }
+
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult TransferResult(TransferResultQuery message)
         {

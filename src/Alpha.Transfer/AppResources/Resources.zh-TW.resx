@@ -283,7 +283,7 @@
     <value>有些數據在計算過程中已經更改。請您檢查下圖所顯示突出的的數額。</value>
   </data>
   <data name="TransferAll" xml:space="preserve">
-    <value>轉全部的賬</value>
+    <value>全數轉賬</value>
   </data>
   <data name="ClearCredit" xml:space="preserve">
     <value>清除信用額度</value>
@@ -298,10 +298,10 @@
     <value>可清除的額度</value>
   </data>
   <data name="ClearCreditConfirm" xml:space="preserve">
-    <value>你肯定轉全部的賬並清除信用額度嗎？</value>
+    <value>您是否確認要全數轉賬及清除信用額度？</value>
   </data>
   <data name="TransferAllConfirm" xml:space="preserve">
-    <value>你肯定轉全部的賬嗎？</value>
+    <value>您是否確認要全數轉賬？</value>
   </data>
   <data name="TransferStep_Super_Member" xml:space="preserve">
     <value>會員去代理</value>
@@ -328,13 +328,13 @@
     <value>信用額度清空成功。</value>
   </data>
   <data name="Transfer_all" xml:space="preserve">
-    <value>轉全部的賬</value>
+    <value>全數轉賬</value>
   </data>
   <data name="Clear_credit" xml:space="preserve">
     <value>清除信用額度</value>
   </data>
   <data name="TransferAllUnsuccessfully" xml:space="preserve">
-    <value>轉全部的賬不成功。請再試一次。</value>
+    <value>全數轉賬不成功。請再次嘗試。</value>
   </data>
   <data name="ClearCreditUnsuccessfully" xml:space="preserve">
     <value>清除信用額度不成功。請再試一次。</value>
@@ -350,5 +350,14 @@
   </data>
   <data name="ClearCreditStep_Master_Agent" xml:space="preserve">
     <value>代理{0}</value>
+  </data>
+  <data name="TransferredAmount" xml:space="preserve">
+    <value>已轉賬的金額</value>
+  </data>
+  <data name="ClearedCredit" xml:space="preserve">
+    <value>已清除的額度</value>
+  </data>
+  <data name="TransferAll_ClearCredit_Errors" xml:space="preserve">
+    <value>由於以下原因，無法完成全數轉賬及清除信用額度：</value>
   </data>
 </root>

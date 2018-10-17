@@ -136,7 +136,7 @@
     <value>The Transfer All and Clear Credit still follow the current rules, but they will be applied for all listed levels.</value>
   </data>
   <data name="DataChangedWarning" xml:space="preserve">
-    <value>Some data has been changed during calculating. Please check highlighted figures in the tables below.</value>
+    <value>Some data has been changed during calculation. Please check the highlighted figures in the tables below.</value>
   </data>
   <data name="TransferAll" xml:space="preserve">
     <value>Transfer All</value>

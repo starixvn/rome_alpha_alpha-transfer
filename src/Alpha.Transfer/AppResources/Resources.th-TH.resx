@@ -348,4 +348,16 @@
   <data name="TransferAllConfirm" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าต้องการโอนเครดิตทั้งหมด？</value>
   </data>
+  <data name="ClearCredit" xml:space="preserve">
+    <value>ล้างเครดิต</value>
+  </data>
+  <data name="Clear_credit" xml:space="preserve">
+    <value>ล้างเครดิต</value>
+  </data>
+  <data name="ClearCreditUnsuccessfully" xml:space="preserve">
+    <value>ล้างเครดิตไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</value>
+  </data>
+  <data name="TransferStep_Master_Member" xml:space="preserve">
+    <value>ไปสมาชิก {0}</value>
+  </data>
 </root>

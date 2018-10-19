@@ -172,10 +172,10 @@
     <value>Lượng tiền trong Số dư tài khoản không đủ để thực hiện giao dịch.</value>
   </data>
   <data name="HintRangeTransfer" xml:space="preserve">
-    <value>You can transfer from {0} to {1}.</value>
+    <value>Bạn có thể chuyển khoản từ {0} đến {1}.</value>
   </data>
   <data name="AvailableRangeTransfer" xml:space="preserve">
-    <value>Amount to transfer must be between {0} and {1}.</value>
+    <value>Số tiền chuyển khoản phải nằm trong khoảng {0} và {1}.</value>
   </data>
   <data name="Super" xml:space="preserve">
     <value>Super</value>
@@ -202,7 +202,7 @@
     <value>Số dư tài khoản</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>Information</value>
+    <value>Thông tin</value>
   </data>
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>Giao dịch chưa xử lý</value>

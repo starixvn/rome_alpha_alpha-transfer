@@ -324,4 +324,40 @@
   <data name="ClearCreditStep_Master_Agent" xml:space="preserve">
     <value>ตัวแทน {0}</value>
   </data>
+  <data name="TransferredAmount" xml:space="preserve">
+    <value>จำนวนเงินที่โอน</value>
+  </data>
+  <data name="ClearedCredit" xml:space="preserve">
+    <value>เครดิตหักล้างแล้ว</value>
+  </data>
+  <data name="TransferAll_ClearCredit_Errors" xml:space="preserve">
+    <value>การโอนเครดิตทั้งหมดและล้างเครดิตไม่สำเร็จเนื่องจาก เหตุผลดังต่อไปนี้ (s):</value>
+  </data>
+  <data name="Transfer_all" xml:space="preserve">
+    <value>โอนทั้งหมด</value>
+  </data>
+  <data name="TransferAllUnsuccessfully" xml:space="preserve">
+    <value>โอนเงินทั้งหมดไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</value>
+  </data>
+  <data name="TransferAll" xml:space="preserve">
+    <value>โอนทั้งหมด</value>
+  </data>
+  <data name="ClearCreditConfirm" xml:space="preserve">
+    <value>คุณแน่ใจหรือว่าต้องการโอนเครดิตทั้งหมดและล้างเครดิต？</value>
+  </data>
+  <data name="TransferAllConfirm" xml:space="preserve">
+    <value>คุณแน่ใจหรือว่าต้องการโอนเครดิตทั้งหมด？</value>
+  </data>
+  <data name="ClearCredit" xml:space="preserve">
+    <value>ล้างเครดิต</value>
+  </data>
+  <data name="Clear_credit" xml:space="preserve">
+    <value>ล้างเครดิต</value>
+  </data>
+  <data name="ClearCreditUnsuccessfully" xml:space="preserve">
+    <value>ล้างเครดิตไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</value>
+  </data>
+  <data name="TransferStep_Master_Member" xml:space="preserve">
+    <value>ไปสมาชิก {0}</value>
+  </data>
 </root>

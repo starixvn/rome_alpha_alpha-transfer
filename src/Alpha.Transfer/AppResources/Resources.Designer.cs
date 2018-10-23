@@ -259,7 +259,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Some data has been changed during calculating. Please check highlighted figures in the tables below..
+        ///   Looks up a localized string similar to Some data has been changed during calculation. Please check the highlighted figures in the tables below..
         /// </summary>
         public static string DataChangedWarning {
             get {

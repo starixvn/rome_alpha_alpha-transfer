@@ -1,5 +1,6 @@
 ﻿namespace Alpha.Transfer.Site
 {
+    using Alpha.Logging;
     using App_Start;
     using Auth.Filters;
     using Configurations;
@@ -46,17 +47,12 @@
             AppSettings.Verify();
 
             ShareSession.Init();
-
+            LoggingConfig.Init(getDbExceptionInfo: DatabaseInfoGetters.GetDbExceptionInfo);
             GlobalFilters.Filters.Add(new CheckUMFilter());
             GlobalFilters.Filters.Add(new CheckBelongingFilter());
             GlobalFilters.Filters.Add(new AfterLoginFlowFilter());
 
             StaticResources.Init(GetBuildVersion());
-
-            var loggingConfiguration = new LoggingConfiguration()
-                .UseGetDbExceptionInfo(DatabaseInfoGetters.GetDbExceptionInfo);
-
-            ExceptionHandler.UseConfig(loggingConfiguration);
         }
 
         protected void Application_Error()

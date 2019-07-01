@@ -57,7 +57,7 @@
             string languageKey)
         {
             string cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, creator);
-            TransferCacheService cacheService = new TransferCacheServiceImplement();
+            TransferCacheService cacheService = new TransferCacheServiceImplement(creator, creatorName);
             List<TransferCacheModel> custIdCache = cacheService.Get(cacheKey) ?? new List<TransferCacheModel>();
             var concurrentTrasfer = cacheService.CacheContains(custIdCache, toCustId);
             if (concurrentTrasfer != null)

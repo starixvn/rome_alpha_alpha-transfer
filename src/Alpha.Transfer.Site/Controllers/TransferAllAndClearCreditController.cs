@@ -6,7 +6,7 @@
     using Requests.TransferAllAndClearCredit;
 
     [SessionState(SessionStateBehavior.Default)]
-    public class TransferAllAndClearCreditController : SiteBaseController
+    public class TransferAllAndClearCreditController : TransferAllClearCreditControllerBase
     {
         public TransferAllAndClearCreditController(IMediator mediator)
             : base(mediator)

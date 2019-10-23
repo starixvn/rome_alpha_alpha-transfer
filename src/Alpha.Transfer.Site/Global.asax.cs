@@ -1,11 +1,6 @@
 ﻿namespace Alpha.Transfer.Site
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Reflection;
-    using System.Web.Mvc;
-    using System.Web.Routing;
+    using Alpha.Logging;
     using App_Start;
     using Auth.Filters;
     using Configurations;
@@ -17,10 +12,15 @@
     using ONEbook.UM.Filters;
     using Requests;
     using Sunplus.Agent.Model.Entities;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Reflection;
+    using System.Web.Mvc;
+    using System.Web.Routing;
     using Web;
     using Web.Filters;
     using Web.Helpers;
-    using Web.Filters;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -47,17 +47,12 @@
             AppSettings.Verify();
 
             ShareSession.Init();
-
+            LoggingConfig.Init(getDbExceptionInfo: DatabaseInfoGetters.GetDbExceptionInfo);
             GlobalFilters.Filters.Add(new CheckUMFilter());
             GlobalFilters.Filters.Add(new CheckBelongingFilter());
             GlobalFilters.Filters.Add(new AfterLoginFlowFilter());
 
             StaticResources.Init(GetBuildVersion());
-
-            var loggingConfiguration = new LoggingConfiguration()
-                .UseGetDbExceptionInfo(DatabaseInfoGetters.GetDbExceptionInfo);
-
-            ExceptionHandler.UseConfig(loggingConfiguration);
         }
 
         protected void Application_Error()

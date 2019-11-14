@@ -39,9 +39,14 @@
         public int Status { get; }
 
         public override string GetSettingKey()
-            => UserLevel.IsAgentLevel() ? "Age_Transfer_SelList_Ag"
-            : UserLevel.IsMasterLevel() ? "Age_Transfer_SelList_MAg"
-            : "Age_Transfer_SelList_SAg";
+        {
+            if (UserLevel.IsAgentLevel())
+            {
+                return "Age_Transfer_SelList_Ag";
+            }
+
+            return UserLevel.IsMasterLevel() ? "Age_Transfer_SelList_MAg" : "Age_Transfer_SelList_SAg";
+        }
 
         public override bool IsValid()
             => CustId > 0;
@@ -58,9 +63,19 @@
                 ["totalpages"] = 0
             };
 
-            var custIdName = UserLevel.IsAgentLevel() ? "custid"
-                : UserLevel.IsMasterLevel() ? "masterid"
-                : "sagid";
+            string custIdName;
+            if (UserLevel.IsAgentLevel())
+            {
+                custIdName = "custid";
+            }
+            else if (UserLevel.IsMasterLevel())
+            {
+                custIdName = "masterid";
+            }
+            else
+            {
+                custIdName = "sagid";
+            }
 
             result[custIdName] = CustId;
 

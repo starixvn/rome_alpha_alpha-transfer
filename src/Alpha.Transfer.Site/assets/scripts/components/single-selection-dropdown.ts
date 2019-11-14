@@ -1,12 +1,12 @@
 ﻿"use strict";
 interface JQuery {
-    multiselect(option: any): void;
+    multiselect(option: object): void;
 }
 
 class SingleSelectionDropdownOption {
     constructor(
-        public dropdownId: string = "dropdown-single",
-        public inputId: string = "UserSelectedId",
+        public dropdownId = "dropdown-single",
+        public inputId = "UserSelectedId",
         public onChange: Function = null) {
     }
 }
@@ -26,16 +26,15 @@ class SingleSelectionDropdownComponent {
     }
 
     render = (options: SingleSelectionDropdownOption = new SingleSelectionDropdownOption()) => {
-        this.options = <SingleSelectionDropdownOption>this.$.extend({}, this.options, options);
+        this.options = this.$.extend({}, this.options, options) as SingleSelectionDropdownOption;
 
-        let $dropdown = this.$("#" + this.options.dropdownId);
+        const $dropdown = this.$("#" + this.options.dropdownId);
         this.$dropdown = $dropdown;
 
-        let $hiddenInput = this.$("#" + this.options.inputId);
+        const $hiddenInput = this.$("#" + this.options.inputId);
         this.$hiddenInput = $hiddenInput;
 
-        let self = this;
-        this.selectedValue = self.getSelectedItem();
+        this.selectedValue = this.getSelectedItem();
 
         this.$dropdown.multiselect({
             multiple: false,
@@ -46,9 +45,9 @@ class SingleSelectionDropdownComponent {
         });
     };
     getSelectedItem = () => {
-        let selected = [];
-        let selectedOptions = this.$dropdown.find("option:selected");
-        let this$ = this.$;
+        const selected = [];
+        const selectedOptions = this.$dropdown.find("option:selected");
+        const this$ = this.$;
 
         selectedOptions.each(function () {
             selected.push([this$(this).val()]);
@@ -67,18 +66,3 @@ class SingleSelectionDropdownComponent {
         }
     };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

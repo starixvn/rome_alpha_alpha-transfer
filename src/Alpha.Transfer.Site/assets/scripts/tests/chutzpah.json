@@ -19,11 +19,18 @@
     { "Path": "libs/jasmine-jquery.js" },
 
     { "Path": "libs/jquery/blockUI.js" },
-    { "Path": "../cash-balance-transfer/cash-balance.ts" }
+    { "Path": "libs/autocomplete.js" },
+    { "Path": "../cash-balance-transfer/cash-balance.ts" },
+    { "Path": "../transfer-all-clear-credit/calculation.ts" },
+    { "Path": "../transfer-all-clear-credit/transfer-result.ts" }
   ],
   "Tests": [
     {
       "Path": "apps/cash-balance-transfer",
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    },
+    {
+      "Path": "apps/transfer-all-clear-credit",
       "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
     }
   ]

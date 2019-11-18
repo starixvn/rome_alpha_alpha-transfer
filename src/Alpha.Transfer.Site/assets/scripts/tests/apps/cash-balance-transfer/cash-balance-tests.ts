@@ -11,7 +11,7 @@
                         </div>
                         <div class="section">
                             <div class="row">
-                                <form id="form-transfer" action="~/transfer/cashbalance" method="post">
+                                <form id="form-transfer" action="/transfer/cashbalance" method="post">
                                     <input type="hidden" name="__RequestVerificationToken" value="5nFn1XfKxq2vtqYAHFKl7Vx0Em9gCwylySx-XWSEpg6EOO8_Xj5BcJ0LAzh3H7yBo57-8mZBuhD06ai70i6JfHi0NP1mqlTVDGagVDvliVl4PCB00" />
                                     <div class="form-group">
                                         <label for="amount">Amount</label>
@@ -380,7 +380,7 @@
             let validationObject: any = cashBalance.getValidationObject();
 
             // assert
-            expect(validationObject.code).toBe(400);
+            expect(validationObject.Code).toBe(400);
         });
 
         it("_Amount < FromValue -> Code = 400", () => {
@@ -391,7 +391,7 @@
             let validationObject: any = cashBalance.getValidationObject();
 
             // assert
-            expect(validationObject.code).toBe(400);
+            expect(validationObject.Code).toBe(400);
         });
 
         it("_Amount > ToValue -> Code = 400", () => {
@@ -402,7 +402,7 @@
             let validationObject: any = cashBalance.getValidationObject();
 
             // assert
-            expect(validationObject.code).toBe(400);
+            expect(validationObject.Code).toBe(400);
         });
 
         it("_Valid Amount -> Code = 0", () => {
@@ -413,7 +413,7 @@
             let validationObject: any = cashBalance.getValidationObject();
 
             // assert
-            expect(validationObject.code).toBe(0);
+            expect(validationObject.Code).toBe(0);
         });
 
         it("_Amount = FromValue -> Code = 0", () => {
@@ -424,7 +424,7 @@
             let validationObject: any = cashBalance.getValidationObject();
 
             // assert
-            expect(validationObject.code).toBe(0);
+            expect(validationObject.Code).toBe(0);
         });
 
         it("_Amount = ToValue -> Code = 0", () => {
@@ -435,7 +435,7 @@
             let validationObject: any = cashBalance.getValidationObject();
 
             // assert
-            expect(validationObject.code).toBe(0);
+            expect(validationObject.Code).toBe(0);
         });
     });
 

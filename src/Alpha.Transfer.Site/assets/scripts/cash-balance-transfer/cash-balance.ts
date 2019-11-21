@@ -1,12 +1,58 @@
 ﻿"use strict";
 
+interface Window {
+    OnPopupComplete(isReload: boolean): void;
+}
+
+class KeyboardValue {
+    readonly Delete = 46;
+    readonly BackSpace = 8;
+    readonly Tab = 9;
+    readonly Escape = 27;
+    readonly Enter = 13;
+    readonly LowercaseN = 110;
+    readonly YEN = 190;
+    readonly Thron = 231;
+    readonly Cent = 189;
+    readonly LowercaseM = 46;
+    readonly ExclamationMarks = 173;
+
+    readonly CapitalA = 65;
+    readonly CapitalC = 67;
+    readonly CapitalX = 88;
+
+    readonly End = 35;
+    readonly Right = 39;
+    readonly Number0 = 48;
+    readonly Number9 = 57;
+    readonly Numpad0 = 96;
+    readonly Numpad9 = 105;
+
+    isEditNumber = function (keyCode: number, isCtrl: boolean) {
+        const editNumberKeys =
+            [this.Delete, this.BackSpace, this.Tab, this.Escape, this.Enter, this.LowercaseN,
+            this.YEN, this.Thron, this.Cent, this.LowercaseM, this.ExclamationMarks];
+
+        return editNumberKeys.indexOf(keyCode) !== -1 ||
+            ([this.CapitalA, this.CapitalC, this.CapitalX].indexOf(keyCode) !== -1 && isCtrl) ||
+            // allow: home, end, left, right
+            (this.End <= keyCode && keyCode <= this.Right);
+    };
+}
+
+class Result {
+    Code: number;
+    Message: string;
+    Amount: number;
+}
+
 class CashBalance {
     $: JQueryStatic;
-    topWindow: any;
+    topWindow: Window;
 
     availableAmountFrom: number;
     availableAmountTo: number;
-    oldAmount: number = 0;
+    oldAmount = 0;
     availableRangeTransfer: string;
     confirmTransfer: string;
     transferAmountIs: string;
@@ -20,7 +66,9 @@ class CashBalance {
     $userName: JQuery;
     $token: JQuery;
 
-    constructor($: JQueryStatic, topWindow: any) {
+    keyboardValue = new KeyboardValue();
+
+    constructor($: JQueryStatic, topWindow: Window) {
         this.$ = $;
         this.topWindow = topWindow;
     }
@@ -54,35 +102,29 @@ class CashBalance {
             .keyup(this.amountKeyUp);
     };
 
-    amountKeyDown = (e: any) => {
+    amountKeyDown = (e: JQueryKeyEventObject) => {
         // allow: backspace, delete, tab, escape, enter, - and .
-        if (this.$.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 231, 189, 109, 173]) !== -1 ||
-            // allow: Ctrl/cmd+A
-            (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-            // allow: Ctrl/cmd+C
-            (e.keyCode === 67 && (e.ctrlKey === true || e.metaKey === true)) ||
-            // allow: Ctrl/cmd+X
-            (e.keyCode === 88 && (e.ctrlKey === true || e.metaKey === true)) ||
-            // allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
+        const isCtrl = e.ctrlKey === true || e.metaKey === true;
+        if (this.keyboardValue.isEditNumber(e.keyCode, isCtrl)) {
             // let it happen, don't do anything
             return;
         }
 
-        // ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+        // ensure that it is not a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < this.keyboardValue.Number0 || this.keyboardValue.Number9 < e.keyCode))
+            && (e.keyCode < this.keyboardValue.Numpad0 || this.keyboardValue.Numpad9 < e.keyCode)) {
             e.preventDefault();
         }
     };
 
-    amountKeyUp = (e: any) => {
-        let amountValue: string = this.$amount.val();
+    amountKeyUp = (e: JQueryKeyEventObject) => {
+        const amountValue = this.$amount.val();
 
         if (amountValue.length === 0 || amountValue === "-") {
             return;
         }
 
-        let amount: number = parseFloat(amountValue.replace(/\,/g, ""));
+        const amount = parseFloat(amountValue.replace(/\,/g, ""));
 
         if (!isNaN(amount) && amount !== this.oldAmount) {
             this.oldAmount = amount;
@@ -95,7 +137,7 @@ class CashBalance {
     };
 
     showMessage = (code: number, message: string) => {
-        var className: string = code === 0 ? "msg msg-success" : "msg msg-error";
+        const className: string = code === 0 ? "msg msg-success" : "msg msg-error";
 
         this.$msgContent.removeClass().html(message).addClass(className);
         this.$msgContainer.removeClass("hidden");
@@ -114,12 +156,14 @@ class CashBalance {
 
     amountEqualTo = (amount: number, comparedValue: number): boolean => {
         if (comparedValue !== 0 && amount !== comparedValue) {
-            let decimals: number = this.countDecimals(amount);
+            const decimals: number = this.countDecimals(amount);
+            const decimalDigits = 2;
+            const percent = 100;
 
-            if (decimals === 1 || decimals === 2) {
+            if (decimals === 1 || decimals === decimalDigits) {
                 return comparedValue > 0 ?
-                    Math.floor(amount * 100) === Math.ceil(comparedValue * 100) :
-                    Math.floor(amount * 100) === Math.floor(comparedValue * 100);
+                    Math.floor(amount * percent) === Math.ceil(comparedValue * percent) :
+                    Math.floor(amount * percent) === Math.floor(comparedValue * percent);
             }
         }
 
@@ -132,22 +176,23 @@ class CashBalance {
 
     isNumeric = (value: string) => {
         value = value.replace(/\,/g, "");
-        var regExp = /^-?(\d+|\d+\.\d*|\d*\.\d+)$/;
+        const regExp = /^-?(\d+|\d+\.\d*|\d*\.\d+)$/;
         return value.match(regExp);
     };
 
-    getValidationObject = (): any => {
-        let validationObject: any = {};
-        let amountValue: string = this.$amount.val();
+    getValidationObject = (): Result => {
+        const validationObject = new Result();
+        const amountValue: string = this.$amount.val();
+        const isNotNumberCode = 400;
 
         if (amountValue.length !== 0 && !this.isNumeric(amountValue)) {
-            validationObject.code = 400;
-            validationObject.message = this.invalidValue;
+            validationObject.Code = isNotNumberCode;
+            validationObject.Message = this.invalidValue;
             return validationObject;
         }
 
-        let confirmMessage: string = "";
-        let amount: number = amountValue.length === 0 ? 0 : parseFloat(amountValue.replace(/\,/g, ""));
+        let confirmMessage = "";
+        let amount = amountValue.length === 0 ? 0 : parseFloat(amountValue.replace(/\,/g, ""));
 
         if (this.amountEqualTo(amount, this.availableAmountFrom)) {
             amount = this.availableAmountFrom;
@@ -158,68 +203,66 @@ class CashBalance {
         }
 
         if (confirmMessage.length === 0 && !this.validateAmount(amount)) {
-            validationObject.code = 400;
-            validationObject.message = this.availableRangeTransfer;
+            validationObject.Code = isNotNumberCode;
+            validationObject.Message = this.availableRangeTransfer;
         } else {
-            validationObject.code = 0;
+            validationObject.Code = 0;
 
             confirmMessage += this.confirmTransfer;
-            validationObject.message = confirmMessage;
+            validationObject.Message = confirmMessage;
 
-            validationObject.amount = amount;
+            validationObject.Amount = amount;
         }
 
         return validationObject;
     };
 
-    afterAddTransferSuccessfully = (data: any) => {
+    afterAddTransferSuccessfully = (data: Result) => {
         this.showMessage(data.Code, data.Message);
 
-        if (data.Code === 105) {
-            setTimeout(function () {
-                location.reload(true);
-            }, 3000);
+        const error = 105;
+        const reloadTime = 3000;
+        if (data.Code === error) {
+            setTimeout(function () { location.reload(); }, reloadTime);
         } else if (data.Code === 0) {
             this.topWindow.OnPopupComplete(true);
         }
     };
 
-    doTransfer = (e: any) => {
+    doTransfer = (e: JQueryEventObject) => {
         e.preventDefault();
 
         this.$.blockUI();
 
-        let validationObject: any = this.getValidationObject();
+        const validationObject = this.getValidationObject();
 
-        if (validationObject.code !== 0) {
-            this.showMessage(validationObject.code, validationObject.message);
+        if (validationObject.Code !== 0) {
+            this.showMessage(validationObject.Code, validationObject.Message);
             this.$.unblockUI();
             return;
         }
 
         this.hideMessage();
 
-        if (!confirm(validationObject.message)) {
+        if (!confirm(validationObject.Message)) {
             this.$.unblockUI();
             return;
         }
 
-        let postParams: any = {
+        const postParams = {
             __RequestVerificationToken: this.$token.val(),
             custId: this.$custId.val(),
-            amount: validationObject.amount
+            amount: validationObject.Amount
         };
 
-        var self: any = this;
+        const this$ = this.$;
 
         this.$.post(this.$formTransfer.attr("action"), postParams, this.afterAddTransferSuccessfully, "json")
-            .always(function () {
-                self.$.unblockUI();
-            });
+            .always(function () { this$.unblockUI(); });
     };
 }
 
 $(() => {
-    let cashBalance: any = new CashBalance($, window.top);
+    const cashBalance = new CashBalance($, window.top);
     cashBalance.init();
 });

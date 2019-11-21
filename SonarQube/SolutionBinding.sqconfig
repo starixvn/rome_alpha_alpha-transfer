@@ -1,10 +1,12 @@
 {
-  "ServerUri": "http://sonarqube-dev.nexdev.net/",
+  "ServerUri": "https://sonarqube.nexdev.net",
+  "Organization": null,
   "ProjectKey": "Alpha-Transfer",
+  "ProjectName": "Alpha / Alpha Transfer",
   "Profiles": {
     "CSharp": {
       "ProfileKey": "cs-sonar-way-80515",
-      "ProfileTimestamp": "2018-05-30T11:15:26+07:00"
+      "ProfileTimestamp": "2019-10-01T13:55:11+07:00"
     }
   }
 }

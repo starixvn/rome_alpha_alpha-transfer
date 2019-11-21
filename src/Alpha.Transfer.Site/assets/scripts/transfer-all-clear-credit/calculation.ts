@@ -1,5 +1,8 @@
 ﻿"use strict";
-declare var initAutoComplete: any;
+declare var initAutoComplete: Function;
+interface Window {
+    bootboxConfirm(message: string, handleElement: object, acceptCallback: Function): void;
+}
 
 class TransferAllAndClearCredit {
     $: JQueryStatic;
@@ -12,14 +15,13 @@ class TransferAllAndClearCredit {
     $IsClearCredit: JQuery;
     $usernameTransfer: JQuery;
 
-    topWindow: any;
+    topWindow: Window;
     clearCreditConfirm: string;
     transferAllConfirm: string;
     canTransfer: boolean;
     canClearCredit: boolean;
 
-    constructor($: JQueryStatic,
-        topWindow: any) {
+    constructor($: JQueryStatic, topWindow: Window) {
         this.$ = $;
         this.topWindow = topWindow;
     }
@@ -27,18 +29,15 @@ class TransferAllAndClearCredit {
     init = () => {
         this.cacheElements();
 
-        var queryUsernameURL = this.$usernameAutoSuggestionPath.val() + "?" +
-            this.$.param({
-                isDir: 1,
-                issub: 0,
-                ismember: 0
-            });
+        const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1, issub: 0, ismember: 0 })}`;
 
         initAutoComplete(this.$username[0], queryUsernameURL);
-        this.$output.css("top", this.$username.offset().top + 30);
+
+        const positionTop = 30;
+        this.$output.css("top", this.$username.offset().top + positionTop);
 
         this.$username.keyup(() => {
-            if (this.$username.val().trim() == "") {
+            if (this.$username.val().trim() === "") {
                 this.$username.addClass("text-italic");
             } else {
                 this.$username.removeClass("text-italic");
@@ -74,16 +73,16 @@ class TransferAllAndClearCredit {
         this.transferAllConfirm = this.$("#TransferAllConfirm").val();
 
         this.$("#transfer-clear-credit-form").submit((e) => {
-            if (this.$username.val().trim() == "") {
+            if (this.$username.val().trim() === "") {
                 e.preventDefault();
             }
         });
-        this.canTransfer = this.$("#CanTransfer").val() == "1";
-        this.canClearCredit = this.$("#CanClearCredit").val() == "1";
+        this.canTransfer = this.$("#CanTransfer").val() === "1";
+        this.canClearCredit = this.$("#CanClearCredit").val() === "1";
     };
     submitTransferAndClearCredit = () => {
-        var isClearCredit = this.$chkClearCredit.is(":checked");
-        var message = isClearCredit ? this.clearCreditConfirm : this.transferAllConfirm;
+        const isClearCredit = this.$chkClearCredit.is(":checked");
+        const message = isClearCredit ? this.clearCreditConfirm : this.transferAllConfirm;
         this.topWindow.bootboxConfirm(message, null, () => {
             this.$.blockUI();
             this.$IsClearCredit.val(isClearCredit.toString());

@@ -1,5 +1,10 @@
 ﻿"use strict";
-declare var initAutoComplete: any;
+declare var initAutoComplete: Function;
+interface Window {
+    popupManager: {
+        open: Function
+    };
+}
 
 class CustomerList {
     $: JQueryStatic;
@@ -15,10 +20,10 @@ class CustomerList {
     $information: JQuery;
     transferInformationPath: string;
 
-    topWindow: any;
+    topWindow: Window;
 
     constructor($: JQueryStatic,
-        topWindow: any,
+        topWindow: Window,
         statusComponent: SingleSelectionDropdownComponent) {
         this.$ = $;
         this.topWindow = topWindow;
@@ -28,14 +33,11 @@ class CustomerList {
     init = () => {
         this.cacheElements();
 
-        var queryUsernameURL = this.$usernameAutoSuggestionPath.val() + "?" +
-            this.$.param({
-                issub: 0,
-                ismember: 0
-            });
-
+        const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val().toString()}?${this.$.param({ issub: 0, ismember: 0 })}`;
         initAutoComplete(this.$username[0], queryUsernameURL);
-        this.$output.css("top", this.$username.offset().top + 30);
+
+        const positionTop = 30;
+        this.$output.css("top", this.$username.offset().top + positionTop);
 
         this.$statusComponent.render(
             new SingleSelectionDropdownOption("dropdown-status", "Status", this.changeStatus));
@@ -66,7 +68,10 @@ class CustomerList {
         this.$AllYesterdayBalance.val(this.$chkAllYesterdayBalance.is(":checked") ? "true" : "false");
     };
     showInformation = () => {
-        this.topWindow.popupManager.open(this.transferInformationPath, "", 560, 400);
+        const width = 560;
+        const height = 400;
+
+        this.topWindow.popupManager.open(this.transferInformationPath, "", width, height);
     };
 }
 

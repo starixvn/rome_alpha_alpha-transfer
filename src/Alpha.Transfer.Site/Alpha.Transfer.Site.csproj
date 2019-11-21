@@ -36,7 +36,7 @@
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Alpha.Transfer.Site.Debug.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\SonarQube\Alpha-TransferCSharp.ruleset</CodeAnalysisRuleSet>
     <NoWarn>618</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -297,6 +297,7 @@
     <Content Include="assets\bundles\transfer-all-clear-credit\transfer-result.min.js" />
     <Content Include="assets\bundles\transfer-hint.css" />
     <Content Include="assets\bundles\transfer-hint.min.css" />
+    <Content Include="assets\scripts\tests\libs\autocomplete.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\modal.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\multiselect.js" />
@@ -490,7 +491,6 @@
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Alpha.Transfer\Alpha.Transfer.csproj">
       <Project>{badea5eb-30ae-4174-8f41-e7405bd099f5}</Project>
@@ -500,7 +500,15 @@
   <ItemGroup>
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\multiple-transfer\customer-list.ts" />
-    <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts" />
+    <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-all-clear-credit\calculation-tests.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-all-clear-credit\transfer-result-tests.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\transfer-result.ts" />
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\calculation.ts" />
     <TypeScriptCompile Include="assets\scripts\cash-balance-transfer\cash-balance.ts" />
@@ -517,11 +525,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

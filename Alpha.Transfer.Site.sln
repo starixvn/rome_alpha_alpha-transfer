@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0C520502-598C-4FE8-B1CF-6CDAC67BB8CE}"
 EndProject
@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Transfer.Tests", "tes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{DC9352BE-95A6-44B5-9114-A87D036E2920}"
 	ProjectSection(SolutionItems) = preProject
-		SonarQube\Alpha-MemberInfoCSharp.ruleset = SonarQube\Alpha-MemberInfoCSharp.ruleset
+		SonarQube\Alpha-TransferCSharp.ruleset = SonarQube\Alpha-TransferCSharp.ruleset
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
 	EndProjectSection
 EndProject
@@ -52,5 +52,8 @@ Global
 		{C5F27202-0E9E-4505-BC7B-F4D8ECEC3788} = {0C520502-598C-4FE8-B1CF-6CDAC67BB8CE}
 		{D88D4BD4-13AD-42F9-8959-08050447A660} = {6439B911-60C3-413C-99D1-C2E8FBF85B93}
 		{1A02062C-946B-4CEA-82F3-9D5D4CB3A8EA} = {6439B911-60C3-413C-99D1-C2E8FBF85B93}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D89DC2E-62E4-4A9F-A674-822252219E9D}
 	EndGlobalSection
 EndGlobal

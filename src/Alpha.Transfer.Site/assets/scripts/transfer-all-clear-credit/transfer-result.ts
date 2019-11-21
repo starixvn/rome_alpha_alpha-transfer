@@ -1,5 +1,8 @@
 ﻿"use strict";
-declare var initAutoComplete: any;
+declare var initAutoComplete: Function;
+interface Window {
+    bootboxConfirm(message: string, handleElement: object, acceptCallback: Function): void;
+}
 
 class TransferResult {
     $: JQueryStatic;
@@ -12,12 +15,11 @@ class TransferResult {
     $IsClearCredit: JQuery;
     $usernameTransfer: JQuery;
 
-    topWindow: any;
+    topWindow: Window;
     clearCreditConfirm: string;
     transferAllConfirm: string;
 
-    constructor($: JQueryStatic,
-        topWindow: any) {
+    constructor($: JQueryStatic, topWindow: Window) {
         this.$ = $;
         this.topWindow = topWindow;
     }
@@ -25,24 +27,21 @@ class TransferResult {
     init = () => {
         this.cacheElements();
 
-        var queryUsernameURL = this.$usernameAutoSuggestionPath.val() + "?" +
-            this.$.param({
-                isDir: 1,
-                issub: 0,
-                ismember: 0
-            });
+        const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1, ismember: 0, issub: 0 })}`;
 
         initAutoComplete(this.$username[0], queryUsernameURL);
-        this.$output.css("top", this.$username.offset().top + 30);
+
+        const positionTop = 30;
+        this.$output.css("top", this.$username.offset().top + positionTop);
         this.$submit.click(this.submitTransferAndClearCredit);
         this.$("#transfer-clear-credit-form").submit((e) => {
-            if (this.$username.val().trim() == "") {
+            if (this.$username.val().trim() === "") {
                 e.preventDefault();
             }
         });
 
         this.$username.keyup(() => {
-            if (this.$username.val().trim() == "") {
+            if (this.$username.val().trim() === "") {
                 this.$username.addClass("text-italic");
             } else {
                 this.$username.removeClass("text-italic");
@@ -57,16 +56,16 @@ class TransferResult {
         this.$submit = this.$("#btn-submit");
 
         this.$transferResultForm = this.$("#transfer-result-form");
-        this.$chkClearCredit = this.$("#chk-clear-credit");
         this.$IsClearCredit = this.$("#IsClearCredit");
+        this.$chkClearCredit = this.$("#chk-clear-credit");
         this.$usernameTransfer = this.$("#txt-username-transfer");
 
         this.clearCreditConfirm = this.$("#ClearCreditConfirm").val();
         this.transferAllConfirm = this.$("#TransferAllConfirm").val();
     };
     submitTransferAndClearCredit = () => {
-        var isClearCredit = this.$chkClearCredit.is(":checked");
-        var message = isClearCredit ? this.clearCreditConfirm : this.transferAllConfirm;
+        const isClearCredit = this.$chkClearCredit.is(":checked");
+        const message = isClearCredit ? this.clearCreditConfirm : this.transferAllConfirm;
         this.topWindow.bootboxConfirm(message, null, () => {
             this.$.blockUI();
             this.$IsClearCredit.val(isClearCredit.toString());

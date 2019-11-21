@@ -1,11 +1,14 @@
 ﻿namespace Alpha.Transfer.Tests.Services
 {
     using System;
+    using System.Configuration;
     using System.Threading.Tasks;
     using AppResources;
     using Fanex.Data.Repository;
+    using Fanex.Logging.Extensions.Database;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
+    using Logging;
     using NSubstitute;
     using NSubstitute.ExceptionExtensions;
     using Transfer.Criteria;
@@ -26,6 +29,7 @@
         public CashBalanceTransferServiceImplTests(AnyValueCreatorFixture anyValueCreatorFixture)
         {
             this.anyValueCreatorFixture = anyValueCreatorFixture;
+            LoggingConfig.Init(getDbExceptionInfo: DatabaseInfoGetters.GetDbExceptionInfo);
 
             dynamicRepository = Substitute.For<IDynamicRepository>();
             serviceImpl = new CashBalanceTransferServiceImpl(dynamicRepository);

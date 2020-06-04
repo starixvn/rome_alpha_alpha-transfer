@@ -39,7 +39,8 @@
                 67599433.9247M,
                 1101240.3283M,
                 342552.00M,
-                900000002.00M);
+                900000002.00M,
+                0);
 
             var expectedViewModel = new CashBalanceTransferViewModel(
                 cashBalanceTransfer.UplineCashBalance,
@@ -48,7 +49,8 @@
                 Enumeration.FromValue<UserLevel>(cashBalanceTransfer.RoleId),
                 cashBalanceTransfer.CashBalance,
                 cashBalanceTransfer.Outstanding,
-                cashBalanceTransfer.GivenCredit);
+                cashBalanceTransfer.GivenCredit,
+                cashBalanceTransfer.PendingTransfer3rd);
 
             service.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
 
@@ -72,7 +74,8 @@
                 0,
                 1101240.3283M,
                 1101240.3283M,
-                900000002.00M);
+                900000002.00M,
+                0);
 
             var hintFromResource = Resources.HintNotAvailableToTransfer;
 
@@ -98,7 +101,8 @@
                 0,
                 1101240.3283M,
                 1101240.3283M,
-                900000002.00M);
+                900000002.00M,
+                0);
 
             var levelName = Resources.Member;
 
@@ -124,7 +128,8 @@
                 0,
                 1101240.3283M,
                 1101240.3283M,
-                900000002.00M);
+                900000002.00M,
+                0);
 
             var levelName = Resources.Agent;
 
@@ -194,7 +199,7 @@
             service.GetAllowTransfer(Arg.Any<int>()).Returns(string.Empty);
 
             //// Act
-            var act = await handler.Handle(message);
+            await handler.Handle(message);
 
             //// Assert
             await service.Received().GetAllowTransfer(Arg.Any<int>());

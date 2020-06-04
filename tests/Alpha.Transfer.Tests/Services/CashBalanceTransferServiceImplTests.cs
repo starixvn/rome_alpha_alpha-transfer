@@ -1,7 +1,6 @@
 ﻿namespace Alpha.Transfer.Tests.Services
 {
     using System;
-    using System.Configuration;
     using System.Threading.Tasks;
     using AppResources;
     using Fanex.Data.Repository;
@@ -47,7 +46,8 @@
                 67599433.9247M,
                 1101240.3283M,
                 342552.00M,
-                900000002.00M);
+                900000002.00M,
+                0);
 
             dynamicRepository.GetAsync<CashBalanceTransfer>(Arg.Any<GetCashBalanceTransferCriteria>())
                 .Returns(cashBalanceTransfer);

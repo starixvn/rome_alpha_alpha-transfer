@@ -30,7 +30,8 @@
                 Enumeration.FromValue<UserLevel>(model.RoleId),
                 model.CashBalance,
                 model.Outstanding,
-                model.GivenCredit);
+                model.GivenCredit,
+                model.PendingTransfer3rd);
         }
 
         public async Task<Result> Handle(CashBalanceTransferCommand message)

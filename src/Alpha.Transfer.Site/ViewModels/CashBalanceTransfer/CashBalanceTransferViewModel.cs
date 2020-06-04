@@ -12,7 +12,8 @@
             UserLevel custUserLevel,
             decimal cashBalance,
             decimal outstanding,
-            decimal givenCredit)
+            decimal givenCredit,
+            decimal pendingTransfer3rd)
         {
             UplineCashBalance = uplineCashBalance;
             CustId = custId;
@@ -22,7 +23,7 @@
             Outstanding = outstanding;
             GivenCredit = givenCredit;
 
-            TransferAmountFrom = CashBalance - Outstanding;
+            TransferAmountFrom = CashBalance - Outstanding - pendingTransfer3rd;
             TransferAmountFrom = TransferAmountFrom > 0 ? TransferAmountFrom * -1 : 0;
             TransferAmountTo = UplineCashBalance > 0 ? UplineCashBalance : 0;
 

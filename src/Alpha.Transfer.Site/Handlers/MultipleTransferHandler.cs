@@ -1,6 +1,5 @@
 ﻿namespace Alpha.Transfer.Site.Handlers
 {
-    using System.Threading.Tasks;
     using MediatR;
     using Params.MultipleTransfer;
     using Requests.MultipleTransfer;

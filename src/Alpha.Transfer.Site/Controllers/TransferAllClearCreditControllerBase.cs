@@ -1,11 +1,11 @@
-﻿using Alpha.Auth.Configurations;
-using Alpha.Web;
-using MediatR;
-using Sunplus.Agent.Model.Entities;
-using System;
+﻿using System;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
+using Alpha.Auth.Configurations;
+using Alpha.Web;
+using MediatR;
+using Sunplus.Agent.Model.Entities;
 
 namespace Alpha.Transfer.Site.Controllers
 {
@@ -50,12 +50,7 @@ namespace Alpha.Transfer.Site.Controllers
 
         private static bool NotOfferTransferAllAndClearCredit(IUserSession userSession)
         {
-            return !AppSettings.OfferClearGivenCreditSites.Any(s => string.Equals(s, userSession.Site, StringComparison.OrdinalIgnoreCase)) ||
-                (AppSettings.OfferClearGivenCreditSites.Any(s => string.Equals(s, userSession.Site, StringComparison.OrdinalIgnoreCase)) &&
-                AppSettings.OfferClearGivenCreditExcludeCustIds.Any(s => string.Equals(s, userSession.CustId.ToString()) ||
-                                                                        string.Equals(s, userSession.SRecommendId.ToString()) ||
-                                                                        string.Equals(s, userSession.MRecommendId.ToString()) ||
-                                                                        string.Equals(s, userSession.ARecommendId.ToString())));
+            return !AppSettings.OfferClearGivenCreditSites.Any(s => string.Equals(s, userSession.Site, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

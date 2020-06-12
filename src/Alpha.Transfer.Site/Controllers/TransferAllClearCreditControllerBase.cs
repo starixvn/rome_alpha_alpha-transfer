@@ -50,8 +50,7 @@ namespace Alpha.Transfer.Site.Controllers
 
         private static bool NotOfferTransferAllAndClearCredit(IUserSession userSession)
         {
-            return !AppSettings.OfferClearGivenCreditSites.Any(s => string.Equals(s, userSession.Site, StringComparison.OrdinalIgnoreCase)) ||
-                (AppSettings.OfferClearGivenCreditSites.Any(s => string.Equals(s, userSession.Site, StringComparison.OrdinalIgnoreCase)));
+            return !AppSettings.OfferClearGivenCreditSites.Any(s => string.Equals(s, userSession.Site, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

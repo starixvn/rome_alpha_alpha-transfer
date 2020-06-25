@@ -118,7 +118,12 @@ class CashBalance {
     };
 
     amountKeyUp = (e: JQueryKeyEventObject) => {
-        const amountValue = this.$amount.val();
+        let amountValue = this.$amount.val();
+
+        if (e.keyCode === 109) {
+            amountValue = `-${amountValue}`;
+            this.$amount.val('-');
+        }
 
         if (amountValue.length === 0 || amountValue === "-") {
             return;

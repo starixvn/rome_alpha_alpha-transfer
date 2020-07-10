@@ -27,6 +27,7 @@ class KeyboardValue {
     readonly Number9 = 57;
     readonly Numpad0 = 96;
     readonly Numpad9 = 105;
+    readonly NegativeKeyCode = 109;
 
     isEditNumber = function (keyCode: number, isCtrl: boolean) {
         const editNumberKeys =
@@ -120,7 +121,7 @@ class CashBalance {
     amountKeyUp = (e: JQueryKeyEventObject) => {
         let amountValue = this.$amount.val();
 
-        if (e.keyCode === 109) {
+        if (e.keyCode === this.keyboardValue.NegativeKeyCode) {
             amountValue = `-${amountValue}`;
             this.$amount.val('-');
         }

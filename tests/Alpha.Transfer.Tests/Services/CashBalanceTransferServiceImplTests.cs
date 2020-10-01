@@ -3,6 +3,7 @@
     using System;
     using System.Threading.Tasks;
     using AppResources;
+    using Fanex.Caching;
     using Fanex.Data.Repository;
     using Fanex.Logging.Extensions.Database;
     using Fixtures;
@@ -23,6 +24,7 @@
     {
         private readonly AnyValueCreatorFixture anyValueCreatorFixture;
         private readonly IDynamicRepository dynamicRepository;
+        private readonly ICacheService cacheService;
         private readonly CashBalanceTransferService serviceImpl;
 
         public CashBalanceTransferServiceImplTests(AnyValueCreatorFixture anyValueCreatorFixture)
@@ -31,7 +33,8 @@
             LoggingConfig.Init(getDbExceptionInfo: DatabaseInfoGetters.GetDbExceptionInfo);
 
             dynamicRepository = Substitute.For<IDynamicRepository>();
-            serviceImpl = new CashBalanceTransferServiceImpl(dynamicRepository);
+            cacheService = Substitute.For<ICacheService>();
+            serviceImpl = new CashBalanceTransferServiceImpl(dynamicRepository, cacheService);
         }
 
         [Fact]
@@ -72,7 +75,7 @@
             dynamicRepository.GetAsync<CashBalanceTransfer>(new GetCashBalanceTransferCriteria(custId))
                 .Throws(new InvalidOperationException());
 
-            var cashBalanceTransferService = new CashBalanceTransferServiceImpl(dynamicRepository);
+            var cashBalanceTransferService = new CashBalanceTransferServiceImpl(dynamicRepository, cacheService);
 
             // Act & Assert
             Assert.ThrowsAsync<InvalidOperationException>(async () => await cashBalanceTransferService.GetCashBalanceTransferAsync(custId));

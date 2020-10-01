@@ -1,5 +1,11 @@
 ﻿namespace Alpha.Transfer.Site
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Reflection;
+    using System.Web.Mvc;
+    using System.Web.Routing;
     using Alpha.Logging;
     using App_Start;
     using Auth.Filters;
@@ -12,12 +18,6 @@
     using ONEbook.UM.Filters;
     using Requests;
     using Sunplus.Agent.Model.Entities;
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Reflection;
-    using System.Web.Mvc;
-    using System.Web.Routing;
     using Web;
     using Web.Filters;
     using Web.Helpers;

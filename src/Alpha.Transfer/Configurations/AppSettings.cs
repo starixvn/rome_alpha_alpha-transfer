@@ -24,8 +24,6 @@
 
         public static string TransferRedisConfigurationOptions => GetConfigValue("RedisConfigurationOptions:Alpha.Transfer");
 
-        public static string SiteGroup => GetConfigValue("SiteGroup");
-
         public static string GetConfigValue(string configName) => AppSettingValues[configName];
 
         public static void Verify()

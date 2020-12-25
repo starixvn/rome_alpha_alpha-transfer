@@ -14,5 +14,9 @@
   {
     "outputFile": "assets/bundles/transfer-hint.css",
     "inputFile": "assets/styles/transfer-hint.scss"
+  },
+  {
+    "outputFile": "assets/styles/transfer-to-downline-history.css",
+    "inputFile": "assets/styles/transfer-to-downline-history.scss"
   }
 ]

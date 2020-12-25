@@ -14,6 +14,9 @@
   <Function Name="Transfer all and Clear Credit">
     <Setting Key="Age_Transfer_Credit_All_Sel" SpName="Age_Transfer_Credit_All_Sel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
+  <Function Name="Transfer To Downline History">
+    <Setting Key="Age_Rpt_Downline_Transfer_History" SpName="Age_Rpt_Downline_Transfer_History_xtest" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+  </Function>
   <Function Name="Multiple Transfer">
     <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_Transfer_SelList_MAg" SpName="Age_Transfer_SelList_MAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />

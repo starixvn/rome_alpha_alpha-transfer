@@ -1,0 +1,84 @@
+﻿@using Alpha.Transfer.AppResources;
+@using Alpha.Transfer.Extensions;
+@using Alpha.Transfer.Site.ViewModels.Components;
+@using Alpha.Transfer.Utils;
+
+@helper Render(DateRangePickerViewModel model, IEnumerable<HelperResult> presubmitControls = null)
+{
+    <div id="daterange-picker"
+         class="daterange-picker"
+         data-currentdate="@SystemTime.Today"
+         data-mindate="@model.MinDate.ToShortDateWithSlash()"
+         data-maxdate="@model.MaxDate.ToShortDateWithSlash()">
+    </div>
+
+    <div class="form-group  from-date-box">
+        <label>@Resources.From</label>
+
+        <div class="control date">
+            <div id="from-date-container"
+                 class="input-group date fromdate">
+                <input type="text"
+                       id="from-date"
+                       name="FromDate"
+                       readonly="readonly"
+                       autocomplete="off"
+                       class="ui_nexdatepicker_datetextbox ui_nexdatepicker_fromdate form-control"
+                       value="@model.FromDate.ToShortDateWithSlash()" />
+                <span class="input-group-addon">
+                    <span class="icon-calendar" id="fdate_trigger"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group to-date-box">
+        <label>@Resources.To</label>
+
+        <div class="control date">
+            <div id="to-date-container"
+                 class="input-group date todate">
+                <input type="text"
+                       id="to-date"
+                       name="ToDate"
+                       readonly="readonly"
+                       autocomplete="off"
+                       class="ui_nexdatepicker_datetextbox ui_nexdatepicker_todate form-control"
+                       value="@model.ToDate.ToShortDateWithSlash()" />
+                <span class="input-group-addon">
+                    <span class="icon-calendar" id="tdate_trigger"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    if (presubmitControls != null)
+    {
+        foreach (var presubmitControl in presubmitControls)
+        {
+            @presubmitControl
+        }
+    }
+
+    if (model.IsRenderSubmitButton)
+    {
+        <div class="form-group submit-container">
+            <input type="submit" value="@Resources.Submit" class="btn-submit" />
+        </div>
+    }
+    <div class="form-group daterange-container">
+        <div class="dropdown daterange-dropdown" id="dropdown-daterange">
+            <input type="hidden" name="UserSelectedDateRangeOption" id="hidden-range-option" value="@model.SelectedRangeOption.Value" />
+            <button class="btn-submit dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span id="range-label">@model.SelectedRangeOption.Text</span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="range-label">
+                @foreach (var rangeOption in model.RangeOptions)
+                {
+                    <li><a href="#" class="range-option" data-value="@rangeOption.Value">@rangeOption.Text</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+
+}

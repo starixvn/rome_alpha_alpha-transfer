@@ -1,0 +1,90 @@
+﻿@model TransferToDownlineHistoryViewModel
+
+@{
+    ViewBag.Title = "Transfer To Downline History";
+}
+
+@section Styles {
+    @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/filter")
+    @StaticResources.RenderStyles("~/assets/bundles/transfer-to-downline-history")
+}
+
+<div class="page-title">
+    <span class="pull-left">@Resources.TransferToDownlineHistory</span>
+</div>
+
+<div class="box-header">
+    @Html.Partial("Filter", Model.FilterViewModel)
+</div>
+
+<div class="box-content">
+    <div class="table-responsive">
+        <table id="tbl-rpt" class="tblRpt tblRpt-bordered alternative-row-table">
+            <thead>
+                <tr>
+                    <td>
+                        Page Size:
+                        @Html.DropDownList("sel-pagesize", Model.PageSizeOptions)
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Resources.ActionDate</th>
+                    <th>@Model.DirectDownlineText</th>
+                    <th>@Resources.TransferType</th>
+                    <th>@Resources.TransferAmount</th>
+                    <th>@Resources.OldBalance</th>
+                    <th>@Resources.NewBalance</th>
+                    <th>@Resources.Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.TransferToDownlineHistories.Any())
+                {
+                    foreach (var data in Model.TransferToDownlineHistories)
+                    {
+                        @RenderRow(data)
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" style="text-align: center;">@Resources.NoInformationIsAvailable</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <form class="form-inline hide"
+          role="form"
+          id="export-excel-form"
+          action="Excel">
+        @Html.HiddenFor(model => model.UserName)
+        @Html.HiddenFor(model => model.FromDate)
+        @Html.HiddenFor(model => model.ToDate)
+        @Html.HiddenFor(model => model.PageSize)
+        @Html.HiddenFor(model => model.Page)
+    </form>
+
+    <div class="shadow" id="shadow"></div>
+    <div class="output" id="output"></div>
+    @Html.Hidden("usernameAutoSuggestionPath", TransferAllAndClearCreditViewModel.UsernameAutoSuggestionPath)
+</div>
+
+@section Scripts {
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-transfer/filter")
+    @StaticResources.RenderScripts("~/assets/bundles/transfer-to-downline-history/index")
+}
+
+@helper RenderRow(TransferToDownlineHistoryModel data)
+{
+    <tr>
+        <td>@data.ActionDate.ToLongDateWithSlash()</td>
+        <td>@data.DownlineName</td>
+        <td>@data.TransferType</td>
+        <td>@HtmlHelpers.FormatNumber(data.TransferAmount)</td>
+        <td>@HtmlHelpers.FormatNumber(data.OldBalance)</td>
+        <td>@HtmlHelpers.FormatNumber(data.NewBalance)</td>
+        <td>@data.Description</td>
+    </tr>
+}

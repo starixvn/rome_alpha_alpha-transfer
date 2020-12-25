@@ -35,5 +35,19 @@
       "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/multiple-transfer/customer-list.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history.css",
+    "inputFiles": [
+      "assets/styles/transfer-to-downline-history.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index.js",
+    "inputFiles": [
+      "assets/scripts/components/daterangepicker.js",
+      "assets/scripts/transfer-to-downline-history/index.js"
+    ],
+    "sourceMap": true
   }
 ]

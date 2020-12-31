@@ -4,9 +4,9 @@
     using System;
     using Utils;
 
-    public class GetTransferToDownlineHistoryParam
+    public class TransferToDownlineHistoryParam
     {
-        public GetTransferToDownlineHistoryParam(
+        public TransferToDownlineHistoryParam(
             int custId,
             string userName,
             DateTime fromDate,
@@ -18,8 +18,8 @@
             UserName = userName;
             FromDate = fromDate == DateTime.MinValue ? SystemTime.Today : fromDate;
             ToDate = toDate == DateTime.MinValue ? SystemTime.Today : toDate;
-            PageSize = pageSize == 0 ? PagerConstant.DefaultPageSize : pageSize;
-            Page = page == 0 ? PagerConstant.DefaultPageIndex : page;
+            PageSize = pageSize <= 0 ? PagerConstant.DefaultPageSize : pageSize;
+            Page = page <= 0 ? PagerConstant.DefaultPageIndex : page;
         }
 
         public int CustId { get; }

@@ -177,6 +177,30 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ONEbook.SpreadSheets, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.SpreadSheets.1.0.0.1\lib\net461\ONEbook.SpreadSheets.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ONEbook.SpreadSheets.NPOI, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.SpreadSheets.NPOI.1.0.0.3\lib\net461\ONEbook.SpreadSheets.NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ONEbook.UM, Version=2.0.2.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ONEbook.UM.2.0.2.7\lib\net40\ONEbook.UM.dll</HintPath>
       <Private>True</Private>
@@ -440,6 +464,8 @@
     <Compile Include="Handlers\CashBalanceTransferHandler.cs" />
     <Compile Include="Handlers\MultipleTransferHandler.cs" />
     <Compile Include="Handlers\TransferAllAndClearCreditHandler.cs" />
+    <Compile Include="Handlers\TransferToDownlineHistoryBaseHandler.cs" />
+    <Compile Include="Handlers\TransferToDownlineHistoryExcelHandler.cs" />
     <Compile Include="Handlers\TransferToDownlineHistoryHandler.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -451,10 +477,12 @@
     <Compile Include="Requests\TransferAllAndClearCredit\CalculationQuery.cs" />
     <Compile Include="Requests\TransferAllAndClearCredit\TransferResultQuery.cs" />
     <Compile Include="Requests\TransferBaseQuery.cs" />
+    <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryExcelQuery.cs" />
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryQuery.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\CashBalanceTransferViewModel.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\HintTransferViewModel.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
+    <Compile Include="ViewModels\ExcelFileViewModel.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferAllAndClearCreditViewModel.cs" />
@@ -466,7 +494,9 @@
     <Content Include="Views\web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="App_Data\AuthorizationSection.config">
@@ -483,6 +513,9 @@
       <DependentUpon>transfer-to-downline-history.css</DependentUpon>
     </Content>
     <Content Include="App_Code\Components\DateRangePicker.cshtml" />
+    <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Agent.xls" />
+    <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Master.xls" />
+    <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Member.xls" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -599,6 +632,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -176,7 +176,7 @@
     <Compile Include="Params\MultipleTransfer\GetCustomerListParam.cs" />
     <Compile Include="Params\TransferAllAndClearCredit\GetCalculationResultParam.cs" />
     <Compile Include="Params\TransferAllAndClearCredit\GetTransferResultParam.cs" />
-    <Compile Include="Params\TransferToDownlineHistory\GetTransferToDownlineHistoryParam.cs" />
+    <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CashBalanceTransferService.cs" />
     <Compile Include="Services\MultipleTransferService.cs" />

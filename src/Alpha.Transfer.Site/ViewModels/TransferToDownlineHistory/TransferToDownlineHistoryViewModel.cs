@@ -15,12 +15,12 @@
     {
         private const int reportMonth = -2;
         private readonly TransferToDownlineHistoryQuery message;
-        private readonly GetTransferToDownlineHistoryParam param;
+        private readonly TransferToDownlineHistoryParam param;
 
         public TransferToDownlineHistoryViewModel(
             IEnumerable<TransferToDownlineHistoryModel> transferToDownlineHistories,
             TransferToDownlineHistoryQuery message,
-            GetTransferToDownlineHistoryParam param)
+            TransferToDownlineHistoryParam param)
         {
             this.message = message;
             this.param = param;

@@ -9,7 +9,7 @@
 
     public interface TransferToDownlineHistoryService
     {
-        IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(GetTransferToDownlineHistoryParam param);
+        IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(TransferToDownlineHistoryParam param);
     }
 
     public class TransferToDownlineHistoryServiceImpl : TransferToDownlineHistoryService
@@ -21,7 +21,7 @@
             this.transferToDownlineHistoryDataAccess = transferToDownlineHistoryDataAccess;
         }
 
-        public IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(GetTransferToDownlineHistoryParam param)
+        public IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(TransferToDownlineHistoryParam param)
             => transferToDownlineHistoryDataAccess.GetTransferToDownlineHistory(new GetTransferToDownlineHistoryCriteria(
                 param.CustId,
                 param.UserName,

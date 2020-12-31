@@ -12,16 +12,8 @@
         {
         }
 
-        public ActionResult Index(TransferToDownlineHistoryQuery message)
-        {
-            if (message == null || !message.IsValid())
-            {
-                return View(InvalidPageViewPath);
-            }
+        public ActionResult Index(TransferToDownlineHistoryQuery message) => View(message);
 
-            return View(message);
-        }
-
-        public ActionResult Excel(TransferToDownlineHistoryQuery message) => Index(message);
+        public ActionResult Excel(TransferToDownlineHistoryExcelQuery message) => ExcelView(message);
     }
 }

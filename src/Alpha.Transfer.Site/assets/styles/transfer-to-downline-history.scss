@@ -1,1 +1,38 @@
-﻿
+﻿#txt-username {
+    margin-left: .05em;
+}
+
+.dropdown {
+    vertical-align: middle;
+}
+
+.note {
+    margin: 16px 0;
+}
+
+.pagination {
+    table > tbody > tr > td:first-child {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .pagination-page-list {
+        margin-left: .05em;
+    }
+}
+
+table.tblRpt {
+    tbody > tr > td {
+        &.col-date {
+            text-align: center;
+        }
+
+        &.col-number {
+            text-align: right;
+        }
+
+        &.col-text {
+            text-align: center;
+        }
+    }
+}

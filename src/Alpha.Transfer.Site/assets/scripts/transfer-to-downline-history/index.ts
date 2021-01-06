@@ -48,7 +48,10 @@ class TransferToDownlineHistory {
         initAutoComplete(this.$username[0], queryUsernameURL);
 
         const positionTop = 30;
-        this.$output.css("top", this.$username.offset().top + positionTop);
+        this.$output.css({
+            left: 1,
+            top: this.$username.offset().top + positionTop
+        });
 
         this.$username.keyup(() => {
             if (this.$username.val().trim() === "") {

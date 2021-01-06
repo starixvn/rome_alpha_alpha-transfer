@@ -20,7 +20,7 @@
 
 <div class="box-content">
     <div class="table-responsive">
-        <table id="tbl-rpt" class="tblRpt tblRpt-bordered alternative-row-table">
+        <table id="tbl-rpt" class="tblRpt tblRpt-bordered alternative-row-table" style="width: 99.999%;">
             <thead>
                 <tr>
                     <td colspan="7">
@@ -28,13 +28,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>@Resources.ActionDate</th>
+                    <th style="width: 15%;">@Resources.ActionDate</th>
                     <th>@Model.DirectDownlineText</th>
                     <th>@Resources.TransferType</th>
                     <th>@Resources.TransferAmount</th>
                     <th>@Resources.OldBalance</th>
                     <th>@Resources.NewBalance</th>
-                    <th>@Resources.Description</th>
+                    <th style="width: 30%;">@Resources.Description</th>
                 </tr>
             </thead>
             @if (Model.TransferToDownlineHistories.Any())
@@ -78,12 +78,12 @@
 @helper RenderRow(TransferToDownlineHistoryModel data)
 {
     <tr>
-        <td>@data.ActionDate.ToLongDateWithSlash()</td>
-        <td>@data.DownlineName</td>
-        <td>@data.TransferType</td>
-        <td>@HtmlHelpers.FormatNumber(data.TransferAmount)</td>
-        <td>@HtmlHelpers.FormatNumber(data.OldBalance)</td>
-        <td>@HtmlHelpers.FormatNumber(data.NewBalance)</td>
+        <td class="col-date">@data.ActionDate.ToLongDateWithSlash()</td>
+        <td class="col-text">@data.DownlineName</td>
+        <td class="col-text">@data.TransferType</td>
+        <td class="col-number">@HtmlHelpers.FormatNumber(data.TransferAmount)</td>
+        <td class="col-number">@HtmlHelpers.FormatNumber(data.OldBalance)</td>
+        <td class="col-number">@HtmlHelpers.FormatNumber(data.NewBalance)</td>
         <td>@data.Description</td>
     </tr>
 }

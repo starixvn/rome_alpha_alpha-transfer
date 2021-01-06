@@ -5,7 +5,6 @@
     using Models.TransferToDownlineHistory;
     using Params.TransferToDownlineHistory;
     using System.Collections.Generic;
-    using System.Linq;
 
     public interface TransferToDownlineHistoryService
     {
@@ -26,8 +25,6 @@
                 param.CustId,
                 param.UserName,
                 param.FromDate,
-                param.ToDate))
-            .Skip((param.Page - 1) * param.PageSize)
-            .Take(param.PageSize);
+                param.ToDate));
     }
 }

@@ -511,6 +511,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to of.
+        /// </summary>
+        public static string of {
+            get {
+                return ResourceManager.GetString("of", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Old Balance.
         /// </summary>
         public static string OldBalance {
@@ -534,6 +543,24 @@ namespace Alpha.Transfer.AppResources {
         public static string OutstandingShortcut {
             get {
                 return ResourceManager.GetString("OutstandingShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page.
+        /// </summary>
+        public static string Page {
+            get {
+                return ResourceManager.GetString("Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Displaying {from} to {to} of {total} items.
+        /// </summary>
+        public static string Pager_DisplayItems {
+            get {
+                return ResourceManager.GetString("Pager_DisplayItems", resourceCulture);
             }
         }
         

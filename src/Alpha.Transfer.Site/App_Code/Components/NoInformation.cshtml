@@ -1,0 +1,10 @@
+﻿@using Alpha.Transfer.AppResources;
+
+@helper Render(int colspan)
+{
+    <tbody>
+        <tr>
+            <td colspan="@colspan.ToString()" align="center">@Resources.NoInformationIsAvailable</td>
+        </tr>
+    </tbody>
+}

@@ -14,13 +14,16 @@ class TransferToDownlineHistory {
     $selPageSize: JQuery;
 
     dateRangePickerComponent: DateRangePickerComponent;
+    pagerComponent: ClientPagerComponent;
 
     constructor(
         $: JQueryStatic,
-        dateRangePickerComponent: DateRangePickerComponent
+        dateRangePickerComponent: DateRangePickerComponent,
+        pagerComponent: ClientPagerComponent
     ) {
         this.$ = $;
         this.dateRangePickerComponent = dateRangePickerComponent;
+        this.pagerComponent = pagerComponent;
     }
 
     public init(): void {
@@ -28,6 +31,7 @@ class TransferToDownlineHistory {
         this.registerEvents();
 
         this.dateRangePickerComponent.render();
+        this.pagerComponent.render();
     }
 
     public cacheDOMElements(): void {
@@ -37,8 +41,6 @@ class TransferToDownlineHistory {
         this.$output = this.$("#output");
         this.$exportExcel = this.$("#icon-excel");
         this.$exportExcelForm = this.$("#export-excel-form");
-        this.$pageSize = this.$("#txt-pagesize");
-        this.$selPageSize = this.$("#sel-pagesize");
     }
 
     public registerEvents(): void {
@@ -57,23 +59,17 @@ class TransferToDownlineHistory {
         });
 
         this.$exportExcel.click(this.exportExcelHandler);
-
-        this.$selPageSize.on("change", this.changePageSizeHandler);
     }
 
     public exportExcelHandler = () => {
         this.$exportExcelForm.submit();
     }
-
-    public changePageSizeHandler = (event) => {
-        this.$pageSize.val(this.$(event.currentTarget).find(":selected").text());
-        this.$filterForm.submit();
-    };
 }
 
 $(() => {
     const transferToDownlineHistory = new TransferToDownlineHistory(
         $,
-        new DateRangePickerComponent($));
+        new DateRangePickerComponent($),
+        new ClientPagerComponent($));
     transferToDownlineHistory.init();
 });

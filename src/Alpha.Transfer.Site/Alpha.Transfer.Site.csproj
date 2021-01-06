@@ -482,6 +482,7 @@
     <Compile Include="ViewModels\CashBalanceTransfer\CashBalanceTransferViewModel.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\HintTransferViewModel.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
+    <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\ExcelFileViewModel.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModel.cs" />
@@ -516,6 +517,8 @@
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Agent.xls" />
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Master.xls" />
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Member.xls" />
+    <Content Include="App_Code\Components\NoInformation.cshtml" />
+    <Content Include="App_Code\Components\Pager.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -568,6 +571,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\components\client-pager.ts" />
     <TypeScriptCompile Include="assets\scripts\components\daterangepicker.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>

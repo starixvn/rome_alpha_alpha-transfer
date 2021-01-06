@@ -6,6 +6,7 @@
 
 @section Styles {
     @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/filter")
+    @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/pagination")
     @StaticResources.RenderStyles("~/assets/bundles/transfer-to-downline-history")
 }
 
@@ -22,9 +23,8 @@
         <table id="tbl-rpt" class="tblRpt tblRpt-bordered alternative-row-table">
             <thead>
                 <tr>
-                    <td>
-                        Page Size:
-                        @Html.DropDownList("sel-pagesize", Model.PageSizeOptions)
+                    <td colspan="7">
+                        @Pager.Render(Model.PagerViewModel)
                     </td>
                 </tr>
                 <tr>
@@ -37,21 +37,19 @@
                     <th>@Resources.Description</th>
                 </tr>
             </thead>
-            <tbody>
-                @if (Model.TransferToDownlineHistories.Any())
-                {
-                    foreach (var data in Model.TransferToDownlineHistories)
+            @if (Model.TransferToDownlineHistories.Any())
+            {
+                <tbody>
+                    @foreach (var data in Model.TransferToDownlineHistories)
                     {
                         @RenderRow(data)
                     }
-                }
-                else
-                {
-                    <tr>
-                        <td colspan="7" style="text-align: center;">@Resources.NoInformationIsAvailable</td>
-                    </tr>
-                }
-            </tbody>
+                </tbody>
+            }
+            else
+            {
+                @NoInformation.Render(colspan: 7);
+            }
         </table>
     </div>
 
@@ -73,6 +71,7 @@
 
 @section Scripts {
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-transfer/filter")
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-transfer/pagination")
     @StaticResources.RenderScripts("~/assets/bundles/transfer-to-downline-history/index")
 }
 

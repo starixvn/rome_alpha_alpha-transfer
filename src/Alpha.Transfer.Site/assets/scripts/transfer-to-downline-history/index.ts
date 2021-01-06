@@ -54,11 +54,9 @@ class TransferToDownlineHistory {
         });
 
         this.$username.keyup(() => {
-            if (this.$username.val().trim() === "") {
-                this.$username.addClass("text-italic");
-            } else {
-                this.$username.removeClass("text-italic");
-            }
+            !this.$username.val().trim()
+                ? this.$username.addClass("text-italic")
+                : this.$username.removeClass("text-italic");
         });
 
         this.$exportExcel.click(this.exportExcelHandler);

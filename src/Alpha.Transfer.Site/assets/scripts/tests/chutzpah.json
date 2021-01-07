@@ -19,10 +19,22 @@
     { "Path": "libs/jasmine-jquery.js" },
 
     { "Path": "libs/jquery/blockUI.js" },
+    { "Path": "libs/moment.js" },
+    { "Path": "libs/datepicker.js" },
+    { "Path": "libs/bootstrap/datetimepicker.js" },
+    { "Path": "libs/bootstrap/nexDatePicker.js" },
+    { "Path": "libs/pagination/jquery.draggable.js" },
+    { "Path": "libs/pagination/jquery.resizable.js" },
+    { "Path": "libs/pagination/jquery.parser.js" },
+    { "Path": "libs/pagination/jquery.linkbutton.js" },
+    { "Path": "libs/pagination/jquery.pagination.js" },
     { "Path": "libs/autocomplete.js" },
     { "Path": "../cash-balance-transfer/cash-balance.ts" },
     { "Path": "../transfer-all-clear-credit/calculation.ts" },
-    { "Path": "../transfer-all-clear-credit/transfer-result.ts" }
+    { "Path": "../transfer-all-clear-credit/transfer-result.ts" },
+    { "Path": "../components/client-pager.ts" },
+    { "Path": "../components/daterangepicker.ts" },
+    { "Path": "../transfer-to-downline-history/index.ts" }
   ],
   "Tests": [
     {
@@ -30,7 +42,15 @@
       "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
     },
     {
+      "Path": "apps/components",
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    },
+    {
       "Path": "apps/transfer-all-clear-credit",
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    },
+    {
+      "Path": "apps/transfer-to-downline-history",
       "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
     }
   ]

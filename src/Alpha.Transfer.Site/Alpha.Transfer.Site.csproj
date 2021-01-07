@@ -343,14 +343,23 @@
       <DependentUpon>index.min.js</DependentUpon>
     </Content>
     <Content Include="assets\scripts\tests\libs\autocomplete.js" />
+    <Content Include="assets\scripts\tests\libs\bootstrap\datetimepicker.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\modal.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\multiselect.js" />
+    <Content Include="assets\scripts\tests\libs\bootstrap\nexDatePicker.js" />
+    <Content Include="assets\scripts\tests\libs\datepicker.js" />
     <Content Include="assets\scripts\tests\libs\jasmine-jquery.js" />
     <Content Include="assets\scripts\tests\libs\jasmine.js" />
     <Content Include="assets\scripts\tests\libs\jquery\blockUI.js" />
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
+    <Content Include="assets\scripts\tests\libs\moment.js" />
+    <Content Include="assets\scripts\tests\libs\pagination\jquery.draggable.js" />
+    <Content Include="assets\scripts\tests\libs\pagination\jquery.linkbutton.js" />
+    <Content Include="assets\scripts\tests\libs\pagination\jquery.pagination.js" />
+    <Content Include="assets\scripts\tests\libs\pagination\jquery.parser.js" />
+    <Content Include="assets\scripts\tests\libs\pagination\jquery.resizable.js" />
     <Content Include="assets\styles\site.css">
       <DependentUpon>site.scss</DependentUpon>
     </Content>
@@ -584,10 +593,17 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\tests\apps\components\client-pager-tests.ts" />
+    <TypeScriptCompile Include="assets\scripts\tests\apps\components\daterangepicker-tests.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-all-clear-credit\calculation-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-all-clear-credit\transfer-result-tests.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-to-downline-history\index-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\transfer-to-downline-history\index.ts">

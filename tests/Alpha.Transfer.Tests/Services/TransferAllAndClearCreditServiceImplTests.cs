@@ -1,10 +1,10 @@
 ﻿namespace Alpha.Transfer.Tests.Services
 {
-    using System.Linq;
+    using Alpha.Transfer.Params.TransferAllAndClearCredit;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
-    using Params.TransferAllAndClearCredit;
+    using System.Linq;
     using Transfer.Criteria.TransferAllAndClearCredit;
     using Transfer.DataAccesses;
     using Transfer.Models.TransferAllAndClearCredit;

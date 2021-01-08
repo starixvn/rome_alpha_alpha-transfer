@@ -4,7 +4,6 @@
     using Criteria.TransferToDownlineHistory;
     using Fanex.Common.Extensions;
     using Models.TransferToDownlineHistory;
-    using System;
     using System.Collections.Generic;
     using System.Data;
 
@@ -17,11 +16,6 @@
     {
         public IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(GetTransferToDownlineHistoryCriteria criteria)
         {
-            if (criteria == null)
-            {
-                throw new ArgumentNullException(nameof(criteria), "Criteria cannot be null");
-            }
-
             if (criteria.IsValid())
             {
                 using (var objDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
@@ -41,13 +35,13 @@
             => new TransferToDownlineHistoryModel(
                 actionDate: reader.ToDateTime("TransDate"),
                 downlineName: reader.ToString("UserName"),
-                transferType: TransferTypeMapper[reader.ToString("TransferType")],
+                transferType: TransferType[reader.ToString("TransferType")],
                 transferAmount: reader.ToDecimal("TransferAmt"),
                 oldBalance: reader.ToDecimal("OldBalance"),
                 newBalance: reader.ToDecimal("NewBalance"),
                 description: reader.ToString("TransDesc"));
 
-        private static IDictionary<string, string> TransferTypeMapper => new Dictionary<string, string>
+        private static IDictionary<string, string> TransferType => new Dictionary<string, string>
         {
             ["0"] = Resources.Deposit,
             ["1"] = Resources.Withdrawal

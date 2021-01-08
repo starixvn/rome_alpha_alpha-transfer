@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Transfer.Tests.Criteria.MultipleTransfer
 {
+    using Alpha.Transfer.Params.MultipleTransfer;
     using System.Collections;
-    using Params.MultipleTransfer;
     using Transfer.Criteria.MultipleTransfer;
     using Transfer.Models;
     using Xunit;

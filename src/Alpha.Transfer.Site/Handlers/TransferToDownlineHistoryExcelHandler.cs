@@ -54,9 +54,9 @@
         {
             string userName = string.IsNullOrWhiteSpace(param.UserName)
                 ? string.Empty
-                : string.Format("- Username: {0}", param.UserName);
+                : string.Format(" - Username: {0}", param.UserName);
 
-            return $"{Resources.TransferToDownlineHistory} {param.FromDate.ToShortDateWithSlash()} -> {param.ToDate.ToShortDateWithSlash()} {userName}";
+            return $"{Resources.TransferToDownlineHistory} {param.FromDate.ToShortDateWithSlash()} -> {param.ToDate.ToShortDateWithSlash()}{userName}";
         }
 
         private string GetExcelFileName() => $"{Resources.TransferToDownlineHistory} - {SystemTime.Today.ToShortDateString()}";

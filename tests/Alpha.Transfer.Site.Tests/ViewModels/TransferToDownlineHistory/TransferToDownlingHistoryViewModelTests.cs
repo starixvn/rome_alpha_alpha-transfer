@@ -1,0 +1,215 @@
+﻿namespace Alpha.Transfer.Site.Tests.ViewModels.TransferToDownlineHistory
+{
+    using Alpha.Transfer.Models;
+    using Alpha.Transfer.Models.TransferToDownlineHistory;
+    using Alpha.Transfer.Params.TransferToDownlineHistory;
+    using Alpha.Transfer.Site.Requests.TransferToDownlineHistory;
+    using Alpha.Transfer.Site.ViewModels.Components;
+    using Alpha.Transfer.Site.ViewModels.TransferToDownlineHistory;
+    using Alpha.Transfer.Utils;
+    using KellermanSoftware.CompareNetObjects;
+    using NSubstitute;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Xunit;
+
+    [Trait("Category", "TransferToDownlineHistory")]
+    public class TransferToDownlingHistoryViewModelTests
+    {
+        private const string userName = "UserName";
+
+        private const int userSelectDateRangeOption = 0;
+        private const int totalRecords = 10;
+        private const int pageSize = 500;
+        private const int page = 1;
+
+        private readonly DateTime today = new DateTime(2021, 1, 7);
+        private readonly DateTime fromDate = new DateTime(2021, 1, 11);
+        private readonly DateTime toDate = new DateTime(2021, 3, 11);
+        private readonly DateTime minDate = new DateTime(2020, 11, 7);
+        private readonly DateTime maxDate = DateTime.MaxValue;
+
+        private readonly IUser user;
+        private readonly IEnumerable<TransferToDownlineHistoryModel> records;
+        private readonly TransferToDownlineHistoryQuery query;
+        private readonly TransferToDownlineHistoryParam param;
+        private readonly TransferToDownlineHistoryViewModel viewModel;
+        private readonly CompareLogic compareLogic;
+
+        public TransferToDownlingHistoryViewModelTests()
+        {
+            user = Substitute.For<IUser>();
+            user.LevelId.Returns((byte)4);
+
+            query = new TransferToDownlineHistoryQuery(user)
+            {
+                UserName = userName,
+                UserSelectedDateRangeOption = userSelectDateRangeOption
+            };
+            param = new TransferToDownlineHistoryParam(0, string.Empty, fromDate, toDate, pageSize, page);
+            records = new List<TransferToDownlineHistoryModel>
+            {
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", "Deposit", 1, 2, 3, "Desc 1"),
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", "Withdrawal", 2, 3, 4, string.Empty),
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 13), "Agent", "Deposit", 3, 4, 5, "Desc 3")
+            };
+            viewModel = new TransferToDownlineHistoryViewModel(records, query, param, totalRecords);
+
+            compareLogic = new CompareLogic();
+
+            SystemTime.Today = today;
+        }
+
+        [Fact]
+        public void UserName_Always_ReturnsUserNameFromQuery()
+        {
+            // Act
+            var actualUserName = viewModel.UserName;
+
+            // Assert
+            Assert.Equal(userName, actualUserName);
+        }
+
+        [Theory]
+        [InlineData(4, "Master")]
+        [InlineData(3, "Agent")]
+        [InlineData(2, "Member")]
+        public void DirectDownlineText_Always_ReturnCorrectValue(byte level, string expectedValue)
+        {
+            // Arrange
+            var message = new TransferToDownlineHistoryQuery(user)
+            {
+                CustLevelId = level
+            };
+
+            var vm = new TransferToDownlineHistoryViewModel(null, message, null, 0);
+
+            // Act
+            var actualDirectDownlineText = vm.DirectDownlineText;
+
+            // Assert
+            Assert.Equal(expectedValue, actualDirectDownlineText);
+        }
+
+        [Fact]
+        public void MinDate_Always_ReturnsCorrectValue()
+        {
+            // Act
+            var actualMinDate = TransferToDownlineHistoryViewModel.MinDate;
+
+            // Assert
+            Assert.Equal(minDate, actualMinDate);
+        }
+
+        [Fact]
+        public void MaxDate_Always_ReturnsCorrectValue()
+        {
+            // Act
+            var actualMaxDate = TransferToDownlineHistoryViewModel.MaxDate;
+
+            // Assert
+            Assert.Equal(maxDate, actualMaxDate);
+        }
+
+        [Fact]
+        public void FromDate_Always_ReturnsFromDateFromParam()
+        {
+            // Act
+            var actualFromDate = viewModel.FromDate;
+
+            // Assert
+            Assert.Equal(fromDate, actualFromDate);
+        }
+
+        [Fact]
+        public void ToDate_Always_ReturnsToDateFromParam()
+        {
+            // Act
+            var actualToDate = viewModel.ToDate;
+
+            // Assert
+            Assert.Equal(toDate, actualToDate);
+        }
+
+        [Fact]
+        public void UserSelectedDateRangeOption_Always_ReturnsValueFromQuery()
+        {
+            // Act
+            var actualUserSelectedDateRangeOption = viewModel.UserSelectedDateRangeOption;
+
+            // Assert
+            Assert.Equal(userSelectDateRangeOption, actualUserSelectedDateRangeOption);
+        }
+
+        [Fact]
+        public void PageSize_Always_ReturnsPageSizeFromParam()
+        {
+            // Act
+            var actualPageSize = viewModel.PageSize;
+
+            // Assert
+            Assert.Equal(pageSize, actualPageSize);
+        }
+
+        [Fact]
+        public void Page_Always_ReturnsPageFromParam()
+        {
+            // Act
+            var actualPage = viewModel.Page;
+
+            // Assert
+            Assert.Equal(page, actualPage);
+        }
+
+        [Fact]
+        public void TransferToDownlineHistories_Always_ReturnsCorrectValueSetByCtor()
+        {
+            // Act
+            var actualRecords = viewModel.TransferToDownlineHistories;
+
+            // Assert
+            Assert.True(records.Count() == actualRecords.Count()
+                && compareLogic.Compare(records.ElementAt(0), actualRecords.ElementAt(0)).AreEqual
+                && compareLogic.Compare(records.ElementAt(1), actualRecords.ElementAt(1)).AreEqual
+                && compareLogic.Compare(records.ElementAt(2), actualRecords.ElementAt(2)).AreEqual);
+        }
+
+        [Fact]
+        public void TotalRecords_Always_ReturnsTotalRecordsSetByCtor()
+        {
+            // Act
+            var actualTotalRecords = viewModel.TotalRecords;
+
+            // Assert
+            Assert.Equal(totalRecords, actualTotalRecords);
+        }
+
+        [Fact]
+        public void FilterViewModel_Always_ReturnCorrectValue()
+        {
+            // Arrange
+            var dateRangePickerVM = new DateRangePickerViewModel(minDate, maxDate, fromDate, toDate, userSelectDateRangeOption);
+            var filterVM = new TransferToDownlineHistoryFilterViewModel(userName, dateRangePickerVM, minDate);
+
+            // Act
+            var actualFilterVM = viewModel.FilterViewModel;
+
+            // Assert
+            Assert.True(compareLogic.Compare(filterVM, actualFilterVM).AreEqual);
+        }
+
+        [Fact]
+        public void PagerViewModel_Always_ReturnsCorrectValue()
+        {
+            // Arrange
+            var pagerVM = new PagerViewModel(page, pageSize, totalRecords);
+
+            // Act
+            var actualPagerVM = viewModel.PagerViewModel;
+
+            // Assert
+            Assert.True(compareLogic.Compare(pagerVM, actualPagerVM).AreEqual);
+        }
+    }
+}

@@ -30,10 +30,10 @@
             this.transferToDownlineHistoryService = transferToDownlineHistoryService;
         }
 
-        protected IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(TransferToDownlineHistoryQuery message)
+        protected internal IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(TransferToDownlineHistoryQuery message)
             => transferToDownlineHistoryService.GetTransferToDownlineHistory(BuildTransferToDownlineHistoryParam(message));
 
-        protected TransferToDownlineHistoryParam BuildTransferToDownlineHistoryParam(TransferToDownlineHistoryQuery message)
+        protected internal TransferToDownlineHistoryParam BuildTransferToDownlineHistoryParam(TransferToDownlineHistoryQuery message)
             => new TransferToDownlineHistoryParam(
                 message.CustId,
                 message.UserName,

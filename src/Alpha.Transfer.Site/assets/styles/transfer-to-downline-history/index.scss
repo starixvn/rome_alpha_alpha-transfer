@@ -22,6 +22,8 @@
 }
 
 table.tblRpt {
+    width: 99.999% !important;
+
     tbody > tr > td {
         &.col-date {
             text-align: center;

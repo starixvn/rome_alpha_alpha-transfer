@@ -4,14 +4,13 @@ declare var initAutoComplete: Function;
 
 class TransferToDownlineHistory {
     $: JQueryStatic;
-    $filterForm: JQuery;
     $username: JQuery;
     $usernameAutoSuggestionPath: JQuery;
     $output: JQuery;
     $exportExcel: JQuery;
     $exportExcelForm: JQuery;
-    $pageSize: JQuery;
-    $selPageSize: JQuery;
+    $fromDate: JQuery;
+    $toDate: JQuery;
 
     dateRangePickerComponent: DateRangePickerComponent;
     pagerComponent: ClientPagerComponent;
@@ -28,31 +27,37 @@ class TransferToDownlineHistory {
 
     public init(): void {
         this.cacheDOMElements();
+        this.initUsernameSuggestion();
         this.registerEvents();
 
         this.dateRangePickerComponent.render();
         this.pagerComponent.render();
     }
 
+    public initUsernameSuggestion(): void {
+        const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1, issub: 0, ismember: 0 })}`;
+        initAutoComplete(this.$username[0], queryUsernameURL);
+
+        let left = 1,
+            top = this.$username.offset().top + this.$username.outerHeight(true) + 1,
+            width = utilsInstance.screenSmallThan768()
+                ? utilsInstance.screenLandscapeMode() ? `calc(50% - ${left}px)` : `calc(100% - ${left}px)`
+                : this.$username.outerWidth() - left;
+
+        this.$output.css({ left, top, width });
+    }
+
     public cacheDOMElements(): void {
-        this.$filterForm = this.$("#filter-form");
         this.$username = this.$("#txt-username");
         this.$usernameAutoSuggestionPath = this.$("#usernameAutoSuggestionPath");
         this.$output = this.$("#output");
         this.$exportExcel = this.$("#icon-excel");
         this.$exportExcelForm = this.$("#export-excel-form");
+        this.$fromDate = this.$("#from-date");
+        this.$toDate = this.$("#to-date");
     }
 
     public registerEvents(): void {
-        const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1, issub: 0, ismember: 0 })}`;
-        initAutoComplete(this.$username[0], queryUsernameURL);
-
-        const positionTop = 30;
-        this.$output.css({
-            left: 1,
-            top: this.$username.offset().top + positionTop
-        });
-
         this.$username.keyup(() => {
             !this.$username.val().trim()
                 ? this.$username.addClass("text-italic")
@@ -60,10 +65,20 @@ class TransferToDownlineHistory {
         });
 
         this.$exportExcel.click(this.exportExcelHandler);
+        this.$fromDate.parent().on("dp.show", this.doAdjustDatePickerCalendar);
+        this.$toDate.parent().on("dp.show", this.doAdjustDatePickerCalendar);
     }
 
     public exportExcelHandler = () => {
         this.$exportExcelForm.submit();
+    }
+
+    public doAdjustDatePickerCalendar = () => {
+        if (utilsInstance.screenSmallThan768() && !utilsInstance.screenLandscapeMode()) {
+            let width = this.$(window).width(),
+                widget = this.$(".bootstrap-datetimepicker-widget.dropdown-menu");
+            widget.css({ width });
+        }
     }
 }
 

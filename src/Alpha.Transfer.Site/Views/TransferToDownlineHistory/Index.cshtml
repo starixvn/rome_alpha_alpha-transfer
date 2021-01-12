@@ -5,9 +5,11 @@
 }
 
 @section Styles {
+    @StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
     @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/filter")
     @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/pagination")
-    @StaticResources.RenderStyles("~/assets/bundles/transfer-to-downline-history")
+    @StaticResources.RenderStyles("~/assets/bundles/transfer-to-downline-history/index")
+    @StaticResources.RenderStylesWithMedia(767, "~/assets/bundles/transfer-to-downline-history/index-mobile")
 }
 
 <div class="page-title">
@@ -19,39 +21,37 @@
 </div>
 
 <div class="box-content">
-    <div class="table-responsive">
-        <table id="tbl-rpt" class="tblRpt tblRpt-bordered alternative-row-table" style="width: 99.999%;">
-            <thead>
-                <tr>
-                    <td colspan="7">
-                        @Pager.Render(Model.PagerViewModel)
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 15%;">@Resources.ActionDate</th>
-                    <th>@Model.DirectDownlineText</th>
-                    <th>@Resources.TransferType</th>
-                    <th>@Resources.TransferAmount</th>
-                    <th>@Resources.OldBalance</th>
-                    <th>@Resources.NewBalance</th>
-                    <th style="width: 30%;">@Resources.Description</th>
-                </tr>
-            </thead>
-            @if (Model.TransferToDownlineHistories.Any())
-            {
-                <tbody>
-                    @foreach (var data in Model.TransferToDownlineHistories)
-                    {
-                        @RenderRow(data)
-                    }
-                </tbody>
-            }
-            else
-            {
-                @NoInformation.Render(colspan: 7);
-            }
-        </table>
-    </div>
+    <table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap">
+        <thead>
+            <tr>
+                <td colspan="7">
+                    @Pager.Render(Model.PagerViewModel)
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 15%;">@Resources.ActionDate</th>
+                <th>@Model.DirectDownlineText</th>
+                <th>@Resources.TransferType</th>
+                <th>@Resources.TransferAmount</th>
+                <th>@Resources.OldBalance</th>
+                <th>@Resources.NewBalance</th>
+                <th style="width: 30%;">@Resources.Description</th>
+            </tr>
+        </thead>
+        @if (Model.TransferToDownlineHistories.Any())
+        {
+            <tbody>
+                @foreach (var data in Model.TransferToDownlineHistories)
+                {
+                    @RenderRow(data)
+                }
+            </tbody>
+        }
+        else
+        {
+            @NoInformation.Render(colspan: 7);
+        }
+    </table>
 
     <form class="form-inline hide"
           role="form"
@@ -68,6 +68,7 @@
 </div>
 
 @section Scripts {
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-transfer/filter")
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-transfer/pagination")
     @StaticResources.RenderScripts("~/assets/bundles/transfer-to-downline-history/index")

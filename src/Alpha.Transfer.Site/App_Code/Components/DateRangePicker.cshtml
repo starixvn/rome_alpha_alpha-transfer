@@ -61,11 +61,11 @@
 
     if (model.IsRenderSubmitButton)
     {
-        <div class="form-group submit-container">
+        <div class="form-group btn-submit-box">
             <input type="submit" value="@Resources.Submit" class="btn-submit" />
         </div>
     }
-    <div class="form-group daterange-container">
+    <div class="form-group dropdown-daterange-box">
         <div class="dropdown daterange-dropdown" id="dropdown-daterange">
             <input type="hidden" name="UserSelectedDateRangeOption" id="hidden-range-option" value="@model.SelectedRangeOption.Value" />
             <button class="btn-submit dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

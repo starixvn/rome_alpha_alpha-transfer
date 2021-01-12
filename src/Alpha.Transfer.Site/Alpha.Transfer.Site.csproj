@@ -331,9 +331,13 @@
     <Content Include="assets\bundles\transfer-all-clear-credit\transfer-result.min.js" />
     <Content Include="assets\bundles\transfer-hint.css" />
     <Content Include="assets\bundles\transfer-hint.min.css" />
-    <Content Include="assets\bundles\transfer-to-downline-history.css" />
-    <Content Include="assets\bundles\transfer-to-downline-history.min.css">
-      <DependentUpon>transfer-to-downline-history.css</DependentUpon>
+    <Content Include="assets\bundles\transfer-to-downline-history\index.css" />
+    <Content Include="assets\bundles\transfer-to-downline-history\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\transfer-to-downline-history\index-mobile.css" />
+    <Content Include="assets\bundles\transfer-to-downline-history\index-mobile.min.css">
+      <DependentUpon>index-mobile.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\transfer-to-downline-history\index.js" />
     <Content Include="assets\bundles\transfer-to-downline-history\index.min.js">
@@ -515,12 +519,33 @@
     <Content Include="assets\styles\site.scss" />
     <Content Include="assets\styles\_variables.scss" />
     <Content Include="bundleconfig.json" />
-    <Content Include="assets\styles\transfer-to-downline-history.scss" />
-    <Content Include="assets\styles\transfer-to-downline-history.css">
-      <DependentUpon>transfer-to-downline-history.scss</DependentUpon>
+    <Content Include="assets\styles\transfer-to-downline-history\index.scss" />
+    <Content Include="assets\styles\transfer-to-downline-history\index.css">
+      <DependentUpon>index.scss</DependentUpon>
     </Content>
-    <Content Include="assets\styles\transfer-to-downline-history.min.css">
-      <DependentUpon>transfer-to-downline-history.css</DependentUpon>
+    <Content Include="assets\styles\transfer-to-downline-history\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-to-downline-history\index-mobile.scss" />
+    <Content Include="assets\styles\transfer-to-downline-history\index-mobile.css">
+      <DependentUpon>index-mobile.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-to-downline-history\index-mobile.min.css">
+      <DependentUpon>index-mobile.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\site-mobile.scss" />
+    <Content Include="assets\styles\site-mobile.css">
+      <DependentUpon>site-mobile.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\site-mobile.min.css">
+      <DependentUpon>site-mobile.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\datepicker-mobile.scss" />
+    <Content Include="assets\styles\datepicker-mobile.css">
+      <DependentUpon>datepicker-mobile.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\datepicker-mobile.min.css">
+      <DependentUpon>datepicker-mobile.css</DependentUpon>
     </Content>
     <Content Include="App_Code\Components\DateRangePicker.cshtml" />
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Agent.xls" />
@@ -612,6 +637,7 @@
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\transfer-result.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
+	  <TypeScriptCompile Include="assets\scripts\utils.ts" />
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\calculation.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>

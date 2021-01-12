@@ -6,6 +6,8 @@
         normal: `<body>
                     <form id="filter-form">
                         <input id="txt-username" value="" />
+                        <input id="from-date" value="" />
+                        <input id="to-date" value="" />
                         <span id="icon-excel"></span>
                     </form>
                     <form id="export-excel-form">
@@ -30,6 +32,7 @@
             // arrange
             setFixtures(template.normal);
             spyOn(transferToDownlineHistory, "cacheDOMElements");
+            spyOn(transferToDownlineHistory, "initUsernameSuggestion"),
             spyOn(transferToDownlineHistory, "registerEvents");
             spyOn(transferToDownlineHistory.dateRangePickerComponent, "render");
             spyOn(transferToDownlineHistory.pagerComponent, "render");
@@ -41,6 +44,11 @@
         it("_Call cacheDOMElements", () => {
             // assert
             expect(transferToDownlineHistory.cacheDOMElements).toHaveBeenCalled();
+        });
+
+        it("_Call initUsernameSuggestion", () => {
+            // assert
+            expect(transferToDownlineHistory.initUsernameSuggestion).toHaveBeenCalled();
         });
 
         it("_Call registerEvents", () => {
@@ -68,12 +76,13 @@
             transferToDownlineHistory.cacheDOMElements();
 
             // assert
-            expect(transferToDownlineHistory.$filterForm).toBeDefined();
             expect(transferToDownlineHistory.$username).toBeDefined();
             expect(transferToDownlineHistory.$usernameAutoSuggestionPath).toBeDefined();
             expect(transferToDownlineHistory.$output).toBeDefined();
             expect(transferToDownlineHistory.$exportExcel).toBeDefined();
             expect(transferToDownlineHistory.$exportExcelForm).toBeDefined();
+            expect(transferToDownlineHistory.$fromDate).toBeDefined();
+            expect(transferToDownlineHistory.$toDate).toBeDefined();
         });
     });
 
@@ -82,6 +91,7 @@
             // arrange
             setFixtures(template.normal);
             spyOn(transferToDownlineHistory, "exportExcelHandler");
+            spyOn(transferToDownlineHistory, "doAdjustDatePickerCalendar");
             transferToDownlineHistory.cacheDOMElements();
 
             // act
@@ -102,6 +112,22 @@
 
             // assert
             expect(transferToDownlineHistory.exportExcelHandler).toHaveBeenCalled();
+        });
+
+        it("_Bind from date datepicker show event", () => {
+            // act
+            transferToDownlineHistory.$fromDate.parent().trigger("dp.show");
+
+            // assert
+            expect(transferToDownlineHistory.doAdjustDatePickerCalendar).toHaveBeenCalled();
+        });
+
+        it("_Bind to date datepicker show event", () => {
+            // act
+            transferToDownlineHistory.$toDate.parent().trigger("dp.show");
+
+            // assert
+            expect(transferToDownlineHistory.doAdjustDatePickerCalendar).toHaveBeenCalled();
         });
     });
 

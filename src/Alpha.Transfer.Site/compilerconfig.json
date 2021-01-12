@@ -4,6 +4,14 @@
     "inputFile": "assets/styles/site.scss"
   },
   {
+    "outputFile": "assets/styles/site-mobile.css",
+    "inputFile": "assets/styles/site-mobile.scss"
+  },
+  {
+    "outputFile": "assets/styles/datepicker-mobile.css",
+    "inputFile": "assets/styles/datepicker-mobile.scss"
+  },
+  {
     "outputFile": "assets/styles/transfer-all-clear-credit.css",
     "inputFile": "assets/styles/transfer-all-clear-credit.scss"
   },
@@ -16,7 +24,11 @@
     "inputFile": "assets/styles/transfer-hint.scss"
   },
   {
-    "outputFile": "assets/styles/transfer-to-downline-history.css",
-    "inputFile": "assets/styles/transfer-to-downline-history.scss"
+    "outputFile": "assets/styles/transfer-to-downline-history/index.css",
+    "inputFile": "assets/styles/transfer-to-downline-history/index.scss"
+  },
+  {
+    "outputFile": "assets/styles/transfer-to-downline-history/index-mobile.css",
+    "inputFile": "assets/styles/transfer-to-downline-history/index-mobile.scss"
   }
 ]

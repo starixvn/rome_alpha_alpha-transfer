@@ -37,9 +37,17 @@
     ]
   },
   {
-    "outputFileName": "assets/bundles/transfer-to-downline-history.css",
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index.css",
     "inputFiles": [
-      "assets/styles/transfer-to-downline-history.css"
+      "assets/styles/transfer-to-downline-history/index.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index-mobile.css",
+    "inputFiles": [
+      "assets/styles/datepicker-mobile.css",
+      "assets/styles/site-mobile.css",
+      "assets/styles/transfer-to-downline-history/index-mobile.css"
     ]
   },
   {
@@ -47,6 +55,7 @@
     "inputFiles": [
       "assets/scripts/components/client-pager.js",
       "assets/scripts/components/daterangepicker.js",
+      "assets/scripts/utils.js",
       "assets/scripts/transfer-to-downline-history/index.js"
     ],
     "sourceMap": true

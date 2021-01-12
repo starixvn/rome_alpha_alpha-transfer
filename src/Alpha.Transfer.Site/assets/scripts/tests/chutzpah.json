@@ -32,6 +32,7 @@
     { "Path": "../cash-balance-transfer/cash-balance.ts" },
     { "Path": "../transfer-all-clear-credit/calculation.ts" },
     { "Path": "../transfer-all-clear-credit/transfer-result.ts" },
+    { "Path": "../utils.ts" },
     { "Path": "../components/client-pager.ts" },
     { "Path": "../components/daterangepicker.ts" },
     { "Path": "../transfer-to-downline-history/index.ts" }

@@ -225,10 +225,8 @@
     <Compile Include="Criteria\TransferToDownlineHistory\GetTransferToDownlineHistoryCriteriaTests.cs" />
     <Compile Include="DataAccesses\MultipleTransferDataAccessImplTests.cs" />
     <Compile Include="DataAccesses\TransferAllAndClearCreditDataAccessTests.cs" />
-    <Compile Include="DataAccesses\TransferToDownlineHistoryDataAccessTests.cs" />
     <Compile Include="Database\MultipleTransfer\MultipleTransferDatabase.cs" />
     <Compile Include="Database\TransferAllAndClearCredit\TransferAllAndClearCreditDatabase.cs" />
-    <Compile Include="Database\TransferToDownlineHistory\TransferToDownlineHistoryDatabase.cs" />
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Extensions\DateTimeExtensionsTests.cs" />
@@ -241,6 +239,7 @@
     <Compile Include="Models\ResultTests.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferAllResultTests.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferResultTests.cs" />
+    <Compile Include="Models\TransferToDownlineHistory\TransferToDownlineHistoryModelTests.cs" />
     <Compile Include="Models\UserLevelTests.cs" />
     <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryParamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -286,10 +285,6 @@
     </Content>
     <Content Include="Database\TransferAllAndClearCredit\Calculation_NoCredit.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Database\TransferToDownlineHistory\TransferToDownlineHistoryTable.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

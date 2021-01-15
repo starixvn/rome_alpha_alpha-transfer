@@ -19,14 +19,12 @@
         private readonly TransferToDownlineHistoryService transferToDownlineHistoryService;
 
         private readonly TransferToDownlineHistoryQuery query;
-        private readonly IEnumerable<TransferToDownlineHistoryModel> allRecords;
+        private readonly IEnumerable<TransferToDownlineHistoryModel> records;
 
         private readonly UserFixture userFixture;
         private readonly CompareLogic compareLogic;
 
         private readonly TransferToDownlineHistoryHandler handler;
-
-        private readonly IEnumerable<TransferToDownlineHistoryModel> pagingRecords;
 
         public TransferToDownlineHistoryHandlerTests() : base()
         {
@@ -41,19 +39,12 @@
                 UserName = string.Empty,
                 FromDate = new DateTime(2021, 1, 11),
                 ToDate = new DateTime(2021, 3, 11),
-                PageSize = 2,
-                Page = 1
             };
-            allRecords = new List<TransferToDownlineHistoryModel>
+            records = new List<TransferToDownlineHistoryModel>
             {
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", "Deposit", 1, 2, 3, "Desc 1"),
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", "Withdrawal", 2, 3, 4, string.Empty),
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 13), "Agent", "Deposit", 3, 4, 5, "Desc 3")
-            };
-            pagingRecords = new List<TransferToDownlineHistoryModel>
-            {
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", "Deposit", 1, 2, 3, "Desc 1"),
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", "Withdrawal", 2, 3, 4, string.Empty)
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", 0, 1, 2, 3, "Desc 1"),
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", 1, 2, 3, 4, string.Empty),
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 13), "Agent", 0, 3, 4, 5, "Desc 3")
             };
         }
 
@@ -78,45 +69,16 @@
             // Arrange
             transferToDownlineHistoryService
                 .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryParam>())
-                .Returns(allRecords);
+                .Returns(records);
 
             // Act
             var actualPagingRecords = handler.Handle(query).TransferToDownlineHistories;
 
             // Assert
-            Assert.True(pagingRecords.Count() == actualPagingRecords.Count()
-                && compareLogic.Compare(pagingRecords.ElementAt(0), actualPagingRecords.ElementAt(0)).AreEqual
-                && compareLogic.Compare(pagingRecords.ElementAt(1), actualPagingRecords.ElementAt(1)).AreEqual);
-        }
-
-        [Fact]
-        public void Handle_HasNoData_ReturnsTotalRecordsEqualZero()
-        {
-            // Arrange
-            transferToDownlineHistoryService
-                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryParam>())
-                .Returns(new List<TransferToDownlineHistoryModel>());
-
-            // Act
-            var viewModel = handler.Handle(query);
-
-            // Assert
-            Assert.Equal(0, viewModel.TotalRecords);
-        }
-
-        [Fact]
-        public void Handle_HasData_ReturnsCorrectTotalRecords()
-        {
-            // Arrange
-            transferToDownlineHistoryService
-                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryParam>())
-                .Returns(allRecords);
-
-            // Act
-            var viewModel = handler.Handle(query);
-
-            // Assert
-            Assert.Equal(allRecords.Count(), viewModel.TotalRecords);
+            Assert.True(records.Count() == actualPagingRecords.Count()
+                && compareLogic.Compare(records.ElementAt(0), actualPagingRecords.ElementAt(0)).AreEqual
+                && compareLogic.Compare(records.ElementAt(1), actualPagingRecords.ElementAt(1)).AreEqual
+                && compareLogic.Compare(records.ElementAt(2), actualPagingRecords.ElementAt(2)).AreEqual);
         }
     }
 }

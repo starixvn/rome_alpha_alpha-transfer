@@ -1,13 +1,18 @@
 ﻿namespace Alpha.Transfer.Models.TransferToDownlineHistory
 {
+    using AppResources;
     using System;
 
     public class TransferToDownlineHistoryModel
     {
+        public TransferToDownlineHistoryModel()
+        {
+        }
+
         public TransferToDownlineHistoryModel(
             DateTime actionDate,
             string downlineName,
-            string transferType,
+            byte transferType,
             decimal transferAmount,
             decimal oldBalance,
             decimal newBalance,
@@ -22,18 +27,21 @@
             Description = description;
         }
 
-        public DateTime ActionDate { get; set; }
+        public DateTime ActionDate { get; }
 
-        public string DownlineName { get; set; }
+        public string DownlineName { get; }
 
-        public string TransferType { get; set; }
+        public string TransferTypeName
+            => TransferType == 0 ? Resources.Deposit : Resources.Withdrawal;
 
-        public decimal TransferAmount { get; set; }
+        public byte TransferType { get; }
 
-        public decimal OldBalance { get; set; }
+        public decimal TransferAmount { get; }
 
-        public decimal NewBalance { get; set; }
+        public decimal OldBalance { get; }
 
-        public string Description { get; set; }
+        public decimal NewBalance { get; }
+
+        public string Description { get; }
     }
 }

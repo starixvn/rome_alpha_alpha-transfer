@@ -211,7 +211,6 @@
     <Compile Include="Models\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModelTests.cs" />
-    <Compile Include="ViewModels\Components\PagerViewModelTests.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModelTests.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModelTests.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferAllAndClearCreditViewModelTests.cs" />

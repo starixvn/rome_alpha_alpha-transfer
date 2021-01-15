@@ -18,9 +18,5 @@
         public DateTime ToDate { get; set; }
 
         public int UserSelectedDateRangeOption { get; set; }
-
-        public int PageSize { get; set; }
-
-        public int Page { get; set; }
     }
 }

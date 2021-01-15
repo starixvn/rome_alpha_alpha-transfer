@@ -156,7 +156,6 @@
     <Compile Include="DataAccesses\MultipleTransferDataAccess.cs" />
     <Compile Include="DataAccesses\TransferObjectDbFactory.cs" />
     <Compile Include="DataAccesses\TransferAllAndClearCreditDataAccess.cs" />
-    <Compile Include="DataAccesses\TransferToDownlineHistoryDataAccess.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />

@@ -21,36 +21,28 @@
 </div>
 
 <div class="box-content">
-    <table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap">
+    <table id="tbl-report"
+           class="tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap"
+           data-cansort="@(Model.TransferToDownlineHistories.Count() > 1)">
         <thead>
+            <tr></tr>
             <tr>
-                <td colspan="7">
-                    @Pager.Render(Model.PagerViewModel)
-                </td>
-            </tr>
-            <tr>
-                <th style="width: 15%;">@Resources.ActionDate</th>
-                <th>@Model.DirectDownlineText</th>
-                <th>@Resources.TransferType</th>
-                <th>@Resources.TransferAmount</th>
-                <th>@Resources.OldBalance</th>
-                <th>@Resources.NewBalance</th>
-                <th style="width: 30%;">@Resources.Description</th>
+                <th class="all" data-priority="7">@Resources.ActionDate</th>
+                <th class="all" data-priority="6">@Model.DirectDownlineText</th>
+                <th class="min-tablet-l" data-priority="5">@Resources.TransferType</th>
+                <th class="min-tablet-l" data-priority="4">@Resources.TransferAmount</th>
+                <th class="min-tablet-l" data-priority="3">@Resources.OldBalance</th>
+                <th class="min-tablet-l" data-priority="2">@Resources.NewBalance</th>
+                <th class="desktop" data-priority="1">@Resources.Description</th>
+                <th></th>
             </tr>
         </thead>
-        @if (Model.TransferToDownlineHistories.Any())
-        {
-            <tbody>
-                @foreach (var data in Model.TransferToDownlineHistories)
-                {
-                    @RenderRow(data)
-                }
-            </tbody>
-        }
-        else
-        {
-            @NoInformation.Render(colspan: 7);
-        }
+        <tbody>
+            @foreach (var data in Model.TransferToDownlineHistories)
+            {
+                @RenderRow(data)
+            }
+        </tbody>
     </table>
 
     <form class="form-inline hide"
@@ -79,10 +71,11 @@
     <tr>
         <td class="col-date">@data.ActionDate.ToLongDateWithSlash()</td>
         <td class="col-text">@data.DownlineName</td>
-        <td class="col-text">@data.TransferType</td>
+        <td class="col-text">@data.TransferTypeName</td>
         <td class="col-number">@HtmlHelpers.FormatNumber(data.TransferAmount)</td>
         <td class="col-number">@HtmlHelpers.FormatNumber(data.OldBalance)</td>
         <td class="col-number">@HtmlHelpers.FormatNumber(data.NewBalance)</td>
         <td>@data.Description</td>
+        <td></td>
     </tr>
 }

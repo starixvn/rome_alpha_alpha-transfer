@@ -122,7 +122,7 @@
         public void GetBodyMapper_Always_ReturnsCorrectMapper()
         {
             // Arrange
-            var viewModel = new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", "Deposit", 1, 2, 3, "Desc 1");
+            var viewModel = new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", 0, 1, 2, 3, "Desc 1");
 
             // Act
             var actualMapper = handler.GetBodyMapper;

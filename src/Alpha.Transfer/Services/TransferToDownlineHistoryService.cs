@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Transfer.Services
 {
     using Criteria.TransferToDownlineHistory;
-    using DataAccesses;
+    using Fanex.Data.Repository;
     using Models.TransferToDownlineHistory;
     using Params.TransferToDownlineHistory;
     using System.Collections.Generic;
@@ -13,18 +13,18 @@
 
     public class TransferToDownlineHistoryServiceImpl : TransferToDownlineHistoryService
     {
-        private readonly TransferToDownlineHistoryDataAccess transferToDownlineHistoryDataAccess;
+        private readonly IDynamicRepository repository;
 
-        public TransferToDownlineHistoryServiceImpl(TransferToDownlineHistoryDataAccess transferToDownlineHistoryDataAccess)
+        public TransferToDownlineHistoryServiceImpl(IDynamicRepository repository)
         {
-            this.transferToDownlineHistoryDataAccess = transferToDownlineHistoryDataAccess;
+            this.repository = repository;
         }
 
         public IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(TransferToDownlineHistoryParam param)
-            => transferToDownlineHistoryDataAccess.GetTransferToDownlineHistory(new GetTransferToDownlineHistoryCriteria(
-                param.CustId,
-                param.UserName,
-                param.FromDate,
-                param.ToDate));
+            => repository.Fetch<TransferToDownlineHistoryModel>(new GetTransferToDownlineHistoryCriteria(
+                           param.CustId,
+                           param.UserName,
+                           param.FromDate,
+                           param.ToDate));
     }
 }

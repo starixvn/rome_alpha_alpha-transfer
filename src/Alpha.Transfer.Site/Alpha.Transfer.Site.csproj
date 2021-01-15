@@ -352,6 +352,9 @@
     <Content Include="assets\scripts\tests\libs\bootstrap\modal.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\multiselect.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\nexDatePicker.js" />
+    <Content Include="assets\scripts\tests\libs\data-table\dataTables.fixedHeader.js" />
+    <Content Include="assets\scripts\tests\libs\data-table\dataTables.responsive.js" />
+    <Content Include="assets\scripts\tests\libs\data-table\jquery.dataTables.js" />
     <Content Include="assets\scripts\tests\libs\datepicker.js" />
     <Content Include="assets\scripts\tests\libs\jasmine-jquery.js" />
     <Content Include="assets\scripts\tests\libs\jasmine.js" />
@@ -359,11 +362,6 @@
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
     <Content Include="assets\scripts\tests\libs\moment.js" />
-    <Content Include="assets\scripts\tests\libs\pagination\jquery.draggable.js" />
-    <Content Include="assets\scripts\tests\libs\pagination\jquery.linkbutton.js" />
-    <Content Include="assets\scripts\tests\libs\pagination\jquery.pagination.js" />
-    <Content Include="assets\scripts\tests\libs\pagination\jquery.parser.js" />
-    <Content Include="assets\scripts\tests\libs\pagination\jquery.resizable.js" />
     <Content Include="assets\styles\site.css">
       <DependentUpon>site.scss</DependentUpon>
     </Content>
@@ -495,7 +493,6 @@
     <Compile Include="ViewModels\CashBalanceTransfer\CashBalanceTransferViewModel.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\HintTransferViewModel.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
-    <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\ExcelFileViewModel.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModel.cs" />
@@ -551,8 +548,6 @@
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Agent.xls" />
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Master.xls" />
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Member.xls" />
-    <Content Include="App_Code\Components\NoInformation.cshtml" />
-    <Content Include="App_Code\Components\Pager.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -605,7 +600,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="assets\scripts\components\client-pager.ts" />
     <TypeScriptCompile Include="assets\scripts\components\daterangepicker.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
@@ -618,7 +612,6 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="assets\scripts\tests\apps\components\client-pager-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\daterangepicker-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
@@ -631,6 +624,7 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-to-downline-history\index-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
+	  <TypeScriptCompile Include="assets\scripts\transfer-report.ts" />
     <TypeScriptCompile Include="assets\scripts\transfer-to-downline-history\index.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>

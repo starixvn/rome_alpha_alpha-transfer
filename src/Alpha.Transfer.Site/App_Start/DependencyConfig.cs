@@ -68,7 +68,6 @@
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
             container.RegisterSingleton<TransferAllAndClearCreditDataAccess, TransferAllAndClearCreditDataAccessImpl>();
             container.RegisterSingleton<MultipleTransferDataAccess, MultipleTransferDataAccessImpl>();
-            container.RegisterSingleton<TransferToDownlineHistoryDataAccess, TransferToDownlineHistoryDataAccessImpl>();
         }
 
         private static void RegisterServices(Container container)

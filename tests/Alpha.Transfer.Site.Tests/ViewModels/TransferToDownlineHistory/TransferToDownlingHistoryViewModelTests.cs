@@ -47,14 +47,14 @@
                 UserName = userName,
                 UserSelectedDateRangeOption = userSelectDateRangeOption
             };
-            param = new TransferToDownlineHistoryParam(0, string.Empty, fromDate, toDate, pageSize, page);
+            param = new TransferToDownlineHistoryParam(0, string.Empty, fromDate, toDate);
             records = new List<TransferToDownlineHistoryModel>
             {
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", "Deposit", 1, 2, 3, "Desc 1"),
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", "Withdrawal", 2, 3, 4, string.Empty),
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 13), "Agent", "Deposit", 3, 4, 5, "Desc 3")
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", 0, 1, 2, 3, "Desc 1"),
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", 1, 2, 3, 4, string.Empty),
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 13), "Agent", 0, 3, 4, 5, "Desc 3")
             };
-            viewModel = new TransferToDownlineHistoryViewModel(records, query, param, totalRecords);
+            viewModel = new TransferToDownlineHistoryViewModel(records, query, param);
 
             compareLogic = new CompareLogic();
 
@@ -83,7 +83,7 @@
                 CustLevelId = level
             };
 
-            var vm = new TransferToDownlineHistoryViewModel(null, message, null, 0);
+            var vm = new TransferToDownlineHistoryViewModel(null, message, null);
 
             // Act
             var actualDirectDownlineText = vm.DirectDownlineText;
@@ -143,26 +143,6 @@
         }
 
         [Fact]
-        public void PageSize_Always_ReturnsPageSizeFromParam()
-        {
-            // Act
-            var actualPageSize = viewModel.PageSize;
-
-            // Assert
-            Assert.Equal(pageSize, actualPageSize);
-        }
-
-        [Fact]
-        public void Page_Always_ReturnsPageFromParam()
-        {
-            // Act
-            var actualPage = viewModel.Page;
-
-            // Assert
-            Assert.Equal(page, actualPage);
-        }
-
-        [Fact]
         public void TransferToDownlineHistories_Always_ReturnsCorrectValueSetByCtor()
         {
             // Act
@@ -173,16 +153,6 @@
                 && compareLogic.Compare(records.ElementAt(0), actualRecords.ElementAt(0)).AreEqual
                 && compareLogic.Compare(records.ElementAt(1), actualRecords.ElementAt(1)).AreEqual
                 && compareLogic.Compare(records.ElementAt(2), actualRecords.ElementAt(2)).AreEqual);
-        }
-
-        [Fact]
-        public void TotalRecords_Always_ReturnsTotalRecordsSetByCtor()
-        {
-            // Act
-            var actualTotalRecords = viewModel.TotalRecords;
-
-            // Assert
-            Assert.Equal(totalRecords, actualTotalRecords);
         }
 
         [Fact]
@@ -197,19 +167,6 @@
 
             // Assert
             Assert.True(compareLogic.Compare(filterVM, actualFilterVM).AreEqual);
-        }
-
-        [Fact]
-        public void PagerViewModel_Always_ReturnsCorrectValue()
-        {
-            // Arrange
-            var pagerVM = new PagerViewModel(page, pageSize, totalRecords);
-
-            // Act
-            var actualPagerVM = viewModel.PagerViewModel;
-
-            // Assert
-            Assert.True(compareLogic.Compare(pagerVM, actualPagerVM).AreEqual);
         }
     }
 }

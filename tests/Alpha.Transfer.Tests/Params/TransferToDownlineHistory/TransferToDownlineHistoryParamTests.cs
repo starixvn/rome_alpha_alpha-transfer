@@ -19,7 +19,7 @@
         {
             // Arrange
             var custId = 1;
-            var param = new TransferToDownlineHistoryParam(custId, string.Empty, new DateTime(), new DateTime(), 0, 0);
+            var param = new TransferToDownlineHistoryParam(custId, string.Empty, new DateTime(), new DateTime());
 
             // Act
             var actualCustId = param.CustId;
@@ -33,7 +33,7 @@
         {
             // Arrange
             var userName = "username";
-            var param = new TransferToDownlineHistoryParam(0, userName, new DateTime(), new DateTime(), 0, 0);
+            var param = new TransferToDownlineHistoryParam(0, userName, new DateTime(), new DateTime());
 
             // Act
             var actualUserName = param.UserName;
@@ -46,7 +46,7 @@
         public void FromDate_MinValue_ReturnsSystemTimeTody()
         {
             // Arrange
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, DateTime.MinValue, new DateTime(), 0, 0);
+            var param = new TransferToDownlineHistoryParam(0, string.Empty, DateTime.MinValue, new DateTime());
 
             // Act
             var actualFromDate = param.FromDate;
@@ -60,7 +60,7 @@
         {
             // Arrange
             var fromDate = DefaultVariablesTest.CurrentDate;
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, fromDate, new DateTime(), 0, 0);
+            var param = new TransferToDownlineHistoryParam(0, string.Empty, fromDate, new DateTime());
 
             // Act
             var actualFromDate = param.FromDate;
@@ -73,7 +73,7 @@
         public void ToDate_MinValue_ReturnsSystemTimeTody()
         {
             // Arrange
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), DateTime.MinValue, 0, 0);
+            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), DateTime.MinValue);
 
             // Act
             var actualToDate = param.ToDate;
@@ -87,45 +87,13 @@
         {
             // Arrange
             var toDate = DefaultVariablesTest.CurrentDate;
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), toDate, 0, 0);
+            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), toDate);
 
             // Act
             var actualToDate = param.ToDate;
 
             // Assert
             Assert.Equal(toDate, actualToDate);
-        }
-
-        [Theory]
-        [InlineData(-10, DefaultVariablesTest.PageSize)]
-        [InlineData(0, DefaultVariablesTest.PageSize)]
-        [InlineData(10, 10)]
-        public void PageSize_Always_ReturnsPageSizeSetByCtor(int pageSize, int expectedPageSize)
-        {
-            // Arrange
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), new DateTime(), pageSize, 0);
-
-            // Act
-            var actualPageSize = param.PageSize;
-
-            // Assert
-            Assert.Equal(expectedPageSize, actualPageSize);
-        }
-
-        [Theory]
-        [InlineData(-1, DefaultVariablesTest.PageIndex)]
-        [InlineData(0, DefaultVariablesTest.PageIndex)]
-        [InlineData(1, 1)]
-        public void Page_Always_ReturnsPageSetByCtor(int page, int expectedPage)
-        {
-            // Arrange
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), new DateTime(), 0, page);
-
-            // Act
-            var actualPage = param.Page;
-
-            // Assert
-            Assert.Equal(expectedPage, actualPage);
         }
     }
 }

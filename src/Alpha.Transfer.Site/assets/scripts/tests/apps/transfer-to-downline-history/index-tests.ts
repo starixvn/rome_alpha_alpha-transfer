@@ -10,6 +10,23 @@
                         <input id="to-date" value="" />
                         <span id="icon-excel"></span>
                     </form>
+                    <table id="tbl-report" data-cansort="True">
+                        <thead>
+                            <tr></tr>
+                            <tr>
+                                <th class="all">A</th>
+                                <th class="all">B</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <form id="export-excel-form">
                         
                     </form>
@@ -22,8 +39,7 @@
     beforeEach(() => {
         transferToDownlineHistory = new TransferToDownlineHistory(
             jqueryFake,
-            new DateRangePickerComponent(jqueryFake),
-            new ClientPagerComponent(jqueryFake)
+            new DateRangePickerComponent(jqueryFake)
         );
     });
 
@@ -32,10 +48,12 @@
             // arrange
             setFixtures(template.normal);
             spyOn(transferToDownlineHistory, "cacheDOMElements");
+            spyOn(transferToDownlineHistory, "initDataTable");
             spyOn(transferToDownlineHistory, "initUsernameSuggestion"),
             spyOn(transferToDownlineHistory, "registerEvents");
             spyOn(transferToDownlineHistory.dateRangePickerComponent, "render");
-            spyOn(transferToDownlineHistory.pagerComponent, "render");
+
+            transferToDownlineHistory.$tableReport = jqueryFake("#tbl-report");
 
             // act
             transferToDownlineHistory.init();
@@ -44,6 +62,16 @@
         it("_Call cacheDOMElements", () => {
             // assert
             expect(transferToDownlineHistory.cacheDOMElements).toHaveBeenCalled();
+        });
+
+        it("_Set correct value canSort", () => {
+            // assert
+            expect(transferToDownlineHistory.canSort).toBeTruthy();
+        });
+
+        it("_Call initDataTable", () => {
+            // assert
+            expect(transferToDownlineHistory.initDataTable).toHaveBeenCalled();
         });
 
         it("_Call initUsernameSuggestion", () => {
@@ -60,11 +88,6 @@
             // assert
             expect(transferToDownlineHistory.dateRangePickerComponent.render).toHaveBeenCalled();
         });
-
-        it("_Render Client Pager", () => {
-            // assert
-            expect(transferToDownlineHistory.pagerComponent.render).toHaveBeenCalled();
-        });
     });
 
     describe("_cacheDOMElements", () => {
@@ -76,6 +99,7 @@
             transferToDownlineHistory.cacheDOMElements();
 
             // assert
+            expect(transferToDownlineHistory.$tableReport).toBeDefined();
             expect(transferToDownlineHistory.$username).toBeDefined();
             expect(transferToDownlineHistory.$usernameAutoSuggestionPath).toBeDefined();
             expect(transferToDownlineHistory.$output).toBeDefined();

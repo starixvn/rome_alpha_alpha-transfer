@@ -44,16 +44,14 @@
             {
                 UserName = string.Empty,
                 FromDate = fromDate,
-                ToDate = toDate,
-                PageSize = pageSize,
-                Page = page
+                ToDate = toDate
             };
-            param = new TransferToDownlineHistoryParam(userFixture.User.Id, string.Empty, fromDate, toDate, pageSize, page);
+            param = new TransferToDownlineHistoryParam(userFixture.User.Id, string.Empty, fromDate, toDate);
             records = new List<TransferToDownlineHistoryModel>
             {
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", "Deposit", 1, 2, 3, "Desc 1"),
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", "Withdrawal", 2, 3, 4, string.Empty),
-                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 13), "Agent", "Deposit", 3, 4, 5, "Desc 3")
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", 0, 1, 2, 3, "Desc 1"),
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", 1, 2, 3, 4, string.Empty),
+                new TransferToDownlineHistoryModel(new DateTime(2021, 1, 13), "Agent", 0, 3, 4, 5, "Desc 3")
             };
         }
 

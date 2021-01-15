@@ -2,7 +2,7 @@
 
 declare var initAutoComplete: Function;
 
-class TransferToDownlineHistory {
+class TransferToDownlineHistory extends TransferReport {
     $: JQueryStatic;
     $username: JQuery;
     $usernameAutoSuggestionPath: JQuery;
@@ -13,25 +13,24 @@ class TransferToDownlineHistory {
     $toDate: JQuery;
 
     dateRangePickerComponent: DateRangePickerComponent;
-    pagerComponent: ClientPagerComponent;
 
     constructor(
         $: JQueryStatic,
-        dateRangePickerComponent: DateRangePickerComponent,
-        pagerComponent: ClientPagerComponent
+        dateRangePickerComponent: DateRangePickerComponent
     ) {
+        super($);
+
         this.$ = $;
         this.dateRangePickerComponent = dateRangePickerComponent;
-        this.pagerComponent = pagerComponent;
     }
 
     public init(): void {
-        this.cacheDOMElements();
+        super.init();
+
         this.initUsernameSuggestion();
         this.registerEvents();
 
         this.dateRangePickerComponent.render();
-        this.pagerComponent.render();
     }
 
     public initUsernameSuggestion(): void {
@@ -48,6 +47,8 @@ class TransferToDownlineHistory {
     }
 
     public cacheDOMElements(): void {
+        super.cacheDOMElements();
+
         this.$username = this.$("#txt-username");
         this.$usernameAutoSuggestionPath = this.$("#usernameAutoSuggestionPath");
         this.$output = this.$("#output");
@@ -85,7 +86,6 @@ class TransferToDownlineHistory {
 $(() => {
     const transferToDownlineHistory = new TransferToDownlineHistory(
         $,
-        new DateRangePickerComponent($),
-        new ClientPagerComponent($));
+        new DateRangePickerComponent($));
     transferToDownlineHistory.init();
 });

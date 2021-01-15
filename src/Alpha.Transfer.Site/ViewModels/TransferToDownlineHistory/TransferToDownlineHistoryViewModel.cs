@@ -19,14 +19,12 @@
         public TransferToDownlineHistoryViewModel(
             IEnumerable<TransferToDownlineHistoryModel> transferToDownlineHistories,
             TransferToDownlineHistoryQuery message,
-            TransferToDownlineHistoryParam param,
-            int totalRecords)
+            TransferToDownlineHistoryParam param)
         {
             this.message = message;
             this.param = param;
             CustLevel = message.CustLevel;
             TransferToDownlineHistories = transferToDownlineHistories;
-            TotalRecords = totalRecords;
         }
 
         public UserLevel CustLevel { get; }
@@ -46,19 +44,11 @@
 
         public int UserSelectedDateRangeOption => message.UserSelectedDateRangeOption;
 
-        public int PageSize => param.PageSize;
-
-        public int Page => param.Page;
-
         public IEnumerable<TransferToDownlineHistoryModel> TransferToDownlineHistories { get; }
-
-        public int TotalRecords { get; }
 
         public TransferToDownlineHistoryFilterViewModel FilterViewModel => new TransferToDownlineHistoryFilterViewModel(
             UserName,
             new DateRangePickerViewModel(MinDate, MaxDate, FromDate, ToDate, UserSelectedDateRangeOption),
             MinDate);
-
-        public PagerViewModel PagerViewModel => new PagerViewModel(Page, PageSize, TotalRecords);
     }
 }

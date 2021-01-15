@@ -39,7 +39,7 @@
             => new Mapper<TransferToDownlineHistoryModel>()
             .Map(Column.A, m => m.ActionDate.ToLongDateWithSlash24HFormat())
             .Map(Column.B, m => m.DownlineName)
-            .Map(Column.C, m => m.TransferType)
+            .Map(Column.C, m => m.TransferTypeName)
             .Map(Column.D, m => m.TransferAmount)
             .Map(Column.E, m => m.OldBalance)
             .Map(Column.F, m => m.NewBalance)

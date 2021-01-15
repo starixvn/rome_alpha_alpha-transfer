@@ -38,9 +38,7 @@
                 message.CustId,
                 message.UserName,
                 message.FromDate,
-                message.ToDate,
-                message.PageSize,
-                message.Page);
+                message.ToDate);
 
         protected internal virtual string GetExcelTemplatePath(string templateName, string fileExtension = "xls")
         {

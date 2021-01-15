@@ -508,8 +508,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
-    <TypeScriptCompile Include="assets\scripts\multiple-transfer\customer-list.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\multiple-transfer\customer-list.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
@@ -519,19 +523,45 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-all-clear-credit\transfer-result-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\transfer-result.ts" />
-    <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\calculation.ts" />
-    <TypeScriptCompile Include="assets\scripts\cash-balance-transfer\cash-balance.ts" />
-    <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
-    <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
-    <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
-    <TypeScriptCompile Include="typings\globals\jquery.blockui\index.d.ts" />
-    <TypeScriptCompile Include="typings\globals\jquery.cookie\index.d.ts" />
-    <TypeScriptCompile Include="typings\globals\jqueryui\index.d.ts" />
-    <TypeScriptCompile Include="typings\globals\jquery\index.d.ts" />
-    <TypeScriptCompile Include="typings\globals\moment\index.d.ts" />
-    <TypeScriptCompile Include="typings\globals\storejs\index.d.ts" />
-    <TypeScriptCompile Include="typings\index.d.ts" />
+    <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\transfer-result.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\calculation.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\cash-balance-transfer\cash-balance.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\jquery.blockui\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\jquery.cookie\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\jqueryui\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\jquery\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\moment\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\storejs\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\index.d.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

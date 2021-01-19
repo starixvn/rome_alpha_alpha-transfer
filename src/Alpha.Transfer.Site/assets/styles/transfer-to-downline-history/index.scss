@@ -38,3 +38,41 @@ table.tblRpt {
         }
     }
 }
+
+.dataTables_wrapper {
+    .dataTables_length {
+        label {
+            font-weight: normal;
+        }
+
+        select[name="tbl-report_length"] {
+            margin: 0 .5em;
+        }
+    }
+
+    .dataTables_paginate {
+        .paginate_button {
+            &.disabled {
+                opacity: .5;
+            }
+
+            &:hover {
+                background: unset;
+                border: 1px solid transparent;
+            }
+
+            .l-btn-left {
+                vertical-align: middle;
+            }
+        }
+
+        span {
+            .paginate_button {
+                &:hover {
+                    border: 1px solid #979797;
+                    color: #333 !important;
+                }
+            }
+        }
+    }
+}

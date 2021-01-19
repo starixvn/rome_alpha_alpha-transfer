@@ -547,22 +547,31 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Page.
+        ///   Looks up a localized string similar to Displaying _START_ to _END_ of _TOTAL_ items.
         /// </summary>
-        public static string Page {
+        public static string PaginationInfo {
             get {
-                return ResourceManager.GetString("Page", resourceCulture);
+                return ResourceManager.GetString("PaginationInfo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Displaying {from} to {to} of {total} items.
+        ///   Looks up a localized string similar to Displaying 0 to 0 of 0 items.
         /// </summary>
-        public static string Pager_DisplayItems {
+        public static string PaginationInfoEmpty {
             get {
-                return ResourceManager.GetString("Pager_DisplayItems", resourceCulture);
+                return ResourceManager.GetString("PaginationInfoEmpty", resourceCulture);
             }
         }
+		
+		/// <summary>
+		///	  Looks up a localized string similar to Display _MENU_ items per page.
+		/// </summary>
+		public static string PaginationLengthMenu {
+			get {
+				return ResourceManager.GetString("PaginationLengthMenu", resourceCulture);
+			}
+		}
         
         /// <summary>
         ///   Looks up a localized string similar to Saturday.

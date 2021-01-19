@@ -1,11 +1,15 @@
 ﻿"use strict"
 
+interface Window {
+    $: JQueryStatic
+}
+
 class TransferReport {
     $: JQueryStatic;
     $tableReport: JQuery;
     $dataTable: JQuery;
 
-    canSort: boolean;
+    hasData: boolean;
 
     constructor($: JQueryStatic) {
         this.$ = $;
@@ -13,7 +17,7 @@ class TransferReport {
 
     public init(): void {
         this.cacheDOMElements();
-        this.canSort = JSON.parse(this.$tableReport.data("cansort").toString().toLowerCase());
+        this.hasData = JSON.parse(this.$tableReport.data("hasdata").toString().toLowerCase());
         this.initDataTable();
     }
 
@@ -75,8 +79,29 @@ class TransferReport {
 
         return {
             language: {
-                processing: "",
-                emptyTable: this.$("#NoInformationIsAvailable").val()
+                emptyTable: this.$("#NoInformationIsAvailable").val(),
+                info: this.$("#PaginationInfo").val(),
+                infoEmpty: this.$("#PaginationInfoEmpty").val(),
+                lengthMenu: this.$("#PaginationLengthMenu").val(),
+                paginate: {
+                    first: `<span class="l-btn-left l-btn-icon-left">
+                                <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                                <span class="l-btn-icon pagination-first">&nbsp;</span>
+                            </span>`,
+                    previous: `<span class="l-btn-left l-btn-icon-left">
+                                   <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                                   <span class="l-btn-icon pagination-prev">&nbsp;</span>
+                               </span>`,
+                    next: `<span class="l-btn-left l-btn-icon-left">
+                               <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                               <span class="l-btn-icon pagination-next">&nbsp;</span>
+                           </span>`,
+                    last: `<span class="l-btn-left l-btn-icon-left">
+                               <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                               <span class="l-btn-icon pagination-last">&nbsp;</span>
+                           </span>`
+                },
+                processing: ""
             },
             responsive: {
                 details: {
@@ -108,11 +133,12 @@ class TransferReport {
                 orderable: false,
                 targets: -1
             }],
-            ordering: this.canSort,
-            paging: true,
+            ordering: this.hasData,
+            paging: this.hasData,
+            pagingType: utilsInstance.screenSmallThan768() ? "numbers" : "full_numbers",
             pageLength: 500,
             lengthMenu: [10, 50, 100, 500],
-            info: true,
+            info: this.hasData,
             searching: false,
             fixedHeader: true,
             processing: true,

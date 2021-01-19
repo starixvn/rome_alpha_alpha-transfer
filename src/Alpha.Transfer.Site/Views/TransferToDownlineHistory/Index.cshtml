@@ -23,7 +23,7 @@
 <div class="box-content">
     <table id="tbl-report"
            class="tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap"
-           data-cansort="@(Model.TransferToDownlineHistories.Count() > 1)">
+           data-hasdata="@(Model.TransferToDownlineHistories.Count() > 0)">
         <thead>
             <tr></tr>
             <tr>
@@ -62,7 +62,6 @@
 @section Scripts {
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-transfer/filter")
-    @StaticResources.AssetScripts.RenderCommon("/bundles/site-transfer/pagination")
     @StaticResources.RenderScripts("~/assets/bundles/transfer-to-downline-history/index")
 }
 

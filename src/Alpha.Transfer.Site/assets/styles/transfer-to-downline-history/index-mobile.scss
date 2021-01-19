@@ -143,3 +143,27 @@
         margin: 0;
     }
 }
+
+.dataTables_wrapper {
+    .dataTables_length {
+        label {
+            font-size: calculateScale(16px);
+        }
+
+        select[name="tbl-report_length"] {
+            height: 100%;
+
+            option {
+                font-size: calculateScale(12px);
+            }
+        }
+    }
+
+    .dataTables_paginate {
+        padding-bottom: .5em;
+    }
+}
+
+.float-section {
+    width: 0;
+}

@@ -14,6 +14,12 @@
 </head>
 <body>
     @RenderBody()
+
+    @Html.Hidden("NoInformationIsAvailable", @Resources.NoInformationIsAvailable)
+    @Html.Hidden("PaginationInfo", @Resources.PaginationInfo)
+    @Html.Hidden("PaginationInfoEmpty", @Resources.PaginationInfoEmpty)
+    @Html.Hidden("PaginationLengthMenu", @Resources.PaginationLengthMenu)
+
     @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/default")
     @RenderSection("Scripts", required: false)

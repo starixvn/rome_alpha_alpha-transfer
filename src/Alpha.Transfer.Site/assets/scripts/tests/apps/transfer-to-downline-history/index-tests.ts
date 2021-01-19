@@ -10,7 +10,7 @@
                         <input id="to-date" value="" />
                         <span id="icon-excel"></span>
                     </form>
-                    <table id="tbl-report" data-cansort="True">
+                    <table id="tbl-report" data-hasdata="True">
                         <thead>
                             <tr></tr>
                             <tr>
@@ -64,9 +64,9 @@
             expect(transferToDownlineHistory.cacheDOMElements).toHaveBeenCalled();
         });
 
-        it("_Set correct value canSort", () => {
+        it("_Set correct value hasData", () => {
             // assert
-            expect(transferToDownlineHistory.canSort).toBeTruthy();
+            expect(transferToDownlineHistory.hasData).toBeTruthy();
         });
 
         it("_Call initDataTable", () => {

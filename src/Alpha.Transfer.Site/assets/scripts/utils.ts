@@ -1,9 +1,15 @@
 ﻿"use strict";
 
 class Utils {
-    public screenSmallThan768 = (): boolean => screen.width < 768;
+    private readonly mobileDeviceMaxWidth: number;
 
-    public screenLandscapeMode = (): boolean => window.orientation === -90 || window.orientation == 90;
+    constructor() {
+        this.mobileDeviceMaxWidth = 768;
+    }
+
+    public screenSmallThan768 = (): boolean => screen.width < this.mobileDeviceMaxWidth;
+
+    public screenLandscapeMode = (): boolean => screen.height < screen.width;
 }
 
 const utilsInstance = new Utils();

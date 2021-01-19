@@ -1,4 +1,4 @@
-﻿"use strict"
+﻿"use strict";
 
 interface Window {
     $: JQueryStatic
@@ -10,14 +10,22 @@ class TransferReport {
     $dataTable: JQuery;
 
     hasData: boolean;
+    lengthMenu: number[];
+    pageLength: number;
+    pagingType: string;
+    tblFooterClass = "tbl-footer";
 
     constructor($: JQueryStatic) {
         this.$ = $;
+        this.lengthMenu = [10, 50, 100, 500];
+        this.pageLength = 500;
     }
 
     public init(): void {
         this.cacheDOMElements();
+
         this.hasData = JSON.parse(this.$tableReport.data("hasdata").toString().toLowerCase());
+        this.pagingType = utilsInstance.screenSmallThan768() ? "numbers" : "full_numbers";
         this.initDataTable();
     }
 
@@ -39,13 +47,15 @@ class TransferReport {
 
     public onClickFooterRow = (parentRow, childRow): void => {
         parentRow.hasClass("parent") ?
-            childRow.addClass("tbl-footer") :
-            childRow.removeClass("tbl-footer");
+            childRow.addClass(this.tblFooterClass) :
+            childRow.removeClass(this.tblFooterClass);
 
+        const scrollTopTimeOut = 100;
         setTimeout(() => {
-            const scrollTo = this.$(document).height();
-            this.$(window).scrollTop(scrollTo + 15);
-        }, 100);
+            const scrollTo: number = this.$(document).height(),
+                gap = 15;
+            this.$(window).scrollTop(scrollTo + gap);
+        }, scrollTopTimeOut);
     };
 
     public onClickBodyRow = (parentRow, childRow): void => {
@@ -59,7 +69,7 @@ class TransferReport {
     public onClickDetailControl(element): void {
         const parentRow = this.$(element).closest("tr");
         const childRow = this.$(parentRow).next();
-        parentRow.hasClass("tbl-footer") ?
+        parentRow.hasClass(this.tblFooterClass) ?
             this.onClickFooterRow(parentRow, childRow) :
             this.onClickBodyRow(parentRow, childRow);
     }
@@ -74,7 +84,7 @@ class TransferReport {
         this.$dataTable.on("draw.dt", () => this.triggerRedrawTable());
     }
 
-    public getTableOptions = (): any => {
+    public getTableOptions = () => {
         const self = this;
 
         return {
@@ -85,21 +95,21 @@ class TransferReport {
                 lengthMenu: this.$("#PaginationLengthMenu").val(),
                 paginate: {
                     first: `<span class="l-btn-left l-btn-icon-left">
-                                <span class="l-btn-text l-btn-empty">&nbsp;</span>
-                                <span class="l-btn-icon pagination-first">&nbsp;</span>
-                            </span>`,
+                          <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                          <span class="l-btn-icon pagination-first">&nbsp;</span>
+                        </span>`,
                     previous: `<span class="l-btn-left l-btn-icon-left">
-                                   <span class="l-btn-text l-btn-empty">&nbsp;</span>
-                                   <span class="l-btn-icon pagination-prev">&nbsp;</span>
-                               </span>`,
-                    next: `<span class="l-btn-left l-btn-icon-left">
-                               <span class="l-btn-text l-btn-empty">&nbsp;</span>
-                               <span class="l-btn-icon pagination-next">&nbsp;</span>
+                             <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                             <span class="l-btn-icon pagination-prev">&nbsp;</span>
                            </span>`,
+                    next: `<span class="l-btn-left l-btn-icon-left">
+                         <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                         <span class="l-btn-icon pagination-next">&nbsp;</span>
+                       </span>`,
                     last: `<span class="l-btn-left l-btn-icon-left">
-                               <span class="l-btn-text l-btn-empty">&nbsp;</span>
-                               <span class="l-btn-icon pagination-last">&nbsp;</span>
-                           </span>`
+                         <span class="l-btn-text l-btn-empty">&nbsp;</span>
+                         <span class="l-btn-icon pagination-last">&nbsp;</span>
+                       </span>`
                 },
                 processing: ""
             },
@@ -135,9 +145,9 @@ class TransferReport {
             }],
             ordering: this.hasData,
             paging: this.hasData,
-            pagingType: utilsInstance.screenSmallThan768() ? "numbers" : "full_numbers",
-            pageLength: 500,
-            lengthMenu: [10, 50, 100, 500],
+            pagingType: this.pagingType,
+            pageLength: this.pageLength,
+            lengthMenu: this.lengthMenu,
             info: this.hasData,
             searching: false,
             fixedHeader: true,
@@ -146,11 +156,11 @@ class TransferReport {
         };
     };
 
-    public renderData = (idxColumn: any, headerText: string, cellData: any): string => `<li data-dtr-index="${idxColumn}">` +
+    public renderData = (idxColumn, headerText: string, cellData): string => `<li data-dtr-index="${idxColumn}">` +
         `<span class="dtr-title">${headerText}</span>` +
         `<span class="dtr-data">${cellData}</span></li>`;
 
-    public renderDetail = (rowIdx: any, data: any): any => data ?
+    public renderDetail = (rowIdx, data) => data ?
         this.$(`<ul data-dtr-index="${rowIdx}"/>`).append(data) :
         false;
 

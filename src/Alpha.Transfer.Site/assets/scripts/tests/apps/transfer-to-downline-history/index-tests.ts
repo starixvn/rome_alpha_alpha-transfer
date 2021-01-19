@@ -69,6 +69,11 @@
             expect(transferToDownlineHistory.hasData).toBeTruthy();
         });
 
+        it("_Set correct value pagingType", () => {
+            // assert
+            expect(transferToDownlineHistory.pagingType).toBe("full_numbers");
+        });
+
         it("_Call initDataTable", () => {
             // assert
             expect(transferToDownlineHistory.initDataTable).toHaveBeenCalled();

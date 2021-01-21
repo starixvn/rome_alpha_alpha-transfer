@@ -147,7 +147,7 @@
 .dataTables_wrapper {
     .dataTables_length {
         label {
-            font-size: calculateScale(16px);
+            font-size: calculateScale(13px) !important;
         }
 
         select[name="tbl-report_length"] {

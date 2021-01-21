@@ -31,7 +31,20 @@
         }
 
         protected internal IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(TransferToDownlineHistoryQuery message)
-            => transferToDownlineHistoryService.GetTransferToDownlineHistory(BuildTransferToDownlineHistoryParam(message));
+        {
+            for (int i = 0; i < 500; i++)
+            {
+                yield return new TransferToDownlineHistoryModel(
+                    new System.DateTime(),
+                    string.Format("agent{0}", i),
+                    i % 2 == 0 ? (byte)0 : (byte)1,
+                    (decimal)i * 1000,
+                    (decimal)i * 100,
+                    (decimal)i * 10,
+                    string.Format("Description: transfer to agent{0}", i));
+            }
+        }
+        //    => transferToDownlineHistoryService.GetTransferToDownlineHistory(BuildTransferToDownlineHistoryParam(message));
 
         protected internal TransferToDownlineHistoryParam BuildTransferToDownlineHistoryParam(TransferToDownlineHistoryQuery message)
             => new TransferToDownlineHistoryParam(

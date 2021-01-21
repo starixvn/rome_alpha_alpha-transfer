@@ -17,13 +17,9 @@ class TransferReport {
     $self: TransferReport;
 
     constructor($: JQueryStatic) {
-        const minPageSize = 10;
-        const secondPageSize = 50;
-        const thirdPageSize = 100;
         const maxPageSize = 500;
 
         this.$ = $;
-        this.lengthMenu = [minPageSize, secondPageSize, thirdPageSize, maxPageSize];
         this.pageLength = maxPageSize;
 
         this.$self = this;
@@ -33,7 +29,7 @@ class TransferReport {
         this.cacheDOMElements();
 
         this.hasData = JSON.parse(this.$tableReport.data("hasdata").toString().toLowerCase());
-        this.pagingType = utilsInstance.screenSmallThan768() ? "numbers" : "full_numbers";
+        this.pagingType = "input";
         this.initDataTable();
     }
 
@@ -93,31 +89,27 @@ class TransferReport {
     }
 
     public getTableOptions = () => {
-        const innerSelf = this.$self;
+        const innerSelf = this.$self,
+            lengthMenu = `{Page Size} <select>` +
+                '<option value="10">10</option>' +
+                '<option value="50">50</option>' +
+                '<option value="100">100</option>' +
+                `<option value="500">500</option>` +
+                '</select>',
+            oPaginate = {
+                sFirst: '',
+                sPrevious: '',
+                sNext: '',
+                sLast: '',
+                info: `{Page} _INPUT_ {Of} _TOTAL_`
+            };
         return {
             language: {
                 emptyTable: this.$("#NoInformationIsAvailable").val(),
                 info: this.$("#PaginationInfo").val(),
                 infoEmpty: this.$("#PaginationInfoEmpty").val(),
-                lengthMenu: this.$("#PaginationLengthMenu").val(),
-                paginate: {
-                    first: `<span class="l-btn-left l-btn-icon-left">
-                          <span class="l-btn-text l-btn-empty">&nbsp;</span>
-                          <span class="l-btn-icon pagination-first">&nbsp;</span>
-                        </span>`,
-                    previous: `<span class="l-btn-left l-btn-icon-left">
-                             <span class="l-btn-text l-btn-empty">&nbsp;</span>
-                             <span class="l-btn-icon pagination-prev">&nbsp;</span>
-                           </span>`,
-                    next: `<span class="l-btn-left l-btn-icon-left">
-                         <span class="l-btn-text l-btn-empty">&nbsp;</span>
-                         <span class="l-btn-icon pagination-next">&nbsp;</span>
-                       </span>`,
-                    last: `<span class="l-btn-left l-btn-icon-left">
-                         <span class="l-btn-text l-btn-empty">&nbsp;</span>
-                         <span class="l-btn-icon pagination-last">&nbsp;</span>
-                       </span>`
-                },
+                lengthMenu,
+                oPaginate,
                 processing: ""
             },
             responsive: {
@@ -154,9 +146,10 @@ class TransferReport {
             paging: this.hasData,
             pagingType: this.pagingType,
             pageLength: this.pageLength,
-            lengthMenu: this.lengthMenu,
-            info: this.hasData,
+            lengthMenu,
             searching: false,
+            bInfo: false,
+            dom: '<"top"iflp<"clear">>rt<"bottom"ifp<"clear">>',
             fixedHeader: true,
             processing: true,
             drawCallback: this.drawCallback

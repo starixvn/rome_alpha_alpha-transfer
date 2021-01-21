@@ -40,39 +40,100 @@ table.tblRpt {
 }
 
 .dataTables_wrapper {
-    .dataTables_length {
-        label {
-            font-weight: normal;
-        }
+    .top {
+        position: relative;
+        height: 32px;
+        margin-bottom: 8px;
+        line-height: 24px;
+    }
 
-        select[name="tbl-report_length"] {
-            margin: 0 .5em;
+    .dataTables_length {
+        position: absolute;
+        right: 0;
+        z-index: 999;
+
+        label {
+            font-size: 13px;
+            color: #333 !important;
+            float: right;
+            margin-right: 5px;
+            margin-bottom: 0;
         }
     }
 
     .dataTables_paginate {
+        margin-top: 0;
+        padding-top: 0;
+        position: relative;
+        left: 0 !important;
+        float: none;
+        text-align: center;
+
+        .paginate_input {
+            width: 50px;
+            box-shadow: none;
+            border: 1px solid #CFCFCF;
+            border-radius: 4px;
+            text-align: center;
+        }
+
         .paginate_button {
+            color: #3D5AD8 !important;
+            font-family: "Iconalpha";
+            padding: 0;
+            font-size: 20px;
+            position: relative;
+            top: 5px;
+            min-width: 32px;
+
+            &:active {
+                box-shadow: none;
+            }
+
             &.disabled {
-                opacity: .5;
+                color: #c4c4c4 !important;
+
+                &:hover {
+                    cursor: not-allowed;
+                    color: #c4c4c4 !important;
+                }
             }
 
             &:hover {
-                background: unset;
-                border: 1px solid transparent;
-            }
-
-            .l-btn-left {
-                vertical-align: middle;
+                background: transparent;
+                border: none;
+                color: #3D5AD8 !important;
             }
         }
 
-        span {
-            .paginate_button {
-                &:hover {
-                    border: 1px solid #979797;
-                    color: #333 !important;
-                }
+        .first:before {
+            content: "\e951";
+            transform: rotate(180deg);
+            display: inline-block;
+        }
+
+        .previous {
+            padding-right: 8px;
+
+            &:before {
+                content: "\e954";
+                display: inline-block;
+                transform: rotate(90deg);
             }
+        }
+
+        .next {
+            padding-left: 8px;
+
+            &:before {
+                content: "\e954";
+                transform: rotate(-90deg);
+                display: inline-block;
+            }
+        }
+
+        .last:before {
+            content: "\e951";
         }
     }
 }

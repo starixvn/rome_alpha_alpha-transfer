@@ -14,11 +14,19 @@ class TransferReport {
     pageLength: number;
     pagingType: string;
     tblFooterClass = "tbl-footer";
+    $self: TransferReport;
 
     constructor($: JQueryStatic) {
+        const minPageSize = 10;
+        const secondPageSize = 50;
+        const thirdPageSize = 100;
+        const maxPageSize = 500;
+
         this.$ = $;
-        this.lengthMenu = [10, 50, 100, 500];
-        this.pageLength = 500;
+        this.lengthMenu = [minPageSize, secondPageSize, thirdPageSize, maxPageSize];
+        this.pageLength = maxPageSize;
+
+        this.$self = this;
     }
 
     public init(): void {
@@ -85,8 +93,7 @@ class TransferReport {
     }
 
     public getTableOptions = () => {
-        const self = this;
-
+        const innerSelf = this.$self;
         return {
             language: {
                 emptyTable: this.$("#NoInformationIsAvailable").val(),
@@ -119,7 +126,7 @@ class TransferReport {
                     target: -1,
                     renderer: (api, rowIdx) => {
                         const data = api.cells(rowIdx, ":hidden").eq(0).map(function (cell) {
-                            const header = self.$(api.column(cell.column).header());
+                            const header = innerSelf.$(api.column(cell.column).header());
                             const idx = api.cell(cell).index();
 
                             if (header.hasClass("control") || header.hasClass("never")) {
@@ -131,10 +138,10 @@ class TransferReport {
                                 dtPrivate, idx.row, idx.column, "display"
                             );
 
-                            return self.renderData(idx.column, header.text(), cellData);
+                            return innerSelf.renderData(idx.column, header.text(), cellData);
                         }).toArray().join("");
 
-                        return self.renderDetail(rowIdx, data);
+                        return this.$self.renderDetail(rowIdx, data);
                     }
                 }
             },

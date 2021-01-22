@@ -5,32 +5,34 @@ interface Window {
 }
 
 class TransferReport {
+    $self: TransferReport;
+
     $: JQueryStatic;
     $tableReport: JQuery;
     $dataTable: JQuery;
 
     hasData: boolean;
-    lengthMenu: number[];
     pageLength: number;
-    pagingType: string;
+    startHiddenColumnIndex: number;
     tblFooterClass = "tbl-footer";
-    $self: TransferReport;
 
     constructor($: JQueryStatic) {
-        const maxPageSize = 500;
+        this.$self = this;
 
         this.$ = $;
-        this.pageLength = maxPageSize;
-
-        this.$self = this;
     }
 
     public init(): void {
         this.cacheDOMElements();
 
+        const initMobilePageLength = 50,
+            initDesktopPageLength = 500;
         this.hasData = JSON.parse(this.$tableReport.data("hasdata").toString().toLowerCase());
-        this.pagingType = "input";
+        this.pageLength = utilsInstance.isMobileDevice() ? initMobilePageLength : initDesktopPageLength;
+        this.startHiddenColumnIndex = 2;
+
         this.initDataTable();
+        this.doAdjustDataTable();
     }
 
     public cacheDOMElements(): void {
@@ -40,6 +42,21 @@ class TransferReport {
     public triggerRedrawTable(): void {
         this.doAdjustHeader();
         this.$("tbody tr.parent").each((index, element) => this.onClickDetailControl(element));
+    }
+
+    public doAdjustDataTable(): void {
+        const browserWidth = this.$(window).width(),
+            deviceWidth = screen.width || window.outerWidth,
+            columnCount = this.$dataTable.columns()[0].length;
+
+        if (deviceWidth < utilsInstance.mobileDeviceMaxWidth && browserWidth >= utilsInstance.mobileDeviceMaxWidth) {
+            for (let i = this.startHiddenColumnIndex; i < columnCount - 1; i++) {
+                this.$(this.$dataTable.column(i).header()).removeClass("desktop min-tablet-l mobile").addClass("mobile");
+            }
+        }
+
+        this.$dataTable.responsive.rebuild();
+        this.$dataTable.responsive.recalc();
     }
 
     public doAdjustHeader = (): void => {
@@ -90,24 +107,24 @@ class TransferReport {
 
     public getTableOptions = () => {
         const innerSelf = this.$self,
-            lengthMenu = `{Page Size} <select>` +
-                '<option value="10">10</option>' +
-                '<option value="50">50</option>' +
-                '<option value="100">100</option>' +
-                `<option value="500">500</option>` +
-                '</select>',
+            lengthMenu =
+                `${this.$("#PageSize").val()} <select>
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                </select>`,
             oPaginate = {
                 sFirst: '',
                 sPrevious: '',
                 sNext: '',
                 sLast: '',
-                info: `{Page} _INPUT_ {Of} _TOTAL_`
+                info: `${this.$("#Page").val()} _INPUT_ ${this.$("#of").val()} _TOTAL_`
             };
+
         return {
             language: {
                 emptyTable: this.$("#NoInformationIsAvailable").val(),
-                info: this.$("#PaginationInfo").val(),
-                infoEmpty: this.$("#PaginationInfoEmpty").val(),
                 lengthMenu,
                 oPaginate,
                 processing: ""
@@ -144,7 +161,7 @@ class TransferReport {
             }],
             ordering: this.hasData,
             paging: this.hasData,
-            pagingType: this.pagingType,
+            pagingType: "input",
             pageLength: this.pageLength,
             lengthMenu,
             searching: false,

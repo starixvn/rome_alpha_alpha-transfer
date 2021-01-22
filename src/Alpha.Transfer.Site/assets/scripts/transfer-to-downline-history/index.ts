@@ -39,8 +39,8 @@ class TransferToDownlineHistory extends TransferReport {
 
         let left = 1,
             top = this.$username.offset().top + this.$username.outerHeight(true) + 1,
-            width = utilsInstance.screenSmallThan768()
-                ? utilsInstance.screenLandscapeMode() ? `calc(50% - ${left}px)` : `calc(100% - ${left}px)`
+            width = utilsInstance.isMobileDevice()
+                ? utilsInstance.isLandscapeMode() ? `calc(50% - ${left}px)` : `calc(100% - ${left}px)`
                 : this.$username.outerWidth() - left;
 
         this.$output.css({ left, top, width });
@@ -75,7 +75,7 @@ class TransferToDownlineHistory extends TransferReport {
     }
 
     public doAdjustDatePickerCalendar = () => {
-        if (utilsInstance.screenSmallThan768() && !utilsInstance.screenLandscapeMode()) {
+        if (utilsInstance.isMobileDevice() && !utilsInstance.isLandscapeMode()) {
             let width = this.$(window).width(),
                 widget = this.$(".bootstrap-datetimepicker-widget.dropdown-menu");
             widget.css({ width });

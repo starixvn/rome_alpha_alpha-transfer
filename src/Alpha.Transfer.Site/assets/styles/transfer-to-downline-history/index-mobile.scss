@@ -147,10 +147,15 @@
 .dataTables_wrapper {
     .dataTables_length {
         label {
-            font-size: calculateScale(13px) !important;
+            font-size: calculateScale(16px);
+            font-weight: normal;
+            margin-right: 0;
         }
 
-        select[name="tbl-report_length"] {
+        select {
+            box-shadow: none;
+            border: 1px solid #cfcfcf;
+            border-radius: 4px;
             height: 100%;
 
             option {
@@ -159,11 +164,22 @@
         }
     }
 
-    .dataTables_paginate {
-        padding-bottom: .5em;
+    .top .dataTables_paginate.paging_input {
+        text-align: left;
     }
-}
 
-.float-section {
-    width: 0;
+    .dataTables_paginate.paging_input {
+        font-size: calculateScale(16px);
+        top: 3px;
+
+        .paginate_button {
+            font-size: calculateScale(16px);
+            top: 3px;
+        }
+
+        .paginate_input {
+            font-size: calculateScale(16px);
+            height: 100%;
+        }
+    }
 }

@@ -1,15 +1,7 @@
 ﻿@model TransferToDownlineHistoryViewModel
 
 @{
-                /**/
-
-                /**/
-
-                /**/
-
-                /**/
-
-                ViewBag.Title = Resources.TransferToDownlineHistory;
+    ViewBag.Title = Resources.TransferToDownlineHistory;
 }
 
 @section Styles {
@@ -30,7 +22,7 @@
 
 <div class="box-content">
     <table id="tbl-report"
-           class="tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap"
+           class="hidden tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap"
            data-hasdata="@(Model.TransferToDownlineHistories.Count() > 0)">
         <thead>
             <tr></tr>
@@ -75,13 +67,6 @@
 
 @helper RenderRow(TransferToDownlineHistoryModel data)
 {
-                    /**/
-
-                    /**/
-
-                    /**/
-
-                    /**/
     <tr>
         <td class="col-date">@data.ActionDate.ToLongDateWithSlash()</td>
         <td class="col-text">@data.DownlineName</td>

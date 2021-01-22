@@ -16,9 +16,9 @@
     @RenderBody()
 
     @Html.Hidden("NoInformationIsAvailable", @Resources.NoInformationIsAvailable)
-    @Html.Hidden("PaginationInfo", @Resources.PaginationInfo)
-    @Html.Hidden("PaginationInfoEmpty", @Resources.PaginationInfoEmpty)
-    @Html.Hidden("PaginationLengthMenu", @Resources.PaginationLengthMenu)
+    @Html.Hidden("of", @Resources.of)
+    @Html.Hidden("Page", @Resources.Page)
+    @Html.Hidden("PageSize", @Resources.PageSize)
 
     @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/default")

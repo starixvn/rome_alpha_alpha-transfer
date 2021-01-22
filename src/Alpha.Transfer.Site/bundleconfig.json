@@ -55,7 +55,7 @@
     "inputFiles": [
       "assets/scripts/components/daterangepicker.js",
       "assets/scripts/utils.js",
-      "assets/scripts/transfer-report.js",
+      "assets/scripts/transfer-to-downline-history/transfer-report.js",
       "assets/scripts/transfer-to-downline-history/index.js"
     ],
     "sourceMap": true

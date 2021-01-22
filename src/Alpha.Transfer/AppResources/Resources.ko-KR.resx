@@ -333,13 +333,13 @@
   <data name="Withdrawal" xml:space="preserve">
     <value>Withdrawal</value>
   </data>
-  <data name="PaginationInfo" xml:space="preserve">
-    <value>Displaying _START_ to _END_ of _TOTAL_ items</value>
+  <data name="of" xml:space="preserve">
+    <value>of</value>
   </data>
-  <data name="PaginationInfoEmpty" xml:space="preserve">
-    <value>Displaying 0 to 0 of 0 items</value>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
   </data>
-  <data name="PaginationLengthMenu" xml:space="preserve">
-    <value>Display _MENU_ items per page</value>
+  <data name="PageSize" xml:space="preserve">
+    <value>Page Size</value>
   </data>
 </root>

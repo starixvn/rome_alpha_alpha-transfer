@@ -7,7 +7,7 @@ interface JQuery {
 class DateRangePickerOption {
     constructor(
         public selectorId: string = "daterange-picker",
-        public filterFormId: string = "filter-form",
+        public filterFormId: string = "report-form",
         public onChange: Function = null) {
         this.selectorId = selectorId;
         this.filterFormId = filterFormId;

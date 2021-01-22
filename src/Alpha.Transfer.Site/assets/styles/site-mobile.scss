@@ -7,6 +7,16 @@ body {
 .page-title {
     font-size: calculateScale(13px);
     line-height: calculateScale(39px);
+
+    .list-icon {
+        position: absolute;
+        right: 0;
+
+        .icon-filter {
+            font-size: calculateScale(22px) !important;
+            padding-right: 0px !important;
+        }
+    }
 }
 
 .filter {

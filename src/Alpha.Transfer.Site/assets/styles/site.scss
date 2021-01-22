@@ -10,6 +10,44 @@ body {
     display: table;
     width: 100%;
     position: relative;
+
+    .hidefilter-element {
+        display: none;
+    }
+
+    &.hide-filter {
+        margin-bottom: 16px;
+
+        .showfilter-element {
+            display: none;
+        }
+
+        .hidefilter-element {
+            display: block;
+        }
+    }
+
+    .list-icon {
+        float: right;
+
+        ul li {
+            cursor: pointer;
+            color: $icon-color;
+            float: left;
+
+            [class^='icon'] {
+                font-size: 16px;
+                padding: 0 10px;
+                vertical-align: middle;
+                position: relative;
+                top: -2px;
+            }
+
+            .icon-filter {
+                font-size: 22px;
+            }
+        }
+    }
 }
 
 .msg {
@@ -203,7 +241,6 @@ input[type="button"][disabled] {
     }
 }
 
-
 .tblRpt .head-row {
     background-color: #666;
     color: #fff;
@@ -253,7 +290,6 @@ input[type="button"][disabled] {
         }
     }
 }
-
 
 .favorite {
     color: #b50000;

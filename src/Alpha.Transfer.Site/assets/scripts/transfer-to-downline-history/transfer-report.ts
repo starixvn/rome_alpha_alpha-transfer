@@ -10,6 +10,9 @@ class TransferReport {
     $: JQueryStatic;
     $tableReport: JQuery;
     $dataTable: JQuery;
+    $iconFilter: JQuery;
+    $pageTitle: JQuery;
+    $reportForm: JQuery;
 
     hasData: boolean;
     pageLength: number;
@@ -24,6 +27,7 @@ class TransferReport {
 
     public init(): void {
         this.cacheDOMElements();
+        this.registerEvents();
 
         const initMobilePageLength = 50,
             initDesktopPageLength = 500;
@@ -31,12 +35,43 @@ class TransferReport {
         this.pageLength = utilsInstance.isMobileDevice() ? initMobilePageLength : initDesktopPageLength;
         this.startHiddenColumnIndex = 2;
 
+        this.initFilterVisibility();
         this.initDataTable();
         this.doAdjustDataTable();
     }
 
     public cacheDOMElements(): void {
         this.$tableReport = this.$("#tbl-report");
+        this.$iconFilter = this.$(".icon-filter");
+        this.$pageTitle = this.$(".page-title");
+        this.$reportForm = this.$("#report-form");
+    }
+
+    public registerEvents(): void {
+        this.$iconFilter.click(this.onClickIconFilter);
+    }
+
+    public initFilterVisibility(): void {
+        if (utilsInstance.isMobileDevice()) {
+            this.hideFilter();
+        }
+    }
+
+    public onClickIconFilter = (): void => {
+        this.$reportForm.hasClass("hide")
+            ? this.showFilter()
+            : this.hideFilter();
+        this.doAdjustHeader();
+    };
+
+    public showFilter(): void {
+        this.$pageTitle.removeClass("hide-filter");
+        this.$reportForm.removeClass("hide");
+    }
+
+    public hideFilter(): void {
+        this.$pageTitle.addClass("hide-filter");
+        this.$reportForm.addClass("hide");
     }
 
     public triggerRedrawTable(): void {

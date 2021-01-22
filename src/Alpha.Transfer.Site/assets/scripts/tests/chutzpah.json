@@ -28,12 +28,13 @@
     { "Path": "libs/data-table/jquery.dataTables.js" },
     { "Path": "libs/data-table/jdataTables.fixedHeader.js" },
     { "Path": "libs/data-table/dataTables.responsive.js" },
+    { "Path": "libs/data-table/dataTables.pagination.input.js" },
     { "Path": "../cash-balance-transfer/cash-balance.ts" },
     { "Path": "../transfer-all-clear-credit/calculation.ts" },
     { "Path": "../transfer-all-clear-credit/transfer-result.ts" },
-    { "Path": "../utils.ts" },
-    { "Path": "../transfer-report.ts" },
     { "Path": "../components/daterangepicker.ts" },
+    { "Path": "../utils.ts" },
+    { "Path": "../transfer-to-downline-history/transfer-report.ts" },
     { "Path": "../transfer-to-downline-history/index.ts" }
   ],
   "Tests": [

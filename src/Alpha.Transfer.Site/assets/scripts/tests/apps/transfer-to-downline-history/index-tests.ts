@@ -4,7 +4,10 @@
     let transferToDownlineHistory: TransferToDownlineHistory;
     let template: any = {
         normal: `<body>
-                    <form id="filter-form">
+                    <div class="page-title>
+                        <i class="icon-filter"></i>
+                    </div>
+                    <form id="report-form">
                         <input id="txt-username" value="" />
                         <input id="from-date" value="" />
                         <input id="to-date" value="" />
@@ -48,7 +51,9 @@
             // arrange
             setFixtures(template.normal);
             spyOn(transferToDownlineHistory, "cacheDOMElements");
+            spyOn(transferToDownlineHistory, "initFilterVisibility");
             spyOn(transferToDownlineHistory, "initDataTable");
+            spyOn(transferToDownlineHistory, "doAdjustDataTable");
             spyOn(transferToDownlineHistory, "initUsernameSuggestion"),
             spyOn(transferToDownlineHistory, "registerEvents");
             spyOn(transferToDownlineHistory.dateRangePickerComponent, "render");
@@ -69,9 +74,24 @@
             expect(transferToDownlineHistory.hasData).toBeTruthy();
         });
 
-        it("_Call initDataTable", () => {
+        it("_Set correct value pageLength", () => {
             // assert
-            expect(transferToDownlineHistory.initDataTable).toHaveBeenCalled();
+            expect(transferToDownlineHistory.pageLength).toBe(500);
+        });
+
+        it("_Set correct value startHiddenColumnIndex", () => {
+            // assert
+            expect(transferToDownlineHistory.startHiddenColumnIndex).toBe(2);
+        });
+
+        it("_Call initFilterVisibility", () => {
+            // assert
+            expect(transferToDownlineHistory.initFilterVisibility).toHaveBeenCalled();
+        });
+
+        it("_Call doAdjustDataTable", () => {
+            // assert
+            expect(transferToDownlineHistory.doAdjustDataTable).toHaveBeenCalled();
         });
 
         it("_Call initUsernameSuggestion", () => {
@@ -100,6 +120,9 @@
 
             // assert
             expect(transferToDownlineHistory.$tableReport).toBeDefined();
+            expect(transferToDownlineHistory.$iconFilter).toBeDefined();
+            expect(transferToDownlineHistory.$pageTitle).toBeDefined();
+            expect(transferToDownlineHistory.$reportForm).toBeDefined();
             expect(transferToDownlineHistory.$username).toBeDefined();
             expect(transferToDownlineHistory.$usernameAutoSuggestionPath).toBeDefined();
             expect(transferToDownlineHistory.$output).toBeDefined();

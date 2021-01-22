@@ -353,6 +353,7 @@
     <Content Include="assets\scripts\tests\libs\bootstrap\multiselect.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\nexDatePicker.js" />
     <Content Include="assets\scripts\tests\libs\data-table\dataTables.fixedHeader.js" />
+    <Content Include="assets\scripts\tests\libs\data-table\dataTables.pagination.input.js" />
     <Content Include="assets\scripts\tests\libs\data-table\dataTables.responsive.js" />
     <Content Include="assets\scripts\tests\libs\data-table\jquery.dataTables.js" />
     <Content Include="assets\scripts\tests\libs\datepicker.js" />

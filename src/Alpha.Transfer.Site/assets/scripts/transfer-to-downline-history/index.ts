@@ -28,8 +28,6 @@ class TransferToDownlineHistory extends TransferReport {
         super.init();
 
         this.initUsernameSuggestion();
-        this.registerEvents();
-
         this.dateRangePickerComponent.render();
     }
 
@@ -59,6 +57,8 @@ class TransferToDownlineHistory extends TransferReport {
     }
 
     public registerEvents(): void {
+        super.registerEvents();
+
         this.$username.keyup(() => {
             !this.$username.val().trim()
                 ? this.$username.addClass("text-italic")

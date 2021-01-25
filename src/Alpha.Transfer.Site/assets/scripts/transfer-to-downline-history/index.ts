@@ -31,6 +31,10 @@ class TransferToDownlineHistory extends TransferReport {
         this.dateRangePickerComponent.render();
     }
 
+    public initDataTable(): void {
+        super.initDataTable({ responsive: false });
+    }
+
     public initUsernameSuggestion(): void {
         const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1, issub: 0, ismember: 0 })}`;
         initAutoComplete(this.$username[0], queryUsernameURL);

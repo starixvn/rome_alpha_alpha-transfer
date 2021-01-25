@@ -9,7 +9,7 @@
     @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/filter")
     @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/pagination")
     @StaticResources.RenderStyles("~/assets/bundles/transfer-to-downline-history/index")
-    @StaticResources.RenderStylesWithMedia(767, "~/assets/bundles/transfer-to-downline-history/index-mobile")
+    @*@StaticResources.RenderStylesWithMedia(767, "~/assets/bundles/transfer-to-downline-history/index-mobile")*@
 }
 
 <div class="page-title">
@@ -37,14 +37,14 @@
         <thead>
             <tr></tr>
             <tr>
-                <th class="all" data-priority="7">@Resources.ActionDate</th>
+                <th class="all w-15" data-priority="7">@Resources.ActionDate</th>
                 <th class="all" data-priority="6">@Model.DirectDownlineText</th>
                 <th class="min-tablet-l" data-priority="5">@Resources.TransferType</th>
                 <th class="min-tablet-l" data-priority="4">@Resources.TransferAmount</th>
                 <th class="min-tablet-l" data-priority="3">@Resources.OldBalance</th>
                 <th class="min-tablet-l" data-priority="2">@Resources.NewBalance</th>
-                <th class="desktop" data-priority="1">@Resources.Description</th>
-                <th></th>
+                <th class="desktop w-30" data-priority="1">@Resources.Description</th>
+                @*<th></th>*@
             </tr>
         </thead>
         <tbody>
@@ -85,6 +85,6 @@
         <td class="col-number">@HtmlHelpers.FormatNumber(data.OldBalance)</td>
         <td class="col-number">@HtmlHelpers.FormatNumber(data.NewBalance)</td>
         <td>@data.Description</td>
-        <td></td>
+        @*<td></td>*@
     </tr>
 }

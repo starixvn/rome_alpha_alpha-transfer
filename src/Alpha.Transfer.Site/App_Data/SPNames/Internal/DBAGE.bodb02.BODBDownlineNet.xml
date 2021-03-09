@@ -15,7 +15,7 @@
     <Setting Key="Age_Transfer_Credit_All_Sel" SpName="Age_Transfer_Credit_All_Sel" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
   </Function>
   <Function Name="Transfer To Downline History">
-    <Setting Key="Age_Rpt_Downline_Transfer_History" SpName="Age_Rpt_Downline_Transfer_History" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="Age_Rpt_Downline_Transfer_History" SpName="Age_Transfer_DownlineHistorySel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0">
       <Mapping DataField="TransDate" ObjectProperty="ActionDate" />
       <Mapping DataField="UserName" ObjectProperty="DownlineName" />
       <Mapping DataField="TransferAmt" ObjectProperty="TransferAmount" />

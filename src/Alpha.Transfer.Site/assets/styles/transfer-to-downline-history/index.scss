@@ -7,7 +7,7 @@
 }
 
 .note {
-    margin: 16px 0;
+    margin-top: 3px;
 }
 
 .pagination {
@@ -22,6 +22,7 @@
 }
 
 table.tblRpt {
+    margin-top: 0 !important;
     width: 99.999% !important;
 
     tbody > tr > td {
@@ -51,7 +52,7 @@ table.tblRpt {
     .top {
         position: relative;
         height: 32px;
-        margin-bottom: 8px;
+        margin-bottom: 3px;
         line-height: 24px;
     }
 

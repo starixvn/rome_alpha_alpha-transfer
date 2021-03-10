@@ -32,7 +32,7 @@
         public string DownlineName { get; }
 
         public string TransferTypeName
-            => TransferType == 0 ? Resources.Deposit : Resources.Withdrawal;
+            => TransferType == 1 ? Resources.Deposit : Resources.Withdrawal;
 
         public byte TransferType { get; }
 

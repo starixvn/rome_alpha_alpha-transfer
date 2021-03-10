@@ -3,6 +3,7 @@
     using Alpha.Transfer.Models;
     using MediatR;
     using System;
+    using System.Web.Mvc;
     using ViewModels.TransferToDownlineHistory;
 
     public class TransferToDownlineHistoryQuery : TransferBaseQuery, IRequest<TransferToDownlineHistoryViewModel>
@@ -11,6 +12,7 @@
         {
         }
 
+        [AllowHtml]
         public string UserName { get; set; }
 
         public DateTime FromDate { get; set; }

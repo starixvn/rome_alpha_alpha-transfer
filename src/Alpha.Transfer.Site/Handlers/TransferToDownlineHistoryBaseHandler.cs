@@ -1,5 +1,6 @@
 ﻿namespace Alpha.Transfer.Site.Handlers
 {
+    using Alpha.Transfer.Extensions;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Params.TransferToDownlineHistory;
     using Alpha.Transfer.Services;
@@ -37,7 +38,7 @@
             => new TransferToDownlineHistoryParam(
                 message.CustId,
                 message.UserName,
-                message.FromDate,
+                message.FromDate.GetGreaterDate(message.LimitedDateToShowInfo),
                 message.ToDate);
 
         protected internal virtual string GetExcelTemplatePath(string templateName, string fileExtension = "xls")

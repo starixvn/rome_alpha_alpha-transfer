@@ -16,5 +16,8 @@
 
         public static string ToLongDateWithSlash24HFormat(this DateTime dateTime)
             => dateTime.ToString(LongDateWithSlash24HFormat);
+
+        public static DateTime GetGreaterDate(this DateTime fromDate, DateTime limitedDate)
+            => fromDate < limitedDate ? limitedDate : fromDate;
     }
 }

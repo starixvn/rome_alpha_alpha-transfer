@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Transfer.Site.Models
 {
     using Sunplus.Agent.Model.Entities;
+    using System;
     using Transfer.Models;
 
     public class User : IUser
@@ -35,5 +36,7 @@
         public int UserId => userSession.UserId;
 
         public bool IsInternal => userSession.IsInternal;
+
+        public DateTime LimitedDateToShowInfo => userSession.GetProperty<DateTime>("CustomerDateLimit");
     }
 }

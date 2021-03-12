@@ -213,12 +213,14 @@
     <Compile Include="Helpers\QueryEntityModelBinderTests.cs" />
     <Compile Include="Models\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\TransferToDownlineHistoryBaseQueryTests.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModelTests.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModelTests.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModelTests.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferAllAndClearCreditViewModelTests.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferResultViewModelTests.cs" />
     <Compile Include="ViewModels\TransferToDownlineHistory\TransferToDownlineHistoryFilterVMTests.cs" />
+    <Compile Include="ViewModels\TransferToDownlineHistory\TransferToDownlineHistoryPagingViewModelTests.cs" />
     <Compile Include="ViewModels\TransferToDownlineHistory\TransferToDownlingHistoryViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>

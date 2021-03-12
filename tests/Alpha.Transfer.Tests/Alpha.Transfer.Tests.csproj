@@ -228,11 +228,14 @@
     <Compile Include="Criteria\TransferToDownlineHistory\GetTransferToDownlineHistoryCriteriaTests.cs" />
     <Compile Include="DataAccesses\MultipleTransferDataAccessImplTests.cs" />
     <Compile Include="DataAccesses\TransferAllAndClearCreditDataAccessTests.cs" />
+    <Compile Include="DataAccesses\TransferToDownlineHistoryDataAccessTests.cs" />
     <Compile Include="Database\MultipleTransfer\MultipleTransferDatabase.cs" />
     <Compile Include="Database\TransferAllAndClearCredit\TransferAllAndClearCreditDatabase.cs" />
+    <Compile Include="Database\TransferToDownlineHistory\TransferToDownlineHistoryDatabase.cs" />
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Extensions\DateTimeExtensionsTests.cs" />
+    <Compile Include="Extensions\NumberExtensionsTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="Fixtures\ObjectDbFixture.cs" />
     <Compile Include="Helpers\ExceptionRecorder.cs" />
@@ -244,6 +247,7 @@
     <Compile Include="Models\TransferAllAndClearCredit\TransferResultTests.cs" />
     <Compile Include="Models\TransferToDownlineHistory\TransferToDownlineHistoryModelTests.cs" />
     <Compile Include="Models\UserLevelTests.cs" />
+    <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryPagingParamTests.cs" />
     <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryParamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CashBalanceTransferServiceImplTests.cs" />
@@ -287,6 +291,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\TransferAllAndClearCredit\Calculation_NoCredit.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\TransferToDownlineHistory\TransferToDownlineHistoryTable.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

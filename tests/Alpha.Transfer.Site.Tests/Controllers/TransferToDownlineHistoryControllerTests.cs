@@ -1,11 +1,14 @@
 ﻿namespace Alpha.Transfer.Site.Tests.Controllers
 {
     using Alpha.Transfer.Models;
+    using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Site.Controllers;
     using Alpha.Transfer.Site.Requests.TransferToDownlineHistory;
     using Alpha.Transfer.Site.ViewModels;
+    using Alpha.Transfer.Site.ViewModels.TransferToDownlineHistory;
     using MediatR;
     using NSubstitute;
+    using System.Collections.Generic;
     using System.Web.Mvc;
     using Xunit;
 
@@ -88,14 +91,14 @@
             };
 
             mediator
-                .Send<ExcelFileViewModel>(Arg.Any<TransferToDownlineHistoryExcelQuery>())
+                .Send(Arg.Any<TransferToDownlineHistoryExcelQuery>())
                 .Returns(new ExcelFileViewModel("ExcelFileName", new byte[] { }));
 
             // Act
             controller.Excel(message);
 
             // Assert
-            mediator.Received().Send<ExcelFileViewModel>(Arg.Is(message));
+            mediator.Received().Send(Arg.Is(message));
         }
 
         [Fact]
@@ -124,6 +127,29 @@
 
             // Assert
             Assert.Equal(InvalidExcelFileName, actualValue.FileDownloadName);
+        }
+
+        [Fact]
+        public void GetTransferToDownlineHistoryData_Always_CallMediatorSendQuery()
+        {
+            // Arrange
+            var message = new TransferToDownlineHistoryPagingQuery(user)
+            {
+                CustId = 1,
+                CustName = "CustName",
+                CustLevelId = 2
+            };
+
+            mediator.Send(Arg.Any<TransferToDownlineHistoryPagingQuery>())
+                .Returns(new TransferToDownlineHistoryPagingViewModel(
+                    new List<TransferToDownlineHistoryModel>(),
+                    0));
+
+            // Act
+            controller.GetTransferToDownlineHistoryData(message);
+
+            // Assert
+            mediator.Received().Send(Arg.Is(message));
         }
     }
 }

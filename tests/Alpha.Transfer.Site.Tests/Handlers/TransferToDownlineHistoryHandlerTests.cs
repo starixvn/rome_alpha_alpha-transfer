@@ -72,7 +72,7 @@
             var viewModel = handler.Handle(query);
 
             // Assert
-            Assert.True(viewModel.TransferToDownlines.Any() && viewModel.TotalRecords == 0);
+            Assert.True(!viewModel.TransferToDownlines.Any() && viewModel.TotalRecords == 0);
         }
 
         [Fact]

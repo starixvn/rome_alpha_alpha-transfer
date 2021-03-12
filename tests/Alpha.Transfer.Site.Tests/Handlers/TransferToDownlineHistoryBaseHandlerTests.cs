@@ -137,7 +137,7 @@
             var actualResult = baseHandler.GetTransferToDownlineHistory(param);
 
             // Assert
-            Assert.True(actualResult.Item1.Any() && actualResult.Item2 == 0);
+            Assert.True(!actualResult.Item1.Any() && actualResult.Item2 == 0);
         }
     }
 }

@@ -16,8 +16,8 @@
         }
 
         [Theory]
-        [InlineData(0, "Deposit")]
-        [InlineData(1, "Withdrawal")]
+        [InlineData(0, "Withdrawal")]
+        [InlineData(1, "Deposit")]
         public void TransferTypeName_Always_ReturnsCorrectValue(byte transferType, string expectedValue)
         {
             // Arrange
@@ -40,7 +40,7 @@
             var actualValue = model.TransferTypeName;
 
             // Assert
-            Assert.Equal("Deposit", actualValue);
+            Assert.Equal("Withdrawal", actualValue);
         }
     }
 }

@@ -37,6 +37,8 @@
             handler = Substitute.ForPartsOf<TransferToDownlineHistoryExcelHandler>(transferToDownlineHistoryService, workbook);
             handler.MapPath = path => path;
             handler.IsFileExist = path => true;
+            handler.GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryPagingParam>())
+                .Returns(Tuple.Create(new List<TransferToDownlineHistoryModel>(), 0));
 
             SystemTime.Today = new DateTime(2021, 1, 11);
 
@@ -132,10 +134,10 @@
             Assert.True(
                 (string)actualMapper.Mappings[Column.A](viewModel) == "01/11/2021 00:00:00"
                 && (string)actualMapper.Mappings[Column.B](viewModel) == "Agent"
-                && (string)actualMapper.Mappings[Column.C](viewModel) == "Deposit"
-                && (decimal)actualMapper.Mappings[Column.D](viewModel) == 1
-                && (decimal)actualMapper.Mappings[Column.E](viewModel) == 2
-                && (decimal)actualMapper.Mappings[Column.F](viewModel) == 3
+                && (string)actualMapper.Mappings[Column.C](viewModel) == "Withdrawal"
+                && (string)actualMapper.Mappings[Column.D](viewModel) == "1.00"
+                && (string)actualMapper.Mappings[Column.E](viewModel) == "2.00"
+                && (string)actualMapper.Mappings[Column.F](viewModel) == "3.00"
                 && (string)actualMapper.Mappings[Column.G](viewModel) == "Desc 1");
         }
 

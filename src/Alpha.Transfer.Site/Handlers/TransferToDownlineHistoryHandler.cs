@@ -22,7 +22,7 @@
             return new TransferToDownlineHistoryViewModel(message, new TransferToDownlineHistoryParam(
                 message.CustId,
                 message.UserName,
-                message.FromDate.GetGreaterDate(message.LimitedDateToShowInfo),
+                message.FromDate,
                 message.ToDate));
         }
 

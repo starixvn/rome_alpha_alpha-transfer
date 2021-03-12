@@ -5,8 +5,6 @@ interface Window {
 }
 
 class TransferReport {
-    $self: TransferReport;
-
     $: JQueryStatic;
     $tableReport: JQuery;
     $dataTable: JQuery;
@@ -14,14 +12,11 @@ class TransferReport {
     $pageTitle: JQuery;
     $reportForm: JQuery;
 
-    hasData: boolean;
     pageLength: number;
     startHiddenColumnIndex: number;
     tblFooterClass = "tbl-footer";
 
     constructor($: JQueryStatic) {
-        this.$self = this;
-
         this.$ = $;
     }
 
@@ -31,7 +26,6 @@ class TransferReport {
 
         const initMobilePageLength = 50,
             initDesktopPageLength = 500;
-        this.hasData = JSON.parse(this.$tableReport.data("hasdata").toString().toLowerCase());
         this.pageLength = utilsInstance.isMobileDevice() ? initMobilePageLength : initDesktopPageLength;
         this.startHiddenColumnIndex = 2;
 
@@ -141,7 +135,7 @@ class TransferReport {
     }
 
     public getTableOptions = () => {
-        const innerSelf = this.$self,
+        const self = this,
             lengthMenu =
                 `${this.$("#PageSize").val()} <select>
                     <option value="10">10</option>
@@ -170,7 +164,7 @@ class TransferReport {
                     target: -1,
                     renderer: (api, rowIdx) => {
                         const data = api.cells(rowIdx, ":hidden").eq(0).map(function (cell) {
-                            const header = innerSelf.$(api.column(cell.column).header());
+                            const header = self.$(api.column(cell.column).header());
                             const idx = api.cell(cell).index();
 
                             if (header.hasClass("control") || header.hasClass("never")) {
@@ -182,10 +176,10 @@ class TransferReport {
                                 dtPrivate, idx.row, idx.column, "display"
                             );
 
-                            return innerSelf.renderData(idx.column, header.text(), cellData);
+                            return self.renderData(idx.column, header.text(), cellData);
                         }).toArray().join("");
 
-                        return this.$self.renderDetail(rowIdx, data);
+                        return this.renderDetail(rowIdx, data);
                     }
                 }
             },
@@ -194,8 +188,8 @@ class TransferReport {
                 orderable: false,
                 targets: -1
             }],
-            ordering: this.hasData,
-            paging: this.hasData,
+            ordering: false,
+            paging: true,
             pagingType: "input",
             pageLength: this.pageLength,
             lengthMenu,

@@ -32,8 +32,54 @@ class TransferToDownlineHistory extends TransferReport {
     }
 
     public initDataTable(): void {
-        super.initDataTable({ responsive: false });
+        super.initDataTable({
+            serverSide: true,
+            ajax: (data, callback) => {
+                const params = {
+                    UserName: this.$("#UserName").val(),
+                    FromDate: this.$("#FromDate").val(),
+                    ToDate: this.$("#ToDate").val(),
+                    UserSelectedDateRangeOption: this.$("#UserSelectedDateRangeOption").val(),
+                    PageIndex: (data.start / data.length) + 1,
+                    PageSize: data.length,
+                };
+
+                this.getTransferDownlineHistoryData(params, callback);
+            },
+            columns: this.buildDataTableColumns(),
+            columnDefs: [],
+            responsive: false,
+            isSubmit: false
+        });
     }
+
+    private getTransferDownlineHistoryData(params, callback): void {
+        this.$.ajax({
+            type: "POST",
+            url: this.$("#GetTransferToDownlineHistoryDataUrl").val(),
+            data: params,
+            dataType: "json",
+            beforeSend: this.$.blockUI,
+            success: data => callback({
+                data: data.TransferToDownlines,
+                recordsTotal: data.TotalRecords,
+                recordsFiltered: data.TotalRecords
+            }),
+            complete: this.$.unblockUI
+        });
+    }
+
+    private buildDataTableColumns = () => {
+        return [
+            { className: "col-date", data: "FormattedActionDate" },
+            { className: "col-text", data: "DownlineName" },
+            { className: "col-text", data: "TransferTypeName" },
+            { className: "col-number", data: "FormattedTransferAmount" },
+            { className: "col-number", data: "FormattedOldBalance" },
+            { className: "col-number", data: "FormattedNewBalance" },
+            { data: "Description" },
+        ];
+    };
 
     public initUsernameSuggestion(): void {
         const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1, issub: 0, ismember: 0 })}`;

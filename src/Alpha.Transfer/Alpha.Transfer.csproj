@@ -156,7 +156,9 @@
     <Compile Include="DataAccesses\MultipleTransferDataAccess.cs" />
     <Compile Include="DataAccesses\TransferObjectDbFactory.cs" />
     <Compile Include="DataAccesses\TransferAllAndClearCreditDataAccess.cs" />
+    <Compile Include="DataAccesses\TransferToDownlineHistoryDataAccess.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\NumberExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Models\CashBalanceTransfer\CashBalanceTransfer.cs" />
@@ -175,6 +177,7 @@
     <Compile Include="Params\MultipleTransfer\GetCustomerListParam.cs" />
     <Compile Include="Params\TransferAllAndClearCredit\GetCalculationResultParam.cs" />
     <Compile Include="Params\TransferAllAndClearCredit\GetTransferResultParam.cs" />
+    <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryPagingParam.cs" />
     <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CashBalanceTransferService.cs" />

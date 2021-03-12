@@ -1,30 +1,33 @@
 ﻿namespace Alpha.Transfer.Services
 {
     using Criteria.TransferToDownlineHistory;
-    using Fanex.Data.Repository;
+    using DataAccesses;
     using Models.TransferToDownlineHistory;
     using Params.TransferToDownlineHistory;
+    using System;
     using System.Collections.Generic;
 
     public interface TransferToDownlineHistoryService
     {
-        IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(TransferToDownlineHistoryParam param);
+        Tuple<List<TransferToDownlineHistoryModel>, int> GetTransferToDownlineHistory(TransferToDownlineHistoryPagingParam param);
     }
 
     public class TransferToDownlineHistoryServiceImpl : TransferToDownlineHistoryService
     {
-        private readonly IDynamicRepository repository;
+        private readonly TransferToDownlineHistoryDataAccess dataAccess;
 
-        public TransferToDownlineHistoryServiceImpl(IDynamicRepository repository)
+        public TransferToDownlineHistoryServiceImpl(TransferToDownlineHistoryDataAccess dataAccess)
         {
-            this.repository = repository;
+            this.dataAccess = dataAccess;
         }
 
-        public IEnumerable<TransferToDownlineHistoryModel> GetTransferToDownlineHistory(TransferToDownlineHistoryParam param)
-            => repository.Fetch<TransferToDownlineHistoryModel>(new GetTransferToDownlineHistoryCriteria(
+        public Tuple<List<TransferToDownlineHistoryModel>, int> GetTransferToDownlineHistory(TransferToDownlineHistoryPagingParam param)
+            => dataAccess.GetTransferToDownlineHistory(new GetTransferToDownlineHistoryCriteria(
                            param.CustId,
                            param.UserName,
                            param.FromDate,
-                           param.ToDate));
+                           param.ToDate,
+                           param.PageSize,
+                           param.PageIndex));
     }
 }

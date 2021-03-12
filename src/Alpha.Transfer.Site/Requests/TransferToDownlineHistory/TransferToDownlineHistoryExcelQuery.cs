@@ -4,7 +4,7 @@
     using MediatR;
     using ViewModels;
 
-    public class TransferToDownlineHistoryExcelQuery : TransferToDownlineHistoryQuery, IRequest<ExcelFileViewModel>
+    public class TransferToDownlineHistoryExcelQuery : TransferToDownlineHistoryBaseQuery, IRequest<ExcelFileViewModel>
     {
         public TransferToDownlineHistoryExcelQuery(IUser viewer) : base(viewer)
         {

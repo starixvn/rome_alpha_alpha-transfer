@@ -9,7 +9,6 @@
     @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/filter")
     @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/pagination")
     @StaticResources.RenderStyles("~/assets/bundles/transfer-to-downline-history/index")
-    @*@StaticResources.RenderStylesWithMedia(767, "~/assets/bundles/transfer-to-downline-history/index-mobile")*@
 }
 
 <div class="page-title">
@@ -31,9 +30,7 @@
 </div>
 
 <div class="box-content">
-    <table id="tbl-report"
-           class="hidden tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap"
-           data-hasdata="@(Model.TransferToDownlineHistories.Count() > 0)">
+    <table id="tbl-report" class="hidden tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap">
         <thead>
             <tr></tr>
             <tr>
@@ -44,15 +41,8 @@
                 <th class="min-tablet-l" data-priority="3">@Resources.OldBalance</th>
                 <th class="min-tablet-l" data-priority="2">@Resources.NewBalance</th>
                 <th class="desktop w-30" data-priority="1">@Resources.Description</th>
-                @*<th></th>*@
             </tr>
         </thead>
-        <tbody>
-            @foreach (var data in Model.TransferToDownlineHistories)
-            {
-                @RenderRow(data)
-            }
-        </tbody>
     </table>
 
     <form class="form-inline hide"
@@ -66,6 +56,12 @@
 
     <div class="shadow" id="shadow"></div>
     <div class="output" id="output"></div>
+
+    @Html.Hidden("GetTransferToDownlineHistoryDataUrl", Url.Action("GetTransferToDownlineHistoryData", "TransferToDownlineHistory"))
+    @Html.Hidden("UserName", Model.UserName)
+    @Html.Hidden("FromDate", Model.FromDate.ToShortDateWithSlash())
+    @Html.Hidden("ToDate", Model.ToDate.ToShortDateWithSlash())
+    @Html.Hidden("UserSelectedDateRangeOption", Model.UserSelectedDateRangeOption)
     @Html.Hidden("usernameAutoSuggestionPath", TransferAllAndClearCreditViewModel.UsernameAutoSuggestionPath)
 </div>
 
@@ -73,18 +69,4 @@
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-transfer/filter")
     @StaticResources.RenderScripts("~/assets/bundles/transfer-to-downline-history/index")
-}
-
-@helper RenderRow(TransferToDownlineHistoryModel data)
-{
-    <tr>
-        <td class="col-date">@data.ActionDate.ToLongDateWithSlash()</td>
-        <td class="col-text">@data.DownlineName</td>
-        <td class="col-text">@data.TransferTypeName</td>
-        <td class="col-number">@HtmlHelpers.FormatNumber(data.TransferAmount)</td>
-        <td class="col-number">@HtmlHelpers.FormatNumber(data.OldBalance)</td>
-        <td class="col-number">@HtmlHelpers.FormatNumber(data.NewBalance)</td>
-        <td>@data.Description</td>
-        @*<td></td>*@
-    </tr>
 }

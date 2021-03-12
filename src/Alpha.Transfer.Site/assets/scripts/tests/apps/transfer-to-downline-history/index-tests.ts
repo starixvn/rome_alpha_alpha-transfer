@@ -69,11 +69,6 @@
             expect(transferToDownlineHistory.cacheDOMElements).toHaveBeenCalled();
         });
 
-        it("_Set correct value hasData", () => {
-            // assert
-            expect(transferToDownlineHistory.hasData).toBeTruthy();
-        });
-
         it("_Set correct value pageLength", () => {
             // assert
             expect(transferToDownlineHistory.pageLength).toBe(500);

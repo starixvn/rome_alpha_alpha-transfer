@@ -489,8 +489,10 @@
     <Compile Include="Requests\TransferAllAndClearCredit\CalculationQuery.cs" />
     <Compile Include="Requests\TransferAllAndClearCredit\TransferResultQuery.cs" />
     <Compile Include="Requests\TransferBaseQuery.cs" />
+    <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryBaseQuery.cs" />
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryExcelQuery.cs" />
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryQuery.cs" />
+    <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryPagingQuery.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\CashBalanceTransferViewModel.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\HintTransferViewModel.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
@@ -501,6 +503,7 @@
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferResultViewModel.cs" />
     <Compile Include="ViewModels\TransferToDownlineHistory\TransferToDownlineHistoryFilterViewModel.cs" />
     <Compile Include="ViewModels\TransferToDownlineHistory\TransferToDownlineHistoryViewModel.cs" />
+    <Compile Include="ViewModels\TransferToDownlineHistory\TransferToDownlineHistoryPagingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">

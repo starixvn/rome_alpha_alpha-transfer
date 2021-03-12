@@ -9,12 +9,16 @@
             int custId,
             string userName,
             DateTime fromDate,
-            DateTime toDate)
+            DateTime toDate,
+            int pageSize,
+            int pageIndex)
         {
             CustId = custId;
             UserName = userName;
             FromDate = fromDate;
             ToDate = toDate;
+            PageSize = pageSize;
+            PageIndex = pageIndex;
         }
 
         public int CustId { get; }
@@ -25,8 +29,12 @@
 
         public DateTime ToDate { get; }
 
+        public int PageSize { get; }
+
+        public int PageIndex { get; }
+
         public override string GetSettingKey() => "Age_Rpt_Downline_Transfer_History";
 
-        public override bool IsValid() => CustId > 0;
+        public override bool IsValid() => CustId > 0 && FromDate <= ToDate;
     }
 }

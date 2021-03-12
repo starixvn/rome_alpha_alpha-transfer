@@ -2,12 +2,10 @@
 {
     using Alpha.Transfer.AppResources;
     using Alpha.Transfer.Models;
-    using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Params.TransferToDownlineHistory;
     using Alpha.Transfer.Utils;
     using Requests.TransferToDownlineHistory;
     using System;
-    using System.Collections.Generic;
     using ViewModels.Components;
 
     public class TransferToDownlineHistoryViewModel
@@ -17,14 +15,12 @@
         private readonly TransferToDownlineHistoryParam param;
 
         public TransferToDownlineHistoryViewModel(
-            IEnumerable<TransferToDownlineHistoryModel> transferToDownlineHistories,
             TransferToDownlineHistoryQuery message,
             TransferToDownlineHistoryParam param)
         {
             this.message = message;
             this.param = param;
             CustLevel = message.CustLevel;
-            TransferToDownlineHistories = transferToDownlineHistories;
         }
 
         public UserLevel CustLevel { get; }
@@ -43,8 +39,6 @@
         public DateTime ToDate => param.ToDate;
 
         public int UserSelectedDateRangeOption => message.UserSelectedDateRangeOption;
-
-        public IEnumerable<TransferToDownlineHistoryModel> TransferToDownlineHistories { get; }
 
         public TransferToDownlineHistoryFilterViewModel FilterViewModel => new TransferToDownlineHistoryFilterViewModel(
             UserName,

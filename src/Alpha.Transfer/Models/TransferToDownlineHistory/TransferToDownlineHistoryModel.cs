@@ -1,5 +1,6 @@
 ﻿namespace Alpha.Transfer.Models.TransferToDownlineHistory
 {
+    using Alpha.Transfer.Extensions;
     using AppResources;
     using System;
 
@@ -29,6 +30,9 @@
 
         public DateTime ActionDate { get; }
 
+        public string FormattedActionDate
+            => ActionDate.ToLongDateWithSlash24HFormat();
+
         public string DownlineName { get; }
 
         public string TransferTypeName
@@ -38,9 +42,18 @@
 
         public decimal TransferAmount { get; }
 
+        public string FormattedTransferAmount
+            => TransferAmount.FormatWithCommasAlwaysWithDecimalPoint();
+
         public decimal OldBalance { get; }
 
+        public string FormattedOldBalance
+            => OldBalance.FormatWithCommasAlwaysWithDecimalPoint();
+
         public decimal NewBalance { get; }
+
+        public string FormattedNewBalance
+            => NewBalance.FormatWithCommasAlwaysWithDecimalPoint();
 
         public string Description { get; }
     }

@@ -15,5 +15,8 @@
         public ActionResult Index(TransferToDownlineHistoryQuery message) => View(message);
 
         public ActionResult Excel(TransferToDownlineHistoryExcelQuery message) => ExcelView(message);
+
+        public JsonResult GetTransferToDownlineHistoryData(TransferToDownlineHistoryPagingQuery message)
+            => Json(mediator.Send(message), JsonRequestBehavior.DenyGet);
     }
 }

@@ -18,8 +18,10 @@
     {
         private readonly TransferToDownlineHistoryService transferToDownlineHistoryService;
 
-        private readonly TransferToDownlineHistoryQuery query;
-        private readonly IEnumerable<TransferToDownlineHistoryModel> records;
+        private readonly TransferToDownlineHistoryPagingQuery query;
+        private readonly TransferToDownlineHistoryPagingParam param;
+        private readonly List<TransferToDownlineHistoryModel> transferToDownlines;
+        private readonly int totalRecords = 3;
 
         private readonly UserFixture userFixture;
         private readonly CompareLogic compareLogic;
@@ -34,13 +36,22 @@
             transferToDownlineHistoryService = Substitute.For<TransferToDownlineHistoryService>();
             handler = new TransferToDownlineHistoryHandler(transferToDownlineHistoryService);
 
-            query = new TransferToDownlineHistoryQuery(userFixture.User)
+            query = new TransferToDownlineHistoryPagingQuery(userFixture.User)
             {
                 UserName = string.Empty,
                 FromDate = new DateTime(2021, 1, 11),
                 ToDate = new DateTime(2021, 3, 11),
+                PageSize = 500,
+                PageIndex = 1
             };
-            records = new List<TransferToDownlineHistoryModel>
+            param = new TransferToDownlineHistoryPagingParam(
+                query.CustId,
+                query.UserName,
+                query.FromDate,
+                query.ToDate,
+                query.PageSize,
+                query.PageIndex);
+            transferToDownlines = new List<TransferToDownlineHistoryModel>
             {
                 new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", 0, 1, 2, 3, "Desc 1"),
                 new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", 1, 2, 3, 4, string.Empty),
@@ -52,33 +63,35 @@
         public void Handle_HasNoData_ReturnsNoRecords()
         {
             // Arrange
+            var result = Tuple.Create(new List<TransferToDownlineHistoryModel>(), 0);
             transferToDownlineHistoryService
-                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryParam>())
-                .Returns(new List<TransferToDownlineHistoryModel>());
+                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryPagingParam>())
+                .Returns(result);
 
             // Act
             var viewModel = handler.Handle(query);
 
             // Assert
-            Assert.Empty(viewModel.TransferToDownlineHistories);
+            Assert.True(viewModel.TransferToDownlines.Any() && viewModel.TotalRecords == 0);
         }
 
         [Fact]
         public void Handle_HasData_ReturnsCorrectData()
         {
             // Arrange
+            var result = Tuple.Create(transferToDownlines, totalRecords);
             transferToDownlineHistoryService
-                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryParam>())
-                .Returns(records);
+                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryPagingParam>())
+                .Returns(result);
 
             // Act
-            var actualPagingRecords = handler.Handle(query).TransferToDownlineHistories;
+            var actualResult = handler.Handle(query);
 
             // Assert
-            Assert.True(records.Count() == actualPagingRecords.Count()
-                && compareLogic.Compare(records.ElementAt(0), actualPagingRecords.ElementAt(0)).AreEqual
-                && compareLogic.Compare(records.ElementAt(1), actualPagingRecords.ElementAt(1)).AreEqual
-                && compareLogic.Compare(records.ElementAt(2), actualPagingRecords.ElementAt(2)).AreEqual);
+            Assert.True(result.Item2 == actualResult.TotalRecords
+                && compareLogic.Compare(result.Item1.ElementAt(0), actualResult.TransferToDownlines.ElementAt(0)).AreEqual
+                && compareLogic.Compare(result.Item1.ElementAt(1), actualResult.TransferToDownlines.ElementAt(1)).AreEqual
+                && compareLogic.Compare(result.Item1.ElementAt(2), actualResult.TransferToDownlines.ElementAt(2)).AreEqual);
         }
     }
 }

@@ -64,9 +64,10 @@
         public void Handle_HasNoData_ExportExcelFileWithNoInformationText()
         {
             // Arrange
+            var result = Tuple.Create(new List<TransferToDownlineHistoryModel>(), 0);
             transferToDownlineHistoryService
-                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryParam>())
-                .Returns(new List<TransferToDownlineHistoryModel>());
+                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryPagingParam>())
+                .Returns(result);
             var message = CreateExcelQuery(4);
 
             // Act

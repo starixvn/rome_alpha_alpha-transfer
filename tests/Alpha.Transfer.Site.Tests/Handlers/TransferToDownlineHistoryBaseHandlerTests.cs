@@ -18,7 +18,7 @@
     public class TransferToDownlineHistoryBaseHandlerTests
     {
         private const int pageSize = 500;
-        private const int page = 1;
+        private const int pageIndex = 1;
 
         private readonly DateTime fromDate = new DateTime(2021, 1, 11);
         private readonly DateTime toDate = new DateTime(2021, 3, 11);
@@ -26,9 +26,10 @@
         private readonly TransferToDownlineHistoryService transferToDownlineHistoryService;
         private readonly TransferToDownlineHistoryBaseHandler baseHandler;
 
-        private readonly TransferToDownlineHistoryQuery query;
-        private readonly TransferToDownlineHistoryParam param;
-        private readonly IEnumerable<TransferToDownlineHistoryModel> records;
+        private readonly TransferToDownlineHistoryPagingQuery query;
+        private readonly TransferToDownlineHistoryPagingParam param;
+        private readonly List<TransferToDownlineHistoryModel> transferToDownlines;
+        private readonly int totalRecords = 3;
 
         private readonly UserFixture userFixture;
         private readonly CompareLogic compareLogic;
@@ -40,14 +41,22 @@
 
             transferToDownlineHistoryService = Substitute.For<TransferToDownlineHistoryService>();
             baseHandler = new TransferToDownlineHistoryBaseHandler(transferToDownlineHistoryService);
-            query = new TransferToDownlineHistoryQuery(userFixture.User)
+            query = new TransferToDownlineHistoryPagingQuery(userFixture.User)
             {
                 UserName = string.Empty,
                 FromDate = fromDate,
-                ToDate = toDate
+                ToDate = toDate,
+                PageSize = pageSize,
+                PageIndex = pageIndex
             };
-            param = new TransferToDownlineHistoryParam(userFixture.User.Id, string.Empty, fromDate, toDate);
-            records = new List<TransferToDownlineHistoryModel>
+            param = new TransferToDownlineHistoryPagingParam(
+                query.CustId, 
+                query.UserName, 
+                query.FromDate, 
+                query.ToDate, 
+                query.PageSize, 
+                query.PageIndex);
+            transferToDownlines = new List<TransferToDownlineHistoryModel>
             {
                 new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", 0, 1, 2, 3, "Desc 1"),
                 new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", 1, 2, 3, 4, string.Empty),
@@ -97,46 +106,38 @@
         }
 
         [Fact]
-        public void BuildTransferToDownlineHistoryParam_Always_ReturnsParamFromQuery()
-        {
-            // Act
-            var actualParam = baseHandler.BuildTransferToDownlineHistoryParam(query);
-
-            // Assert
-            Assert.True(compareLogic.Compare(param, actualParam).AreEqual);
-        }
-
-        [Fact]
         public void GetTransferToDownlineHistory_HasData_ReturnsCorrectValue()
         {
             // Arrange
+            var result = Tuple.Create(transferToDownlines, totalRecords);
             transferToDownlineHistoryService
-                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryParam>())
-                .Returns(records);
+                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryPagingParam>())
+                .Returns(result);
 
             // Act
-            var actualRecords = baseHandler.GetTransferToDownlineHistory(query);
+            var actualResult = baseHandler.GetTransferToDownlineHistory(param);
 
             // Assert
-            Assert.True(records.Count() == actualRecords.Count()
-                && compareLogic.Compare(records.ElementAt(0), actualRecords.ElementAt(0)).AreEqual
-                && compareLogic.Compare(records.ElementAt(1), actualRecords.ElementAt(1)).AreEqual
-                && compareLogic.Compare(records.ElementAt(2), actualRecords.ElementAt(2)).AreEqual);
+            Assert.True(result.Item2 == actualResult.Item2
+                && compareLogic.Compare(result.Item1.ElementAt(0), actualResult.Item1.ElementAt(0)).AreEqual
+                && compareLogic.Compare(result.Item1.ElementAt(1), actualResult.Item1.ElementAt(1)).AreEqual
+                && compareLogic.Compare(result.Item1.ElementAt(2), actualResult.Item1.ElementAt(2)).AreEqual);
         }
 
         [Fact]
         public void GetTransferToDownlineHistory_HasNoData_ReturnsNoRecords()
         {
             // Arrange
+            var result = Tuple.Create(new List<TransferToDownlineHistoryModel>(), 0);
             transferToDownlineHistoryService
-                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryParam>())
-                .Returns(new List<TransferToDownlineHistoryModel>());
+                .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryPagingParam>())
+                .Returns(result);
 
             // Act
-            var actualRecords = baseHandler.GetTransferToDownlineHistory(query);
+            var actualResult = baseHandler.GetTransferToDownlineHistory(param);
 
             // Assert
-            Assert.Empty(actualRecords);
+            Assert.True(actualResult.Item1.Any() && actualResult.Item2 == 0);
         }
     }
 }

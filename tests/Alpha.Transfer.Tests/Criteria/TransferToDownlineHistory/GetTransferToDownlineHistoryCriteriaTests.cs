@@ -12,7 +12,13 @@
         {
             // Arrange
             var expectedSettingKey = "Age_Rpt_Downline_Transfer_History";
-            var criteria = new GetTransferToDownlineHistoryCriteria(0, string.Empty, new DateTime(), new DateTime());
+            var criteria = new GetTransferToDownlineHistoryCriteria(
+                0, 
+                string.Empty, 
+                new DateTime(), 
+                new DateTime(), 
+                0, 
+                0);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -28,7 +34,13 @@
         public void IsValid_CustId_ReturnsCorrectValue(int custId, bool expectedValue)
         {
             // Arrange
-            var criteria = new GetTransferToDownlineHistoryCriteria(custId, string.Empty, new DateTime(), new DateTime());
+            var criteria = new GetTransferToDownlineHistoryCriteria(
+                custId, 
+                string.Empty, 
+                new DateTime(),
+                new DateTime(), 
+                0, 
+                0);
 
             // Act
             var actualValue = criteria.IsValid();

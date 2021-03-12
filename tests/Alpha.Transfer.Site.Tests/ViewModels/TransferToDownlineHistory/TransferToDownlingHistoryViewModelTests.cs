@@ -11,7 +11,6 @@
     using NSubstitute;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using Xunit;
 
     [Trait("Category", "TransferToDownlineHistory")]
@@ -54,7 +53,7 @@
                 new TransferToDownlineHistoryModel(new DateTime(2021, 1, 12), "Agent", 1, 2, 3, 4, string.Empty),
                 new TransferToDownlineHistoryModel(new DateTime(2021, 1, 13), "Agent", 0, 3, 4, 5, "Desc 3")
             };
-            viewModel = new TransferToDownlineHistoryViewModel(records, query, param);
+            viewModel = new TransferToDownlineHistoryViewModel(query, param);
 
             compareLogic = new CompareLogic();
 
@@ -83,7 +82,7 @@
                 CustLevelId = level
             };
 
-            var vm = new TransferToDownlineHistoryViewModel(null, message, null);
+            var vm = new TransferToDownlineHistoryViewModel(message, null);
 
             // Act
             var actualDirectDownlineText = vm.DirectDownlineText;
@@ -140,19 +139,6 @@
 
             // Assert
             Assert.Equal(userSelectDateRangeOption, actualUserSelectedDateRangeOption);
-        }
-
-        [Fact]
-        public void TransferToDownlineHistories_Always_ReturnsCorrectValueSetByCtor()
-        {
-            // Act
-            var actualRecords = viewModel.TransferToDownlineHistories;
-
-            // Assert
-            Assert.True(records.Count() == actualRecords.Count()
-                && compareLogic.Compare(records.ElementAt(0), actualRecords.ElementAt(0)).AreEqual
-                && compareLogic.Compare(records.ElementAt(1), actualRecords.ElementAt(1)).AreEqual
-                && compareLogic.Compare(records.ElementAt(2), actualRecords.ElementAt(2)).AreEqual);
         }
 
         [Fact]

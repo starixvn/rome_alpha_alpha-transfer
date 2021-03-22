@@ -35,10 +35,10 @@
 
         public string DownlineName { get; }
 
+        public byte TransferType { get; }
+
         public string TransferTypeName
             => TransferType == 1 ? Resources.Deposit : Resources.Withdrawal;
-
-        public byte TransferType { get; }
 
         public decimal TransferAmount { get; }
 
@@ -47,14 +47,17 @@
 
         public decimal OldBalance { get; }
 
-        public string FormattedOldBalance
-            => OldBalance.FormatWithCommasAlwaysWithDecimalPoint();
+        public string FormattedOldBalance => FormatBalance(OldBalance);
 
         public decimal NewBalance { get; }
 
-        public string FormattedNewBalance
-            => NewBalance.FormatWithCommasAlwaysWithDecimalPoint();
+        public string FormattedNewBalance => FormatBalance(NewBalance);
 
         public string Description { get; }
+
+        private string FormatBalance(decimal balance)
+            => TransferAmount != 0 && OldBalance == 0 && NewBalance == 0
+            ? "N/A"
+            : balance.FormatWithCommasAlwaysWithDecimalPoint();
     }
 }

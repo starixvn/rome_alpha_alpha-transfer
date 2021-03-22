@@ -155,22 +155,6 @@
             // assert
             expect(transferToDownlineHistory.exportExcelHandler).toHaveBeenCalled();
         });
-
-        it("_Bind from date datepicker show event", () => {
-            // act
-            transferToDownlineHistory.$fromDate.parent().trigger("dp.show");
-
-            // assert
-            expect(transferToDownlineHistory.doAdjustDatePickerCalendar).toHaveBeenCalled();
-        });
-
-        it("_Bind to date datepicker show event", () => {
-            // act
-            transferToDownlineHistory.$toDate.parent().trigger("dp.show");
-
-            // assert
-            expect(transferToDownlineHistory.doAdjustDatePickerCalendar).toHaveBeenCalled();
-        });
     });
 
     describe("_exportExcelHandler", () => {

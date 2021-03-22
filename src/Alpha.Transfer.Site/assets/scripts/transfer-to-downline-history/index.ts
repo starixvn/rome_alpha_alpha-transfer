@@ -116,20 +116,10 @@ class TransferToDownlineHistory extends TransferReport {
         });
 
         this.$exportExcel.click(this.exportExcelHandler);
-        this.$fromDate.parent().on("dp.show", this.doAdjustDatePickerCalendar);
-        this.$toDate.parent().on("dp.show", this.doAdjustDatePickerCalendar);
     }
 
     public exportExcelHandler = () => {
         this.$exportExcelForm.submit();
-    }
-
-    public doAdjustDatePickerCalendar = () => {
-        if (utilsInstance.isMobileDevice() && !utilsInstance.isLandscapeMode()) {
-            let width = this.$(window).width(),
-                widget = this.$(".bootstrap-datetimepicker-widget.dropdown-menu");
-            widget.css({ width });
-        }
     }
 }
 

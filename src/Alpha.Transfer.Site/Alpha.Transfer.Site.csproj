@@ -637,7 +637,7 @@
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\transfer-result.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="assets\scripts\utils.ts">
+    <TypeScriptCompile Include="assets\scripts\transfer-to-downline-history\utils.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\calculation.ts">

@@ -364,37 +364,37 @@
     <value>Transfer To Downline History</value>
   </data>
   <data name="Today" xml:space="preserve">
-    <value>Today</value>
+    <value>今日賽事</value>
   </data>
   <data name="Yesterday" xml:space="preserve">
-    <value>Yesterday</value>
+    <value>昨天</value>
   </data>
   <data name="LastWeek" xml:space="preserve">
-    <value>Last Week</value>
+    <value>上週</value>
   </data>
   <data name="LastMonth" xml:space="preserve">
-    <value>Last Month</value>
+    <value>上月</value>
   </data>
   <data name="SinceLastMonth" xml:space="preserve">
-    <value>Since Last Month</value>
+    <value>從上個月起</value>
   </data>
   <data name="SpecificDate" xml:space="preserve">
-    <value>Specific Dates</value>
+    <value>特定日期</value>
   </data>
   <data name="ThisWeek" xml:space="preserve">
-    <value>This Week</value>
+    <value>这星期</value>
   </data>
   <data name="ThisMonth" xml:space="preserve">
-    <value>This Month</value>
+    <value>這個月</value>
   </data>
   <data name="To" xml:space="preserve">
-    <value>To</value>
+    <value>到</value>
   </data>
   <data name="From" xml:space="preserve">
-    <value>From</value>
+    <value>從</value>
   </data>
   <data name="ExportToExcel" xml:space="preserve">
-    <value>Export to Excel</value>
+    <value>導出到Excel</value>
   </data>
   <data name="CanViewReportDataFrom" xml:space="preserve">
     <value>You can view the report data from {0}.</value>
@@ -424,12 +424,12 @@
     <value>Withdrawal</value>
   </data>
   <data name="of" xml:space="preserve">
-    <value>of</value>
+    <value>之第</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>頁</value>
   </data>
   <data name="PageSize" xml:space="preserve">
-    <value>Page Size</value>
+    <value>頁面範圍</value>
   </data>
 </root>

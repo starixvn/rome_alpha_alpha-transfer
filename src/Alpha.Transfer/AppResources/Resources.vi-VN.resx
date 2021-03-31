@@ -364,37 +364,37 @@
     <value>Transfer To Downline History</value>
   </data>
   <data name="Today" xml:space="preserve">
-    <value>Today</value>
+    <value>Hôm nay</value>
   </data>
   <data name="Yesterday" xml:space="preserve">
-    <value>Yesterday</value>
+    <value>Hôm qua</value>
   </data>
   <data name="LastWeek" xml:space="preserve">
-    <value>Last Week</value>
+    <value>Tuần trước</value>
   </data>
   <data name="LastMonth" xml:space="preserve">
-    <value>Last Month</value>
+    <value>Tháng trước</value>
   </data>
   <data name="SinceLastMonth" xml:space="preserve">
-    <value>Since Last Month</value>
+    <value>Từ tháng trước</value>
   </data>
   <data name="SpecificDate" xml:space="preserve">
-    <value>Specific Dates</value>
+    <value>Ngày riêng biệt</value>
   </data>
   <data name="ThisWeek" xml:space="preserve">
-    <value>This Week</value>
+    <value>Tuần này</value>
   </data>
   <data name="ThisMonth" xml:space="preserve">
-    <value>This Month</value>
+    <value>Tháng này</value>
   </data>
   <data name="To" xml:space="preserve">
-    <value>To</value>
+    <value>Đến</value>
   </data>
   <data name="From" xml:space="preserve">
-    <value>From</value>
+    <value>Từ</value>
   </data>
   <data name="ExportToExcel" xml:space="preserve">
-    <value>Export to Excel</value>
+    <value>Xuất sang Excel</value>
   </data>
   <data name="CanViewReportDataFrom" xml:space="preserve">
     <value>You can view the report data from {0}.</value>
@@ -424,12 +424,12 @@
     <value>Withdrawal</value>
   </data>
   <data name="of" xml:space="preserve">
-    <value>of</value>
+    <value>trên</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>Trang</value>
   </data>
   <data name="PageSize" xml:space="preserve">
-    <value>Page Size</value>
+    <value>Số dòng</value>
   </data>
 </root>

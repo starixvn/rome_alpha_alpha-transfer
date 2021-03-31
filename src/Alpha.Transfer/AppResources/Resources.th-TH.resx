@@ -364,37 +364,37 @@
     <value>Transfer To Downline History</value>
   </data>
   <data name="Today" xml:space="preserve">
-    <value>Today</value>
+    <value>วันนี้</value>
   </data>
   <data name="Yesterday" xml:space="preserve">
-    <value>Yesterday</value>
+    <value>เมื่อวาน</value>
   </data>
   <data name="LastWeek" xml:space="preserve">
-    <value>Last Week</value>
+    <value>สัปดาห์ล่าสุด</value>
   </data>
   <data name="LastMonth" xml:space="preserve">
-    <value>Last Month</value>
+    <value>เดือนล่าสุด</value>
   </data>
   <data name="SinceLastMonth" xml:space="preserve">
-    <value>Since Last Month</value>
+    <value>ตั้งแต่เดือนครั้งสุดท้าย</value>
   </data>
   <data name="SpecificDate" xml:space="preserve">
-    <value>Specific Dates</value>
+    <value>วันที่เฉพาะเจาะจง</value>
   </data>
   <data name="ThisWeek" xml:space="preserve">
-    <value>This Week</value>
+    <value>สัปดาห์นี้</value>
   </data>
   <data name="ThisMonth" xml:space="preserve">
-    <value>This Month</value>
+    <value>เดือนนี้</value>
   </data>
   <data name="To" xml:space="preserve">
-    <value>To</value>
+    <value>ถึง</value>
   </data>
   <data name="From" xml:space="preserve">
-    <value>From</value>
+    <value>จาก</value>
   </data>
   <data name="ExportToExcel" xml:space="preserve">
-    <value>Export to Excel</value>
+    <value>ส่งออกไปที่โปรแกรมเอกเซล</value>
   </data>
   <data name="CanViewReportDataFrom" xml:space="preserve">
     <value>You can view the report data from {0}.</value>
@@ -424,12 +424,12 @@
     <value>Withdrawal</value>
   </data>
   <data name="of" xml:space="preserve">
-    <value>of</value>
+    <value>ของ</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>หน้า</value>
   </data>
   <data name="PageSize" xml:space="preserve">
-    <value>Page Size</value>
+    <value>ขนาดหน้า</value>
   </data>
 </root>

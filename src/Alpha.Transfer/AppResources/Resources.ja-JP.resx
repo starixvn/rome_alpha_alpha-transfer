@@ -274,10 +274,10 @@
     <value>Transfer To Downline History</value>
   </data>
   <data name="Today" xml:space="preserve">
-    <value>Today</value>
+    <value>今日</value>
   </data>
   <data name="Yesterday" xml:space="preserve">
-    <value>Yesterday</value>
+    <value>昨日</value>
   </data>
   <data name="LastWeek" xml:space="preserve">
     <value>Last Week</value>
@@ -298,13 +298,13 @@
     <value>This Month</value>
   </data>
   <data name="To" xml:space="preserve">
-    <value>To</value>
+    <value>から</value>
   </data>
   <data name="From" xml:space="preserve">
-    <value>From</value>
+    <value>送金元</value>
   </data>
   <data name="ExportToExcel" xml:space="preserve">
-    <value>Export to Excel</value>
+    <value>輸出をExcelに</value>
   </data>
   <data name="CanViewReportDataFrom" xml:space="preserve">
     <value>You can view the report data from {0}.</value>
@@ -334,10 +334,10 @@
     <value>Withdrawal</value>
   </data>
   <data name="of" xml:space="preserve">
-    <value>of</value>
+    <value>/</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>ページ</value>
   </data>
   <data name="PageSize" xml:space="preserve">
     <value>Page Size</value>

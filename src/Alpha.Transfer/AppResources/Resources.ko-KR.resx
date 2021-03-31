@@ -274,22 +274,22 @@
     <value>Transfer To Downline History</value>
   </data>
   <data name="Today" xml:space="preserve">
-    <value>Today</value>
+    <value>오늘</value>
   </data>
   <data name="Yesterday" xml:space="preserve">
-    <value>Yesterday</value>
+    <value>어제</value>
   </data>
   <data name="LastWeek" xml:space="preserve">
-    <value>Last Week</value>
+    <value>마지막 주</value>
   </data>
   <data name="LastMonth" xml:space="preserve">
-    <value>Last Month</value>
+    <value>마지막 달</value>
   </data>
   <data name="SinceLastMonth" xml:space="preserve">
-    <value>Since Last Month</value>
+    <value>지난달부터</value>
   </data>
   <data name="SpecificDate" xml:space="preserve">
-    <value>Specific Dates</value>
+    <value>특정 날짜</value>
   </data>
   <data name="ThisWeek" xml:space="preserve">
     <value>This Week</value>
@@ -298,13 +298,13 @@
     <value>This Month</value>
   </data>
   <data name="To" xml:space="preserve">
-    <value>To</value>
+    <value>종료일</value>
   </data>
   <data name="From" xml:space="preserve">
-    <value>From</value>
+    <value>시작일</value>
   </data>
   <data name="ExportToExcel" xml:space="preserve">
-    <value>Export to Excel</value>
+    <value>엘셀로 내보내기</value>
   </data>
   <data name="CanViewReportDataFrom" xml:space="preserve">
     <value>You can view the report data from {0}.</value>
@@ -334,12 +334,12 @@
     <value>Withdrawal</value>
   </data>
   <data name="of" xml:space="preserve">
-    <value>of</value>
+    <value>부터</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>페이지</value>
   </data>
   <data name="PageSize" xml:space="preserve">
-    <value>Page Size</value>
+    <value>웹페이지 크기</value>
   </data>
 </root>

@@ -29,5 +29,9 @@
         bool IsInternal { get; }
 
         DateTime LimitedDateToShowInfo { get; }
+
+        bool IsAllDayBalTransfer { get; }
+
+        string Site { get; }
     }
 }

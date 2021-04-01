@@ -38,5 +38,9 @@
         public bool IsInternal => userSession.IsInternal;
 
         public DateTime LimitedDateToShowInfo => userSession.GetProperty<DateTime>("CustomerDateLimit");
+
+        public bool IsAllDayBalTransfer => userSession.IsAllDayBalTransfer;
+
+        public string Site => userSession.Site;
     }
 }

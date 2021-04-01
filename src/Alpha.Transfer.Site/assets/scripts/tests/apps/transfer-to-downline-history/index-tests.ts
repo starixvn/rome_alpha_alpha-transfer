@@ -133,7 +133,6 @@
             // arrange
             setFixtures(template.normal);
             spyOn(transferToDownlineHistory, "exportExcelHandler");
-            spyOn(transferToDownlineHistory, "doAdjustDatePickerCalendar");
             transferToDownlineHistory.cacheDOMElements();
 
             // act

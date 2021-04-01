@@ -3,6 +3,7 @@
     using NSubstitute;
     using Site.Models;
     using Sunplus.Agent.Model.Entities;
+    using System;
     using Xunit;
 
     public class UserTests
@@ -11,6 +12,8 @@
         public void Constructor_Always_GetUserDataFromSession()
         {
             // Arrange
+            var customerDateLimit = new DateTime(2021, 4, 1);
+
             var userSession = Substitute.For<IUserSession>();
             userSession.CustId.Returns(1);
             userSession.UserName.Returns("username");
@@ -24,6 +27,8 @@
             userSession.IsAllowedTotalBalanceTransfer.Returns(false);
             userSession.UserId.Returns(1);
             userSession.IsInternal.Returns(false);
+            userSession.GetProperty<DateTime>("CustomerDateLimit").Returns(customerDateLimit);
+            userSession.Site.Returns("site");
 
             // Act
             var user = new User(userSession);
@@ -38,10 +43,13 @@
                 && user.IP == "192.168.1.1"
                 && user.LanguageKey == "E"
                 && user.SubAccName == "SubAccName"
-                && user.AllowAllDayBalanceTransfer == false
-                && user.AllowTotalBalanceTransfer == false
+                && !user.AllowAllDayBalanceTransfer
+                && !user.AllowTotalBalanceTransfer
                 && user.UserId == 1
-                && user.IsInternal == false);
+                && !user.IsInternal
+                && user.LimitedDateToShowInfo == customerDateLimit
+                && !user.IsAllDayBalTransfer
+                && user.Site == "site");
         }
     }
 }

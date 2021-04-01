@@ -1,10 +1,10 @@
 ﻿namespace Alpha.Transfer.Tests.Configurations
 {
+    using Fixtures;
+    using Helpers;
     using System;
     using System.Collections.Specialized;
     using System.Configuration;
-    using Fixtures;
-    using Helpers;
     using Transfer.Configurations;
     using Xunit;
 
@@ -90,6 +90,26 @@
 
             // Assert
             Assert.Equal(excpectedValue, actualValue);
+        }
+
+        [Theory]
+        [InlineData("", false)]
+        [InlineData("*", true)]
+        [InlineData("733331, 733332", false)]
+        [InlineData("733331, 733332, 733333", true)]
+        public void IsAllowedTransferToDownlineHistorySite_HasConfig_ReturnCorrectValues(string configSites, bool expected)
+        {
+            // Arrange
+            AppSettings.AppSettingValues = new NameValueCollection
+            {
+                ["TransferToDownlineHistory.OfferSites"] = configSites
+            };
+
+            // Act
+            var actualSetting = AppSettings.IsAllowedTransferToDownlineHistorySite("733333");
+
+            // Assert
+            Assert.Equal(expected, actualSetting);
         }
     }
 }

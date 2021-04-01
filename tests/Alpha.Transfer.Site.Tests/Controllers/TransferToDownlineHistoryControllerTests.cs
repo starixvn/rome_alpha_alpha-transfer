@@ -1,5 +1,6 @@
 ﻿namespace Alpha.Transfer.Site.Tests.Controllers
 {
+    using Alpha.Transfer.Configurations;
     using Alpha.Transfer.Models;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Site.Controllers;
@@ -9,6 +10,7 @@
     using MediatR;
     using NSubstitute;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.Web.Mvc;
     using Xunit;
 
@@ -24,11 +26,18 @@
 
         public TransferToDownlineHistoryControllerTests()
         {
+            AppSettings.AppSettingValues = new NameValueCollection
+            {
+                ["TransferToDownlineHistory.OfferSites"] = "site"
+            };
+
             mediator = Substitute.For<IMediator>();
 
             user = Substitute.For<IUser>();
             user.Language.Returns("en-US");
             user.LevelId.Returns((byte)3);
+            user.IsAllDayBalTransfer.Returns(true);
+            user.Site.Returns("site");
 
             controller = new TransferToDownlineHistoryController(mediator);
         }

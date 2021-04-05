@@ -3,9 +3,7 @@
     using MediatR;
     using Requests.TransferToDownlineHistory;
     using System.Web.Mvc;
-    using System.Web.SessionState;
 
-    [SessionState(SessionStateBehavior.Default)]
     public class TransferToDownlineHistoryController : SiteBaseController
     {
         public TransferToDownlineHistoryController(IMediator mediator) : base(mediator)

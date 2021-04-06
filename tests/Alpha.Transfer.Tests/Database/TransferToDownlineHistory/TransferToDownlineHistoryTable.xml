@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Table>
+  <Row>
+    <TransDate>2021-01-05 03:24:33.197</TransDate>
+    <UserName>SUPERTESTTE010A</UserName>
+    <TransferType>1</TransferType>
+    <TransferAmt>20</TransferAmt>
+    <OldBalance>10</OldBalance>
+    <NewBalance>10</NewBalance>
+    <TransDesc>To SUPERTESTTE010A</TransDesc>
+  </Row>
+  <Row>
+    <TransDate>2021-01-05 03:25:33.197</TransDate>
+    <UserName>SUPERTESTTE010B</UserName>
+    <TransferType>0</TransferType>
+    <TransferAmt>20</TransferAmt>
+    <OldBalance>10</OldBalance>
+    <NewBalance>10</NewBalance>
+    <TransDesc>To SUPERTESTTE010B</TransDesc>
+  </Row>
+</Table>

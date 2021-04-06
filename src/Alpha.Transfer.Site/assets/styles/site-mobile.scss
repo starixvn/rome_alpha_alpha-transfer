@@ -1,0 +1,192 @@
+﻿@import "mixins.scss";
+
+body {
+    font-size: calculateScale(13px);
+}
+
+.page-title {
+    font-size: calculateScale(13px);
+    line-height: calculateScale(39px);
+
+    .list-icon {
+        position: absolute;
+        right: 0;
+
+        .icon-filter {
+            font-size: calculateScale(22px) !important;
+            padding-right: 0px !important;
+        }
+    }
+}
+
+.filter {
+    margin: 15px 0;
+
+    select, input[type='text'], [class^='btn-submit'], .input-group.date .form-control {
+        height: calculateScale(36px);
+        font-size: calculateScale(16px);
+        @include box-shadow-multiple('0px 1px 3px rgba(0, 0, 0, 0.3)');
+    }
+
+    [class^='btn-submit'] {
+        width: 116px;
+        border-radius: 3px;
+    }
+
+    .ui_nexdatepicker_datetextbox.form-control {
+        -webkit-appearance: none;
+    }
+
+    .ui_nexdatepicker_lbl_field {
+        padding: 8px 6px 8px 0px;
+    }
+
+    .input-group.date .form-control {
+        font-size: calculateScale(16px);
+    }
+
+    .btn-group button.multiselect {
+        height: calculateScale(36px);
+        line-height: calculateScale(26px);
+        box-shadow: none;
+        border-radius: 4px;
+        border: 1px solid #cfcfcf;
+
+        .caret {
+            top: calculateScale(16px);
+            border-width: calculateScale(4px);
+            border-top: calculateScale(4px) solid;
+        }
+
+        .multiselect-selected-text {
+            font-size: calculateScale(13px);
+        }
+    }
+
+    button .caret {
+        top: calculateScale(16px);
+        border-width: calculateScale(4px);
+        border-top: calculateScale(4px) solid;
+    }
+
+    .icon-excel, .icon-back {
+        font-size: 22px;
+        height: calculateScale(28px);
+
+        &:hover:after {
+            top: 4px;
+        }
+    }
+
+    select.select-multiple {
+        height: calculateScale(28px);
+    }
+
+    .form-group {
+        &.last-group, .btn-submit {
+            margin-right: 0;
+        }
+    }
+}
+
+.multiselect-container.dropdown-menu {
+    font-size: calculateScale(13px);
+    width: 100%;
+
+    > li {
+        height: calculateScale(34px);
+
+        > a {
+            padding: 8px 0;
+        }
+    }
+}
+
+input[type="checkbox"] {
+    width: calculateScale(16px);
+    height: calculateScale(16px);
+}
+
+.form-inline .multiselect-container li a label.checkbox input[type=checkbox],
+.multiselect-item.multiselect-group a input[type=checkbox] {
+    margin-left: -32px !important;
+    top: 4px;
+}
+
+.form-inline .multiselect-container label.checkbox,
+.multiselect-container.dropdown-menu .multiselect-item.multiselect-group a {
+    padding-left: 44px !important;
+
+    b:not(.caret) {
+        padding-left: 7px;
+    }
+}
+
+.multiselect-group .caret {
+    border-width: calculateScale(4px);
+}
+
+.multiselect-container.dropdown-menu .multiselect-nested-item a {
+    padding-left: 35px;
+}
+
+.tblRpt {
+    thead th, tbody td, tfoot td {
+        height: calculateScale(34px);
+    }
+
+    .icon-plus, .icon-minus {
+        font-size: calculateScale(24px);
+        color: #04A54E;
+    }
+}
+
+table.dataTable {
+    thead [class*="sorting"]:after {
+        font-size: calculateScale(10px);
+    }
+
+    tbody {
+        > tr {
+            &.odd.parent + tr.child > td.child {
+                background-color: #f9f9f9;
+            }
+
+            &.even.parent + tr.child > td.child {
+                background-color: #eae9ee;
+            }
+
+            &.tbl-footer.parent + tr.child > td.child {
+                background-color: #7f3d1d;
+                color: #fff;
+                font-weight: 700;
+            }
+
+            &:not(.tbl-footer):hover + tr.child > td.child {
+                background-color: #f8eb95;
+            }
+        }
+    }
+}
+
+@mixin scaleHighResolutions($ratio) {
+    body, .filter .btn-group button.multiselect .multiselect-selected-text {
+        font-size: calculateScaleRatio(13px, $ratio);
+    }
+
+    .filter .note {
+        line-height: 26px;
+    }
+
+    .tblRpt thead th, .tblRpt tbody td, .tblRpt tfoot td {
+        height: calculateScaleRatio(34px, $ratio);
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2.625) {
+    @include scaleHighResolutions(1.2);
+}
+
+@media only screen and (-webkit-device-pixel-ratio: 3) {
+    @include scaleHighResolutions(1);
+}

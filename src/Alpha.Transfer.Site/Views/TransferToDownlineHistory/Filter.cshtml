@@ -1,0 +1,25 @@
+﻿@model TransferToDownlineHistoryFilterViewModel
+
+<form id="report-form"
+      class="form-inline filter"
+      role="form"
+      action="Index">
+    <div class="form-group txt-username-box">
+        <input type="text"
+               id="txt-username"
+               name="UserName"
+               placeholder="@Resources.Username"
+               value="@Model.UserName"
+               class="@(string.IsNullOrWhiteSpace(Model.UserName) ? "text-italic" : "")" />
+    </div>
+
+    @DateRangePicker.Render(Model.DateRangePickerViewModel)
+
+    <div class="form-group">
+        <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
+    </div>
+
+    <div class="note">
+        <span class="star">*</span>@Model.ViewDataInstructionMessage
+    </div>
+</form>

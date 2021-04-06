@@ -1,5 +1,7 @@
 ﻿namespace Alpha.Transfer.Models
 {
+    using System;
+
     public interface IUser
     {
         int Id { get; }
@@ -25,5 +27,11 @@
         int UserId { get; }
 
         bool IsInternal { get; }
+
+        DateTime LimitedDateToShowInfo { get; }
+
+        bool IsAllDayBalTransfer { get; }
+
+        string Site { get; }
     }
 }

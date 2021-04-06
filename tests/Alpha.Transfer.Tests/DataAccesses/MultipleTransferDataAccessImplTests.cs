@@ -1,20 +1,17 @@
 ﻿namespace Alpha.Transfer.Tests.DataAccesses
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Linq;
+    using Alpha.Transfer.Params.MultipleTransfer;
     using Database.TransferAllAndClearCredit;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
-    using Params.MultipleTransfer;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Data;
     using Transfer.Criteria.MultipleTransfer;
-    using Transfer.Criteria.TransferAllAndClearCredit;
     using Transfer.DataAccesses;
     using Transfer.Models;
     using Transfer.Models.MultipleTransfer;
-    using Transfer.Models.TransferAllAndClearCredit;
     using Xunit;
 
     [Trait("Category", "MultipleTransfer")]

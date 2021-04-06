@@ -1,8 +1,10 @@
 ﻿namespace Alpha.Transfer.Configurations
 {
     using System;
+    using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Configuration;
+    using System.Linq;
 
     public static class AppSettings
     {
@@ -34,5 +36,14 @@
                 throw new ConfigurationErrorsException($"{keyName} is null or whitespace");
             }
         }
+
+        public static IEnumerable<string> TransferToDownlineHistoryOfferSites
+            => GetConfigValue("TransferToDownlineHistory.OfferSites")
+            .Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+            .Select(site => site.Trim());
+
+        public static bool IsAllowedTransferToDownlineHistorySite(string site)
+            => TransferToDownlineHistoryOfferSites.Contains("*", StringComparer.CurrentCultureIgnoreCase)
+            || TransferToDownlineHistoryOfferSites.Contains(site, StringComparer.CurrentCultureIgnoreCase);
     }
 }

@@ -177,6 +177,30 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ONEbook.SpreadSheets, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.SpreadSheets.1.0.0.1\lib\net461\ONEbook.SpreadSheets.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ONEbook.SpreadSheets.NPOI, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.SpreadSheets.NPOI.1.0.0.3\lib\net461\ONEbook.SpreadSheets.NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ONEbook.UM, Version=2.0.2.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ONEbook.UM.2.0.2.7\lib\net40\ONEbook.UM.dll</HintPath>
       <Private>True</Private>
@@ -307,15 +331,38 @@
     <Content Include="assets\bundles\transfer-all-clear-credit\transfer-result.min.js" />
     <Content Include="assets\bundles\transfer-hint.css" />
     <Content Include="assets\bundles\transfer-hint.min.css" />
+    <Content Include="assets\bundles\transfer-to-downline-history\index.css" />
+    <Content Include="assets\bundles\transfer-to-downline-history\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\transfer-to-downline-history\index-mobile.css" />
+    <Content Include="assets\bundles\transfer-to-downline-history\index-mobile.min.css">
+      <DependentUpon>index-mobile.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\transfer-to-downline-history\index.js" />
+    <Content Include="assets\bundles\transfer-to-downline-history\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\transfer-to-downline-history\index.min.js.map">
+      <DependentUpon>index.min.js</DependentUpon>
+    </Content>
     <Content Include="assets\scripts\tests\libs\autocomplete.js" />
+    <Content Include="assets\scripts\tests\libs\bootstrap\datetimepicker.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\modal.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\multiselect.js" />
+    <Content Include="assets\scripts\tests\libs\bootstrap\nexDatePicker.js" />
+    <Content Include="assets\scripts\tests\libs\data-table\dataTables.fixedHeader.js" />
+    <Content Include="assets\scripts\tests\libs\data-table\dataTables.pagination.input.js" />
+    <Content Include="assets\scripts\tests\libs\data-table\dataTables.responsive.js" />
+    <Content Include="assets\scripts\tests\libs\data-table\jquery.dataTables.js" />
+    <Content Include="assets\scripts\tests\libs\datepicker.js" />
     <Content Include="assets\scripts\tests\libs\jasmine-jquery.js" />
     <Content Include="assets\scripts\tests\libs\jasmine.js" />
     <Content Include="assets\scripts\tests\libs\jquery\blockUI.js" />
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
+    <Content Include="assets\scripts\tests\libs\moment.js" />
     <Content Include="assets\styles\site.css">
       <DependentUpon>site.scss</DependentUpon>
     </Content>
@@ -420,6 +467,7 @@
     <Compile Include="Controllers\TransferAllAndClearCreditController.cs" />
     <Compile Include="Controllers\CashBalanceTransferController.cs" />
     <Compile Include="Controllers\TransferAllClearCreditControllerBase.cs" />
+    <Compile Include="Controllers\TransferToDownlineHistoryController.cs" />
     <Compile Include="Global.asax.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
       <DependentUpon>Global.asax</DependentUpon>
@@ -428,6 +476,9 @@
     <Compile Include="Handlers\CashBalanceTransferHandler.cs" />
     <Compile Include="Handlers\MultipleTransferHandler.cs" />
     <Compile Include="Handlers\TransferAllAndClearCreditHandler.cs" />
+    <Compile Include="Handlers\TransferToDownlineHistoryBaseHandler.cs" />
+    <Compile Include="Handlers\TransferToDownlineHistoryExcelHandler.cs" />
+    <Compile Include="Handlers\TransferToDownlineHistoryHandler.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\CashBalanceTransfer\CashBalanceTransferCommand.cs" />
@@ -438,18 +489,29 @@
     <Compile Include="Requests\TransferAllAndClearCredit\CalculationQuery.cs" />
     <Compile Include="Requests\TransferAllAndClearCredit\TransferResultQuery.cs" />
     <Compile Include="Requests\TransferBaseQuery.cs" />
+    <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryBaseQuery.cs" />
+    <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryExcelQuery.cs" />
+    <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryQuery.cs" />
+    <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryPagingQuery.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\CashBalanceTransferViewModel.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\HintTransferViewModel.cs" />
+    <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
+    <Compile Include="ViewModels\ExcelFileViewModel.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferAllAndClearCreditViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferResultViewModel.cs" />
+    <Compile Include="ViewModels\TransferToDownlineHistory\TransferToDownlineHistoryFilterViewModel.cs" />
+    <Compile Include="ViewModels\TransferToDownlineHistory\TransferToDownlineHistoryViewModel.cs" />
+    <Compile Include="ViewModels\TransferToDownlineHistory\TransferToDownlineHistoryPagingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="App_Data\AuthorizationSection.config">
@@ -458,6 +520,38 @@
     <Content Include="assets\styles\site.scss" />
     <Content Include="assets\styles\_variables.scss" />
     <Content Include="bundleconfig.json" />
+    <Content Include="assets\styles\transfer-to-downline-history\index.scss" />
+    <Content Include="assets\styles\transfer-to-downline-history\index.css">
+      <DependentUpon>index.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-to-downline-history\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-to-downline-history\index-mobile.scss" />
+    <Content Include="assets\styles\transfer-to-downline-history\index-mobile.css">
+      <DependentUpon>index-mobile.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-to-downline-history\index-mobile.min.css">
+      <DependentUpon>index-mobile.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\site-mobile.scss" />
+    <Content Include="assets\styles\site-mobile.css">
+      <DependentUpon>site-mobile.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\site-mobile.min.css">
+      <DependentUpon>site-mobile.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\datepicker-mobile.scss" />
+    <Content Include="assets\styles\datepicker-mobile.css">
+      <DependentUpon>datepicker-mobile.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\datepicker-mobile.min.css">
+      <DependentUpon>datepicker-mobile.css</DependentUpon>
+    </Content>
+    <Content Include="App_Code\Components\DateRangePicker.cshtml" />
+    <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Agent.xls" />
+    <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Master.xls" />
+    <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Member.xls" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -466,6 +560,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\MultipleTransfer\CustomerList.cshtml" />
+    <Content Include="Views\TransferToDownlineHistory\Index.cshtml" />
+    <Content Include="Views\TransferToDownlineHistory\Filter.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -508,6 +604,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\components\daterangepicker.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
@@ -517,13 +616,28 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\tests\apps\components\daterangepicker-tests.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-all-clear-credit\calculation-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-all-clear-credit\transfer-result-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\tests\apps\transfer-to-downline-history\index-tests.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\transfer-to-downline-history\transfer-report.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\transfer-to-downline-history\index.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\transfer-result.ts">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\transfer-to-downline-history\utils.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\transfer-all-clear-credit\calculation.ts">
@@ -566,6 +680,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

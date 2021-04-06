@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props" Condition="Exists('..\..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,6 +12,8 @@
     <AssemblyName>Alpha.Transfer.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -213,6 +216,7 @@
     <Compile Include="Collections\AnyValueCreatorCollection.cs" />
     <Compile Include="Collections\ObjectDbCollection.cs" />
     <Compile Include="Configurations\AppSettingsTests.cs" />
+    <Compile Include="Constants\DefaultVariablesTest.cs" />
     <Compile Include="Constants\RoleId.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\AddCashBalanceTransferCriteriaTests.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\GetCashBalanceTransferCriteriaTests.cs" />
@@ -221,12 +225,17 @@
     <Compile Include="Criteria\TransferAllAndClearCredit\ClearCreditCriteriaTests.cs" />
     <Compile Include="Criteria\TransferAllAndClearCredit\GetCalculateResultCriteriaTests.cs" />
     <Compile Include="Criteria\TransferAllAndClearCredit\TransferAllCriteriaTests.cs" />
+    <Compile Include="Criteria\TransferToDownlineHistory\GetTransferToDownlineHistoryCriteriaTests.cs" />
     <Compile Include="DataAccesses\MultipleTransferDataAccessImplTests.cs" />
     <Compile Include="DataAccesses\TransferAllAndClearCreditDataAccessTests.cs" />
+    <Compile Include="DataAccesses\TransferToDownlineHistoryDataAccessTests.cs" />
     <Compile Include="Database\MultipleTransfer\MultipleTransferDatabase.cs" />
     <Compile Include="Database\TransferAllAndClearCredit\TransferAllAndClearCreditDatabase.cs" />
+    <Compile Include="Database\TransferToDownlineHistory\TransferToDownlineHistoryDatabase.cs" />
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
+    <Compile Include="Extensions\DateTimeExtensionsTests.cs" />
+    <Compile Include="Extensions\NumberExtensionsTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="Fixtures\ObjectDbFixture.cs" />
     <Compile Include="Helpers\ExceptionRecorder.cs" />
@@ -236,12 +245,17 @@
     <Compile Include="Models\ResultTests.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferAllResultTests.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferResultTests.cs" />
+    <Compile Include="Models\TransferToDownlineHistory\TransferToDownlineHistoryModelTests.cs" />
     <Compile Include="Models\UserLevelTests.cs" />
+    <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryPagingParamTests.cs" />
+    <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryParamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CashBalanceTransferServiceImplTests.cs" />
     <Compile Include="Services\MultipleTransferServiceImplTests.cs" />
     <Compile Include="Services\TransferAllAndClearCreditServiceImplTests.cs" />
+    <Compile Include="Services\TransferToDownlineHistoryServiceImplTests.cs" />
     <Compile Include="TestCases\UserLevelTestCases.cs" />
+    <Compile Include="Utils\SystemTimeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -279,11 +293,20 @@
     <Content Include="Database\TransferAllAndClearCredit\Calculation_NoCredit.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Database\TransferToDownlineHistory\TransferToDownlineHistoryTable.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

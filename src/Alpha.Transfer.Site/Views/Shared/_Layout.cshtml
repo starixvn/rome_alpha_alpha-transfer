@@ -14,6 +14,12 @@
 </head>
 <body>
     @RenderBody()
+
+    @Html.Hidden("NoInformationIsAvailable", @Resources.NoInformationIsAvailable)
+    @Html.Hidden("of", @Resources.of)
+    @Html.Hidden("Page", @Resources.Page)
+    @Html.Hidden("PageSize", @Resources.PageSize)
+
     @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/default")
     @RenderSection("Scripts", required: false)

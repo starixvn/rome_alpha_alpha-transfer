@@ -1,0 +1,72 @@
+﻿@model TransferToDownlineHistoryViewModel
+
+@{
+    ViewBag.Title = Resources.TransferToDownlineHistory;
+}
+
+@section Styles {
+    @StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
+    @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/filter")
+    @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/pagination")
+    @StaticResources.RenderStyles("~/assets/bundles/transfer-to-downline-history/index")
+}
+
+<div class="page-title">
+    <span class="pull-left">@Resources.TransferToDownlineHistory</span>
+    <div class="list-icon">
+        <ul>
+            <li class="showfilter-element">
+                <span class="icon-arrow-up-drop-circle icon-filter" title="Hide filters"></span>
+            </li>
+            <li class="hidefilter-element">
+                <span class="icon-arrow-down-drop-circle icon-filter" title="Show filters"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="box-header">
+    @Html.Partial("Filter", Model.FilterViewModel)
+</div>
+
+<div class="box-content">
+    <table id="tbl-report" class="hidden tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap">
+        <thead>
+            <tr></tr>
+            <tr>
+                <th class="all w-15" data-priority="7">@Resources.ActionDate</th>
+                <th class="all" data-priority="6">@Model.DirectDownlineText</th>
+                <th class="min-tablet-l" data-priority="5">@Resources.TransferType</th>
+                <th class="min-tablet-l" data-priority="4">@Resources.TransferAmount</th>
+                <th class="min-tablet-l" data-priority="3">@Resources.OldBalance</th>
+                <th class="min-tablet-l" data-priority="2">@Resources.NewBalance</th>
+                <th class="desktop w-30" data-priority="1">@Resources.Description</th>
+            </tr>
+        </thead>
+    </table>
+
+    <form class="form-inline hide"
+          role="form"
+          id="export-excel-form"
+          action="Excel">
+        @Html.HiddenFor(model => model.UserName)
+        @Html.HiddenFor(model => model.FromDate)
+        @Html.HiddenFor(model => model.ToDate)
+    </form>
+
+    <div class="shadow" id="shadow"></div>
+    <div class="output" id="output"></div>
+
+    @Html.Hidden("GetTransferToDownlineHistoryDataUrl", Url.Action("GetTransferToDownlineHistoryData", "TransferToDownlineHistory"))
+    @Html.Hidden("UserName", Model.UserName)
+    @Html.Hidden("FromDate", Model.FromDate.ToShortDateWithSlash())
+    @Html.Hidden("ToDate", Model.ToDate.ToShortDateWithSlash())
+    @Html.Hidden("UserSelectedDateRangeOption", Model.UserSelectedDateRangeOption)
+    @Html.Hidden("usernameAutoSuggestionPath", TransferAllAndClearCreditViewModel.UsernameAutoSuggestionPath)
+</div>
+
+@section Scripts {
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-transfer/filter")
+    @StaticResources.RenderScripts("~/assets/bundles/transfer-to-downline-history/index")
+}

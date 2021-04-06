@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Transfer.Tests.Criteria.MultipleTransfer
 {
+    using Alpha.Transfer.Params.MultipleTransfer;
     using System.Collections;
-    using Params.MultipleTransfer;
     using Transfer.Criteria.MultipleTransfer;
     using Transfer.Models;
     using Xunit;
@@ -91,7 +91,7 @@
         [InlineData(1, true)]
         [InlineData(0, false)]
         [InlineData(-1, false)]
-        public void GetSettingKey_Always_ReturnCorectValue(int custId, bool expectValue)
+        public void IsValid_Always_ReturnCorectValue(int custId, bool expectValue)
         {
             // Arrange
             var param = new GetCustomerListParam(UserLevel.Agent, custId, string.Empty, 1, 1, false, false, 1);

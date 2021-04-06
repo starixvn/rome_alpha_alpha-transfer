@@ -35,5 +35,29 @@
       "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/multiple-transfer/customer-list.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index.css",
+    "inputFiles": [
+      "assets/styles/transfer-to-downline-history/index.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index-mobile.css",
+    "inputFiles": [
+      "assets/styles/datepicker-mobile.css",
+      "assets/styles/site-mobile.css",
+      "assets/styles/transfer-to-downline-history/index-mobile.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index.js",
+    "inputFiles": [
+      "assets/scripts/components/daterangepicker.js",
+      "assets/scripts/transfer-to-downline-history/utils.js",
+      "assets/scripts/transfer-to-downline-history/transfer-report.js",
+      "assets/scripts/transfer-to-downline-history/index.js"
+    ],
+    "sourceMap": true
   }
 ]

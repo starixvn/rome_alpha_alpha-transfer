@@ -14,6 +14,14 @@
   <Function Name="Transfer all and Clear Credit">
     <Setting Key="Age_Transfer_Credit_All_Sel" SpName="Age_Transfer_Credit_All_Sel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
+  <Function Name="Transfer To Downline History">
+    <Setting Key="Age_Rpt_Downline_Transfer_History" SpName="Age_Transfer_DownlineHistorySel" DbName="DBACC.bodb02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="TransDate" ObjectProperty="ActionDate" />
+      <Mapping DataField="UserName" ObjectProperty="DownlineName" />
+      <Mapping DataField="TransferAmt" ObjectProperty="TransferAmount" />
+      <Mapping DataField="TransDesc" ObjectProperty="Description" />
+    </Setting>
+  </Function>
   <Function Name="Multiple Transfer">
 	<!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
     <!-- <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" /> -->

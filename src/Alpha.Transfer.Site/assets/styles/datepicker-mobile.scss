@@ -1,0 +1,40 @@
+﻿@import "_mixins.scss";
+
+.bootstrap-datetimepicker-widget {
+    font-size: calculateScale(16px);
+
+    &.dropdown-menu {
+        .datepicker-days {
+            .table-condensed {
+                tr {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    grid-gap: 5px;
+                }
+
+                th, td {
+                    font-size: calculateScale(16px) !important;
+                    height: 50px !important;
+                    line-height: 45px !important;
+                    justify-self: center;
+
+                    &:not(.picker-switch) {
+                        width: 50px !important;
+                    }
+                }
+
+                thead tr:first-child {
+                    grid-template-columns: 1fr 1fr 1fr;
+
+                    th:first-child {
+                        justify-self: start;
+                    }
+
+                    th:last-child {
+                        justify-self: end;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -9,6 +9,8 @@
     using Fanex.Data.Repository;
     using MediatR;
     using Models;
+    using ONEbook.SpreadSheets;
+    using ONEbook.SpreadSheets.NPOI;
     using Services;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
@@ -66,6 +68,7 @@
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
             container.RegisterSingleton<TransferAllAndClearCreditDataAccess, TransferAllAndClearCreditDataAccessImpl>();
             container.RegisterSingleton<MultipleTransferDataAccess, MultipleTransferDataAccessImpl>();
+            container.RegisterSingleton<TransferToDownlineHistoryDataAccess, TransferToDownlineHistoryDataAccessImpl>();
         }
 
         private static void RegisterServices(Container container)
@@ -76,6 +79,9 @@
             container.RegisterSingleton<TransferAllAndClearCreditService, TransferAllAndClearCreditServiceImpl>();
             container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
             container.RegisterPerWebRequest<MultipleTransferService, MultipleTransferServiceImpl>();
+            container.RegisterSingleton<TransferToDownlineHistoryService, TransferToDownlineHistoryServiceImpl>();
+
+            container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
         }
     }
 }

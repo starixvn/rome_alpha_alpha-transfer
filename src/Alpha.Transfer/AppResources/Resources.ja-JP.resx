@@ -276,7 +276,7 @@
   <data name="Today" xml:space="preserve">
     <value>今日</value>
   </data>
-  <data name="Yesterday" xml:space="preserve">
+  <data name="Yesterday_Duplicate[1]" xml:space="preserve">
     <value>昨日</value>
   </data>
   <data name="LastWeek" xml:space="preserve">
@@ -341,5 +341,8 @@
   </data>
   <data name="PageSize" xml:space="preserve">
     <value>Page Size</value>
+  </data>
+  <data name="showhidecolumnAd" xml:space="preserve">
+    <value>Right-click on the header to show/hide columns.</value>
   </data>
 </root>

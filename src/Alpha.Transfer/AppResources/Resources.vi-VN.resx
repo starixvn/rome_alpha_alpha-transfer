@@ -366,7 +366,7 @@
   <data name="Today" xml:space="preserve">
     <value>Hôm nay</value>
   </data>
-  <data name="Yesterday" xml:space="preserve">
+  <data name="Yesterday_Duplicate[1]" xml:space="preserve">
     <value>Hôm qua</value>
   </data>
   <data name="LastWeek" xml:space="preserve">
@@ -431,5 +431,8 @@
   </data>
   <data name="PageSize" xml:space="preserve">
     <value>Số dòng</value>
+  </data>
+  <data name="showhidecolumnAd" xml:space="preserve">
+    <value>Nhấp chuột phải trên đầu cột để Ẩn/Hiện các cột.</value>
   </data>
 </root>

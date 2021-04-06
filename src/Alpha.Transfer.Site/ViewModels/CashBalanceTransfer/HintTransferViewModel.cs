@@ -4,9 +4,10 @@
 
     public class HintTransferViewModel
     {
-        public HintTransferViewModel(string allowTransfer, bool showWarningTransfer)
+        public HintTransferViewModel(string allowTransfer, bool showWarningTransfer, bool isAlldayTransfer = true)
         {
             AllowTransfer = allowTransfer;
+            IsAlldayTransfer = isAlldayTransfer;
 
             if (showWarningTransfer)
             {
@@ -17,5 +18,7 @@
         public string AllowTransfer { get; }
 
         public string WarningTransfer { get; }
+
+        public bool IsAlldayTransfer { get; }
     }
 }

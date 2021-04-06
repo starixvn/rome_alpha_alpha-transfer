@@ -366,7 +366,7 @@
   <data name="Today" xml:space="preserve">
     <value>今日賽事</value>
   </data>
-  <data name="Yesterday" xml:space="preserve">
+  <data name="Yesterday_Duplicate[1]" xml:space="preserve">
     <value>昨天</value>
   </data>
   <data name="LastWeek" xml:space="preserve">
@@ -431,5 +431,8 @@
   </data>
   <data name="PageSize" xml:space="preserve">
     <value>頁面範圍</value>
+  </data>
+  <data name="showhidecolumnAd" xml:space="preserve">
+    <value>右鍵單擊以顯示/隱藏列行。</value>
   </data>
 </root>

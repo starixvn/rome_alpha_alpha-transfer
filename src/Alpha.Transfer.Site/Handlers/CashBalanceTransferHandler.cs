@@ -57,7 +57,7 @@
                 allowTransfer = await service.GetAllowTransfer(message.CustId);
             }
 
-            return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer);
+            return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer, message.IsAlldayTransfer);
         }
     }
 }

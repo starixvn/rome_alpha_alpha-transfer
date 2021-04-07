@@ -574,6 +574,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Right-click on the header to show/hide columns..
+        /// </summary>
+        public static string showhidecolumnAd {
+            get {
+                return ResourceManager.GetString("showhidecolumnAd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Since Last Month.
         /// </summary>
         public static string SinceLastMonth {

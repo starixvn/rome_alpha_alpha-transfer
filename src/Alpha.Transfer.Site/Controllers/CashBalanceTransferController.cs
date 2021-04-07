@@ -55,7 +55,7 @@
         [HttpGet]
         public async Task<ActionResult> Hint(HintTransferQuery message)
         {
-            if (message == null || !message.IsValid() || !userSession.IsAllDayBalTransfer)
+            if (message == null || !message.IsValid())
             {
                 return View(InvalidPageViewPath);
             }

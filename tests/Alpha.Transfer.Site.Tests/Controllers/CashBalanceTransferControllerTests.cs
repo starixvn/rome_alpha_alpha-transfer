@@ -239,7 +239,7 @@
             var actualView = await controller.Hint(message) as ViewResult;
 
             // Assert
-            Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
+            Assert.Equal("Hint", actualView.ViewName);
         }
     }
 }

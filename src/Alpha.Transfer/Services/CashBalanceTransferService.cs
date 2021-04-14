@@ -3,9 +3,11 @@
     using System.Collections.Generic;
     using System.Text;
     using System.Threading.Tasks;
+    using Alpha.Transfer.Configurations;
     using AppResources;
     using Criteria;
     using Criteria.CashBalanceTransfer;
+    using Fanex.Caching;
     using Fanex.Data.Repository;
     using Models;
     using Models.CashBalanceTransfer;
@@ -33,10 +35,14 @@
     public class CashBalanceTransferServiceImpl : CashBalanceTransferService
     {
         private readonly IDynamicRepository repository;
+        private readonly ICacheService cacheService;
 
-        public CashBalanceTransferServiceImpl(IDynamicRepository dynamicRepository)
+        public CashBalanceTransferServiceImpl(
+            IDynamicRepository dynamicRepository,
+            ICacheService cacheService)
         {
             repository = dynamicRepository;
+            this.cacheService = cacheService;
         }
 
         public async Task<CashBalanceTransfer> GetCashBalanceTransferAsync(int custId)
@@ -56,10 +62,12 @@
             string ip,
             string languageKey)
         {
-            string cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, creator);
-            TransferCacheService cacheService = new TransferCacheServiceImplement(creator, creatorName);
-            List<TransferCacheModel> custIdCache = cacheService.Get(cacheKey) ?? new List<TransferCacheModel>();
-            var concurrentTrasfer = cacheService.CacheContains(custIdCache, toCustId);
+            string cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, Web.Configurations.AppSettings.SiteGroup, creator);
+            TransferCacheService transferCacheService = new TransferCacheServiceImplement(creator, creatorName, cacheService);
+
+            var custIdCache = transferCacheService.Get(cacheKey) ?? new List<TransferCacheModel>();
+            var concurrentTrasfer = transferCacheService.CacheContains(custIdCache, toCustId);
+
             if (concurrentTrasfer != null)
             {
                 return new Result
@@ -69,8 +77,8 @@
                 };
             }
 
-            cacheService.CacheAdd(custIdCache, toCustId, creator, creatorName);
-            cacheService.Set(cacheKey, custIdCache);
+            transferCacheService.CacheAdd(custIdCache, toCustId, creator, creatorName);
+            transferCacheService.Set(cacheKey, custIdCache);
 
             var criteria = new AddCashBalanceTransferCriteria(
                 fromCustId,
@@ -87,7 +95,7 @@
             }
             finally
             {
-                cacheService.CacheRemoveSuccessTransferCustIds(cacheKey, new List<int> { toCustId });
+                transferCacheService.CacheRemoveSuccessTransferCustIds(cacheKey, new List<int> { toCustId });
             }
 
             return new Result

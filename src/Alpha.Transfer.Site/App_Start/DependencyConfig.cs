@@ -6,6 +6,8 @@
     using System.Web.Mvc;
     using Controllers;
     using DataAccesses;
+    using Fanex.Caching;
+    using Fanex.Caching.Redis;
     using Fanex.Data.Repository;
     using MediatR;
     using Models;
@@ -15,6 +17,7 @@
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
+    using StackExchange.Redis;
     using Sunplus.Agent.Model.Base;
     using Sunplus.Agent.Model.Entities;
     using Transfer.Models;
@@ -73,6 +76,9 @@
 
         private static void RegisterServices(Container container)
         {
+            container.RegisterSingleton<ICache>(InitRedisCache());
+            container.RegisterSingleton<ICacheService, CacheService>();
+
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
 
@@ -82,6 +88,19 @@
             container.RegisterSingleton<TransferToDownlineHistoryService, TransferToDownlineHistoryServiceImpl>();
 
             container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
+        }
+
+        private static RedisCache InitRedisCache()
+        {
+            var redisConfigurationOptions = Configurations.AppSettings.TransferRedisConfigurationOptions;
+            var configurationOptions = ConfigurationOptions.Parse(redisConfigurationOptions);
+
+            return new RedisCache(
+                new RedisCacheOptions
+                {
+                    ApplicationName = configurationOptions.ClientName,
+                    ConnectionOptions = configurationOptions
+                });
         }
     }
 }

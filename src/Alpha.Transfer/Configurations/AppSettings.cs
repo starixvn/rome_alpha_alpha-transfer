@@ -22,6 +22,8 @@
 
         public static string AllowedTotalBalanceTransferSuperIds => GetConfigValue("AllowedTotalBalanceTransferSuperIds");
 
+        public static string TransferRedisConfigurationOptions => GetConfigValue("RedisConfigurationOptions:Alpha.Transfer");
+
         public static string GetConfigValue(string configName) => AppSettingValues[configName];
 
         public static void Verify()

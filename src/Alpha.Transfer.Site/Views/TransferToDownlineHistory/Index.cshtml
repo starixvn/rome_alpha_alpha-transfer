@@ -2,13 +2,14 @@
 
 @{
     ViewBag.Title = Resources.TransferToDownlineHistory;
+    var darkModeName = ViewData["DarkModeName"];
 }
 
 @section Styles {
-    @StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
-    @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/filter")
-    @StaticResources.AssetStyles.RenderCommon("/bundles/site-transfer/pagination")
-    @StaticResources.RenderStyles("~/assets/bundles/transfer-to-downline-history/index")
+    @StaticResources.AssetStyles.RenderCommon($"/bundles/site-asset/data-table{darkModeName}")
+    @StaticResources.AssetStyles.RenderCommon($"/bundles/site-transfer/filter{darkModeName}")
+    @StaticResources.AssetStyles.RenderCommon($"/bundles/site-transfer/pagination{darkModeName}")
+    @StaticResources.RenderStyles($"~/assets/bundles/transfer-to-downline-history/index{darkModeName}")
 }
 
 <div class="page-title">

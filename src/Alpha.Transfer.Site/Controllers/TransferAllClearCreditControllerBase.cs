@@ -14,7 +14,8 @@ namespace Alpha.Transfer.Site.Controllers
         protected readonly IMediator mediator;
         protected const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
 
-        protected TransferAllClearCreditControllerBase(IMediator mediator)
+        protected TransferAllClearCreditControllerBase(IMediator mediator, IUserSession userSession)
+            : base(userSession)
         {
             this.mediator = mediator;
         }
@@ -28,7 +29,6 @@ namespace Alpha.Transfer.Site.Controllers
         {
             base.OnAuthorization(filterContext);
 
-            var userSession = UserSession.Current;
             if (SubAccDoesNotHavePermission(userSession) || NotOfferTransferAllAndClearCredit(userSession))
             {
                 filterContext.Result = new HttpUnauthorizedResult("You are not authorized on this function!");

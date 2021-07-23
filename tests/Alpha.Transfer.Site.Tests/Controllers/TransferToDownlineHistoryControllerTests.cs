@@ -1,5 +1,8 @@
 ﻿namespace Alpha.Transfer.Site.Tests.Controllers
 {
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Web.Mvc;
     using Alpha.Transfer.Configurations;
     using Alpha.Transfer.Models;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
@@ -9,9 +12,7 @@
     using Alpha.Transfer.Site.ViewModels.TransferToDownlineHistory;
     using MediatR;
     using NSubstitute;
-    using System.Collections.Generic;
-    using System.Collections.Specialized;
-    using System.Web.Mvc;
+    using Sunplus.Agent.Model.Entities;
     using Xunit;
 
     [Trait("Category", "TransferToDownlineHistory")]
@@ -21,6 +22,7 @@
         private const string InvalidExcelFileName = "InvalidExcelFile.xls";
 
         private readonly IMediator mediator;
+        private readonly IUserSession userSession;
         private readonly IUser user;
         private readonly TransferToDownlineHistoryController controller;
 
@@ -32,6 +34,7 @@
             };
 
             mediator = Substitute.For<IMediator>();
+            userSession = Substitute.For<IUserSession>();
 
             user = Substitute.For<IUser>();
             user.Language.Returns("en-US");
@@ -39,7 +42,7 @@
             user.IsAllDayBalTransfer.Returns(true);
             user.Site.Returns("site");
 
-            controller = new TransferToDownlineHistoryController(mediator);
+            controller = new TransferToDownlineHistoryController(mediator, userSession);
         }
 
         [Fact]

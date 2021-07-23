@@ -1,0 +1,147 @@
+﻿#txt-username {
+    margin-left: .05em;
+}
+
+.dropdown {
+    vertical-align: middle;
+}
+
+.note {
+    margin-top: 3px;
+}
+
+.pagination {
+    table > tbody > tr > td:first-child {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .pagination-page-list {
+        margin-left: .05em;
+    }
+}
+
+table.tblRpt {
+    margin-top: 0 !important;
+    width: 99.999% !important;
+
+    tbody > tr > td {
+        &.col-date {
+            text-align: center;
+        }
+
+        &.col-number {
+            text-align: right;
+        }
+
+        &.col-text {
+            text-align: center;
+        }
+    }
+}
+
+.w-15 {
+    width: 15% !important;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+
+.dataTables_wrapper {
+    .top {
+        position: relative;
+        height: 32px;
+        margin-bottom: 3px;
+        line-height: 24px;
+    }
+
+    .dataTables_length {
+        position: absolute;
+        right: 0;
+        z-index: 999;
+
+        label {
+            font-size: 13px;
+            float: right;
+            margin-right: 5px;
+            margin-bottom: 0;
+        }
+    }
+
+    .dataTables_paginate {
+        margin-top: 0;
+        padding-top: 0;
+        position: relative;
+        left: 0 !important;
+        float: none;
+        text-align: center;
+
+        .paginate_input {
+            width: 50px;
+            box-shadow: none;
+            border: 1px solid #CFCFCF;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .paginate_button {
+            color: #3D5AD8 !important;
+            font-family: "Iconalpha";
+            padding: 0;
+            font-size: 20px;
+            position: relative;
+            top: 5px;
+            min-width: 32px;
+
+            &:active {
+                box-shadow: none;
+            }
+
+            &.disabled {
+                color: #c4c4c4 !important;
+
+                &:hover {
+                    cursor: not-allowed;
+                    color: #c4c4c4 !important;
+                }
+            }
+
+            &:hover {
+                background: transparent;
+                border: none;
+                color: #3D5AD8 !important;
+            }
+        }
+
+        .first:before {
+            content: "\e951";
+            transform: rotate(180deg);
+            display: inline-block;
+        }
+
+        .previous {
+            padding-right: 8px;
+
+            &:before {
+                content: "\e954";
+                display: inline-block;
+                transform: rotate(90deg);
+            }
+        }
+
+        .next {
+            padding-left: 8px;
+
+            &:before {
+                content: "\e954";
+                transform: rotate(-90deg);
+                display: inline-block;
+            }
+        }
+
+        .last:before {
+            content: "\e951";
+        }
+    }
+}

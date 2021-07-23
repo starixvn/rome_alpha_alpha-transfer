@@ -1,12 +1,14 @@
 ﻿namespace Alpha.Transfer.Site.Controllers
 {
+    using System.Web.Mvc;
     using MediatR;
     using Requests.TransferToDownlineHistory;
-    using System.Web.Mvc;
+    using Sunplus.Agent.Model.Entities;
 
     public class TransferToDownlineHistoryController : SiteBaseController
     {
-        public TransferToDownlineHistoryController(IMediator mediator) : base(mediator)
+        public TransferToDownlineHistoryController(IMediator mediator, IUserSession userSession)
+            : base(mediator, userSession)
         {
         }
 

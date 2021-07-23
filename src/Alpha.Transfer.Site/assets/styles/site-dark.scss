@@ -1,0 +1,316 @@
+﻿@import "variables";
+@import "_mixins.scss";
+
+body {
+    background: transparent;
+    font-size: 13px;
+}
+
+.page-title {
+    display: table;
+    width: 100%;
+    position: relative;
+
+    .hidefilter-element {
+        display: none;
+    }
+
+    &.hide-filter {
+        margin-bottom: 16px;
+
+        .showfilter-element {
+            display: none;
+        }
+
+        .hidefilter-element {
+            display: block;
+        }
+    }
+
+    .list-icon {
+        float: right;
+
+        ul li {
+            cursor: pointer;
+            color: $icon-color;
+            float: left;
+
+            [class^='icon'] {
+                font-size: 16px;
+                padding: 0 10px;
+                vertical-align: middle;
+                position: relative;
+                top: -2px;
+            }
+
+            .icon-filter {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+.msg {
+    margin-bottom: 0;
+}
+
+.icon-refresh, .icon-edit {
+    margin-right: 5px;
+}
+
+#tbl-report {
+    margin-top: 12px;
+    width: 850px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    .negative-value {
+        color: #e92819;
+    }
+}
+
+.link {
+    color: #045ace;
+    cursor: pointer;
+
+    &:hover {
+        color: #F60;
+    }
+}
+
+input[type="checkbox"] {
+    margin-right: 0;
+    display: inherit;
+}
+
+input[type="button"][disabled] {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.page-title .icon-information-outline {
+    margin-top: 11px;
+    margin-right: 10px;
+}
+
+.filter {
+    .multiselect .multiselect-selected-text {
+        width: 130px;
+    }
+
+    .multiselect-container label {
+        font-size: 13px;
+
+        input[type="checkbox"] {
+            display: inline-block;
+        }
+    }
+
+    .icon-excel, .icon-back {
+        cursor: pointer;
+        color: #1f7244;
+        font-size: 19px;
+        vertical-align: middle;
+        height: 28px;
+        float: left;
+
+        &:before {
+            position: relative;
+            top: 5px;
+        }
+    }
+
+    .icon-back {
+        margin-left: 20px;
+        font-size: 20px;
+    }
+
+    .select-multiple {
+        height: 28px;
+        width: 160px;
+    }
+
+    .error, .btn-group button.multiselect.error {
+        border: 1px solid #e9322d;
+        padding: 4px 10px;
+    }
+
+    .dropdown-daterange {
+        width: 160px;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+        padding-bottom: 0;
+
+        .btn-submit, .btn-group {
+            float: left;
+        }
+
+        &.daterange-picker {
+            //margin-bottom: 0;
+            .ui_nexdatepicker_edit_field, .ui_nexdatepicker_lbl_field {
+                margin-bottom: 15px;
+            }
+        }
+
+        &.pull-right {
+            margin-right: 0;
+
+            .btn-refresh {
+                margin-right: 0;
+                display: inline-block;
+                line-height: 28px;
+                padding-left: 7px;
+                padding-right: 10px;
+            }
+
+            .icon-refresh2 {
+                font-size: 20px;
+                vertical-align: middle;
+                margin-right: 3px;
+            }
+        }
+    }
+}
+
+.bootbox-confirm .modal-dialog {
+    top: 10%;
+    left: 10%;
+}
+
+#box_header {
+    //margin-top: 12px;
+    width: 850px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.edit-setting {
+    cursor: pointer;
+
+    &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.baio-bettypes-content-bg {
+    background-color: #f1ebc7;
+}
+
+.baio-title-effect-date-format {
+    line-height: 30px;
+    text-indent: 10px;
+}
+
+#txt-username {
+    width: 210px;
+}
+
+.note .star {
+    color: #ff0101;
+    padding-right: 8px;
+}
+
+.lbl-username {
+    width: 50px;
+}
+
+.output {
+    @include border-radius(1px);
+    @include box-shadow-multiple('0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)');
+    background: #313131 ;
+    position: absolute;
+    border: 1px solid #474747;
+    color: #e7e7e7;
+    top: 85px;
+    left: 58px;
+    width: 230px;
+    z-index: 9999;
+
+    .opOut, .opOver {
+        padding: 0 5px;
+    }
+
+    .opOver {
+        cursor: pointer;
+        background: #3c3c3c;
+    }
+}
+
+.tblRpt .head-row {
+    background-color: #666;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+}
+
+#tbl-rpt {
+    width: 800px;
+    border: none;
+    margin-bottom: 12px;
+}
+
+.tblRpt td {
+    &.align-right {
+        text-align: right;
+    }
+
+    &.align-center {
+        text-align: center;
+    }
+
+    &[colspan='4'] {
+        padding: 4px 0;
+
+        label {
+            margin: 0 0 0 4px;
+        }
+    }
+}
+
+.tblRpt .title td[colspan='4'], .tblRpt .title-clear-credit td[colspan='4'] {
+    background-color: #56533C
+}
+
+.tblRpt.tblRpt-bordered > tbody > tr[class^='title'] > td[colspan='4'] {
+    border: none;
+}
+
+#box-content {
+    margin-top: 12px;
+
+    .btn-submit {
+        margin-bottom: 12px;
+
+        &[disabled] {
+            pointer-events: none;
+        }
+    }
+}
+
+.favorite {
+    color: #b50000;
+
+    a.transfer-link {
+        color: inherit;
+    }
+}
+
+.underdog {
+    color: #00f;
+
+    a.transfer-link {
+        color: inherit;
+    }
+}
+
+a.transfer-link {
+    text-decoration: none;
+    cursor: pointer;
+}

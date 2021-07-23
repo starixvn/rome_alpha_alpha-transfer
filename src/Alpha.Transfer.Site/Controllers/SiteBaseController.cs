@@ -1,8 +1,9 @@
 ﻿namespace Alpha.Transfer.Site.Controllers
 {
+    using System.Web.Mvc;
     using MediatR;
     using Requests;
-    using System.Web.Mvc;
+    using Sunplus.Agent.Model.Entities;
     using ViewModels;
     using Web;
 
@@ -13,13 +14,15 @@
         protected const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         protected const string InvalidExcelFileName = "InvalidExcelFile";
 
-        protected SiteBaseController(IMediator mediator)
+        protected SiteBaseController(IMediator mediator, IUserSession userSession)
+            : base(userSession)
         {
             this.mediator = mediator;
         }
 
         protected ActionResult View<TResponse>(IRequest<TResponse> message)
         {
+            AssignDarkModeViewData();
             var query = message as TransferBaseQuery;
             if (query == null || !query.IsValid())
             {

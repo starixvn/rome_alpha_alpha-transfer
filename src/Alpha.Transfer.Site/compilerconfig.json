@@ -30,5 +30,25 @@
   {
     "outputFile": "assets/styles/transfer-to-downline-history/index-mobile.css",
     "inputFile": "assets/styles/transfer-to-downline-history/index-mobile.scss"
+  },
+  {
+    "outputFile": "assets/styles/cash-balance-transfer-dark.css",
+    "inputFile": "assets/styles/cash-balance-transfer-dark.scss"
+  },
+  {
+    "outputFile": "assets/styles/site-dark.css",
+    "inputFile": "assets/styles/site-dark.scss"
+  },
+  {
+    "outputFile": "assets/styles/transfer-all-clear-credit-dark.css",
+    "inputFile": "assets/styles/transfer-all-clear-credit-dark.scss"
+  },
+  {
+    "outputFile": "assets/styles/transfer-hint-dark.css",
+    "inputFile": "assets/styles/transfer-hint-dark.scss"
+  },
+  {
+    "outputFile": "assets/styles/transfer-to-downline-history/index-dark.css",
+    "inputFile": "assets/styles/transfer-to-downline-history/index-dark.scss"
   }
 ]

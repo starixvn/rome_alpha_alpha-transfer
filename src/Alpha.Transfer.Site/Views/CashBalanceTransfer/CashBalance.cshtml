@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    var darkModeName = ViewData["DarkModeName"];
 }
 @using Alpha.Transfer.Site.ViewModels.CashBalanceTransfer;
 @model CashBalanceTransferViewModel
@@ -12,8 +13,8 @@
     <title>@Resources.TransferButton</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
-    @StaticResources.AssetStyles.RenderCommon("/bundles/common/common")
-    @StaticResources.RenderStyles("~/assets/bundles/cash-balance-transfer")
+    @StaticResources.AssetStyles.RenderCommon($"/bundles/common/common{darkModeName}")
+    @StaticResources.RenderStyles($"~/assets/bundles/cash-balance-transfer{darkModeName}")
 </head>
 <body>
     <div class="container-fluid cash-balance">

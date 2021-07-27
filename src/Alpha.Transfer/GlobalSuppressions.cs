@@ -79,3 +79,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S109:Magic numbers should not be used", Justification = "<Pending>", Scope = "member", Target = "~M:Alpha.Transfer.DataAccesses.TransferAllAndClearCreditDataAccessImpl.ClearCredit(Alpha.Transfer.Criteria.TransferAllAndClearCredit.ClearCreditCriteria)~Alpha.Transfer.Models.TransferAllAndClearCredit.ClearCreditResult")]
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S107:Methods should not have too many parameters", Justification = "<Pending>", Scope = "member", Target = "~M:Alpha.Transfer.Models.CashBalanceTransfer.CashBalanceTransfer.#ctor(System.Int32,System.Byte,System.String,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S1192:String literals should not be duplicated", Justification = "<Pending>", Scope = "member", Target = "~M:Alpha.Transfer.Criteria.MultipleTransfer.GetCustomerListCriteria.GetSpParams~System.Collections.Hashtable")]
+

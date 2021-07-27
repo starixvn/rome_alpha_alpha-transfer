@@ -82,16 +82,19 @@
             switch (Status)
             {
                 case StatusConstant.Open:
-                    result["closed"] = false;
+                    result["custstatus"] = "Open";
                     break;
                 case StatusConstant.Suspended:
-                    result["suspended"] = true;
+                    result["custstatus"] = "Suspended";
                     break;
                 case StatusConstant.Closed:
-                    result["closed"] = true;
+                    result["custstatus"] = "Closed";
                     break;
                 case StatusConstant.Disabled:
-                    result["enabled"] = false;
+                    result["custstatus"] = "Disabled";
+                    break;
+                default:
+                    result["custstatus"] = "All";
                     break;
             }
 

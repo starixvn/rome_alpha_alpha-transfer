@@ -134,7 +134,7 @@
       <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.4\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Transfer, Version=3.0.1.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Transfer.3.0.1.5-beta01\lib\net461\Sunplus.Agent.Model.Transfer.dll</HintPath>
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Transfer.3.0.1.5\lib\net461\Sunplus.Agent.Model.Transfer.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.2\lib\net461\Sunplus.Agent.Utilities.dll</HintPath>

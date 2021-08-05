@@ -27,11 +27,11 @@
         }
 
         [Theory]
-        [InlineData(1, "closed", false)]
-        [InlineData(2, "suspended", true)]
-        [InlineData(3, "closed", true)]
-        [InlineData(4, "enabled", false)]
-        public void GetSpParams_ByStatus_ReturnCorectValue(int status, string expectParam, bool expectValue)
+        [InlineData(1, "custstatus", "Open")]
+        [InlineData(2, "custstatus", "Suspended")]
+        [InlineData(3, "custstatus", "Closed")]
+        [InlineData(4, "custstatus", "Disabled")]
+        public void GetSpParams_ByStatus_ReturnCorectValue(int status, string expectParam, string expectValue)
         {
             // Arrange
             var param = new GetCustomerListParam(UserLevel.Agent, 1, string.Empty, 1, 1, false, false, status);
@@ -41,7 +41,7 @@
             var actualValue = criteria.GetSpParams();
 
             // Assert
-            Assert.True(actualValue.ContainsKey(expectParam) && (bool)actualValue[expectParam] == expectValue);
+            Assert.True(actualValue.ContainsKey(expectParam) && (string)actualValue[expectParam] == expectValue);
         }
 
         [Fact]
@@ -58,7 +58,7 @@
                 ["isallowtotalbalance"] = false,
                 ["totalpages"] = 0,
                 ["custid"] = 1,
-                ["closed"] = false
+                ["custstatus"] = "Open"
             };
 
             var criteria = new GetCustomerListCriteria(param);

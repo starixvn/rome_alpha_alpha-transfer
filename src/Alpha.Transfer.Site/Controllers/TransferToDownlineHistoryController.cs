@@ -3,12 +3,10 @@
     using System.Web.Mvc;
     using MediatR;
     using Requests.TransferToDownlineHistory;
-    using Sunplus.Agent.Model.Entities;
 
     public class TransferToDownlineHistoryController : SiteBaseController
     {
-        public TransferToDownlineHistoryController(IMediator mediator, IUserSession userSession)
-            : base(mediator, userSession)
+        public TransferToDownlineHistoryController(IMediator mediator) : base(mediator)
         {
         }
 

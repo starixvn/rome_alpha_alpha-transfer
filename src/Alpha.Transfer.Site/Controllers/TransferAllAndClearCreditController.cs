@@ -4,32 +4,29 @@
     using System.Web.SessionState;
     using MediatR;
     using Requests.TransferAllAndClearCredit;
-    using Sunplus.Agent.Model.Entities;
 
     [SessionState(SessionStateBehavior.Default)]
     public class TransferAllAndClearCreditController : TransferAllClearCreditControllerBase
     {
-        public TransferAllAndClearCreditController(IMediator mediator, IUserSession userSession)
-            : base(mediator, userSession)
+        public TransferAllAndClearCreditController(IMediator mediator)
+            : base(mediator)
         {
         }
 
         [HttpGet]
         public ActionResult Index(CalculationQuery message)
         {
-            AssignDarkModeViewData();
             if (message == null || !message.IsValid())
             {
                 return View(InvalidPageViewPath);
             }
 
-            return View(message);
+            return View(mediator.Send(message));
         }
 
         [HttpGet]
         public ActionResult TransferResult(CalculationQuery message)
         {
-            AssignDarkModeViewData();
             if (message == null || !message.IsValid())
             {
                 return View(InvalidPageViewPath);
@@ -41,7 +38,6 @@
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult TransferResult(TransferResultQuery message)
         {
-            AssignDarkModeViewData();
             if (message == null || !message.IsValid())
             {
                 return View(InvalidPageViewPath);

@@ -5,7 +5,6 @@
     using NSubstitute;
     using Requests.TransferAllAndClearCredit;
     using Site.Controllers;
-    using Sunplus.Agent.Model.Entities;
     using Transfer.Models;
     using Xunit;
 
@@ -13,16 +12,14 @@
     public class TransferAllAndClearCreditControllerTests
     {
         private readonly IMediator mediator;
-        private readonly IUserSession userSession;
         private readonly IUser user;
         private readonly TransferAllAndClearCreditController controller;
 
         public TransferAllAndClearCreditControllerTests()
         {
             mediator = Substitute.For<IMediator>();
-            userSession = Substitute.For<IUserSession>();
             user = Substitute.For<IUser>();
-            controller = new TransferAllAndClearCreditController(mediator, userSession);
+            controller = new TransferAllAndClearCreditController(mediator);
         }
 
         [Fact]

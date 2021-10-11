@@ -3,12 +3,11 @@
     using System.Web.Mvc;
     using MediatR;
     using Requests.MultipleTransfer;
-    using Sunplus.Agent.Model.Entities;
 
     public class MultipleTransferController : SiteBaseController
     {
-        public MultipleTransferController(IMediator mediator, IUserSession userSession)
-            : base(mediator, userSession)
+        public MultipleTransferController(IMediator mediator)
+            : base(mediator)
         {
         }
 

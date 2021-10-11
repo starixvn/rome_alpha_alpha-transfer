@@ -12,15 +12,17 @@
     [SessionState(SessionStateBehavior.Default)]
     public class CashBalanceTransferController : SiteBaseController
     {
+        private readonly IUserSession userSession;
+
         public CashBalanceTransferController(IMediator mediator, IUserSession userSession)
-            : base(mediator, userSession)
+            : base(mediator)
         {
+            this.userSession = userSession;
         }
 
         [HttpGet]
         public async Task<ActionResult> CashBalance(CashBalanceTransferQuery message)
         {
-            AssignDarkModeViewData();
             if (message == null || !message.IsValid() || !userSession.IsAllDayBalTransfer)
             {
                 return View(InvalidPageViewPath);
@@ -53,7 +55,6 @@
         [HttpGet]
         public async Task<ActionResult> Hint(HintTransferQuery message)
         {
-            AssignDarkModeViewData();
             if (message == null || !message.IsValid())
             {
                 return View(InvalidPageViewPath);

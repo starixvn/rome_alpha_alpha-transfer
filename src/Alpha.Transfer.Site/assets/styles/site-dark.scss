@@ -244,8 +244,8 @@ input[type="button"][disabled] {
 }
 
 .tblRpt .head-row {
-    background-color: #666;
-    color: #fff;
+    background-color: #383838;
+    color: #EDEDED;
     font-weight: 400;
     text-align: center;
 }
@@ -254,6 +254,36 @@ input[type="button"][disabled] {
     width: 800px;
     border: none;
     margin-bottom: 12px;
+
+    &.tblRpt.tblRpt-bordered {
+
+
+        tbody {
+            tr {
+                &[class*="title"] {
+                    td:first-child {
+                        border-left: 0 !important;
+                    }
+                }
+
+                &.head-row {
+                    td {
+                        border-color: #5F626B !important;
+
+                        &:last-child {
+                            border-right-color: #383838 !important;
+                        }
+                    }
+                }
+
+                td {
+                    &:first-child {
+                        border-left: 1px solid #3E3F41 !important;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .tblRpt td {
@@ -275,7 +305,8 @@ input[type="button"][disabled] {
 }
 
 .tblRpt .title td[colspan='4'], .tblRpt .title-clear-credit td[colspan='4'] {
-    background-color: #56533C
+    background-color: transparent;
+    border-right: 0 !important;
 }
 
 .tblRpt.tblRpt-bordered > tbody > tr[class^='title'] > td[colspan='4'] {

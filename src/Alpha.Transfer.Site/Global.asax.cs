@@ -67,6 +67,7 @@
                 new MaintenanceService(UMClientManager.RestClient, UMClientManager.CacheService, UMClientManager.UMClientConfigs, UMClientManager.HttpContext), null));
             GlobalFilters.Filters.Add(new CheckBelongingFilter());
             GlobalFilters.Filters.Add(new AfterLoginFlowFilter());
+            GlobalFilters.Filters.Add(new ProtectedModeFilter());
 
             StaticResources.Init(GetBuildVersion());
         }

@@ -269,16 +269,13 @@ input[type="button"][disabled] {
                 &.head-row {
                     td {
                         border-color: #5F626B !important;
-
-                        &:last-child {
-                            border-right-color: #383838 !important;
-                        }
+                        border-top: 1px solid #5F626B;
                     }
                 }
 
                 td {
                     &:first-child {
-                        border-left: 1px solid #3E3F41 !important;
+                        border-left: 1px solid #5F626B !important;
                     }
                 }
             }

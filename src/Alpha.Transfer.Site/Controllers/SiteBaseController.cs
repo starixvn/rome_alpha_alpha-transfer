@@ -1,8 +1,8 @@
 ﻿namespace Alpha.Transfer.Site.Controllers
 {
+    using System.Web.Mvc;
     using MediatR;
     using Requests;
-    using System.Web.Mvc;
     using ViewModels;
     using Web;
 

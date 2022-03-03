@@ -1,0 +1,44 @@
+﻿$section-color-bg: #212223;
+$section-color-border: #474747;
+body {
+    background: transparent;
+}
+.cash-balance {
+    max-width: 1280px;
+    margin: 0;
+
+    .section {
+        background: $section-color-bg;
+        border: 1px solid $section-color-border;
+        margin-top: 15px;
+        padding: 15px;
+    }
+
+    .row {
+        padding: 5px;
+
+        div:first-child:not(.note) {
+            font-weight: bold;
+        }
+
+        .textbox {
+            margin-left: 30px;
+            width: 190px;
+            border-color: $section-color-border;
+        }
+
+        .btn-submit {
+            margin-left: 15px;
+        }
+
+        .form-inline label {
+            color: inherit;
+            font-weight: bold;
+            font-size: inherit;
+        }
+
+        .ex-text {
+            color: #56D6FF;
+        }
+    }
+}

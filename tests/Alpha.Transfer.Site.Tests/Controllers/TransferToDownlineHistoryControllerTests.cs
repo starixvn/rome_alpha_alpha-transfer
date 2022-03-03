@@ -1,5 +1,8 @@
 ﻿namespace Alpha.Transfer.Site.Tests.Controllers
 {
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Web.Mvc;
     using Alpha.Transfer.Configurations;
     using Alpha.Transfer.Models;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
@@ -9,9 +12,6 @@
     using Alpha.Transfer.Site.ViewModels.TransferToDownlineHistory;
     using MediatR;
     using NSubstitute;
-    using System.Collections.Generic;
-    using System.Collections.Specialized;
-    using System.Web.Mvc;
     using Xunit;
 
     [Trait("Category", "TransferToDownlineHistory")]

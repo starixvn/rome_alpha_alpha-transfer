@@ -77,8 +77,8 @@
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Alpha.Web, Version=1.0.8.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Web.1.0.8.7\lib\net461\Alpha.Web.dll</HintPath>
+    <Reference Include="Alpha.Web, Version=1.0.8.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Web.1.0.8.8\lib\net461\Alpha.Web.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
@@ -247,8 +247,8 @@
     <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
       <HintPath>..\..\packages\StackExchange.Redis.2.0.519\lib\net461\StackExchange.Redis.dll</HintPath>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.5.8\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.5.9\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.4\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
@@ -368,10 +368,18 @@
     <Content Include="App_Data\SPNames\UAT\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.BODB02.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\cash-balance-transfer-dark.css" />
+    <Content Include="assets\bundles\cash-balance-transfer-dark.min.css">
+      <DependentUpon>cash-balance-transfer-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\cash-balance-transfer.css" />
     <Content Include="assets\bundles\cash-balance-transfer.min.css" />
     <Content Include="assets\bundles\cash-balance-transfer\cash-balance.js" />
     <Content Include="assets\bundles\cash-balance-transfer\cash-balance.min.js" />
+    <Content Include="assets\bundles\default-dark.css" />
+    <Content Include="assets\bundles\default-dark.min.css">
+      <DependentUpon>default-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\default.css" />
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
@@ -379,6 +387,10 @@
     <Content Include="assets\bundles\multiple-transfer\customer-list.js" />
     <Content Include="assets\bundles\multiple-transfer\customer-list.min.js">
       <DependentUpon>customer-list.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\transfer-all-clear-credit-dark.css" />
+    <Content Include="assets\bundles\transfer-all-clear-credit-dark.min.css">
+      <DependentUpon>transfer-all-clear-credit-dark.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\transfer-all-clear-credit.css" />
     <Content Include="assets\bundles\transfer-all-clear-credit.min.css">
@@ -388,8 +400,18 @@
     <Content Include="assets\bundles\transfer-all-clear-credit\calculation.min.js" />
     <Content Include="assets\bundles\transfer-all-clear-credit\transfer-result.js" />
     <Content Include="assets\bundles\transfer-all-clear-credit\transfer-result.min.js" />
+    <Content Include="assets\bundles\transfer-hint-dark.css" />
+    <Content Include="assets\bundles\transfer-hint-dark.min.css">
+      <DependentUpon>transfer-hint-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\transfer-hint.css" />
-    <Content Include="assets\bundles\transfer-hint.min.css" />
+    <Content Include="assets\bundles\transfer-hint.min.css">
+      <DependentUpon>transfer-hint.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\transfer-to-downline-history\index-dark.css" />
+    <Content Include="assets\bundles\transfer-to-downline-history\index-dark.min.css">
+      <DependentUpon>index-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\transfer-to-downline-history\index.css" />
     <Content Include="assets\bundles\transfer-to-downline-history\index.min.css">
       <DependentUpon>index.css</DependentUpon>
@@ -422,17 +444,47 @@
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
     <Content Include="assets\scripts\tests\libs\moment.js" />
+    <Content Include="assets\styles\cash-balance-transfer-dark.css">
+      <DependentUpon>cash-balance-transfer-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\cash-balance-transfer-dark.min.css">
+      <DependentUpon>cash-balance-transfer-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\site-dark.css">
+      <DependentUpon>site-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\site-dark.min.css">
+      <DependentUpon>site-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\site.css">
       <DependentUpon>site.scss</DependentUpon>
     </Content>
     <Content Include="assets\styles\site.min.css">
       <DependentUpon>site.css</DependentUpon>
     </Content>
+    <Content Include="assets\styles\transfer-all-clear-credit-dark.css">
+      <DependentUpon>transfer-all-clear-credit-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-all-clear-credit-dark.min.css">
+      <DependentUpon>transfer-all-clear-credit-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\transfer-all-clear-credit.css">
       <DependentUpon>transfer-all-clear-credit.scss</DependentUpon>
     </Content>
     <Content Include="assets\styles\transfer-all-clear-credit.min.css">
       <DependentUpon>transfer-all-clear-credit.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-hint-dark.css">
+      <DependentUpon>transfer-hint-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-hint-dark.min.css">
+      <DependentUpon>transfer-hint-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-to-downline-history\index-dark.css">
+      <DependentUpon>index-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\transfer-to-downline-history\index-dark.min.css">
+      <DependentUpon>index-dark.css</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
@@ -613,6 +665,11 @@
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Agent.xls" />
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Master.xls" />
     <Content Include="App_Data\ExcelTemplates\TransferToDownlineHistory\Member.xls" />
+    <Content Include="assets\styles\cash-balance-transfer-dark.scss" />
+    <Content Include="assets\styles\site-dark.scss" />
+    <Content Include="assets\styles\transfer-all-clear-credit-dark.scss" />
+    <Content Include="assets\styles\transfer-hint-dark.scss" />
+    <Content Include="assets\styles\transfer-to-downline-history\index-dark.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

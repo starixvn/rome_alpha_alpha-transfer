@@ -59,5 +59,40 @@
       "assets/scripts/transfer-to-downline-history/index.js"
     ],
     "sourceMap": true
+  },
+  /************************** Dark Mode ************************/
+  {
+    "outputFileName": "assets/bundles/default-dark.css",
+    "inputFiles": [
+      "assets/styles/site-dark.css"
+    ]
+  },
+
+  {
+    "outputFileName": "assets/bundles/transfer-hint-dark.css",
+    "inputFiles": [
+      "assets/styles/transfer-hint-dark.css"
+    ]
+  },
+
+  {
+    "outputFileName": "assets/bundles/cash-balance-transfer-dark.css",
+    "inputFiles": [
+      "assets/styles/cash-balance-transfer-dark.css"
+    ]
+  },
+
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index-dark.css",
+    "inputFiles": [
+      "assets/styles/transfer-to-downline-history/index-dark.css"
+    ]
+  },
+
+  {
+    "outputFileName": "assets/bundles/transfer-all-clear-credit-dark.css",
+    "inputFiles": [
+      "assets/styles/transfer-all-clear-credit-dark.css"
+    ]
   }
 ]

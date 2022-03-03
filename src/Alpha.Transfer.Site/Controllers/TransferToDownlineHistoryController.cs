@@ -1,8 +1,8 @@
 ﻿namespace Alpha.Transfer.Site.Controllers
 {
+    using System.Web.Mvc;
     using MediatR;
     using Requests.TransferToDownlineHistory;
-    using System.Web.Mvc;
 
     public class TransferToDownlineHistoryController : SiteBaseController
     {

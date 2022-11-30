@@ -33,6 +33,14 @@ else
 {
     <p>备注</p>
     <ul>
+        @if (!string.IsNullOrEmpty(Model.AllowTransfer))
+        {
+            <li>@Html.Raw(Model.AllowTransfer)</li>
+        }
+        @if (!string.IsNullOrEmpty(Model.WarningTransfer))
+        {
+            <li>@Html.Raw(Model.WarningTransfer)</li>
+        }
         <li>@Resources.showhidecolumnAd</li>
     </ul>
 }

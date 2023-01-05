@@ -62,7 +62,7 @@
             string ip,
             string languageKey)
         {
-            string cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, Web.Configurations.AppSettings.SiteGroup, creator);
+            string cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, Web.Configurations.AppSettings.SiteLabel, creator);
             TransferCacheService transferCacheService = new TransferCacheServiceImplement(creator, creatorName, cacheService);
 
             var custIdCache = transferCacheService.Get(cacheKey) ?? new List<TransferCacheModel>();

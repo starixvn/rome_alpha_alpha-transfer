@@ -435,4 +435,7 @@
   <data name="showhidecolumnAd" xml:space="preserve">
     <value>右鍵單擊以顯示/隱藏列行。</value>
   </data>
+  <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
+    <value>您的上線不允許您使用全天餘額轉賬。該頁面將自動刷新。</value>
+  </data>
 </root>

@@ -8,12 +8,12 @@
 
     public class CustomerListViewModel
     {
-        public CustomerListViewModel(CustomerListQuery query, CustomerListModel model)
+        public CustomerListViewModel(CustomerListQuery query, CustomerListModel model, bool allowAllDayBalanceTransfer)
         {
             Username = query.Username;
             Status = query.Status;
             AllYesterdayBalance = query.AllYesterdayBalance;
-            AllowAllDayBalanceTransfer = query.AllowAllDayBalanceTransfer;
+            AllowAllDayBalanceTransfer = allowAllDayBalanceTransfer;
             AllowTotalBalanceTransfer = query.AllowTotalBalanceTransfer;
 
             PageSize = query.PageSize;

@@ -23,7 +23,7 @@
         [HttpGet]
         public async Task<ActionResult> CashBalance(CashBalanceTransferQuery message)
         {
-            if (message == null || !message.IsValid() || !userSession.IsAllDayBalTransfer)
+            if (message == null || !message.IsValid())
             {
                 return View(InvalidPageViewPath);
             }
@@ -36,7 +36,7 @@
         {
             Result result;
 
-            if (command == null || !command.IsValid() || !userSession.IsAllDayBalTransfer)
+            if (command == null || !command.IsValid())
             {
                 result = Result.CreateErrorResult(Resources.BadRequest, 400);
             }

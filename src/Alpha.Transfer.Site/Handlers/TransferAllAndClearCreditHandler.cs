@@ -12,20 +12,25 @@
         IRequestHandler<TransferResultQuery, TransferResultViewModel>
     {
         private readonly TransferAllAndClearCreditService transferAllAndClearCreditService;
+        private readonly TransferService transferService;
 
-        public TransferAllAndClearCreditHandler(TransferAllAndClearCreditService transferAllAndClearCreditService)
+        public TransferAllAndClearCreditHandler(
+            TransferAllAndClearCreditService transferAllAndClearCreditService,
+            TransferService transferService)
         {
             this.transferAllAndClearCreditService = transferAllAndClearCreditService;
+            this.transferService = transferService;
         }
 
         public CalculationViewModel Handle(CalculationQuery message)
         {
+            var isAllDayBalanceTransfer = transferService.IsAllDayBalanceTransfer(message.ViewerId);
             var param = new GetCalculationResultParam(
                 message.CustId,
                 message.Username,
                 message.LanguageKey,
                 message.AllowedTotalBalanceTransferSuperIds,
-                message.IsAllDayBalanceTransfer);
+                isAllDayBalanceTransfer);
 
             var calculationResult = string.IsNullOrWhiteSpace(message.Username) ? new TransferResult() : transferAllAndClearCreditService.GetCalculateResult(param);
 
@@ -34,6 +39,7 @@
 
         public TransferResultViewModel Handle(TransferResultQuery message)
         {
+            var isAllDayBalanceTransfer = transferService.IsAllDayBalanceTransfer(message.ViewerId);
             var param = new GetTransferResultParam(
                 message.CustId,
                 message.UserId,
@@ -45,7 +51,7 @@
                 message.LanguageKey,
                 message.TransferSteps,
                 message.ClearCreditSteps,
-                message.IsAllDayBalanceTransfer);
+                isAllDayBalanceTransfer);
 
             var transferResult = message.IsInternal ? null : transferAllAndClearCreditService.GetTransferResult(param);
 

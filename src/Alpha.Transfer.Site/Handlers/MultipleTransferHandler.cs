@@ -10,10 +10,14 @@
         IRequestHandler<CustomerListQuery, CustomerListViewModel>
     {
         private readonly MultipleTransferService multipleTransferService;
+        private readonly TransferService transferService;
 
-        public MultipleTransferHandler(MultipleTransferService multipleTransferService)
+        public MultipleTransferHandler(
+            MultipleTransferService multipleTransferService,
+            TransferService transferService)
         {
             this.multipleTransferService = multipleTransferService;
+            this.transferService = transferService;
         }
 
         public CustomerListViewModel Handle(CustomerListQuery message)
@@ -28,9 +32,10 @@
                 message.AllowTotalBalanceTransfer,
                 message.Status);
 
+            var isAllDayBalanceTransfer = transferService.IsAllDayBalanceTransfer(message.ViewerId);
             var data = multipleTransferService.GetCustomerList(param);
 
-            return new CustomerListViewModel(message, data);
+            return new CustomerListViewModel(message, data, isAllDayBalanceTransfer);
         }
     }
 }

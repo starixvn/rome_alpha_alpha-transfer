@@ -9,7 +9,6 @@
     {
         public CustomerListQuery(IUser viewer) : base(viewer)
         {
-            AllowAllDayBalanceTransfer = viewer.AllowAllDayBalanceTransfer;
             AllowTotalBalanceTransfer = viewer.AllowTotalBalanceTransfer;
         }
 
@@ -18,8 +17,6 @@
         public int Status { get; set; } = StatusConstant.Open;
 
         public bool AllYesterdayBalance { get; set; }
-
-        public bool AllowAllDayBalanceTransfer { get; }
 
         public bool AllowTotalBalanceTransfer { get; }
 

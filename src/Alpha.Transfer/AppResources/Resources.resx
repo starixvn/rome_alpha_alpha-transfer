@@ -435,4 +435,7 @@
   <data name="showhidecolumnAd" xml:space="preserve">
     <value>Right-click on the header to show/hide columns.</value>
   </data>
+  <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
+    <value>Your upline has disallowed you to use All Day Balance Transfer. The page will be automatically refreshed.</value>
+  </data>
 </root>

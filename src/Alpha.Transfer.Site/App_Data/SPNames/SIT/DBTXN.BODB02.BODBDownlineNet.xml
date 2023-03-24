@@ -1,3 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions SiteId="105" SiteName="Member Information">
+  <Function Name="Auto Transfer">
+    <Setting Key="Age_ClearBalanceCust_ProcessSel" SpName="Age_ClearBalanceCust_ProcessSel" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
+    </Setting>
+    <Setting Key="Age_ClearBalanceCust_Job_StatusCheck" SpName="Age_ClearBalanceCust_Job_StatusCheck" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
+  </Function>
 </Functions>

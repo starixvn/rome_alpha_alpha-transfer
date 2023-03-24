@@ -351,6 +351,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SPNames\Internal\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBARC.bodb_Archive.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBTXN.BODB02.BODBDownlineNet.xml" />
@@ -360,25 +361,57 @@
     <Content Include="App_Data\SPNames\Local\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\SiteDB.BODB02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Local\DBARC.bodb_Archive.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Pro\DBARC.bodb_Archive.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\SiteDB.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\SIT\DBARC.bodb_Archive.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\SiteDB.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\UAT\DBARC.bodb_Archive.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\SiteDB.BODB02.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\auto-transfer\history.js" />
+    <Content Include="assets\bundles\auto-transfer\history.min.js">
+      <DependentUpon>history.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\monitoring-dark.css" />
+    <Content Include="assets\bundles\auto-transfer\monitoring-dark.min.css">
+      <DependentUpon>monitoring-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\monitoring.css" />
+    <Content Include="assets\bundles\auto-transfer\monitoring.js" />
+    <Content Include="assets\bundles\auto-transfer\monitoring.min.css">
+      <DependentUpon>monitoring.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\monitoring.min.js">
+      <DependentUpon>monitoring.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\multiple-update-dark.css" />
+    <Content Include="assets\bundles\auto-transfer\multiple-update-dark.min.css">
+      <DependentUpon>multiple-update-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\multiple-update.css" />
+    <Content Include="assets\bundles\auto-transfer\multiple-update.js" />
+    <Content Include="assets\bundles\auto-transfer\multiple-update.min.css">
+      <DependentUpon>multiple-update.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\multiple-update.min.js">
+      <DependentUpon>multiple-update.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\cash-balance-transfer-dark.css" />
     <Content Include="assets\bundles\cash-balance-transfer-dark.min.css">
       <DependentUpon>cash-balance-transfer-dark.css</DependentUpon>
@@ -410,7 +443,9 @@
       <DependentUpon>transfer-all-clear-credit.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\transfer-all-clear-credit\calculation.js" />
-    <Content Include="assets\bundles\transfer-all-clear-credit\calculation.min.js" />
+    <Content Include="assets\bundles\transfer-all-clear-credit\calculation.min.js">
+      <DependentUpon>calculation.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\transfer-all-clear-credit\transfer-result.js" />
     <Content Include="assets\bundles\transfer-all-clear-credit\transfer-result.min.js" />
     <Content Include="assets\bundles\transfer-hint-dark.css" />
@@ -457,11 +492,47 @@
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
     <Content Include="assets\scripts\tests\libs\moment.js" />
+    <Content Include="assets\styles\auto-transfer\monitoring-dark.css">
+      <DependentUpon>monitoring-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\monitoring-dark.min.css">
+      <DependentUpon>monitoring-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\monitoring.css">
+      <DependentUpon>monitoring.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\monitoring.min.css">
+      <DependentUpon>monitoring.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\multiple-update-dark.css">
+      <DependentUpon>multiple-update-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\multiple-update-dark.min.css">
+      <DependentUpon>multiple-update-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\multiple-update.css">
+      <DependentUpon>multiple-update.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\multiple-update.min.css">
+      <DependentUpon>multiple-update.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\cash-balance-transfer-dark.css">
       <DependentUpon>cash-balance-transfer-dark.scss</DependentUpon>
     </Content>
     <Content Include="assets\styles\cash-balance-transfer-dark.min.css">
       <DependentUpon>cash-balance-transfer-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\refresh-countdown-dark.css">
+      <DependentUpon>refresh-countdown-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\refresh-countdown-dark.min.css">
+      <DependentUpon>refresh-countdown-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\refresh-countdown.css">
+      <DependentUpon>refresh-countdown.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\refresh-countdown.min.css">
+      <DependentUpon>refresh-countdown.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\site-dark.css">
       <DependentUpon>site-dark.scss</DependentUpon>
@@ -570,6 +641,7 @@
     <Compile Include="App_Start\RouteConfig.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
+    <Compile Include="Controllers\AutoTransferController.cs" />
     <Compile Include="Controllers\MultipleTransferController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\TransferAllAndClearCreditController.cs" />
@@ -581,6 +653,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Handlers\AutoTransferHandler.cs" />
     <Compile Include="Handlers\CashBalanceTransferHandler.cs" />
     <Compile Include="Handlers\MultipleTransferHandler.cs" />
     <Compile Include="Handlers\TransferAllAndClearCreditHandler.cs" />
@@ -589,6 +662,12 @@
     <Compile Include="Handlers\TransferToDownlineHistoryHandler.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\AutoTransfer\GetHistoryTransfersQuery.cs" />
+    <Compile Include="Requests\AutoTransfer\GetTransferConditionQuery.cs" />
+    <Compile Include="Requests\AutoTransfer\GetTodayTransfersQuery.cs" />
+    <Compile Include="Requests\AutoTransfer\CancelJobQuery.cs" />
+    <Compile Include="Requests\AutoTransfer\UpdateQuery.cs" />
+    <Compile Include="Requests\AutoTransfer\UpdateMultipleQuery.cs" />
     <Compile Include="Requests\CashBalanceTransfer\CashBalanceTransferCommand.cs" />
     <Compile Include="Requests\CashBalanceTransfer\CashBalanceTransferQuery.cs" />
     <Compile Include="Requests\CashBalanceTransfer\HintTransferQuery.cs" />
@@ -607,6 +686,9 @@
     <Compile Include="Utilities\ShardDbSettingProvider.cs" >
 		<SonarQubeExclude>true</SonarQubeExclude>
 	</Compile>	
+    <Compile Include="ViewModels\AutoTransfer\HistoryViewModel.cs" />
+    <Compile Include="ViewModels\AutoTransfer\MonitoringViewModel.cs" />
+    <Compile Include="ViewModels\AutoTransfer\GetTransferConditionViewModel.cs" />
     <Compile Include="Utilities\ShardInfoAccessor.cs" >
 		<SonarQubeExclude>true</SonarQubeExclude>
 	</Compile>
@@ -674,6 +756,14 @@
     <Content Include="assets\styles\transfer-all-clear-credit-dark.scss" />
     <Content Include="assets\styles\transfer-hint-dark.scss" />
     <Content Include="assets\styles\transfer-to-downline-history\index-dark.scss" />
+    <Content Include="assets\styles\auto-transfer\multiple-update.scss" />
+    <Content Include="assets\styles\auto-transfer\multiple-update-dark.scss" />
+    <Content Include="assets\styles\auto-transfer\monitoring.scss" />
+    <Content Include="assets\styles\auto-transfer\monitoring-dark.scss" />
+    <Content Include="App_Code\Components\VisibleColumnsDropdown.cshtml" />
+    <Content Include="App_Code\Components\RefreshCountDown.cshtml" />
+    <Content Include="assets\styles\refresh-countdown.scss" />
+    <Content Include="assets\styles\refresh-countdown-dark.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -685,6 +775,10 @@
     <Content Include="Views\TransferToDownlineHistory\Index.cshtml" />
     <Content Include="Views\TransferToDownlineHistory\Filter.cshtml" />
     <Content Include="Views\Shared\InvalidTransferStatus.cshtml" />
+    <Content Include="Views\AutoTransfer\UpdateMultiple.cshtml" />
+    <Content Include="Views\AutoTransfer\Monitoring.cshtml" />
+    <Content Include="Views\AutoTransfer\History.cshtml" />
+    <Content Include="Views\AutoTransfer\Hint.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -721,6 +815,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\auto-transfer\history.ts" />
+    <TypeScriptCompile Include="assets\scripts\auto-transfer\monitoring.ts" />
+    <TypeScriptCompile Include="assets\scripts\auto-transfer\multiple-update.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\auto-refresh.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\multiple-selection-dropdown.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\visible-columns-dropdown.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\pager.ts" />
     <TypeScriptCompile Include="assets\scripts\components\daterangepicker.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
@@ -730,6 +831,7 @@
     <TypeScriptCompile Include="assets\scripts\multiple-transfer\customer-list.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="assets\scripts\core.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>

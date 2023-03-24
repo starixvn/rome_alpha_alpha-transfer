@@ -1,0 +1,23 @@
+﻿@using Alpha.Transfer.AppResources;
+@using System.Linq;
+
+@helper Render(IEnumerable<System.Web.Mvc.SelectListItem> columns)
+{
+    <div class="form-group column-multiselect-container">
+        <label>@Resources.Columns</label>
+        <select id="dropdown-columns"
+                data-has-any-product-detail="@columns.Any()"
+                data-label-select-none="@Resources.SelectNone"
+                data-label-selected="@Resources.Selected"
+                data-label-all="@Resources.All"
+                data-label-select-all="@Resources.SelectAll"
+                data-label-search-column="@Resources.SearchColumn"
+                multiple="multiple"
+                class="select-multiple">
+            @foreach (var column in columns)
+            {
+                <option value="@column.Value">@column.Text</option>
+            }
+        </select>
+    </div>
+}

@@ -225,7 +225,7 @@ class CashBalance {
 
     afterAddTransferSuccessfully = (data: Result) => {
         if (data.Code === 6001) {
-            this.topWindow["bootboxAlert"](data.Message);
+            this.topWindow["bootboxAlert"](data.Message, null, null);
             this.topWindow["closePopupAndReloadMainFrameAfterUpdateSuccess"](200);
         } else {
             this.showMessage(data.Code, data.Message);

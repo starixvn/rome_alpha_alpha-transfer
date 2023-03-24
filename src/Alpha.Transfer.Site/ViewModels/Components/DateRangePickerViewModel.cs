@@ -47,7 +47,7 @@
 
         public bool IsRenderSubmitButton { get; }
 
-        public IEnumerable<SelectListItem> RangeOptions { get; }
+        public IEnumerable<SelectListItem> RangeOptions { get; set; }
 
         public SelectListItem SelectedRangeOption { get; private set; }
 

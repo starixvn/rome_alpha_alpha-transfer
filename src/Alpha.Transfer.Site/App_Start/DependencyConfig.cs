@@ -90,6 +90,7 @@
             container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
 
             container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
+            container.RegisterPerWebRequest<AutoTransferService, AutoTransferServiceImpl>();
         }
 
         private static RedisCache InitRedisCache()

@@ -1,7 +1,7 @@
 ﻿"use strict";
 declare var initAutoComplete: Function;
 interface Window {
-    bootboxConfirm(message: string, handleElement: object, acceptCallback: Function): void;
+    bootboxConfirm(message: string, handleElement: object, acceptCallback: Function, cancelCallback: Function): void;
 }
 
 class TransferResult {

@@ -363,9 +363,6 @@
   <data name="Today" xml:space="preserve">
     <value>今日赛事</value>
   </data>
-  <data name="Yesterday_Duplicate[1]" xml:space="preserve">
-    <value>昨天</value>
-  </data>
   <data name="LastWeek" xml:space="preserve">
     <value>上周</value>
   </data>
@@ -434,6 +431,51 @@
   </data>
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>您的上线不允许您使用全天余额转账。该页面将自动刷新。</value>
+  </data>
+  <data name="UsernameOrFirstLastName" xml:space="preserve">
+    <value>用户名或名/姓</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>{total}项目中{from}到{to}的显示</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>选定</value>
+  </data>
+  <data name="SelectNone" xml:space="preserve">
+    <value>选择 无</value>
+  </data>
+  <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
+    <value>修改成功!</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>开启</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Waiting" xml:space="preserve">
+    <value>等待中</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>處理中</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>已完成</value>
+  </data>
+  <data name="First_LastName" xml:space="preserve">
+    <value>名及姓</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜寻</value>
   </data>
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>第三方待定转账</value>

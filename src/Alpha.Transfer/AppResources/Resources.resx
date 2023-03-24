@@ -438,4 +438,112 @@
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>3rd Party Pending Transfer</value>
   </data>
+  <data name="AutoTransfer_InfoSettingTime" xml:space="preserve">
+    <value>The Auto Transfer process will be executed at &lt;span class="blue-text"&gt;12:15 AM &lt;/span&gt;(GMT+8)</value>
+  </data>
+  <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
+    <value>To ensure the accuracy of data while auto transfer us running, you CANNOT transfer to your downline whose auto transfer option is on at the process time.</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
+    <value>If ON, The Auto Transfer process will be executed right after 12:00 AM (GMT+8) on {0}.</value>
+  </data>
+  <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
+    <value>Are you sure you want to turn on Auto Transfer process for these customers?</value>
+  </data>
+  <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
+    <value>Update successfully!</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
+    <value>Update successfully!</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="AutoTransferMonitoring" xml:space="preserve">
+    <value>Auto Transfer Monitoring</value>
+  </data>
+  <data name="AutoTransferHistory" xml:space="preserve">
+    <value>Auto Transfer History</value>
+  </data>
+  <data name="UsernameOrFirstLastName" xml:space="preserve">
+    <value>Username or First/Last Name</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Waiting" xml:space="preserve">
+    <value>Waiting</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>Displaying {from} to {to} of {total} items</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>selected</value>
+  </data>
+  <data name="SelectNone" xml:space="preserve">
+    <value>Select none</value>
+  </data>
+  <data name="SearchColumn" xml:space="preserve">
+    <value>Search column</value>
+  </data>
+  <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
+    <value>Are you sure you want to turn off Auto Transfer process for these customers?</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
+    <value>If you turn ON auto transfer setting during the process time, it will take effect at the next schedule defined by your account's Transfer Condition.</value>
+  </data>
+  <data name="CompletedTime" xml:space="preserve">
+    <value>Completed Time</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="First_LastName" xml:space="preserve">
+    <value>First / Last Name</value>
+  </data>
+  <data name="NoRefresh" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="AutoTransfer_CancelSuccess" xml:space="preserve">
+    <value>Job's cancelled!</value>
+  </data>
+  <data name="confirmCancelJob" xml:space="preserve">
+    <value>Are you sure you want to cancel?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="AutoTransfer" xml:space="preserve">
+    <value>Auto Transfer</value>
+  </data>
 </root>

@@ -273,9 +273,6 @@
   <data name="Today" xml:space="preserve">
     <value>오늘</value>
   </data>
-  <data name="Yesterday_Duplicate[1]" xml:space="preserve">
-    <value>어제</value>
-  </data>
   <data name="LastWeek" xml:space="preserve">
     <value>마지막 주</value>
   </data>
@@ -341,5 +338,35 @@
   </data>
   <data name="showhidecolumnAd" xml:space="preserve">
     <value>머리글에 마우스의 오른쪽 버튼을 클릭하시면 열 표시/숨기기  선택하실수 있습니다.</value>
+  </data>
+  <data name="UsernameOrFirstLastName" xml:space="preserve">
+    <value>사용자 이름 또는 성(이름)</value>
+  </data>
+  <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
+    <value>Update successfully!</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Waiting" xml:space="preserve">
+    <value>대기</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>처리중</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>완료됨</value>
+  </data>
+  <data name="First_LastName" xml:space="preserve">
+    <value>First / Last Name</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>검색</value>
   </data>
 </root>

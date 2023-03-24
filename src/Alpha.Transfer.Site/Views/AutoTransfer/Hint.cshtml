@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/common/common")
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/transfer-hint")
+</head>
+<body>
+    <div class="auto-transfer hint">
+        <ul>
+            <li>@Html.Raw(@Resources.AutoTransfer_InfoSettingTime)</li>
+            <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
+            <li>@Resources.AutoTransfer_InfoAffectTime2</li>
+        </ul>
+    </div>
+</body>
+</html>

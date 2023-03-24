@@ -5,6 +5,7 @@
     using System.Collections.Specialized;
     using System.Configuration;
     using System.Linq;
+    using Alpha.Web.Helpers;
 
     public static class AppSettings
     {
@@ -47,5 +48,22 @@
         public static bool IsAllowedTransferToDownlineHistorySite(string site)
             => TransferToDownlineHistoryOfferSites.Contains("*", StringComparer.CurrentCultureIgnoreCase)
             || TransferToDownlineHistoryOfferSites.Contains(site, StringComparer.CurrentCultureIgnoreCase);
+
+        public static DateTime? EnableSupportAutoTransferDate()
+        {
+            DateTime enableSupportAutoTransferDate;
+
+            return DateTime.TryParse(AppSettingValues["EnableSupportAutoTransferDate"], out enableSupportAutoTransferDate)
+              ? enableSupportAutoTransferDate
+              : (DateTime?)null;
+        }
+
+        public static string VirtualDirectory
+        {
+            get
+            {
+                return AppPathHelper.GetAppPath(GetConfigValue("VirtualDirectory"), "~/");
+            }
+        }
     }
 }

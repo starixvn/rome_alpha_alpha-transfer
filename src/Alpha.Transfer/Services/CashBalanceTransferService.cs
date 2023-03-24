@@ -30,6 +30,7 @@
             string languageKey);
 
         Task<string> GetAllowTransfer(int custId);
+        Task<string> GetTransferCondition(int custId);
     }
 
     public class CashBalanceTransferServiceImpl : CashBalanceTransferService
@@ -107,51 +108,58 @@
 
         public async Task<string> GetAllowTransfer(int custId)
         {
+            string transferCondition = await GetTransferCondition(custId);
+
+            return Resources.AllowTransfer + " " + transferCondition;
+        }
+
+        public async Task<string> GetTransferCondition(int custId)
+        {
             string transferOption = await GetTransferOption(custId);
 
-            string transferTime = Resources.AllowTransfer;
             char[] charArray = transferOption.ToCharArray();
 
-            if (charArray.Length > 0)
+            if (charArray.Length == 0)
             {
-                StringBuilder dayBuilder = new StringBuilder();
-                string[] dayArray =
-                {
-                    Resources.Sunday,
-                    Resources.Monday,
-                    Resources.Tuesday,
-                    Resources.Wednesday,
-                    Resources.Thursday,
-                    Resources.Friday,
-                    Resources.Saturday
-                };
-
-                for (int i = 1, max = charArray.Length; i < max - 1; i++)
-                {
-                    if (charArray[i] == '1')
-                    {
-                        dayBuilder.Append(" - ").Append(dayArray[i]);
-                    }
-                }
-
-                if (charArray[0] == '1')
-                {
-                    dayBuilder.Append(" - ").Append(dayArray[0]);
-                }
-
-                string day = dayBuilder.ToString();
-
-                if (day.Length > 0)
-                {
-                    day = day.Substring(3);
-                }
-
-                transferTime += charArray[7] == '1' ?
-                    " " + day :
-                    " " + Resources.Daily;
+                return string.Empty;
             }
 
-            return transferTime;
+            StringBuilder dayBuilder = new StringBuilder();
+            string[] dayArray =
+            {
+                Resources.Sunday,
+                Resources.Monday,
+                Resources.Tuesday,
+                Resources.Wednesday,
+                Resources.Thursday,
+                Resources.Friday,
+                Resources.Saturday
+            };
+
+            for (int i = 1, max = charArray.Length; i < max - 1; i++)
+            {
+                if (charArray[i] == '1')
+                {
+                    dayBuilder.Append(" - ").Append(dayArray[i]);
+                }
+            }
+
+            if (charArray[0] == '1')
+            {
+                dayBuilder.Append(" - ").Append(dayArray[0]);
+            }
+
+            string day = dayBuilder.ToString();
+
+            if (day.Length > 0)
+            {
+                const int strDayNameLength = 3;
+                day = day.Substring(strDayNameLength);
+            }
+
+            const int dayInWeek = 7;
+
+            return charArray[dayInWeek] == '1' ? day : Resources.Daily;
         }
 
         private async Task<string> GetTransferOption(int custId)

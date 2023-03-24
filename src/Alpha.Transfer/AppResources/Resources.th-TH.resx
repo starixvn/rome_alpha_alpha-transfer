@@ -366,9 +366,6 @@
   <data name="Today" xml:space="preserve">
     <value>วันนี้</value>
   </data>
-  <data name="Yesterday_Duplicate[1]" xml:space="preserve">
-    <value>เมื่อวาน</value>
-  </data>
   <data name="LastWeek" xml:space="preserve">
     <value>สัปดาห์ล่าสุด</value>
   </data>
@@ -437,5 +434,50 @@
   </data>
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>อัพไลน์ของคุณได้ปิดการใช้งานระบบ โอนยอดคงเหลือทั้งวัน ของคุณ ข้อมูลในหน้านี้จะรีเฟรชเพื่อแสดงผลใหม่โดยอัตโนมัติ</value>
+  </data>
+  <data name="UsernameOrFirstLastName" xml:space="preserve">
+    <value>ยูเซอร์เนม หรือ ชื่อ/นามสุกล</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>ทั้งหมด</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>แสดง {from} ถึง {to} จาก {total} รายการ</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>เลือกทั้งหมด</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>เลือก</value>
+  </data>
+  <data name="SelectNone" xml:space="preserve">
+    <value>ไม่เลือก</value>
+  </data>
+  <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
+    <value>อัพเดทเสร็จสมบูรณ์!</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>เปิด</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Waiting" xml:space="preserve">
+    <value>รอ</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>กำลังดำเนินการ</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>เสร็จสมบูรณ์</value>
+  </data>
+  <data name="First_LastName" xml:space="preserve">
+    <value>ชื่อนามสกุล</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>ค้นหา</value>
   </data>
 </root>

@@ -15,7 +15,7 @@
         <li>"Cash Balance" phrase will be noted in transfer details accordingly.</li>
     </ul>
     <p>Remark</p>
-    <ul>
+    <ul class="ul-remark">
         @if (!string.IsNullOrEmpty(Model.AllowTransfer))
         {
             <li>@Html.Raw(Model.AllowTransfer)</li>
@@ -32,7 +32,7 @@
 else
 {
     <p>Remark</p>
-    <ul>
+    <ul class="ul-remark">
         @if (!string.IsNullOrEmpty(Model.AllowTransfer))
         {
             <li>@Html.Raw(Model.AllowTransfer)</li>
@@ -44,3 +44,8 @@ else
         <li>@Resources.showhidecolumnAd</li>
     </ul>
 }
+<ul>
+    <li>The Auto Transfer process will be executed at <span class="blue-text">12:15 AM </span>(GMT+8)</li>
+    <li>To ensure the accuracy of data while auto transfer us running, you CANNOT transfer to your downline whose auto transfer option is on at the process time.</li>
+    <li>If you turn ON auto transfer setting during the process time, it will take effect at the next schedule defined by your account's Transfer Condition.</li>
+</ul>

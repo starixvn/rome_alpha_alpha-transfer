@@ -66,8 +66,9 @@
                 ? await cashBalanceTransferService.GetAllowTransfer(message.CustId)
                 : string.Empty;
             var isAllDayBalTransfer = await transferService.IsAllDayBalanceTransferAsync(message.CustId);
+            var conditions = "Mon - Web";
 
-            return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer, isAllDayBalTransfer);
+            return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer, conditions, isAllDayBalTransfer);
         }
     }
 }

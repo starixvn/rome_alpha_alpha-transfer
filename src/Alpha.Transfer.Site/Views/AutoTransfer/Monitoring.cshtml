@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Auto Transfer Monitoring";
+}
+@using Alpha.Transfer.Configurations;
+@using Alpha.Transfer.Site.ViewModels.AutoTransfer;
+@model MonitoringViewModel
+
+@section Styles {
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-transfer/filter")
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/auto-transfer/monitoring")
+}
+
+<div class="container-fluid page-auto-transfer">
+    <ul id="nav-tabs" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a data-tablink="/@(AppSettings.VirtualDirectory+"autotransfer/monitoring")" role="tab" aria-controls="monitoring" data-to data-toggle="tab" class="lnk-changetab">@Resources.AutoTransferMonitoring</a>
+        </li>
+        @if (!Model.IsProtectedMode)
+        {
+            <li role="presentation">
+                <a id="tab-history" data-tablink="/@(AppSettings.VirtualDirectory+"autotransfer/history")" role="tab" aria-controls="history" data-toggle="tab" class="lnk-changetab">@Resources.AutoTransferHistory</a>
+            </li>
+        }
+    </ul>
+</div>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="monitoring">
+        <div class="filter">
+            <form id="report-form" class="form-inline" role="form">
+                <div class="form-group">
+                    <input type="text" id="txt-username" placeholder="@Resources.UsernameOrFirstLastName"
+                           value=""
+                           autocomplete="off" />
+                </div>
+                <div class="form-group column-multiselect-container">
+                    <label>@Resources.Status</label>
+                    <select id="ddl-status"
+                            data-label-select-none="@Resources.SelectNone"
+                            data-label-selected="@Resources.Selected"
+                            data-label-all="@Resources.All"
+                            data-label-select-all="@Resources.SelectAll"
+                            data-label-search="@Resources.Search"
+                            multiple="multiple"
+                            class="select-multiple">
+                        <option value="1" selected="selected">@Resources.New</option>
+                        <option value="2" selected="selected">@Resources.Waiting</option>
+                        <option value="3" selected="selected">@Resources.Processing</option>
+                        <option value="4" selected="selected">@Resources.Completed</option>
+                        <option value="5" selected="selected">@Resources.Failed</option>
+                        <option value="6" selected="selected">@Resources.Cancelled</option>
+                    </select>
+                </div>
+                @VisibleColumnsDropdown.Render(Model.Columns)
+                @RefreshCountDown.Render()
+                <div class="form-group submit-box">
+                    <input type="button" class="btn-submit" id="btn-submit" value="@Resources.Submit">
+                </div>
+                <div class="form-group">
+                    <div class="icon icon-information-outline"></div>
+                </div>
+            </form>
+        </div>
+        <div id="content">
+            <table id="tbl-monitoring" class="hide width-100per tblRpt tblRpt-bordered dataTable display">
+                <thead>
+                    <tr role="row">
+                        <th col-value="1"></th>
+                        <th col-value="2"></th>
+                        <th col-value="3"></th>
+                        <th col-value="4"></th>
+                        <th col-value="5"></th>
+                        <th col-value="6"></th>
+                        <th col-value="7"></th>
+                        <th col-value="8"></th>
+                    </tr>
+                    <tr class="RptHeader">
+                        <th col-value="1">@Resources.No</th>
+                        <th col-value="2" class="sorting" data-sort="0">@Resources.Username</th>
+                        <th col-value="3">@Resources.First_LastName</th>
+                        <th col-value="4" class="sorting" data-sort="1">@Resources.TransferAmount</th>
+                        <th col-value="5" class="sorting" data-sort="2">@Resources.Status</th>
+                        <th col-value="6">@Resources.Reason</th>
+                        <th col-value="7" class="sorting" data-sort="3">@Resources.CompletedTime</th>
+                        <th col-value="8">@Resources.Cancel</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="8">
+                            <div id="report-pager"
+                                 class="hide"
+                                 data-labelpage="@Resources.Page"
+                                 data-labelof="@Resources.of"
+                                 data-labeldisplayitems="@Resources.Pager_DisplayItems"
+                                 data-pageindex="1"
+                                 data-pagesize="500"
+                                 data-totalrecords="0">
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@Html.Hidden("VirtualDirectory", AppSettings.VirtualDirectory)
+@Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)
+@Html.Hidden("ViewerId", Model.ViewerId)
+@Html.Hidden("SubAccId", Resources.NoInformationIsAvailable)
+@Html.Hidden("New", Resources.New)
+@Html.Hidden("Waiting", Resources.Waiting)
+@Html.Hidden("Processing", Resources.Processing)
+@Html.Hidden("Completed", Resources.Completed)
+@Html.Hidden("Failed", Resources.Failed)
+@Html.Hidden("Cancelled", Resources.Cancelled)
+@Html.Hidden("confirmCancelJob", Resources.confirmCancelJob)
+@section Scripts {
+    @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")
+    @StaticResources.AssetScripts.Render("/bundles/site-transfer/pagination")
+    @StaticResources.RenderScripts("~/assets/bundles/auto-transfer/monitoring")
+}

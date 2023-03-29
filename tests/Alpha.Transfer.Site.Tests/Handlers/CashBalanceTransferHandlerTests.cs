@@ -16,14 +16,17 @@
     public class CashBalanceTransferHandlerTests
     {
         private readonly IUser user;
-        private readonly CashBalanceTransferService service;
+        private readonly CashBalanceTransferService cashBalanceTransferService;
+        private readonly TransferService transferService;
         private readonly CashBalanceTransferHandler handler;
 
         public CashBalanceTransferHandlerTests()
         {
             user = Substitute.For<IUser>();
-            service = Substitute.For<CashBalanceTransferService>();
-            handler = new CashBalanceTransferHandler(service);
+            user.Id.Returns(1);
+            cashBalanceTransferService = Substitute.For<CashBalanceTransferService>();
+            transferService = Substitute.For<TransferService>();
+            handler = new CashBalanceTransferHandler(cashBalanceTransferService, transferService);
         }
 
         [Fact]
@@ -31,7 +34,7 @@
         {
             // Arrange
             int custId = 1176083;
-            var message = new CashBalanceTransferQuery { CustId = custId };
+            var message = new CashBalanceTransferQuery(user) { CustId = custId };
             var cashBalanceTransfer = new CashBalanceTransfer(
                 1176083,
                 3,
@@ -52,7 +55,8 @@
                 cashBalanceTransfer.GivenCredit,
                 cashBalanceTransfer.PendingTransfer3rd);
 
-            service.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            cashBalanceTransferService.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             // Act
             var actualViewModel = await handler.Handle(message);
@@ -66,7 +70,7 @@
         {
             // Arrange
             int custId = 1176083;
-            var message = new CashBalanceTransferQuery { CustId = custId };
+            var message = new CashBalanceTransferQuery(user) { CustId = custId };
             var cashBalanceTransfer = new CashBalanceTransfer(
                 1176083,
                 2,
@@ -79,7 +83,8 @@
 
             var hintFromResource = Resources.HintNotAvailableToTransfer;
 
-            service.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            cashBalanceTransferService.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             // Act
             var actualViewModel = await handler.Handle(message);
@@ -93,7 +98,7 @@
         {
             // Arrange
             int custId = 1176083;
-            var message = new CashBalanceTransferQuery { CustId = custId };
+            var message = new CashBalanceTransferQuery(user) { CustId = custId };
             var cashBalanceTransfer = new CashBalanceTransfer(
                 1176083,
                 1,
@@ -106,7 +111,8 @@
 
             var levelName = Resources.Member;
 
-            service.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            cashBalanceTransferService.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             // Act
             var actualViewModel = await handler.Handle(message);
@@ -120,7 +126,7 @@
         {
             // Arrange
             int custId = 1176083;
-            var message = new CashBalanceTransferQuery { CustId = custId };
+            var message = new CashBalanceTransferQuery(user) { CustId = custId };
             var cashBalanceTransfer = new CashBalanceTransfer(
                 1176083,
                 2,
@@ -133,7 +139,8 @@
 
             var levelName = Resources.Agent;
 
-            service.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            cashBalanceTransferService.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             // Act
             var actualViewModel = await handler.Handle(message);
@@ -159,7 +166,7 @@
                 Amount = 1101240.32M
             };
 
-            service.AddCashBalanceTransferAsync(
+            cashBalanceTransferService.AddCashBalanceTransferAsync(
                 command.UplineId,
                 command.CustId,
                 command.Amount,
@@ -168,6 +175,7 @@
                 command.SubAccId,
                 command.IP,
                 command.LanguageKey).Returns(expectedResult);
+            transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             // Act
             var actualResult = await handler.Handle(command);
@@ -196,13 +204,13 @@
             //// Arrange
             user.LevelId.Returns(UserLevel.Agent.Value);
             var message = new HintTransferQuery(user);
-            service.GetAllowTransfer(Arg.Any<int>()).Returns(string.Empty);
+            cashBalanceTransferService.GetAllowTransfer(Arg.Any<int>()).Returns(string.Empty);
 
             //// Act
             await handler.Handle(message);
 
             //// Assert
-            await service.Received().GetAllowTransfer(Arg.Any<int>());
+            await cashBalanceTransferService.Received().GetAllowTransfer(Arg.Any<int>());
         }
 
         [Fact]
@@ -212,7 +220,7 @@
             var expectedAllowTransfer = "testing...";
             user.LevelId.Returns(UserLevel.Agent.Value);
             var message = new HintTransferQuery(user);
-            service.GetAllowTransfer(Arg.Any<int>()).Returns(expectedAllowTransfer);
+            cashBalanceTransferService.GetAllowTransfer(Arg.Any<int>()).Returns(expectedAllowTransfer);
 
             //// Act
             var act = await handler.Handle(message);

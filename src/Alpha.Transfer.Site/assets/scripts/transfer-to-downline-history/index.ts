@@ -60,11 +60,18 @@ class TransferToDownlineHistory extends TransferReport {
             data: params,
             dataType: "json",
             beforeSend: this.$.blockUI,
-            success: data => callback({
-                data: data.TransferToDownlines,
-                recordsTotal: data.TotalRecords,
-                recordsFiltered: data.TotalRecords
-            }),
+            success: function (data) {
+                if (data.IsFailed && data.Code === 6001) {
+                    window.top["bootboxAlert"](data.Message, null, window.top["headerNav"].reloadPage);
+                    window.location.href = window.top["alpha"].urls.mainRootPath + "Dashboard/Index";
+                } else {
+                    callback({
+                        data: data.TransferToDownlines,
+                        recordsTotal: data.TotalRecords,
+                        recordsFiltered: data.TotalRecords
+                    });
+                }
+            },
             complete: this.$.unblockUI
         });
     }

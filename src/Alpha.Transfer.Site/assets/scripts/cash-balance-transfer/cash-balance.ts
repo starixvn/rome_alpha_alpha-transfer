@@ -224,14 +224,19 @@ class CashBalance {
     };
 
     afterAddTransferSuccessfully = (data: Result) => {
-        this.showMessage(data.Code, data.Message);
+        if (data.Code === 6001) {
+            this.topWindow["bootboxAlert"](data.Message);
+            this.topWindow["closePopupAndReloadMainFrameAfterUpdateSuccess"](200);
+        } else {
+            this.showMessage(data.Code, data.Message);
 
-        const error = 105;
-        const reloadTime = 3000;
-        if (data.Code === error) {
-            setTimeout(function () { location.reload(); }, reloadTime);
-        } else if (data.Code === 0) {
-            this.topWindow.OnPopupComplete(true);
+            const error = 105;
+            const reloadTime = 3000;
+            if (data.Code === error) {
+                setTimeout(function () { location.reload(); }, reloadTime);
+            } else if (data.Code === 0) {
+                this.topWindow.OnPopupComplete(true);
+            }
         }
     };
 

@@ -14,7 +14,6 @@
             SubAccId = viewer.SubAccId;
             IP = viewer.IP;
             LanguageKey = viewer.LanguageKey;
-            IsAllDayBalanceTransfer = viewer.AllowAllDayBalanceTransfer;
             IsInternal = viewer.IsInternal;
         }
 
@@ -36,8 +35,6 @@
         public string ClearCreditSteps { get; set; }
 
         public string LanguageKey { get; set; }
-
-        public bool IsAllDayBalanceTransfer { get; }
 
         public bool IsInternal { get; }
     }

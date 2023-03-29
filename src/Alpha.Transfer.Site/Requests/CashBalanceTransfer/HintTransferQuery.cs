@@ -11,7 +11,6 @@
             CustId = user.Id;
             RoleId = user.LevelId;
             Language = user.Language;
-            IsAlldayTransfer = user.IsAllDayBalTransfer;
         }
 
         public int CustId { get; }
@@ -23,7 +22,5 @@
         public bool ShowWarningTransfer { get; set; }
 
         public bool IsValid() => CustId > 0;
-
-        public bool IsAlldayTransfer { get; }
     }
 }

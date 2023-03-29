@@ -20,8 +20,6 @@
 
         string IP { get; }
 
-        bool AllowAllDayBalanceTransfer { get; }
-
         bool AllowTotalBalanceTransfer { get; }
 
         int UserId { get; }
@@ -29,8 +27,6 @@
         bool IsInternal { get; }
 
         DateTime LimitedDateToShowInfo { get; }
-
-        bool IsAllDayBalTransfer { get; }
 
         string Site { get; }
     }

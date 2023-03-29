@@ -435,4 +435,7 @@
   <data name="showhidecolumnAd" xml:space="preserve">
     <value>คลิกขวาที่ด้านบนเพื่อแสดง / ซ่อนคอลัมน์.</value>
   </data>
+  <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
+    <value>อัพไลน์ของคุณได้ปิดการใช้งานระบบ โอนยอดคงเหลือทั้งวัน ของคุณ ข้อมูลในหน้านี้จะรีเฟรชเพื่อแสดงผลใหม่โดยอัตโนมัติ</value>
+  </data>
 </root>

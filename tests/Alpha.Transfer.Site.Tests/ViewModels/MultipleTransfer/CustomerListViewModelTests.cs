@@ -27,7 +27,7 @@
             };
 
             model = new CustomerListModel(Enumerable.Empty<CustomerInformation>(), 3);
-            customerListViewModel = new CustomerListViewModel(query, model);
+            customerListViewModel = new CustomerListViewModel(query, model, false);
         }
 
         [Theory]
@@ -77,10 +77,10 @@
         {
             // Arrange
             var user = Substitute.For<IUser>();
-            user.LevelId.Returns((byte)4);
             user.AllowTotalBalanceTransfer.Returns(true);
+            user.LevelId.Returns((byte)4);
             var query = new CustomerListQuery(user);
-            var customerListViewModel = new CustomerListViewModel(query, model);
+            var customerListViewModel = new CustomerListViewModel(query, model, false);
 
             // Act
             var actualValue = customerListViewModel.ShowBalanceLink(new CustomerInformation { Balance = balance });
@@ -97,9 +97,8 @@
             // Arrange
             var user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)4);
-            user.AllowAllDayBalanceTransfer.Returns(allowAllDayBalanceTransfer);
             var query = new CustomerListQuery(user);
-            var customerListViewModel = new CustomerListViewModel(query, model);
+            var customerListViewModel = new CustomerListViewModel(query, model, allowAllDayBalanceTransfer);
 
             // Act
             var actualValue = customerListViewModel.ShowCashBalanceLink(new CustomerInformation());
@@ -123,10 +122,9 @@
             // Arrange
             var user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)4);
-            user.AllowAllDayBalanceTransfer.Returns(true);
             user.AllowTotalBalanceTransfer.Returns(allowTotalBalanceTransfer);
             var query = new CustomerListQuery(user);
-            var customerListViewModel = new CustomerListViewModel(query, model);
+            var customerListViewModel = new CustomerListViewModel(query, model, true);
 
             // Act
             var actualValue = customerListViewModel.CanTransferYesterday(new CustomerInformation
@@ -147,10 +145,9 @@
             // Arrange
             var user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)4);
-            user.AllowAllDayBalanceTransfer.Returns(false);
             user.AllowTotalBalanceTransfer.Returns(true);
             var query = new CustomerListQuery(user);
-            var customerListViewModel = new CustomerListViewModel(query, model);
+            var customerListViewModel = new CustomerListViewModel(query, model, false);
 
             // Act
             var actualValue = customerListViewModel.CanTransferYesterday(new CustomerInformation { Balance = balance });
@@ -167,10 +164,9 @@
             // Arrange
             var user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)4);
-            user.AllowAllDayBalanceTransfer.Returns(false);
             user.AllowTotalBalanceTransfer.Returns(false);
             var query = new CustomerListQuery(user);
-            var customerListViewModel = new CustomerListViewModel(query, model);
+            var customerListViewModel = new CustomerListViewModel(query, model, false);
 
             // Act
             var actualValue = customerListViewModel.CanTransferYesterday(new CustomerInformation { YesterdayBalance = yesterdayBalance });
@@ -188,10 +184,9 @@
             // Arrange
             var user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)4);
-            user.AllowAllDayBalanceTransfer.Returns(true);
             user.AllowTotalBalanceTransfer.Returns(true);
             var query = new CustomerListQuery(user);
-            var customerListViewModel = new CustomerListViewModel(query, model);
+            var customerListViewModel = new CustomerListViewModel(query, model, true);
 
             // Act
             var actualValue = customerListViewModel.GetYesterdayBalanceColor(new CustomerInformation
@@ -210,10 +205,9 @@
             // Arrange
             var user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)4);
-            user.AllowAllDayBalanceTransfer.Returns(true);
             user.AllowTotalBalanceTransfer.Returns(false);
             var query = new CustomerListQuery(user);
-            var customerListViewModel = new CustomerListViewModel(query, model);
+            var customerListViewModel = new CustomerListViewModel(query, model, true);
 
             // Act
             var actualValue = customerListViewModel.GetYesterdayBalanceColor(new CustomerInformation { YesterdayBalance = -1 });
@@ -228,10 +222,9 @@
             // Arrange
             var user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)4);
-            user.AllowAllDayBalanceTransfer.Returns(false);
             user.AllowTotalBalanceTransfer.Returns(true);
             var query = new CustomerListQuery(user);
-            var customerListViewModel = new CustomerListViewModel(query, model);
+            var customerListViewModel = new CustomerListViewModel(query, model, false);
 
             // Act
             var actualValue = customerListViewModel.GetYesterdayBalanceColor(new CustomerInformation { YesterdayBalance = -1 });
@@ -250,10 +243,9 @@
             // Arrange
             var user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)4);
-            user.AllowAllDayBalanceTransfer.Returns(false);
             user.AllowTotalBalanceTransfer.Returns(false);
             var query = new CustomerListQuery(user);
-            var customerListViewModel = new CustomerListViewModel(query, model);
+            var customerListViewModel = new CustomerListViewModel(query, model, false);
 
             // Act
             var actualValue = customerListViewModel.GetYesterdayBalanceColor(new CustomerInformation { YesterdayBalance = yesterdayBalance });

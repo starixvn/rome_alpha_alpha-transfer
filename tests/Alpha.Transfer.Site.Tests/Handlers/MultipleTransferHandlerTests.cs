@@ -16,7 +16,8 @@
     public class MultipleTransferHandlerTests
     {
         private readonly IUser user;
-        private readonly MultipleTransferService service;
+        private readonly MultipleTransferService multipleTransferService;
+        private readonly TransferService transferService;
         private readonly MultipleTransferHandler handler;
 
         public MultipleTransferHandlerTests()
@@ -24,8 +25,9 @@
             user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)2);
 
-            service = Substitute.For<MultipleTransferService>();
-            handler = new MultipleTransferHandler(service);
+            multipleTransferService = Substitute.For<MultipleTransferService>();
+            transferService = Substitute.For<TransferService>();
+            handler = new MultipleTransferHandler(multipleTransferService, transferService);
         }
 
         [Fact]
@@ -34,8 +36,9 @@
             // Arrange
             var query = new CustomerListQuery(user);
             var data = new CustomerListModel(Enumerable.Empty<CustomerInformation>(), 2);
-            service.GetCustomerList(Arg.Any<GetCustomerListParam>()).Returns(data);
-            var expectValue = new CustomerListViewModel(query, data);
+            multipleTransferService.GetCustomerList(Arg.Any<GetCustomerListParam>()).Returns(data);
+            transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(false);
+            var expectValue = new CustomerListViewModel(query, data, false);
 
             // Act
             var actualValue = handler.Handle(query);

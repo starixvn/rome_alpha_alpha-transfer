@@ -23,7 +23,6 @@
             userSession.UserLoginIp.Returns("192.168.1.1");
             userSession.LangKey.Returns("E");
             userSession.SubUserName.Returns("SubAccName");
-            userSession.IsAllDayBalTransfer.Returns(false);
             userSession.IsAllowedTotalBalanceTransfer.Returns(false);
             userSession.UserId.Returns(1);
             userSession.IsInternal.Returns(false);
@@ -43,12 +42,10 @@
                 && user.IP == "192.168.1.1"
                 && user.LanguageKey == "E"
                 && user.SubAccName == "SubAccName"
-                && !user.AllowAllDayBalanceTransfer
                 && !user.AllowTotalBalanceTransfer
                 && user.UserId == 1
                 && !user.IsInternal
                 && user.LimitedDateToShowInfo == customerDateLimit
-                && !user.IsAllDayBalTransfer
                 && user.Site == "site");
         }
     }

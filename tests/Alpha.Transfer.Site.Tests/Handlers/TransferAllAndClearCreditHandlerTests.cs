@@ -15,14 +15,16 @@
     public class TransferAllAndClearCreditHandlerTests
     {
         private readonly IUser user;
-        private readonly TransferAllAndClearCreditService service;
+        private readonly TransferAllAndClearCreditService transferAllAndClearCreditService;
+        private readonly TransferService transferService;
         private readonly TransferAllAndClearCreditHandler handler;
 
         public TransferAllAndClearCreditHandlerTests()
         {
             user = Substitute.For<IUser>();
-            service = Substitute.For<TransferAllAndClearCreditService>();
-            handler = new TransferAllAndClearCreditHandler(service);
+            transferAllAndClearCreditService = Substitute.For<TransferAllAndClearCreditService>();
+            transferService = Substitute.For<TransferService>();
+            handler = new TransferAllAndClearCreditHandler(transferAllAndClearCreditService, transferService);
         }
 
         [Theory]
@@ -55,7 +57,7 @@
             };
 
             var calculationResult = new TransferResult();
-            service.GetCalculateResult(Arg.Any<GetCalculationResultParam>()).Returns(calculationResult);
+            transferAllAndClearCreditService.GetCalculateResult(Arg.Any<GetCalculationResultParam>()).Returns(calculationResult);
 
             var expectedViewModel = new CalculationViewModel(message, calculationResult);
 
@@ -81,7 +83,7 @@
             };
 
             var transferResult = new TransferResult();
-            service.GetTransferResult(Arg.Any<GetTransferResultParam>()).Returns(transferResult);
+            transferAllAndClearCreditService.GetTransferResult(Arg.Any<GetTransferResultParam>()).Returns(transferResult);
 
             var param = new GetTransferResultParam(0, 0, 0, false, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false);
             var expectedViewModel = new TransferResultViewModel(message, param, transferResult);

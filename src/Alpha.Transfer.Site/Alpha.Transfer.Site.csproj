@@ -247,8 +247,8 @@
     <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
       <HintPath>..\..\packages\StackExchange.Redis.2.0.519\lib\net461\StackExchange.Redis.dll</HintPath>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.6.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.6.5\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.6.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.6.8\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.5\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
@@ -377,7 +377,9 @@
     <Content Include="assets\bundles\cash-balance-transfer.css" />
     <Content Include="assets\bundles\cash-balance-transfer.min.css" />
     <Content Include="assets\bundles\cash-balance-transfer\cash-balance.js" />
-    <Content Include="assets\bundles\cash-balance-transfer\cash-balance.min.js" />
+    <Content Include="assets\bundles\cash-balance-transfer\cash-balance.min.js">
+      <DependentUpon>cash-balance.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\default-dark.css" />
     <Content Include="assets\bundles\default-dark.min.css">
       <DependentUpon>default-dark.css</DependentUpon>
@@ -664,6 +666,7 @@
     <Content Include="Views\MultipleTransfer\CustomerList.cshtml" />
     <Content Include="Views\TransferToDownlineHistory\Index.cshtml" />
     <Content Include="Views\TransferToDownlineHistory\Filter.cshtml" />
+    <Content Include="Views\Shared\InvalidTransferStatus.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

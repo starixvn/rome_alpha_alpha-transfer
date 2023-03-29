@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Transfer.Site.Handlers
 {
     using System.Threading.Tasks;
+    using Alpha.Transfer.AppResources;
     using MediatR;
     using Requests.CashBalanceTransfer;
     using Services;
@@ -12,16 +13,20 @@
         IAsyncRequestHandler<CashBalanceTransferCommand, Result>,
         IAsyncRequestHandler<HintTransferQuery, HintTransferViewModel>
     {
-        private readonly CashBalanceTransferService service;
+        private readonly CashBalanceTransferService cashBalanceTransferService;
+        private readonly TransferService transferService;
 
-        public CashBalanceTransferHandler(CashBalanceTransferService service)
+        public CashBalanceTransferHandler(
+            CashBalanceTransferService cashBalanceTransferService,
+            TransferService transferService)
         {
-            this.service = service;
+            this.cashBalanceTransferService = cashBalanceTransferService;
+            this.transferService = transferService;
         }
 
         public async Task<CashBalanceTransferViewModel> Handle(CashBalanceTransferQuery message)
         {
-            var model = await service.GetCashBalanceTransferAsync(message.CustId);
+            var model = await cashBalanceTransferService.GetCashBalanceTransferAsync(message.CustId);
 
             return new CashBalanceTransferViewModel(
                 model.UplineCashBalance,
@@ -36,7 +41,13 @@
 
         public async Task<Result> Handle(CashBalanceTransferCommand message)
         {
-            return await service.AddCashBalanceTransferAsync(
+            var isAllDayBalTransfer = await transferService.IsAllDayBalanceTransferAsync(message.UplineId);
+            if (!isAllDayBalTransfer)
+            {
+                return Result.CreateErrorResult(Resources.DisallowedAllDayBalanceTransferError, 6001);
+            }
+
+            return await cashBalanceTransferService.AddCashBalanceTransferAsync(
                 message.UplineId,
                 message.CustId,
                 message.Amount,
@@ -49,15 +60,14 @@
 
         public async Task<HintTransferViewModel> Handle(HintTransferQuery message)
         {
-            string allowTransfer = string.Empty;
             var userRole = Enumeration.FromValue<UserLevel>(message.RoleId);
 
-            if (userRole.IsNotSuperLevel())
-            {
-                allowTransfer = await service.GetAllowTransfer(message.CustId);
-            }
+            var allowTransfer = userRole.IsNotSuperLevel()
+                ? await cashBalanceTransferService.GetAllowTransfer(message.CustId)
+                : string.Empty;
+            var isAllDayBalTransfer = await transferService.IsAllDayBalanceTransferAsync(message.CustId);
 
-            return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer, message.IsAlldayTransfer);
+            return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer, isAllDayBalTransfer);
         }
     }
 }

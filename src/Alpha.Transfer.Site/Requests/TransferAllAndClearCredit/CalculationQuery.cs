@@ -12,7 +12,6 @@
         {
             IsInternal = viewer.IsInternal;
             LanguageKey = viewer.LanguageKey;
-            IsAllDayBalanceTransfer = viewer.AllowAllDayBalanceTransfer;
         }
 
         [AllowHtml]
@@ -21,8 +20,6 @@
         public bool IsInternal { get; }
 
         public string AllowedTotalBalanceTransferSuperIds => AppSettings.AllowedTotalBalanceTransferSuperIds;
-
-        public bool IsAllDayBalanceTransfer { get; }
 
         public string LanguageKey { get; }
     }

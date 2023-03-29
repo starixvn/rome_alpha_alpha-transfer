@@ -72,6 +72,7 @@
             container.RegisterSingleton<TransferAllAndClearCreditDataAccess, TransferAllAndClearCreditDataAccessImpl>();
             container.RegisterSingleton<MultipleTransferDataAccess, MultipleTransferDataAccessImpl>();
             container.RegisterSingleton<TransferToDownlineHistoryDataAccess, TransferToDownlineHistoryDataAccessImpl>();
+            container.RegisterSingleton<TransferDataAccess, TransferDataAccessImpl>();
         }
 
         private static void RegisterServices(Container container)
@@ -86,6 +87,7 @@
             container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
             container.RegisterPerWebRequest<MultipleTransferService, MultipleTransferServiceImpl>();
             container.RegisterSingleton<TransferToDownlineHistoryService, TransferToDownlineHistoryServiceImpl>();
+            container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
 
             container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
         }

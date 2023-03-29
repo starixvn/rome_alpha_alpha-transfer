@@ -24,6 +24,7 @@
             mediator = Substitute.For<IMediator>();
             userSession = Substitute.For<IUserSession>();
             user = Substitute.For<IUser>();
+            user.Id.Returns(1);
             controller = new CashBalanceTransferController(mediator, userSession);
         }
 
@@ -31,8 +32,7 @@
         public async Task CashBalance_Always_CallsMediatorCashBalanceTransferQuery()
         {
             // Arrange
-            var message = new CashBalanceTransferQuery { CustId = 1176083 };
-            userSession.IsAllDayBalTransfer.Returns(true);
+            var message = new CashBalanceTransferQuery(user) { CustId = 1176083 };
 
             // Act
             await controller.CashBalance(message);
@@ -47,21 +47,7 @@
         public async Task CashBalance_QueryIsNotValid_ReturnInvalidPageView(int custId)
         {
             // Arrange
-            var message = new CashBalanceTransferQuery { CustId = custId };
-
-            // Act
-            var actualView = await controller.CashBalance(message) as ViewResult;
-
-            // Assert
-            Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
-        }
-
-        [Fact]
-        public async Task CashBalance_QueryInvalidIsAllDayBalTransfer_ReturnInvalidPageView()
-        {
-            // Arrange
-            var message = new CashBalanceTransferQuery { CustId = 1176083 };
-            userSession.IsAllDayBalTransfer.Returns(false);
+            var message = new CashBalanceTransferQuery(user) { CustId = custId };
 
             // Act
             var actualView = await controller.CashBalance(message) as ViewResult;
@@ -85,7 +71,6 @@
                 Amount = 1101240.32M
             };
 
-            userSession.IsAllDayBalTransfer.Returns(true);
             userSession.IsInternal.Returns(false);
 
             // Act
@@ -128,35 +113,6 @@
         }
 
         [Fact]
-        public async Task CashBalance_CommandInvalidIsAllDayBalTransfer_ReturnBadRequestResult()
-        {
-            // Arrange
-            user.Id.Returns(1176070);
-            user.SubAccId.Returns(0);
-            user.IP.Returns("127.0.0.1");
-            user.LanguageKey.Returns("E");
-
-            var command = new CashBalanceTransferCommand(user)
-            {
-                CustId = 1176083,
-                Amount = 1101240.32M
-            };
-
-            var expectedResult = Result.CreateErrorResult(Resources.BadRequest, 400);
-
-            userSession.IsAllDayBalTransfer.Returns(false);
-
-            // Act
-            var actualResult = await controller.CashBalance(command) as JsonResult;
-
-            // Assert
-            var actualData = (Result)actualResult.Data;
-
-            Assert.True(actualData.Code == expectedResult.Code &&
-                actualData.Message == expectedResult.Message);
-        }
-
-        [Fact]
         public async Task CashBalance_CommandIsInternal_ReturnBadRequestResult()
         {
             // Arrange
@@ -173,7 +129,6 @@
 
             var expectedResult = Result.CreateErrorResult(Resources.NotAuthorized, 403);
 
-            userSession.IsAllDayBalTransfer.Returns(true);
             userSession.IsInternal.Returns(true);
 
             // Act
@@ -193,7 +148,6 @@
         public async Task Hint_ValidLanguages_ReturnPageView(string language)
         {
             // Arrange
-            userSession.IsAllDayBalTransfer.Returns(true);
             user.Language.Returns(language);
             user.Id.Returns(1176070);
 
@@ -212,7 +166,6 @@
         public async Task Hint_InvalidLanguages_ReturnPageView(string language)
         {
             // Arrange
-            userSession.IsAllDayBalTransfer.Returns(true);
             user.Language.Returns(language);
             user.Id.Returns(1176070);
 
@@ -229,7 +182,6 @@
         public async Task Hint_InvalidIsAllDayBalTransfer_ReturnInvalidPageView()
         {
             // Arrange
-            userSession.IsAllDayBalTransfer.Returns(false);
             user.Language.Returns("en-US");
             user.Id.Returns(1176070);
 

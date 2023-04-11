@@ -69,6 +69,15 @@ table.dataTable tbody tr {
         width: 180px;
     }
 }
+.tblRpt.tblRpt-bordered {
+    tfoot {
+        > tr {
+            > td{
+                padding: 0;
+            }
+        }
+    }
+}
 table.dataTable.display tr td .pagination table tbody td {
     border: 0 !important;
 }

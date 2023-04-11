@@ -42,8 +42,38 @@
     width: 180px;
   }
 }
-table.dataTable.display tr td .pagination table tbody td {
-    border: 0 !important;
+.tblRpt.tblRpt-bordered {
+    tfoot {
+        > tr {
+            > td {
+                padding: 0;
+                padding: 0;
+                border-bottom: 0;
+                border-left: 0;
+                border-right: 0;
+                background: #eee;
+            }
+        }
+    }
+}
+table.dataTable.display {
+    tr {
+        td {
+            .pagination {
+                table {
+                    tbody {
+                        tr {
+                            background: transparent;
+                        }
+
+                        td {
+                            border: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 .pagination {
     table tbody {

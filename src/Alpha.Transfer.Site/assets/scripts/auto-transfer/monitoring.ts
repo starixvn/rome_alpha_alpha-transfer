@@ -33,8 +33,8 @@ class AutoTransferMonitoring {
     amountFormat = "0,0.[00]";
 
     sortDirection = {
-        asc: 1,
-        desc: -1
+        asc: 0,
+        desc: 1
     };
 
     reportParam: any;
@@ -115,7 +115,7 @@ class AutoTransferMonitoring {
             Status: this.$statusComponent.getSelectedItem(),
             PageIndex: 1,
             PageSize: 20,
-            SortedBy: 0,
+            SortedBy: 1,
             Direction: this.sortDirection.asc
         };
 
@@ -140,7 +140,7 @@ class AutoTransferMonitoring {
         } else {
             for (var i = 0; i < results.Transfers.length; i++) {
                 var t = results.Transfers[i];
-                var cancellable = t.Status == 'Processing';
+                var cancellable = t.IsAllowCancel;
                 html += '<tr>' +
                     '<td col-value="1" class="text-center">' + (i + 1) + '</td>' +
                     '<td col-value="2" class="text-left">' + t.Username + '</td>' +
@@ -148,7 +148,7 @@ class AutoTransferMonitoring {
                     '<td col-value="4" class="text-right">' + this.numeral(t.TransferAmount).format(this.amountFormat) + '</td>' +
                     '<td col-value="5" class="text-left col-status ' + t.Status.toLowerCase() + '">' + this.$('#' + t.Status).val() + '</td>' +
                     '<td col-value="6" class="text-left">' + t.Reason + '</td>' +
-                    '<td col-value="7" class="text-left">' + t.DateTime + '</td>' +
+                    '<td col-value="7" class="text-center">' + (t.CompletedTime || '') + '</td>' +
                     '<td col-value="8" class="text-center">' +
                     (cancellable ? '<div class="icon icon-cancel" data-custid="' + t.CustId + '"></div>' : '') +
                     '</td>' +

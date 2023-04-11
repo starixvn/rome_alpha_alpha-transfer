@@ -1,19 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions SiteId="105" SiteName="Member Information">
-    <Function Name="Cash Balance Transfer">
-        <Setting Key="Age_Transfer_CashBalance_Ins" SpName="Age_Transfer_CashBalance_Ins" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
-    </Function>
-    <Function Name="Transfer All and Clear Credit">
-        <Setting Key="Age_Transfer_All_Ins" SpName="Age_Transfer_All_Ins" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
-    </Function>
-    <!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
-    <Function Name="Multiple Transfer">
-        <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag_ForDBTrans" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
-    </Function>
-    <!-- 107963 - End-->
-    <Function Name="Auto Transfer">
-        <Setting Key="Age_ClearBalanceCust_MonitorSel" SpName="Age_ClearBalanceCust_MonitorSel" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
-        <Setting Key="Age_ClearBalanceCust_HistorySel" SpName="Age_ClearBalanceCust_HistorySel" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
-        <Setting Key="Age_ClearBalanceCust_Job_StatusCheck" SpName="Age_ClearBalanceCust_Job_StatusCheck" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
-    </Function>
+  <Function Name="Cash Balance Transfer">
+    <Setting Key="Age_Transfer_CashBalance_Ins" SpName="Age_Transfer_CashBalance_Ins" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
+  </Function>
+  <Function Name="Transfer All and Clear Credit">
+    <Setting Key="Age_Transfer_All_Ins" SpName="Age_Transfer_All_Ins" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
+  </Function>
+  <!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
+  <Function Name="Multiple Transfer">
+    <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag_ForDBTrans" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
+  </Function>
+  <!-- 107963 - End-->
+  <Function Name="Auto Transfer">
+    <Setting Key="Age_ClearBalanceCust_ProcessSel" SpName="Age_ClearBalanceCust_ProcessSel" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
+    </Setting>
+    <Setting Key="Age_ClearBalanceCust_ProcessHistorySel" SpName="Age_ClearBalanceCust_ProcessHistorySel" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" >
+      <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
+    </Setting>
+    <Setting Key="Age_ClearBalanceCust_Job_StatusCheck" SpName="Age_ClearBalanceCust_Job_StatusCheck" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
+  </Function>
 </Functions>

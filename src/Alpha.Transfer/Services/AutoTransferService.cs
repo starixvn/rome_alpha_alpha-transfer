@@ -1,6 +1,5 @@
 ﻿namespace Alpha.Transfer.Services
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Alpha.Transfer.Criteria.AutoTransfer;
     using Alpha.Transfer.Models.AutoTransfer;
@@ -28,7 +27,6 @@
 
         public async Task<Result> UpdateAsync(int custId, int creator, string ip, string language, string state)
         {
-            // return new Result { Code = 1, Message = "error" };
             var isAutoJobRunning = await GetJobStatus(custId, creator, state);
             var criteria = new UpdateMultipleCriteria(creator, custId, isAutoJobRunning, language, ip, state);
 
@@ -45,75 +43,21 @@
         {
             var criteria = new GetTodayTransfersCriteria
             {
-                CustId = param.CustId,
-                Username = param.Username,
-                Status = param.Status,
+                FromCustId = param.CustId,
+                Searchname = param.Username,
+                ViewStatus = param.Status,
+                SortBy = param.SortedBy,
+                SortType = param.Direction,
                 PageSize = param.PageSize,
-                PageIndex = param.PageIndex,
-                SortedBy = param.SortedBy,
-                Direction = param.Direction,
-                TotalItems = 48
+                PageIndex = param.PageIndex
             };
 
-            //  var transfers = await repository.FetchAsync<AutoTransferMonitoringModel>(criteria);
-
+            var transfers = await repository.FetchAsync<AutoTransferMonitoringModel>(criteria);
 
             return new AutoTransferMonitoringPageModel
             {
-                Transfers = new List<AutoTransferMonitoringModel>
-                {
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master01",
-                        FirstLastName="ma1",
-                        TransferAmount=325000,
-                        Status="Completed",
-                        Reason=string.Empty,
-                        DateTime="01/05/2023 1:00:07 AM",
-                        CustId=1
-                    },
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master02",
-                        FirstLastName="ma2",
-                        TransferAmount=1800,
-                        Status="Failed",
-                        Reason="Due to system maintenance",
-                        DateTime="01/05/2023 1:00:08 AM",
-                        CustId=1
-                    },
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master03",
-                        FirstLastName="cloe",
-                        TransferAmount=2800,
-                        Status="Failed",
-                        Reason="Due to unexpected issue",
-                        DateTime="01/05/2023 1:00:08 AM",
-                        CustId=1
-                    },
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master04",
-                        FirstLastName="da",
-                        TransferAmount=3000,
-                        Status="Failed",
-                        Reason="Due to manual transfer",
-                        DateTime="01/05/2023 1:00:08 AM",
-                        CustId=1
-                    },
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master05",
-                        FirstLastName="dud",
-                        TransferAmount=(decimal)2000.21,
-                        Status="Processing",
-                        Reason=string.Empty,
-                        DateTime="01/05/2023 1:00:09 AM",
-                        CustId=1
-                    }
-                },
-                TotalItems = criteria.TotalItems,
+                Transfers = transfers,
+                TotalItems = criteria.TotalRow,
                 PageSize = param.PageSize,
                 PageIndex = param.PageIndex,
                 SortedBy = param.SortedBy,
@@ -125,72 +69,24 @@
         {
             var criteria = new GetHistoryTransfersCriteria
             {
-                CustId = param.CustId,
-                Username = param.Username,
-                Status = param.Status,
+                FromCustId = param.CustId,
+                Searchname = param.Username,
+                ViewStatus = param.Status,
+                SortBy = param.SortedBy,
+                SortType = param.Direction,
                 PageSize = param.PageSize,
                 PageIndex = param.PageIndex,
-                SortedBy = param.SortedBy,
-                Direction = param.Direction,
-                TotalItems = 48,
                 FromDate = param.FromDate,
                 ToDate = param.ToDate,
             };
 
-            //  var transfers = await repository.FetchAsync<AutoTransferMonitoringModel>(criteria);
+            var transfers = await repository.FetchAsync<AutoTransferMonitoringModel>(criteria);
 
 
             return new AutoTransferMonitoringPageModel
             {
-                Transfers = new List<AutoTransferMonitoringModel>
-                {
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master01",
-                        FirstLastName="ma1",
-                        TransferAmount=325000,
-                        Status="Completed",
-                        Reason=string.Empty,
-                        DateTime="01/05/2023 1:00:07 AM"
-                    },
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master02",
-                        FirstLastName="ma2",
-                        TransferAmount=1800,
-                        Status="Failed",
-                        Reason="Due to system maintenance",
-                        DateTime="01/05/2023 1:00:08 AM"
-                    },
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master03",
-                        FirstLastName="cloe",
-                        TransferAmount=2800,
-                        Status="Failed",
-                        Reason="Due to unexpected issue",
-                        DateTime="01/05/2023 1:00:08 AM"
-                    },
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master04",
-                        FirstLastName="da",
-                        TransferAmount=3000,
-                        Status="Failed",
-                        Reason="Due to manual transfer",
-                        DateTime="01/05/2023 1:00:08 AM"
-                    },
-                    new AutoTransferMonitoringModel
-                    {
-                        Username="Master05",
-                        FirstLastName="dud",
-                        TransferAmount=(decimal)2000.21,
-                        Status="Processing",
-                        Reason=string.Empty,
-                        DateTime="01/05/2023 1:00:09 AM"
-                    }
-                },
-                TotalItems = criteria.TotalItems,
+                Transfers = transfers,
+                TotalItems = criteria.TotalRow,
                 PageSize = param.PageSize,
                 PageIndex = param.PageIndex,
                 SortedBy = param.SortedBy,

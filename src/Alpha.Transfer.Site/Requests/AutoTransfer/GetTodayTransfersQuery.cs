@@ -19,13 +19,13 @@
 
         public string Status { get; set; }
 
-        public int PageSize { get; set; }
-
-        public int PageIndex { get; set; }
-
         public int SortedBy { get; set; }
 
         public int Direction { get; set; }
+
+        public int PageSize { get; set; }
+
+        public int PageIndex { get; set; }
 
         public bool IsValid() => CustId > 0;
     }

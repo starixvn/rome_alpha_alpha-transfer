@@ -29,8 +29,8 @@ class AutoTransferHistory {
     amountFormat = "0,0.[00]";
 
     sortDirection = {
-        asc: 1,
-        desc: -1
+        asc: 0,
+        desc: 1
     };
 
     reportParam: any;
@@ -118,7 +118,7 @@ class AutoTransferHistory {
             Status: this.$statusComponent.getSelectedItem(),
             PageIndex: 1,
             PageSize: 20,
-            SortedBy: 0,
+            SortedBy: 1,
             Direction: this.sortDirection.asc,
             FromDate: this.$("#from-date").val(),
             ToDate: this.$("#to-date").val(),
@@ -151,7 +151,7 @@ class AutoTransferHistory {
                     '<td col-value="4" class="text-right">' + this.numeral(t.TransferAmount).format(this.amountFormat) + '</td>' +
                     '<td col-value="5" class="text-left col-status ' + t.Status.toLowerCase() + '">' + this.$('#' + t.Status).val() + '</td>' +
                     '<td col-value="6" class="text-left">' + t.Reason + '</td>' +
-                    '<td col-value="7" class="text-left">' + t.DateTime + '</td>' +
+                    '<td col-value="7" class="text-center">' + (t.CompletedTime || '') + '</td>' +
                     '</tr>';
             }
         }

@@ -429,7 +429,9 @@
       <DependentUpon>transfer-all-clear-credit.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\transfer-all-clear-credit\calculation.js" />
-    <Content Include="assets\bundles\transfer-all-clear-credit\calculation.min.js" />
+    <Content Include="assets\bundles\transfer-all-clear-credit\calculation.min.js">
+      <DependentUpon>calculation.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\transfer-all-clear-credit\transfer-result.js" />
     <Content Include="assets\bundles\transfer-all-clear-credit\transfer-result.min.js" />
     <Content Include="assets\bundles\transfer-hint-dark.css" />

@@ -11,10 +11,14 @@
 
 <div id="result-msg" class="msg hide"></div>
 <div class="div-usernames">@Model.Usernames.Replace(",", ", ")</div>
-<div id="switch-auto-transfer" class="switch-auto-transfer"></div>
+<div class="auto-transfer">
+    @Resources.AutoTransfer:
+    <div id="switch-auto-transfer" class="switch-auto-transfer"></div>
+</div>
+
 <ul>
-    <li>- @string.Format(Resources.AutoTransfer_InfoAffectTime, Model.TransferCondition)</li>
-    <li>- @Resources.AutoTransfer_InfoCannotTransfer</li>
+    <li>@string.Format(Resources.AutoTransfer_InfoAffectTime, Model.TransferCondition)</li>
+    <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
 </ul>
 
 <input type="hidden" id="custIds" value="@Model.SearchAccountIds" />

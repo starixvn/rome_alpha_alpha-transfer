@@ -1,7 +1,7 @@
 ﻿@import "mixins";
 
 .btn.btn-countdown {
-    background-color: #eee;
+    background-color: #696969;
     color: #212121;
     padding: 6px 4px 2px 8px;
     font-size: 13px;
@@ -12,7 +12,7 @@
     }
 
     &:hover {
-        background-color: #3c3c3c;
+        background-color: #484848 !important;
     }
 
     .icon-refresh, .dropdown-toggle {
@@ -26,12 +26,20 @@
         background: inherit;
     }
 
-    .icon-refresh:before {
-        content: '\e933';
-        font-family: 'Iconalpha';
-        font-size: 20px;
-        position: relative;
-        top: -2px;
+    .icon-refresh {
+        color: #ededed;
+
+        &:after {
+            display: none;
+        }
+
+        &:before {
+            content: '\e933';
+            font-family: 'Iconalpha';
+            font-size: 20px;
+            position: relative;
+            top: -2px;
+        }
     }
 
     #ddlRefresh {
@@ -73,6 +81,6 @@
     }
 
     .dropdown-toggle {
-        padding-right: 26px;
+        padding-right: 16px;
     }
 }

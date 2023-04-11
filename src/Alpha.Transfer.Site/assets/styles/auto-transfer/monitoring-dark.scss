@@ -69,3 +69,18 @@ table.dataTable tbody tr {
         width: 180px;
     }
 }
+table.dataTable.display tr td .pagination table tbody td {
+    border: 0 !important;
+}
+
+.pagination {
+    table tbody {
+        td {
+            padding: 0;
+
+            &:last-child {
+                border: 0 !important;
+            }
+        }
+    }
+}

@@ -115,6 +115,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer.
+        /// </summary>
+        public static string AutoTransfer {
+            get {
+                return ResourceManager.GetString("AutoTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Job&apos;s cancelled!.
         /// </summary>
         public static string AutoTransfer_CancelSuccess {

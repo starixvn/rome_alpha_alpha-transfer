@@ -18,6 +18,7 @@ class PagerComponent {
     $pageIndex: JQuery;
     $pageSize: JQuery;
     $reportForm: JQuery;
+    $pager: JQuery;
 
     totalRecords: number;
     pageSize: number;
@@ -73,6 +74,8 @@ class PagerComponent {
             pager.addClass("hide");
         }
 
+        this.$pager = pager;
+
         return pager;
     };
 
@@ -96,8 +99,11 @@ class PagerComponent {
     };
 
     options = new PagerOption(this.onChange);
+
     reset = () => {
-        this.$pageIndex.remove();
-        this.$pageSize.remove();
+        if (this.$pageIndex) {
+            this.$pageIndex.remove();
+            this.$pageSize.remove();
+        }
     };
 }

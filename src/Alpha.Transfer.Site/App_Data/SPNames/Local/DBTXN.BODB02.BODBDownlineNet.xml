@@ -15,9 +15,6 @@
     <Setting Key="Age_ClearBalanceCust_ProcessSel" SpName="Age_ClearBalanceCust_ProcessSel_xtest" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0">
       <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
     </Setting>
-    <Setting Key="Age_ClearBalanceCust_ProcessHistorySel" SpName="Age_ClearBalanceCust_ProcessHistorySel_xtest" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" >
-      <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
-    </Setting>
     <Setting Key="Age_ClearBalanceCust_Job_StatusCheck" SpName="Age_ClearBalanceCust_Job_StatusCheck_xtest" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>

@@ -5,6 +5,10 @@ class AlphaTransfer {
     store: StoreJSStatic;
 
     numberDisplayedSelectedOnFilter = 1;
+    pager = {
+        pageSize: 20,
+        pageIndex: 1
+    };
 
     constructor($: JQueryStatic, store: StoreJSStatic) {
         this.$ = $;

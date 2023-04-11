@@ -116,14 +116,15 @@ class AutoTransferHistory {
         this.reportParam = {
             Username: this.$username.val(),
             Status: this.$statusComponent.getSelectedItem(),
-            PageIndex: 1,
-            PageSize: 20,
+            PageIndex: alphaTransfer.pager.pageIndex,
+            PageSize: alphaTransfer.pager.pageSize,
             SortedBy: 1,
             Direction: this.sortDirection.asc,
             FromDate: this.$("#from-date").val(),
             ToDate: this.$("#to-date").val(),
         };
 
+        this.updatePager(alphaTransfer.pager.pageIndex, alphaTransfer.pager.pageSize);
         self.$.ajax({
             method: "POST",
             data: this.reportParam,
@@ -166,6 +167,7 @@ class AutoTransferHistory {
         this.$pager.attr('data-pagesize', results.PageSize);
         this.$pager.attr('data-totalrecords', results.TotalItems);
 
+        this.pagerComponent.reset();
         this.pagerComponent.render(new PagerOption(
             () => {
                 var pageIndex = parseInt(this.$('#PageIndex').val(), 0);
@@ -190,6 +192,7 @@ class AutoTransferHistory {
             ? this.sortDirection.desc : this.sortDirection.asc;
         this.$.blockUI();
 
+        this.updatePager(alphaTransfer.pager.pageIndex, alphaTransfer.pager.pageSize);
         this.reportParam.SortedBy = sortedBy;
         this.reportParam.Direction = direction;
 
@@ -206,14 +209,7 @@ class AutoTransferHistory {
 
     pagingTransfers = (pageIndex, pageSize) => {
         this.$.blockUI();
-
-        this.pagerComponent.reset();
-
-        this.$pager.data('pageindex', pageIndex);
-        this.$pager.data('pagesize', pageSize);
-
-        this.reportParam.PageIndex = pageIndex;
-        this.reportParam.PageSize = pageSize;
+        this.updatePager(pageIndex, pageSize);
 
         self.$.ajax({
             method: "POST",
@@ -260,6 +256,13 @@ class AutoTransferHistory {
     };
     changeStatus = () => {
         this.$statusComponent.updateSelectedValue();
+    };
+    updatePager = (pageIndex, pageSize) => {
+        this.$pager.data('pageindex', pageIndex);
+        this.$pager.data('pagesize', pageSize);
+
+        this.reportParam.PageIndex = pageIndex;
+        this.reportParam.PageSize = pageSize;
     };
 }
 

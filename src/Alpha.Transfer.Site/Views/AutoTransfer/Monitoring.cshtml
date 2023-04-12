@@ -52,7 +52,7 @@
                     </select>
                 </div>
                 @VisibleColumnsDropdown.Render(Model.Columns)
-                @RefreshCountDown.Render()
+                @RefreshCountDown.Render(new[] { 15, 30, 45, 60, 75 })
                 <div class="form-group submit-box">
                     <input type="button" class="btn-submit" id="btn-submit" value="@Resources.Submit">
                 </div>

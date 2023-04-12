@@ -353,8 +353,13 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 Message = Resources.AutoTransfer_CancelSuccess
             };
 
-            autoTransferService.CancelJobAsync(message.CustId, message.UplineId, null).Returns(expectedViewModel);
+            var param = new CancelJobParam
+            {
+                FromCustId = message.UplineId,
+                ToCustId = message.CustId
+            };
 
+            autoTransferService.CancelJobAsync(param).Returns(expectedViewModel);
 
 
             // Act
@@ -384,8 +389,14 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             {
                 Code = 1,
             };
-            autoTransferService.CancelJobAsync(message.CustId, message.UplineId, null).Returns(expectedViewModel);
 
+            var param = new CancelJobParam
+            {
+                FromCustId = message.UplineId,
+                ToCustId = message.CustId
+            };
+
+            autoTransferService.CancelJobAsync(param).Returns(expectedViewModel);
 
             // Act
             var actualViewModel = await handler.Handle(message);
@@ -395,7 +406,4 @@ namespace Alpha.Transfer.Site.Tests.Handlers
         }
 
     }
-
-
-
 }

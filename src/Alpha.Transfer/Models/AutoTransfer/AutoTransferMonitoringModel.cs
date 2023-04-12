@@ -11,6 +11,9 @@
         public string CompletedTime { get; set; }
         public int CustId { get; set; }
         public bool IsAllowCancel { get; set; }
+
+        public bool HasTransferAmount => TransferAmount.HasValue;
+
         public string FirstLastName
         {
             get

@@ -1,14 +1,19 @@
-﻿using Fanex.Data.Repository;
+﻿using Alpha.Transfer.Params.AutoTransfer;
+using Fanex.Data.Repository;
 
 namespace Alpha.Transfer.Criteria.AutoTransfer
 {
     public class CancelJobCriteria : NonQueryCommand
     {
-        public CancelJobCriteria(int fromCustId, int toCustId, string viewStatus)
+        public CancelJobCriteria(CancelJobParam param)
         {
-            FromCustId = fromCustId;
-            ToCustId = toCustId;
-            ViewStatus = viewStatus;
+            FromCustId = param.FromCustId;
+            ToCustId = param.ToCustId;
+            ViewStatus = param.ViewStatus;
+
+            Language = param.Language;
+            IP = param.IP;
+
             ErrCode = 0;
             ErrMsg = string.Empty;
         }
@@ -18,6 +23,12 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
         public int ToCustId { get; }
 
         public string ViewStatus { get; }
+
+        public int Creator => FromCustId;
+
+        public string Language { get; set; }
+
+        public string IP { get; set; }
 
         public int ErrCode { get; set; }
 

@@ -2,6 +2,7 @@
 
 namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
 {
+    using Alpha.Transfer.Params.AutoTransfer;
     using Xunit;
 
     [Trait("Category", "CancelJobCriteria")]
@@ -13,7 +14,13 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
 
             // Arrange
             var expectedSettingKey = "Age_ClearBalanceCust_Cancel";
-            var criteria = new CancelJobCriteria(1176070, 1176083, null);
+            var param = new CancelJobParam
+            {
+                FromCustId = 1176070,
+                ToCustId = 1176083
+            };
+
+            var criteria = new CancelJobCriteria(param);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -26,7 +33,13 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
         public void IsValid_Always_ReturnsTrue()
         {
             // Arrange
-            var criteria = new CancelJobCriteria(1176070, 1176083, null);
+            var param = new CancelJobParam
+            {
+                FromCustId = 1176083,
+                ToCustId = 1176070
+            };
+
+            var criteria = new CancelJobCriteria(param);
             bool expectedResult = true;
 
             // Act
@@ -44,7 +57,13 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
         public void IsInvalid_Always_ReturnsFalse(int uplineId, int custId)
         {
             // Arrange
-            var criteria = new CancelJobCriteria(uplineId, custId, null);
+            var param = new CancelJobParam
+            {
+                FromCustId = uplineId,
+                ToCustId = custId
+            };
+
+            var criteria = new CancelJobCriteria(param);
 
             // Act
             var actualIsValid = criteria.IsValid();

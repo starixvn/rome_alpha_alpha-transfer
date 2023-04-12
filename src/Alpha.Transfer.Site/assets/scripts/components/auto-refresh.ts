@@ -88,6 +88,9 @@ class AutoRefreshComponent {
         var ddlRefresh = this.$('#ddlRefresh');
         var t = this.countDownSeconds;
         ddlRefresh.text(t > 0 ? this.countDownSeconds : this.norefresh);
-        this.startCountdown();
+
+        if (t > 0) {
+            this.startCountdown();
+        }
     };
 }

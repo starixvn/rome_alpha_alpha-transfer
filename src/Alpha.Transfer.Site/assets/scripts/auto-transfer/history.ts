@@ -94,11 +94,6 @@ class AutoTransferHistory {
 
         this.$statusComponent.render(
             new MultipleSelectionDropdownOption("ddl-status", "Status", this.changeStatus));
-
-        this.autoRefreshComponent.render(new AutoRefreshOption(
-            () => {
-                this.refreshTransfers();
-            }));
     };
 
     viewMonitoring = () => {
@@ -144,12 +139,13 @@ class AutoTransferHistory {
         } else {
             for (var i = 0; i < results.Transfers.length; i++) {
                 var t = results.Transfers[i];
+                var amount = t.HasTransferAmount ? this.numeral(t.TransferAmount).format(this.amountFormat) : '';
 
                 html += '<tr>' +
                     '<td col-value="1" class="text-center">' + (i + 1) + '</td>' +
                     '<td col-value="2" class="text-left">' + t.Username + '</td>' +
                     '<td col-value="3" class="text-left">' + t.FirstLastName + '</td>' +
-                    '<td col-value="4" class="text-right">' + this.numeral(t.TransferAmount).format(this.amountFormat) + '</td>' +
+                    '<td col-value="4" class="text-right">' + amount + '</td>' +
                     '<td col-value="5" class="text-left col-status ' + t.Status.toLowerCase() + '">' + this.$('#' + t.Status).val() + '</td>' +
                     '<td col-value="6" class="text-left">' + t.Reason + '</td>' +
                     '<td col-value="7" class="text-center">' + (t.CompletedTime || '') + '</td>' +
@@ -233,27 +229,6 @@ class AutoTransferHistory {
         }
     };
 
-    refreshTransfers = () => {
-        if (!this.reportParam) {
-            this.autoRefreshComponent.reset();
-            return;
-        }
-
-        this.$.blockUI();
-
-        self.$.ajax({
-            method: "POST",
-            data: this.reportParam,
-            dataType: 'json',
-            url: "GetHistoryTransfers",
-            success: results => { this.showTransfers(results); },
-            error: (e) => { },
-            complete: () => {
-                this.autoRefreshComponent.reset();
-                this.$.unblockUI();
-            }
-        });
-    };
     changeStatus = () => {
         this.$statusComponent.updateSelectedValue();
     };

@@ -24,9 +24,8 @@ class PagerComponent {
     pageSize: number;
     pageIndex: number;
 
-    // pageList: number[] = [500, 1000, 2000, 3000, 5000];
+    pageList: number[] = [100, 200, 500, 1000];
 
-    pageList: number[] = [10, 20, 30, 50, 100];
     constructor($: JQueryStatic) {
         this.$ = $;
     }

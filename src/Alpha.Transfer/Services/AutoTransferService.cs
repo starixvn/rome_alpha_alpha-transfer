@@ -12,7 +12,7 @@
         Task<Result> UpdateAsync(int custId, int creator, string ip, string language, string state);
         Task<AutoTransferMonitoringPageModel> GetTodayTransfersAsync(GetTodayTransfersParam param);
         Task<AutoTransferMonitoringPageModel> GetHistoryTransfersAsync(GetHistoryTransfersParam param);
-        Task<Result> CancelJobAsync(int custId, int creator, string viewStatus);
+        Task<Result> CancelJobAsync(CancelJobParam param);
     }
 
     public class AutoTransferServiceImpl : AutoTransferService
@@ -93,9 +93,9 @@
             };
         }
 
-        public async Task<Result> CancelJobAsync(int custId, int creator, string viewStatus)
+        public async Task<Result> CancelJobAsync(CancelJobParam param)
         {
-            var criteria = new CancelJobCriteria(creator, custId, viewStatus);
+            var criteria = new CancelJobCriteria(param);
 
             await repository.ExecuteAsync(criteria);
 

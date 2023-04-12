@@ -117,7 +117,16 @@
 
         public async Task<Result> Handle(CancelJobQuery message)
         {
-            var result = await service.CancelJobAsync(message.CustId, message.UplineId, message.ViewStatus);
+            var param = new CancelJobParam
+            {
+                FromCustId = message.UplineId,
+                ToCustId = message.CustId,
+                ViewStatus = message.ViewStatus,
+                Language = message.LanguageKey,
+                IP = message.IP,
+            };
+
+            var result = await service.CancelJobAsync(param);
 
             return new Result
             {

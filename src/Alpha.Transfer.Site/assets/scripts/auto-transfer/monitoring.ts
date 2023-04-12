@@ -141,12 +141,14 @@ class AutoTransferMonitoring {
         } else {
             for (var i = 0; i < results.Transfers.length; i++) {
                 var t = results.Transfers[i];
-                var cancellable = !t.IsAllowCancel;
+                var cancellable = t.IsAllowCancel;
+                var amount = t.TransferAmount ? this.numeral(t.TransferAmount).format(this.amountFormat) : '';
+
                 html += '<tr>' +
                     '<td col-value="1" class="text-center">' + (i + 1) + '</td>' +
                     '<td col-value="2" class="text-left">' + t.Username + '</td>' +
                     '<td col-value="3" class="text-left">' + t.FirstLastName + '</td>' +
-                    '<td col-value="4" class="text-right">' + this.numeral(t.TransferAmount).format(this.amountFormat) + '</td>' +
+                    '<td col-value="4" class="text-right">' + amount + '</td>' +
                     '<td col-value="5" class="text-left col-status ' + t.Status.toLowerCase() + '">' + this.$('#' + t.Status).val() + '</td>' +
                     '<td col-value="6" class="text-left">' + t.Reason + '</td>' +
                     '<td col-value="7" class="text-center">' + (t.CompletedTime || '') + '</td>' +
@@ -282,9 +284,7 @@ class AutoTransferMonitoring {
                 this.topWindow.bootboxAlert(results.Message, null, () => this.refreshTransfers());
             },
             error: (e) => { },
-            complete: () => {
-                this.$.unblockUI();
-            }
+            complete: () => { this.$.unblockUI(); }
         });
     };
 

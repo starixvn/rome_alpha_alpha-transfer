@@ -1,9 +1,9 @@
-﻿namespace Alpha.Transfer.Site.Tests.TestRequests
-{
-    using Alpha.Transfer.Site.Requests.TransferToDownlineHistory;
-    using Fixtures;
-    using Xunit;
+﻿using Alpha.Transfer.Site.Requests.TransferToDownlineHistory;
+using Alpha.Transfer.Site.Tests.Fixtures;
+using Xunit;
 
+namespace Alpha.Transfer.Site.Tests.RequestsTest.TransferToDownlineHistory
+{
     [Trait("Category", "TransferToDownlineHistory")]
     public class TransferToDownlineHistoryBaseQueryTests
     {

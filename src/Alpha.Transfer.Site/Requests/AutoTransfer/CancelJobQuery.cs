@@ -17,12 +17,14 @@
 
         public int UplineId { get; }
 
+        public string ViewStatus { get; }
+
         public int SubAccId { get; }
 
         public string IP { get; }
 
         public string LanguageKey { get; }
 
-        public bool IsValid() => CustId > 0;
+        public bool IsValid() => CustId > 0 && UplineId > 0;
     }
 }

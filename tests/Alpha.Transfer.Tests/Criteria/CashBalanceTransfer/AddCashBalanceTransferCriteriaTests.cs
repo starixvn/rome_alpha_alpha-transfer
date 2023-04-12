@@ -4,7 +4,7 @@
     using Xunit;
 
     [Trait("Category", "CashBalanceTransfer")]
-    public class AddCashBalanceTransferCriteriaTests
+    public class CancelJobCriteriaTests
     {
         [Fact]
         public void AddCashBalanceTransferCriteria_Always_ReturnsValidSettingKey()

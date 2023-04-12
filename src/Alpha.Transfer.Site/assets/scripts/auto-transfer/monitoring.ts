@@ -141,7 +141,7 @@ class AutoTransferMonitoring {
         } else {
             for (var i = 0; i < results.Transfers.length; i++) {
                 var t = results.Transfers[i];
-                var cancellable = t.IsAllowCancel;
+                var cancellable = !t.IsAllowCancel;
                 html += '<tr>' +
                     '<td col-value="1" class="text-center">' + (i + 1) + '</td>' +
                     '<td col-value="2" class="text-left">' + t.Username + '</td>' +
@@ -151,7 +151,7 @@ class AutoTransferMonitoring {
                     '<td col-value="6" class="text-left">' + t.Reason + '</td>' +
                     '<td col-value="7" class="text-center">' + (t.CompletedTime || '') + '</td>' +
                     '<td col-value="8" class="text-center">' +
-                    (cancellable ? '<div class="icon icon-cancel" data-custid="' + t.CustId + '"></div>' : '') +
+                    (cancellable ? '<div class="icon icon-cancel" data-custid="' + t.CustId + '" data-status="' + t.Status + '"></div>' : '') +
                     '</td>' +
                     '</tr>';
             }
@@ -269,7 +269,8 @@ class AutoTransferMonitoring {
         this.$.blockUI();
 
         var param = {
-            CustId: elm.data('custid')
+            CustId: elm.data('custid'),
+            ViewStatus: elm.data('status'),
         };
 
         self.$.ajax({

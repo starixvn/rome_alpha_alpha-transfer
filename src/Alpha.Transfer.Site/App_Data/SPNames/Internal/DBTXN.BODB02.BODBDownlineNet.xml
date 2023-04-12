@@ -19,5 +19,6 @@
       <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
     </Setting>
     <Setting Key="Age_ClearBalanceCust_Job_StatusCheck" SpName="Age_ClearBalanceCust_Job_StatusCheck" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_ClearBalanceCust_ProcessCancel" SpName="Age_ClearBalanceCust_ProcessCancel" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
   </Function>
 </Functions>

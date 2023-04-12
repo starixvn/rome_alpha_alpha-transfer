@@ -175,7 +175,7 @@
                 command.SubAccId,
                 command.IP,
                 command.LanguageKey).Returns(expectedResult);
-            transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
+            transferService.IsAllDayBalanceTransferAsync(Arg.Any<int>()).Returns(true);
 
             // Act
             var actualResult = await handler.Handle(command);

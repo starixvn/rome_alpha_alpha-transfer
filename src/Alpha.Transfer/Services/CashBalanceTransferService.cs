@@ -110,7 +110,7 @@
         {
             string transferCondition = await GetTransferCondition(custId);
 
-            return Resources.AllowTransfer + " " + transferCondition;
+            return Resources.AllowTransfer + (string.IsNullOrEmpty(transferCondition) ? string.Empty : " " + transferCondition);
         }
 
         public async Task<string> GetTransferCondition(int custId)

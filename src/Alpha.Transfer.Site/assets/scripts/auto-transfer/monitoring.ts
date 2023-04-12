@@ -281,7 +281,9 @@ class AutoTransferMonitoring {
             dataType: 'json',
             url: "CancelJob",
             success: results => {
-                this.topWindow.bootboxAlert(results.Message, null, () => this.refreshTransfers());
+                if (results.Code) {
+                    this.topWindow.bootboxAlert(results.Message, null, () => this.refreshTransfers());
+                }
             },
             error: (e) => { },
             complete: () => { this.$.unblockUI(); }

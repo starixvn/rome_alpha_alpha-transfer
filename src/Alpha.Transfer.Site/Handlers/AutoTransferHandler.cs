@@ -126,13 +126,7 @@
                 IP = message.IP,
             };
 
-            var result = await service.CancelJobAsync(param);
-
-            return new Result
-            {
-                Code = result.Code,
-                Message = result.Code == 0 ? AppResources.Resources.AutoTransfer_CancelSuccess : result.Message
-            };
+            return await service.CancelJobAsync(param);
         }
     }
 }

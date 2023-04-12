@@ -19,7 +19,7 @@ namespace Alpha.Transfer.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -133,7 +133,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If ON, The Auto Transfer process will be executed right after 12:00 AM (GMT+8) on {0}..
+        ///   Looks up a localized string similar to If ENABLED, the Auto Transfer process will be executed right after 12:00 PM (GMT+8) on {0}..
         /// </summary>
         public static string AutoTransfer_InfoAffectTime {
             get {
@@ -142,7 +142,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If you turn ON auto transfer setting during the process time, it will take effect at the next schedule defined by your account&apos;s Transfer Condition..
+        ///   Looks up a localized string similar to If you ENABLE Auto Transfer during its runtime, the Auto Transfer process will take effect at the next scheduled time according to your transfer condition..
         /// </summary>
         public static string AutoTransfer_InfoAffectTime2 {
             get {
@@ -151,7 +151,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To ensure the accuracy of data while auto transfer us running, you CANNOT transfer to your downline whose auto transfer option is on at the process time..
+        ///   Looks up a localized string similar to To ensure the accuracy of data while Auto Transfer process is in progress, you CANNOT transfer to your downline whose Auto Transfer is enabled..
         /// </summary>
         public static string AutoTransfer_InfoCannotTransfer {
             get {
@@ -196,7 +196,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Auto Transfer Monitoring.
+        ///   Looks up a localized string similar to Auto Transfer Monitor.
         /// </summary>
         public static string AutoTransferMonitoring {
             get {

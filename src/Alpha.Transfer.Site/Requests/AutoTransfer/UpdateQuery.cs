@@ -25,6 +25,6 @@
 
         public string Language { get; }
 
-        public bool IsValid() => CustId > 0;
+        public bool IsValid() => CustId > 0 && UplineId > 0;
     }
 }

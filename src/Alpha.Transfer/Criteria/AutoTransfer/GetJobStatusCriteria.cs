@@ -1,8 +1,8 @@
-﻿namespace Alpha.Transfer.Criteria.CashBalanceTransfer
-{
-    using Alpha.Transfer.Constants;
-    using Fanex.Data.Repository;
+﻿using Alpha.Transfer.Constants;
+using Fanex.Data.Repository;
 
+namespace Alpha.Transfer.Criteria.AutoTransfer
+{
     public class GetJobStatusCriteria : NonQueryCommand
     {
         public GetJobStatusCriteria(int fromCustId, int toCustId, string status)

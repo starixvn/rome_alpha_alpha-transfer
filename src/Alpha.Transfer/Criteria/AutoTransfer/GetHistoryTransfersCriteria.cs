@@ -9,6 +9,7 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
 
         public string Searchname { get; set; }
 
+
         public string ViewStatus { get; set; }
 
         public int SortBy { get; set; }

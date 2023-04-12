@@ -27,6 +27,6 @@
 
         public string Language { get; }
 
-        public bool IsValid() => !string.IsNullOrWhiteSpace(SearchAccountIds);
+        public bool IsValid() => !string.IsNullOrWhiteSpace(SearchAccountIds) && UplineId > 0;
     }
 }

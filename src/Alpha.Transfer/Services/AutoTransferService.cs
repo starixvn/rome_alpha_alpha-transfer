@@ -4,7 +4,6 @@
     using Alpha.Transfer.Criteria.AutoTransfer;
     using Alpha.Transfer.Models.AutoTransfer;
     using Alpha.Transfer.Params.AutoTransfer;
-    using Criteria.CashBalanceTransfer;
     using Fanex.Data.Repository;
     using Models;
 
@@ -13,7 +12,7 @@
         Task<Result> UpdateAsync(int custId, int creator, string ip, string language, string state);
         Task<AutoTransferMonitoringPageModel> GetTodayTransfersAsync(GetTodayTransfersParam param);
         Task<AutoTransferMonitoringPageModel> GetHistoryTransfersAsync(GetHistoryTransfersParam param);
-        Task<Result> CancelJobAsync(int custId, int creator, string ip, string languageKey);
+        Task<Result> CancelJobAsync(int custId, int creator, string viewStatus);
     }
 
     public class AutoTransferServiceImpl : AutoTransferService
@@ -94,11 +93,9 @@
             };
         }
 
-        public async Task<Result> CancelJobAsync(int custId, int creator, string ip, string languageKey)
+        public async Task<Result> CancelJobAsync(int custId, int creator, string viewStatus)
         {
-            //return new Result { Code = 1, Message = "error" };
-
-            var criteria = new CancelJobCriteria(creator, custId, languageKey, ip);
+            var criteria = new CancelJobCriteria(creator, custId, viewStatus);
 
             await repository.ExecuteAsync(criteria);
 

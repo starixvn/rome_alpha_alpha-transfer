@@ -50,7 +50,7 @@
             foreach (var id in ids)
             {
                 int custId;
-                if (!int.TryParse(id, out custId))
+                if (!int.TryParse(id, out custId) || custId == 0)
                 {
                     continue;
                 }
@@ -117,7 +117,7 @@
 
         public async Task<Result> Handle(CancelJobQuery message)
         {
-            var result = await service.CancelJobAsync(message.CustId, message.UplineId, message.IP, message.LanguageKey);
+            var result = await service.CancelJobAsync(message.CustId, message.UplineId, message.ViewStatus);
 
             return new Result
             {

@@ -1,15 +1,14 @@
-﻿namespace Alpha.Transfer.Criteria.CashBalanceTransfer
-{
-    using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 
+namespace Alpha.Transfer.Criteria.AutoTransfer
+{
     public class CancelJobCriteria : NonQueryCommand
     {
-        public CancelJobCriteria(int fromCustId, int toCustId, string languageKey, string ip)
+        public CancelJobCriteria(int fromCustId, int toCustId, string viewStatus)
         {
             FromCustId = fromCustId;
             ToCustId = toCustId;
-            Language = languageKey;
-            IP = ip;
+            ViewStatus = viewStatus;
             ErrCode = 0;
             ErrMsg = string.Empty;
         }
@@ -18,21 +17,14 @@
 
         public int ToCustId { get; }
 
-        public int Creator => FromCustId;
-
-        public string Language { get; set; }
-
-        public string IP { get; set; }
+        public string ViewStatus { get; }
 
         public int ErrCode { get; set; }
 
         public string ErrMsg { get; set; }
 
-        public override string GetSettingKey() => "Age_ClearBalanceCust_Cancel";
+        public override string GetSettingKey() => "Age_ClearBalanceCust_ProcessCancel";
 
-        public override bool IsValid() =>
-            FromCustId > 0 &&
-            ToCustId > 0 &&
-            !string.IsNullOrEmpty(IP);
+        public override bool IsValid() => FromCustId > 0 && ToCustId > 0;
     }
 }

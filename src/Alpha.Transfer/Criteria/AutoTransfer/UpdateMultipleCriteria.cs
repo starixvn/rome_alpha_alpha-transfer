@@ -1,8 +1,8 @@
-﻿namespace Alpha.Transfer.Criteria.CashBalanceTransfer
-{
-    using Alpha.Transfer.Constants;
-    using Fanex.Data.Repository;
+﻿using Alpha.Transfer.Constants;
+using Fanex.Data.Repository;
 
+namespace Alpha.Transfer.Criteria.AutoTransfer
+{
     public class UpdateMultipleCriteria : NonQueryCommand
     {
         public UpdateMultipleCriteria(

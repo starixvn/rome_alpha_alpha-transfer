@@ -24,8 +24,10 @@
 <input type="hidden" id="custIds" value="@Model.SearchAccountIds" />
 @Html.Hidden("confirmTurnOnAutoTransfer", Resources.confirmTurnOnAutoTransfer)
 @Html.Hidden("confirmTurnOffAutoTransfer", Resources.confirmTurnOffAutoTransfer)
+@Html.Hidden("autoTransferUpdateSuccess", Resources.AutoTransfer_UpdateSuccess)
 @Html.Hidden("lblOn", Resources.On)
 @Html.Hidden("lblOff", Resources.Off)
+@Html.Hidden("usernames", Model.Usernames)
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/auto-transfer/multiple-update")
 }

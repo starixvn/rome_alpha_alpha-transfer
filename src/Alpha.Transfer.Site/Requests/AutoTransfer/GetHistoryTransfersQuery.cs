@@ -11,9 +11,15 @@
         public GetHistoryTransfersQuery(IUser user)
         {
             CustId = user.Id;
+            Language = user.LanguageKey;
+            LimitedDateToShowInfo = user.LimitedDateToShowInfo;
         }
 
         public int CustId { get; }
+
+        public string Language { get; set; }
+
+        public DateTime LimitedDateToShowInfo { get; }
 
         [AllowHtml]
         public string Username { get; set; }

@@ -1,12 +1,11 @@
-using System.Linq;
 
 namespace Alpha.Transfer.Tests.Services
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Alpha.Transfer.Constants;
-    using Alpha.Transfer.Criteria.CashBalanceTransfer;
     using Alpha.Transfer.Params.AutoTransfer;
     using Fanex.Data.Repository;
     using Fanex.Logging.Extensions.Database;
@@ -27,6 +26,8 @@ namespace Alpha.Transfer.Tests.Services
         private readonly AnyValueCreatorFixture anyValueCreatorFixture;
         private readonly IDynamicRepository dynamicRepository;
         private readonly AutoTransferService serviceImpl;
+        private readonly CompareLogic compareLogic;
+
         public enum Status
         {
             All,
@@ -36,6 +37,7 @@ namespace Alpha.Transfer.Tests.Services
             Completed,
             Failed
         }
+
         public AutoTransferServiceImplTests(AnyValueCreatorFixture anyValueCreatorFixture)
         {
             this.anyValueCreatorFixture = anyValueCreatorFixture;
@@ -43,6 +45,7 @@ namespace Alpha.Transfer.Tests.Services
 
             dynamicRepository = Substitute.For<IDynamicRepository>();
             serviceImpl = new AutoTransferServiceImpl(dynamicRepository);
+            compareLogic = new CompareLogic();
         }
 
         [Theory]
@@ -53,36 +56,33 @@ namespace Alpha.Transfer.Tests.Services
         public async Task UpdateAsync_ValidCustId_ReturnsCorrectResult(string state, bool isAutoJobRunning)
         {
             // Arrange
-
             var custId = 1176083;
             int creator = 1176083;
             string ip = "127.0.0.1";
             string languageKey = "E";
 
-
             dynamicRepository.ExecuteAsync(Arg.Any<GetJobStatusCriteria>()).Returns(x =>
             {
-                ((GetJobStatusCriteria)x[0]).IsAutoJobRunning = isAutoJobRunning;
+                var criteria = (GetJobStatusCriteria)x[0];
+                if (criteria != null)
+                {
+                    criteria.IsAutoJobRunning = isAutoJobRunning;
+                }
+
                 return Task.CompletedTask;
             });
 
-            var criteria = new UpdateMultipleCriteria(creator, custId, isAutoJobRunning, languageKey, ip, state);
-
-            await dynamicRepository.ExecuteAsync(criteria);
             var messageResult = new Result
             {
                 Code = 0,
                 Message = string.Empty
             };
 
-
-            var compareLogic = new CompareLogic();
-
             // Act
             var actualData = await serviceImpl.UpdateAsync(custId, creator, ip, languageKey, state);
+
             // Assert
-            var result = compareLogic.Compare(messageResult, actualData);
-            Assert.True(result.AreEqual);
+            Assert.True(compareLogic.Compare(messageResult, actualData).AreEqual);
         }
 
         [Theory]
@@ -93,38 +93,47 @@ namespace Alpha.Transfer.Tests.Services
         public async Task UpdateAsync_InvalidCustId_ReturnsCorrectResult(string state, bool isAutoJobRunning)
         {
             // Arrange
-
             var custId = 0;
             int creator = 1176083;
 
+            dynamicRepository.ExecuteAsync(Arg.Any<UpdateMultipleCriteria>()).Returns(x =>
+            {
+                var criteria = (UpdateMultipleCriteria)x[0];
+                if (criteria != null)
+                {
+                    criteria.ErrCode = 1;
+                    criteria.ErrMsg = "";
+                }
+
+                return Task.CompletedTask;
+            });
+
             dynamicRepository.ExecuteAsync(Arg.Any<GetJobStatusCriteria>()).Returns(x =>
             {
-                ((GetJobStatusCriteria)x[0]).IsAutoJobRunning = isAutoJobRunning;
+                var criteria = (GetJobStatusCriteria)x[0];
+                if (criteria != null)
+                {
+                    criteria.IsAutoJobRunning = isAutoJobRunning;
+                }
+
                 return Task.CompletedTask;
             });
 
             string ip = "127.0.0.1";
             string languageKey = "E";
-            var criteria = new UpdateMultipleCriteria(creator, custId, isAutoJobRunning, languageKey, ip, state);
-
-            await dynamicRepository.ExecuteAsync(criteria);
             var messageResult = new Result
             {
-                Code = criteria.ErrCode,
-                Message = criteria.ErrMsg
+                Code = 1,
+                Message = ""
             };
-
-
-            var compareLogic = new CompareLogic();
 
             // Act
             var actualData = await serviceImpl.UpdateAsync(custId, creator, ip, languageKey, state);
+
             // Assert
-            var result = compareLogic.Compare(messageResult, actualData);
-            Assert.True(result.AreEqual);
+            Assert.True(compareLogic.Compare(messageResult, actualData).AreEqual);
         }
 
-        //TODO: check
         [Theory]
         [InlineData(AutoTransferConstant.All)]
         [InlineData(AutoTransferConstant.New)]
@@ -135,7 +144,6 @@ namespace Alpha.Transfer.Tests.Services
         public async Task GetTodayTransfersAsync_ValidCustId_ReturnsDataFromRepository(string status)
         {
             // Arrange
-
             var param = new GetTodayTransfersParam
             {
                 CustId = 1176070,
@@ -146,7 +154,6 @@ namespace Alpha.Transfer.Tests.Services
                 SortedBy = 0,
                 Direction = 1
             };
-
 
             var transfers = new List<AutoTransferMonitoringModel>
                 {
@@ -215,7 +222,11 @@ namespace Alpha.Transfer.Tests.Services
 
             dynamicRepository.FetchAsync<AutoTransferMonitoringModel>(Arg.Any<GetTodayTransfersCriteria>()).Returns(x =>
             {
-                ((GetTodayTransfersCriteria)x[0]).TotalRow = 5;
+                var criteria = (GetTodayTransfersCriteria)x[0];
+                if (criteria != null)
+                {
+                    criteria.TotalRow = 5;
+                }
 
                 return Task.FromResult(transfers.AsEnumerable());
             });
@@ -226,11 +237,9 @@ namespace Alpha.Transfer.Tests.Services
             var actualData = await serviceImpl.GetTodayTransfersAsync(param);
 
             // Assert
-            var result = compareLogic.Compare(pageModel, actualData);
-            Assert.True(result.AreEqual);
+            Assert.True(compareLogic.Compare(pageModel, actualData).AreEqual);
         }
 
-        //TODO: check
         [Theory]
         [InlineData(AutoTransferConstant.All)]
         [InlineData(AutoTransferConstant.New)]
@@ -321,7 +330,12 @@ namespace Alpha.Transfer.Tests.Services
             };
             dynamicRepository.FetchAsync<AutoTransferMonitoringModel>(Arg.Any<GetHistoryTransfersCriteria>()).Returns(x =>
             {
-                ((GetHistoryTransfersCriteria)x[0]).TotalRow = 5;
+                var criteria = (GetHistoryTransfersCriteria)x[0];
+
+                if (criteria != null)
+                {
+                    criteria.TotalRow = 5;
+                }
 
                 return Task.FromResult(transfers.AsEnumerable());
             });
@@ -331,8 +345,59 @@ namespace Alpha.Transfer.Tests.Services
             var actualData = await serviceImpl.GetHistoryTransfersAsync(param);
 
             // Assert
-            var result = compareLogic.Compare(pageModel, actualData);
-            Assert.True(result.AreEqual);
+            Assert.True(compareLogic.Compare(pageModel, actualData).AreEqual);
+        }
+
+        [Fact]
+        public async Task CancelJobAsync_Success_ReturnsSuccessResult()
+        {
+            // Arrange
+            dynamicRepository.ExecuteAsync(Arg.Any<CancelJobCriteria>()).Returns(x =>
+            {
+                var criteria = (CancelJobCriteria)x[0];
+                if (criteria != null)
+                {
+                    criteria.ErrCode = 0;
+                    criteria.ErrMsg = "";
+                }
+
+                return Task.CompletedTask;
+            });
+
+            var param = new CancelJobParam();
+            var expectedValue = new Result { Code = 0, Message = "" };
+
+            // Act
+            var actualValue = await serviceImpl.CancelJobAsync(param);
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedValue, actualValue).AreEqual);
+        }
+
+        [Fact]
+        public async Task CancelJobAsync_Failed_ReturnsFalseResult()
+        {
+            // Arrange
+            dynamicRepository.ExecuteAsync(Arg.Any<CancelJobCriteria>()).Returns(x =>
+            {
+                var criteria = (CancelJobCriteria)x[0];
+                if (criteria != null)
+                {
+                    criteria.ErrCode = 1;
+                    criteria.ErrMsg = "";
+                }
+
+                return Task.CompletedTask;
+            });
+
+            var param = new CancelJobParam();
+            var expectedValue = new Result { Code = 1, Message = "" };
+
+            // Act
+            var actualValue = await serviceImpl.CancelJobAsync(param);
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedValue, actualValue).AreEqual);
         }
     }
 }

@@ -70,12 +70,7 @@
         public void Index_InvalidQuery_ReturnsInvalidPage()
         {
             // Arrange
-            var message = new TransferToDownlineHistoryQuery(user)
-            {
-                CustId = 1,
-                CustName = "CustName",
-                CustLevelId = 4
-            };
+            TransferToDownlineHistoryQuery message = null;
 
             // Act
             var actualValue = controller.Index(message);

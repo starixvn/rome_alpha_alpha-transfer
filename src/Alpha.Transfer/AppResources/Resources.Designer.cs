@@ -133,7 +133,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If ON, The Auto Transfer process will be executed right after 12:00 AM (GMT+8) on {0}..
+        ///   Looks up a localized string similar to Once enabled, the Auto Transfer process is scheduled to occur at 12:00 PM (GMT+8) - {0}..
         /// </summary>
         public static string AutoTransfer_InfoAffectTime {
             get {
@@ -142,7 +142,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If you turn ON auto transfer setting during the process time, it will take effect at the next schedule defined by your account&apos;s Transfer Condition..
+        ///   Looks up a localized string similar to If you ENABLE Auto Transfer during its runtime, the Auto Transfer process will take effect at the next scheduled time according to your transfer condition..
         /// </summary>
         public static string AutoTransfer_InfoAffectTime2 {
             get {
@@ -151,7 +151,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To ensure the accuracy of data while auto transfer us running, you CANNOT transfer to your downline whose auto transfer option is on at the process time..
+        ///   Looks up a localized string similar to To ensure the accuracy of data during Auto Transfer process, you CANNOT transfer to your downline whose Auto Transfer is enabled..
         /// </summary>
         public static string AutoTransfer_InfoCannotTransfer {
             get {
@@ -160,7 +160,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Auto Transfer process will be executed at &lt;span class=&quot;blue-text&quot;&gt;12:15 AM &lt;/span&gt;(GMT+8).
+        ///   Looks up a localized string similar to The Auto Transfer process is scheduled to run at 12:00 PM (GMT+8)..
         /// </summary>
         public static string AutoTransfer_InfoSettingTime {
             get {
@@ -169,11 +169,38 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update successfully!.
+        ///   Looks up a localized string similar to The Auto Transfer has been enabled for these accounts. However, this process is running, and these accounts will be queued for Auto Transfer at the next scheduled time based on their transfer conditions..
         /// </summary>
-        public static string AutoTransfer_UpdateMultipleSuccess {
+        public static string AutoTransfer_MultipleAffectNextConditionWarning {
             get {
-                return ResourceManager.GetString("AutoTransfer_UpdateMultipleSuccess", resourceCulture);
+                return ResourceManager.GetString("AutoTransfer_MultipleAffectNextConditionWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Auto Transfer has been enabled for this account. However, this process is running, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions..
+        /// </summary>
+        public static string AutoTransfer_MultipleAffectNextConditionWarning_Single {
+            get {
+                return ResourceManager.GetString("AutoTransfer_MultipleAffectNextConditionWarning_Single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot disable Auto Transfer for these accounts because the Auto Transfer process is in progress. Please try again after the process has been completed..
+        /// </summary>
+        public static string AutoTransfer_MultipleErrorProccessing {
+            get {
+                return ResourceManager.GetString("AutoTransfer_MultipleErrorProccessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot disable Auto Transfer for this account because the Auto Transfer process is in progress. Please try again after the process has been completed..
+        /// </summary>
+        public static string AutoTransfer_MultipleErrorProccessing_Single {
+            get {
+                return ResourceManager.GetString("AutoTransfer_MultipleErrorProccessing_Single", resourceCulture);
             }
         }
         
@@ -187,6 +214,24 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer for account {0} has been successfully disabled..
+        /// </summary>
+        public static string AutoTransfer_UpdateSuccessOff {
+            get {
+                return ResourceManager.GetString("AutoTransfer_UpdateSuccessOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer for account {0} has been successfully enabled..
+        /// </summary>
+        public static string AutoTransfer_UpdateSuccessOn {
+            get {
+                return ResourceManager.GetString("AutoTransfer_UpdateSuccessOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Auto Transfer History.
         /// </summary>
         public static string AutoTransferHistory {
@@ -196,7 +241,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Auto Transfer Monitoring.
+        ///   Looks up a localized string similar to Auto Transfer Monitor.
         /// </summary>
         public static string AutoTransferMonitoring {
             get {
@@ -403,7 +448,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to cancel?.
+        ///   Looks up a localized string similar to Would you like to cancel Auto Transfer process for this account?.
         /// </summary>
         public static string confirmCancelJob {
             get {
@@ -421,7 +466,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to turn off Auto Transfer process for these customers?.
+        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for these accounts?.
         /// </summary>
         public static string confirmTurnOffAutoTransfer {
             get {
@@ -430,7 +475,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to turn on Auto Transfer process for these customers?.
+        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for these accounts?.
         /// </summary>
         public static string confirmTurnOnAutoTransfer {
             get {
@@ -561,6 +606,15 @@ namespace Alpha.Transfer.AppResources {
         public static string HintRangeTransfer {
             get {
                 return ResourceManager.GetString("HintRangeTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ignored.
+        /// </summary>
+        public static string Ignored {
+            get {
+                return ResourceManager.GetString("Ignored", resourceCulture);
             }
         }
         
@@ -813,6 +867,15 @@ namespace Alpha.Transfer.AppResources {
         public static string PageSize {
             get {
                 return ResourceManager.GetString("PageSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pending.
+        /// </summary>
+        public static string Pending {
+            get {
+                return ResourceManager.GetString("Pending", resourceCulture);
             }
         }
         

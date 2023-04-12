@@ -339,9 +339,6 @@
   <data name="showhidecolumnAd" xml:space="preserve">
     <value>Right-click on the header to show/hide columns.</value>
   </data>
-  <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
-    <value>Update successfully!</value>
-  </data>
   <data name="On" xml:space="preserve">
     <value>On</value>
   </data>

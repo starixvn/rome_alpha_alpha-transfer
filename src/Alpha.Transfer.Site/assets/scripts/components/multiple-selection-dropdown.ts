@@ -49,7 +49,8 @@ class MultipleSelectionDropdownComponent {
             enableFiltering: true,
             onDropdownHidden: () => { },
             onChange: (option, checked) => { },
-            onSelectAll: (checked) => { }
+            onSelectAll: (checked) => { },
+            enableCaseInsensitiveFiltering: true,
         });
     };
     getSelectedItem = () => {

@@ -12,10 +12,14 @@ class MultipleUpdateAutoTransfer {
     $switch: JQuery;
     confirmTurnOnAutoTransfer: string;
     confirmTurnOffAutoTransfer: string;
+    autoTransferUpdateSuccess: string;
+
     custIds: string;
+    usernames: string;
     $resultMsg: JQuery;
     lblOn: string;
     lblOff: string;
+    state = 'noset';
 
     constructor($: JQueryStatic, topWindow: Window) {
         this.$ = $;
@@ -30,8 +34,10 @@ class MultipleUpdateAutoTransfer {
         this.$switch = this.$('.switch-auto-transfer');
         this.confirmTurnOnAutoTransfer = this.$('#confirmTurnOnAutoTransfer').val();
         this.confirmTurnOffAutoTransfer = this.$('#confirmTurnOffAutoTransfer').val();
+        this.autoTransferUpdateSuccess = this.$('#autoTransferUpdateSuccess').val();
 
         this.custIds = this.$('#custIds').val();
+        this.usernames = this.$('#usernames').val();
         this.$resultMsg = this.$('#result-msg');
         this.lblOn = this.$('#lblOn').val();
         this.lblOff = this.$('#lblOff').val();
@@ -52,14 +58,14 @@ class MultipleUpdateAutoTransfer {
                 this.topWindow.bootboxConfirm(this.confirmTurnOnAutoTransfer, null, () => {
                     this.update('on');
                 }, () => {
-                    self.resetSwitch();
+                    this.$switch.setTheSwitchValue(this.state);
                 });
             },
             onClickOff: (e) => {
                 this.topWindow.bootboxConfirm(this.confirmTurnOffAutoTransfer, null, () => {
                     this.update('off');
                 }, () => {
-                    self.resetSwitch();
+                    this.$switch.setTheSwitchValue(this.state);
                 });
             }
         });
@@ -71,20 +77,32 @@ class MultipleUpdateAutoTransfer {
             method: "POST",
             data: {
                 SearchAccountIds: this.custIds,
-                State: state
+                State: state,
+                Usernames: this.usernames
             },
             dataType: 'json',
             url: "PostUpdateMultiple",
             success: results => {
-                this.$resultMsg.html(results.Message);
+                this.$resultMsg.removeClass('msg-success msg-error msg-warning');
+
                 if (results.Code !== 0) {
                     this.$resultMsg.addClass('msg-error');
-                    this.$resultMsg.removeClass('msg-success hide');
+                    this.$resultMsg.html(results.Message);
+                    this.$resultMsg.removeClass('hide');
+                    this.$switch.setTheSwitchValue(this.state);
                     return;
                 }
 
-                this.$resultMsg.addClass('msg-success');
-                this.$resultMsg.removeClass('msg-error hide');
+                this.state = state;
+                if (results.Message !== '') {
+                    this.$resultMsg.addClass('msg-warning');
+                    this.$resultMsg.html(results.Message);
+                    this.$resultMsg.removeClass('hide');
+                } else {
+                    this.$resultMsg.addClass('msg-success');
+                    this.$resultMsg.html(this.autoTransferUpdateSuccess);
+                    this.$resultMsg.removeClass('hide');
+                }
 
                 setTimeout(() => {
                     if (this.topWindow.reloadMainFrame) {
@@ -95,8 +113,9 @@ class MultipleUpdateAutoTransfer {
             error: (e) => {
                 if (e.status !== 200) {
                     this.$resultMsg.html(e.statusText);
+                    this.$resultMsg.removeClass('msg-success msg-warning');
                     this.$resultMsg.addClass('msg-error');
-                    this.$resultMsg.removeClass('msg-success hide');
+                    this.$resultMsg.removeClass('hide');
                     this.resetSwitch();
                 }
             },

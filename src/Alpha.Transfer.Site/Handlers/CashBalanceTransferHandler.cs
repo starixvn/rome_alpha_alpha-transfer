@@ -7,6 +7,7 @@
     using Services;
     using Transfer.Models;
     using ViewModels.CashBalanceTransfer;
+    using Alpha.Transfer.Configurations;
 
     public class CashBalanceTransferHandler :
         IAsyncRequestHandler<CashBalanceTransferQuery, CashBalanceTransferViewModel>,
@@ -66,9 +67,9 @@
                 ? await cashBalanceTransferService.GetAllowTransfer(message.CustId)
                 : string.Empty;
             var isAllDayBalTransfer = await transferService.IsAllDayBalanceTransferAsync(message.CustId);
-            var conditions = "Mon - Web";
+            var isEnabledAutoTransfer = AppSettings.IsEnableAutoTransfer(message.User.Currency, message.User.IsSubAcc, message.User.SubPageAccess);
 
-            return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer, conditions, isAllDayBalTransfer);
+            return new HintTransferViewModel(allowTransfer, isAllDayBalTransfer, isEnabledAutoTransfer);
         }
     }
 }

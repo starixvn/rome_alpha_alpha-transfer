@@ -1,24 +1,21 @@
 ﻿namespace Alpha.Transfer.Site.ViewModels.CashBalanceTransfer
 {
-    using AppResources;
-
     public class HintTransferViewModel
     {
         public HintTransferViewModel(
             string allowTransfer,
-            bool showWarningTransfer,
-            string conditions,
-            bool isAlldayTransfer = true)
+            bool isAlldayTransfer = true,
+            bool isEnabledAutoTransfer = false)
         {
             AllowTransfer = allowTransfer;
             IsAlldayTransfer = isAlldayTransfer;
-            Conditions = conditions;
+            IsEnabledAutoTransfer = isEnabledAutoTransfer;
         }
 
         public string AllowTransfer { get; }
 
         public bool IsAlldayTransfer { get; }
 
-        public string Conditions { get; }
+        public bool IsEnabledAutoTransfer { get; }
     }
 }

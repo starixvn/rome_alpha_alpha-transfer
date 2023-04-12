@@ -15,9 +15,9 @@
 
         public int CustId { get; set; }
 
-        public int UplineId { get; }
+        public string ViewStatus { get; set; }
 
-        public string ViewStatus { get; }
+        public int UplineId { get; }
 
         public int SubAccId { get; }
 

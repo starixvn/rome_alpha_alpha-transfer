@@ -406,7 +406,7 @@
     <value>Old Balance</value>
   </data>
   <data name="TransferAmount" xml:space="preserve">
-    <value>Transfer Amount</value>
+    <value>转帐余额</value>
   </data>
   <data name="TransferType" xml:space="preserve">
     <value>Transfer Type</value>
@@ -432,6 +432,15 @@
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>您的上线不允许您使用全天余额转账。该页面将自动刷新。</value>
   </data>
+  <data name="confirmCancelJob" xml:space="preserve">
+    <value>您要为此客户取消自动转账流程吗？</value>
+  </data>
+  <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
+    <value>您要为这些客户开启自动转账吗？</value>
+  </data>
+  <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
+    <value>您要为这些客戶禁用自动转账吗？</value>
+  </data>
   <data name="UsernameOrFirstLastName" xml:space="preserve">
     <value>用户名或名/姓</value>
   </data>
@@ -449,9 +458,6 @@
   </data>
   <data name="SelectNone" xml:space="preserve">
     <value>选择 无</value>
-  </data>
-  <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
-    <value>修改成功!</value>
   </data>
   <data name="On" xml:space="preserve">
     <value>开启</value>
@@ -477,7 +483,70 @@
   <data name="Search" xml:space="preserve">
     <value>搜寻</value>
   </data>
+  <data name="AutoTransfer_InfoSettingTime" xml:space="preserve">
+    <value>自动转账流程将执行于 中午12:00 (GMT+8)</value>
+  </data>
+  <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
+    <value>为了确保自动转账数据的准确性，您无法向已经开启自动转账的下线进行转账。</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
+    <value>如果您在其运行中开启自动转账，自动转账将会根据您账号的转账设定在下一个预定时间生效。</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
+    <value>如果开启，自动转账流程将在 12:00中午(GMT+8) - {0}</value>
+  </data>
+  <data name="CompletedTime" xml:space="preserve">
+    <value>完成时间</value>
+  </data>
+  <data name="AutoTransferMonitoring" xml:space="preserve">
+    <value>监控自动转账</value>
+  </data>
+  <data name="AutoTransferHistory" xml:space="preserve">
+    <value>自动转账记录</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>新</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
+    <value>修改成功!</value>
+  </data>
+  <data name="AutoTransfer" xml:space="preserve">
+    <value>自动转账</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>原因</value>
+  </data>
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>第三方待定转账</value>
+  </data>
+  <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
+    <value>这些账号已启用自动转账。但是，自动转账的过程正在进行，所以这些账号将根据您的账号转账设定在队列中等待下一个预定时间自动转账。</value>
+  </data>
+  <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
+    <value>您无法禁用這些账号的自动转账功能，因为自动转账正在进行中。请等进行完毕之后再重试。</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccessOff" xml:space="preserve">
+    <value>这个账号{0}的自动转账已经成功禁用。</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccessOn" xml:space="preserve">
+    <value>这个账号{0}的自动转账已经成功启用。</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>等待中</value>
+  </data>
+  <data name="AutoTransfer_MultipleErrorProccessing_Single" xml:space="preserve">
+    <value>您无法禁用此账号的自动转账功能，因为自动转账正在进行中。请等进行完毕之后再重试。</value>
+  </data>
+  <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
+    <value>这个账号已启用自动转账。但是，自动转账的过程正在进行，所以该账号将根据您的账号转账设定在队列中等待下一个预定时间自动转账。</value>
+  </data>
+  <data name="Ignored" xml:space="preserve">
+    <value>忽视</value>
   </data>
 </root>

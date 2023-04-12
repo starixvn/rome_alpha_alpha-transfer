@@ -23,9 +23,51 @@
     text-transform: uppercase;
     margin-left: 12px !important;
 
+    #switch-auto-transfer_railoff {
+        position: relative;
+
+        &:before {
+            position: absolute;
+            left: 0;
+            content: "OFF";
+            top: 0px;
+            height: 100%;
+            line-height: 16px;
+        }
+
+        span {
+            position: relative;
+            z-index: 10;
+            right: -14px;
+            opacity: 0;
+            width: 23px;
+            display: block;
+        }
+    }
+
+    #switch-auto-transfer_railon {
+        position: relative;
+
+        &:before {
+            position: absolute;
+            left: 2px;
+            content: "ON";
+            top: 0px;
+            height: 100%;
+            line-height: 16px;
+        }
+
+        span {
+            position: relative;
+            z-index: 10;
+            left: -14px;
+            opacity: 0;
+            width: 23px;
+            display: block;
+        }
+    }
+
     &[data-value="noset"] {
-
-
         #switch-auto-transfer_railoff, #switch-auto-transfer_railon {
             font-size: 12px !important;
             line-height: 14px !important;
@@ -33,7 +75,7 @@
             font-weight: bold !important;
             border: 0 !important;
             background: none !important;
-            margin: 0 2px !important;
+            margin: 0 !important;
             width: auto !important;
 
             span {
@@ -48,7 +90,7 @@
             border: 0 !important;
             background: #CECECE !important;
             border-radius: 8px !important;
-            margin: 0 2px !important;
+            margin: 0 !important;
 
             div {
                 width: 14px !important;
@@ -79,7 +121,7 @@
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                text-align: right;
+                text-align: left;
                 left: 0;
                 font-size: 12px !important;
             }
@@ -93,7 +135,7 @@
                 border: 0 !important;
                 margin: 1px 0 0 0 !important;
                 position: absolute;
-                right: -17px;
+                right: -15px;
                 top: 0;
             }
         }
@@ -109,6 +151,16 @@
             text-align: left !important;
             width: 23px !important;
             font-size: 12px !important;
+
+            span {
+                position: relative;
+                z-index: 10;
+                right: 29px;
+                opacity: 0;
+                width: 30px;
+                display: block;
+                left: auto;
+            }
         }
 
         #switch-auto-transfer_railnoset {
@@ -117,7 +169,8 @@
             border: 0 !important;
             background: #8A8A8A !important;
             border-radius: 8px !important;
-            margin: 0 2px !important;
+            margin: 0 !important;
+            pointer-events: none;
 
             div {
                 width: 14px !important;
@@ -151,6 +204,7 @@
                 text-align: left;
                 left: 0;
                 font-size: 12px !important;
+                text-indent: 2px
             }
 
             div {
@@ -162,7 +216,7 @@
                 border: 0 !important;
                 margin: 1px 0 0 0 !important;
                 position: absolute;
-                left: -17px;
+                left: -15px;
                 top: 0;
             }
         }
@@ -178,6 +232,15 @@
             text-align: right !important;
             width: 23px !important;
             font-size: 12px !important;
+
+            span {
+                position: relative;
+                z-index: 10;
+                right: -21px;
+                opacity: 0;
+                width: 30px;
+                display: block;
+            }
         }
 
         #switch-auto-transfer_railnoset {
@@ -186,7 +249,8 @@
             border: 0 !important;
             background: #558B11 !important;
             border-radius: 8px !important;
-            margin: 0 2px !important;
+            margin: 0 !important;
+            pointer-events: none;
 
             div {
                 width: 14px !important;

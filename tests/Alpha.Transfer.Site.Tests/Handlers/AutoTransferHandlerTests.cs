@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Alpha.Transfer.AppResources;
 using Alpha.Transfer.Constants;
 using Alpha.Transfer.Models;
+using Alpha.Transfer.Models.AutoTransfer;
 using Alpha.Transfer.Params.AutoTransfer;
 using Alpha.Transfer.Services;
 using Alpha.Transfer.Site.Handlers;
@@ -27,6 +29,7 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             Completed,
             Failed
         }
+
         private readonly IUser user;
         private readonly AutoTransferService autoTransferService;
         private readonly CashBalanceTransferService cashBalanceTransferService;
@@ -41,7 +44,6 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             handler = new AutoTransferHandler(autoTransferService, cashBalanceTransferService);
         }
 
-
         [Fact]
         public async Task HandlerGetTransferCondition_Always_ReturnsCorrectViewModel()
         {
@@ -53,13 +55,13 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 Usernames = "master1, master1p1, masterkz"
             };
 
-            var result = await cashBalanceTransferService.GetTransferCondition(Arg.Any<int>()); ;
+            cashBalanceTransferService.GetTransferCondition(Arg.Any<int>()).Returns(new Tuple<bool, IEnumerable<string>>(false, Enumerable.Empty<string>()));
 
             var expectedViewModel = new GetTransferConditionViewModel
             {
                 SearchAccountIds = getTransferConditionQuery.SearchAccountIds,
                 Usernames = getTransferConditionQuery.Usernames,
-                TransferCondition = result
+                TransferCondition = string.Empty
             };
 
             // Act
@@ -67,14 +69,10 @@ namespace Alpha.Transfer.Site.Tests.Handlers
 
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
-
-
         }
 
         [Theory]
         [InlineData(AutoTransferConstant.On)]
-        [InlineData(AutoTransferConstant.On)]
-        [InlineData(AutoTransferConstant.Off)]
         [InlineData(AutoTransferConstant.Off)]
         public async Task HandlerUpdateMultipleQuery_CustIdsIsValid_ReturnsCorrectResults(string state)
         {
@@ -90,30 +88,13 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 State = state
             };
 
-            var ids = message.SearchAccountIds.Split(new[] { ',' });
-
-            foreach (var id in ids)
-            {
-                int custId;
-                if (!int.TryParse(id, out custId))
-                {
-                    continue;
-                }
-
-                var result = new Result()
-                {
-                    Code = 0
-                };
-                autoTransferService.UpdateAsync(custId, message.UplineId, message.IP, message.Language, message.State).Returns(result);
-            }
-
+            autoTransferService.UpdateAsync(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns(new Result());
 
             var expectedViewModel = new Result
             {
                 Code = 0,
-                Message = Resources.AutoTransfer_UpdateMultipleSuccess
+                Message = string.Empty
             };
-
 
             // Act
             var actualViewModel = await handler.Handle(message);
@@ -121,7 +102,6 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
-
 
         [Theory]
         [InlineData(AutoTransferConstant.On)]
@@ -140,11 +120,11 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 State = state
             };
 
-
+            autoTransferService.UpdateAsync(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns(new Result());
             var expectedViewModel = new Result
             {
                 Code = 0,
-                Message = Resources.AutoTransfer_UpdateMultipleSuccess
+                Message = string.Empty
             };
 
             // Act
@@ -154,7 +134,6 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
 
-        //TODO:check
         [Theory]
         [InlineData(AutoTransferConstant.On)]
         [InlineData(AutoTransferConstant.Off)]
@@ -172,29 +151,52 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 State = state
             };
 
-            var ids = message.SearchAccountIds.Split(new[] { ',' });
-            var resultMessages = new List<string>();
-
-            foreach (var id in ids)
+            autoTransferService.UpdateAsync(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns(new Result
             {
-                int custId;
-                int.TryParse(id, out custId);
-
-                var result = new Result()
-                {
-                    Code = 1,
-                    Message = "Error"
-                };
-                autoTransferService.UpdateAsync(custId, message.UplineId, message.IP, message.Language, message.State).Returns(result);
-
-                resultMessages.Add(result.Message);
-
-            }
+                Code = 1,
+                Message = "Error"
+            });
 
             var expectedViewModel = new Result
             {
                 Code = 1,
-                Message = string.Join("<br />", resultMessages)
+                Message = AppResources.Resources.AutoTransfer_MultipleErrorProccessing
+            };
+
+            // Act
+            var actualViewModel = await handler.Handle(message);
+
+            // Assert
+            AssertExtension.Equal(expectedViewModel, actualViewModel);
+        }
+
+        [Theory]
+        [InlineData("On")]
+        [InlineData("Off")]
+        public async Task HandlerUpdateQuery_UpdateSuccess_ReturnsCorrectResult(string state)
+        {
+            // Arrange
+            user.Id.Returns(1176070);
+            user.SubAccId.Returns(0);
+            user.IP.Returns("127.0.0.1");
+            user.LanguageKey.Returns("E");
+
+            var message = new UpdateQuery(user)
+            {
+                CustId = 1176070,
+                State = state.ToLowerInvariant()
+            };
+
+            var result = new Result()
+            {
+                Code = 0
+            };
+            autoTransferService.UpdateAsync(message.CustId, message.UplineId, message.IP, message.Language, message.State).Returns(result);
+
+            var expectedViewModel = new Result
+            {
+                Code = 0,
+                Message = string.Format(Resources.ResourceManager.GetString("AutoTransfer_UpdateSuccess" + state), user.Name)
             };
 
             // Act
@@ -205,7 +207,7 @@ namespace Alpha.Transfer.Site.Tests.Handlers
         }
 
         [Fact]
-        public async Task HandlerUpdateQuery_CustIdIsValid_ReturnsCorrectResult()
+        public async Task HandlerUpdateQuery_UpdateFailed_ReturnsCorrectResult()
         {
             // Arrange
             user.Id.Returns(1176070);
@@ -219,19 +221,19 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 State = AutoTransferConstant.On
             };
 
-
             var result = new Result()
             {
-                Code = 0
+                Code = 1,
+                Message = "Error"
             };
+
             autoTransferService.UpdateAsync(message.CustId, message.UplineId, message.IP, message.Language, message.State).Returns(result);
 
             var expectedViewModel = new Result
             {
-                Code = 0,
-                Message = Resources.AutoTransfer_UpdateSuccess
+                Code = 1,
+                Message = "Error"
             };
-
 
             // Act
             var actualViewModel = await handler.Handle(message);
@@ -240,8 +242,6 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
 
-
-        //TODO:check
         [Theory]
         [InlineData(AutoTransferConstant.All)]
         [InlineData(AutoTransferConstant.New)]
@@ -249,7 +249,6 @@ namespace Alpha.Transfer.Site.Tests.Handlers
         [InlineData(AutoTransferConstant.Processing)]
         [InlineData(AutoTransferConstant.Completed)]
         [InlineData(AutoTransferConstant.Failed)]
-
         public async Task HandlerGetTodayTransfersQuery_Always_ReturnsCorrectViewModel(string status)
         {
             // Arrange
@@ -274,18 +273,16 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 Direction = message.Direction
             };
 
-            var expectedViewModel = await autoTransferService.GetTodayTransfersAsync(param);
+            var expectedViewModel = new AutoTransferMonitoringPageModel();
+            autoTransferService.GetTodayTransfersAsync(Arg.Any<GetTodayTransfersParam>()).Returns(expectedViewModel);
+
             // Act
-
-
             var actualViewModel = await handler.Handle(message);
 
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
-
         }
 
-        //TODO:check
         [Theory]
         [InlineData(AutoTransferConstant.All)]
         [InlineData(AutoTransferConstant.New)]
@@ -319,22 +316,18 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 ToDate = message.ToDate
             };
 
-            var expectedViewModel = await autoTransferService.GetHistoryTransfersAsync(param);
+            var expectedViewModel = new AutoTransferMonitoringPageModel();
+            autoTransferService.GetHistoryTransfersAsync(Arg.Any<GetHistoryTransfersParam>()).Returns(expectedViewModel);
+
             // Act
-
-
             var actualViewModel = await handler.Handle(message);
 
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
-
         }
 
-
-
-        //TODO:check
         [Fact]
-        public async Task HandlerCancelJobQuery_StatusIsAllowed_ReturnsCorrectResult()
+        public async Task HandlerCancelJobQuery_Always_ReturnsCorrectResult()
         {
             // Arrange
             user.Id.Returns(1176070);
@@ -353,9 +346,7 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 Message = Resources.AutoTransfer_CancelSuccess
             };
 
-            autoTransferService.CancelJobAsync(message.CustId, message.UplineId, null).Returns(expectedViewModel);
-
-
+            autoTransferService.CancelJobAsync(Arg.Any<CancelJobParam>()).Returns(expectedViewModel);
 
             // Act
             var actualViewModel = await handler.Handle(message);
@@ -363,39 +354,5 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
-
-
-        //TODO:check
-        [Fact]
-        public async Task HandlerCancelJobQuery_StatusIsNotAllowed_ReturnsCorrectResult()
-        {
-            // Arrange
-            user.Id.Returns(1176070);
-            user.SubAccId.Returns(0);
-            user.IP.Returns("127.0.0.1");
-            user.LanguageKey.Returns("E");
-
-            var message = new CancelJobQuery(user)
-            {
-                CustId = 1176070,
-            };
-
-            var expectedViewModel = new Result
-            {
-                Code = 1,
-            };
-            autoTransferService.CancelJobAsync(message.CustId, message.UplineId, null).Returns(expectedViewModel);
-
-
-            // Act
-            var actualViewModel = await handler.Handle(message);
-
-            // Assert
-            AssertExtension.Equal(expectedViewModel.Code, actualViewModel.Code);
-        }
-
     }
-
-
-
 }

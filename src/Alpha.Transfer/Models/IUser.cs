@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Transfer.Models
 {
     using System;
+    using Sunplus.Agent.Model.Entities;
 
     public interface IUser
     {
@@ -29,5 +30,11 @@
         DateTime LimitedDateToShowInfo { get; }
 
         string Site { get; }
+
+        string Currency { get; }
+
+        bool IsSubAcc { get; }
+
+        PageAccess SubPageAccess { get; }
     }
 }

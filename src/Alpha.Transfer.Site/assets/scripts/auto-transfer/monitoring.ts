@@ -26,6 +26,7 @@ class AutoTransferMonitoring {
     $tblMonitoring: JQuery;
     $sorters: JQuery;
     $pager: JQuery;
+    $navTabs: JQuery;
     pagerComponent: PagerComponent;
     visibleColumnDropdownComponent: VisibleColumnDropdownComponent;
     autoRefreshComponent: AutoRefreshComponent;
@@ -73,11 +74,13 @@ class AutoTransferMonitoring {
         this.ViewerId = this.$("#ViewerId").val();
         this.SubAccId = this.$("#SubAccId").val();
         this.confirmCancelJob = this.$("#confirmCancelJob").val();
+        this.$navTabs = this.$("#nav-tabs");
     };
     registerEvents = () => {
         this.$tabHistory.click(() => this.viewHistory());
         this.$('.icon-information-outline').click(() => this.viewInfo());
         this.$('.btn-submit').click(() => this.viewTransfers());
+        this.$('#report-form').submit(() => { return false; });
 
         var self = this;
         this.$('.sorting').click(function () {
@@ -96,6 +99,7 @@ class AutoTransferMonitoring {
             () => {
                 this.refreshTransfers();
             }));
+
     };
 
     viewHistory = () => {
@@ -141,14 +145,17 @@ class AutoTransferMonitoring {
         } else {
             for (var i = 0; i < results.Transfers.length; i++) {
                 var t = results.Transfers[i];
-                var cancellable = !t.IsAllowCancel;
+                var cancellable = t.IsAllowCancel;
+                var amount = t.TransferAmount ? this.numeral(t.TransferAmount).format(this.amountFormat) : '';
+                var ino = i + 1 + results.PageSize * (results.PageIndex - 1);
+
                 html += '<tr>' +
-                    '<td col-value="1" class="text-center">' + (i + 1) + '</td>' +
+                    '<td col-value="1" class="text-center">' + ino + '</td>' +
                     '<td col-value="2" class="text-left">' + t.Username + '</td>' +
                     '<td col-value="3" class="text-left">' + t.FirstLastName + '</td>' +
-                    '<td col-value="4" class="text-right">' + this.numeral(t.TransferAmount).format(this.amountFormat) + '</td>' +
+                    '<td col-value="4" class="text-right">' + amount + '</td>' +
                     '<td col-value="5" class="text-left col-status ' + t.Status.toLowerCase() + '">' + this.$('#' + t.Status).val() + '</td>' +
-                    '<td col-value="6" class="text-left">' + t.Reason + '</td>' +
+                    '<td col-value="6" class="text-left">' + (t.Reason || '') + '</td>' +
                     '<td col-value="7" class="text-center">' + (t.CompletedTime || '') + '</td>' +
                     '<td col-value="8" class="text-center">' +
                     (cancellable ? '<div class="icon icon-cancel" data-custid="' + t.CustId + '" data-status="' + t.Status + '"></div>' : '') +
@@ -163,9 +170,9 @@ class AutoTransferMonitoring {
         var selectedSort = this.$tblMonitoring.find('.sorting[data-sort="' + results.SortedBy + '"]');
         selectedSort.addClass('sorting_' + (results.Direction === this.sortDirection.asc ? 'asc' : 'desc'));
 
-        this.$pager.attr('data-pageindex', results.PageIndex);
-        this.$pager.attr('data-pagesize', results.PageSize);
-        this.$pager.attr('data-totalrecords', results.TotalItems);
+        this.$pager.data('pageindex', results.PageIndex);
+        this.$pager.data('pagesize', results.PageSize);
+        this.$pager.data('totalrecords', results.TotalItems);
 
         this.pagerComponent.reset();
         this.pagerComponent.render(new PagerOption(
@@ -191,6 +198,9 @@ class AutoTransferMonitoring {
         }
 
         this.$tblMonitoring.removeClass('hide');
+        this.$tblMonitoring.stickyTableHeaders({
+            fixedOffset: this.$navTabs
+        });
     };
     sort = (elm) => {
         var $elm = this.$(elm);
@@ -279,12 +289,14 @@ class AutoTransferMonitoring {
             dataType: 'json',
             url: "CancelJob",
             success: results => {
-                this.topWindow.bootboxAlert(results.Message, null, () => this.refreshTransfers());
+                if (results.Code) {
+                    this.topWindow.bootboxAlert(results.Message, null, () => this.refreshTransfers());
+                } else {
+                    this.refreshTransfers();
+                }
             },
             error: (e) => { },
-            complete: () => {
-                this.$.unblockUI();
-            }
+            complete: () => { this.$.unblockUI(); }
         });
     };
 

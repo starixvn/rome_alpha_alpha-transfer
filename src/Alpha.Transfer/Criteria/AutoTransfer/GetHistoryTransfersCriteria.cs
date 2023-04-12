@@ -7,8 +7,9 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
     {
         public int FromCustId { get; set; }
 
-        public string Searchname { get; set; }
+        public string Language { get; set; }
 
+        public string Searchname { get; set; }
 
         public string ViewStatus { get; set; }
 
@@ -26,7 +27,7 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
 
         public DateTime ToDate { get; set; }
 
-        public override bool IsValid() => true;
+        public override bool IsValid() => !string.IsNullOrWhiteSpace(ViewStatus);
 
         public override string GetSettingKey() => "Age_ClearBalanceCust_ProcessHistorySel";
     }

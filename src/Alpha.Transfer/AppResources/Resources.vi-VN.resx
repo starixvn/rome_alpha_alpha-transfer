@@ -450,9 +450,6 @@
   <data name="SelectNone" xml:space="preserve">
     <value>Bỏ chọn tất cả</value>
   </data>
-  <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
-    <value>Cập nhật thành công!</value>
-  </data>
   <data name="On" xml:space="preserve">
     <value>Mở</value>
   </data>
@@ -479,5 +476,8 @@
   </data>
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>Tiền Chưa Chuyển Về Từ Trò Chơi</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Chưa xử lý</value>
   </data>
 </root>

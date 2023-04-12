@@ -21,6 +21,10 @@
     { "Path": "libs/jquery/blockUI.js" },
     { "Path": "libs/moment.js" },
     { "Path": "libs/datepicker.js" },
+    { "Path": "libs/numeral.js" },
+    { "Path": "libs/store.js" },
+    { "Path": "libs/jquery.theswitch.js" },
+   
     { "Path": "libs/bootstrap/datetimepicker.js" },
     { "Path": "libs/bootstrap/nexDatePicker.js" },
     { "Path": "libs/bootstrap/multiselect.js" },
@@ -29,15 +33,29 @@
     { "Path": "libs/data-table/jdataTables.fixedHeader.js" },
     { "Path": "libs/data-table/dataTables.responsive.js" },
     { "Path": "libs/data-table/dataTables.pagination.input.js" },
+    { "Path": "libs/data-table/dataTables.pagination.input.js" },
     { "Path": "../cash-balance-transfer/cash-balance.ts" },
     { "Path": "../transfer-all-clear-credit/calculation.ts" },
     { "Path": "../transfer-all-clear-credit/transfer-result.ts" },
+    { "Path": "../core.ts" },
+    { "Path": "../components/auto-refresh.ts" },
     { "Path": "../components/daterangepicker.ts" },
+    { "Path": "../components/multiple-selection-dropdown.ts" },
+    { "Path": "../components/pager.ts" },
+    { "Path": "../components/single-selection-dropdown.ts" },
+    { "Path": "../components/visible-columns-dropdown.ts" },
     { "Path": "../transfer-to-downline-history/utils.ts" },
     { "Path": "../transfer-to-downline-history/transfer-report.ts" },
-    { "Path": "../transfer-to-downline-history/index.ts" }
+    { "Path": "../transfer-to-downline-history/index.ts" },
+    { "Path": "../auto-transfer/history.ts" },
+    { "Path": "../auto-transfer/monitoring.ts" },
+    { "Path": "../auto-transfer/multiple-update.ts" }
   ],
   "Tests": [
+    {
+      "Path": "apps/auto-transfer",
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    },
     {
       "Path": "apps/cash-balance-transfer",
       "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]

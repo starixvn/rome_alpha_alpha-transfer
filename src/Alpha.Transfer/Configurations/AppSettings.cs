@@ -6,6 +6,7 @@
     using System.Configuration;
     using System.Linq;
     using Alpha.Web.Helpers;
+    using Sunplus.Agent.Model.Entities;
 
     public static class AppSettings
     {
@@ -49,13 +50,26 @@
             => TransferToDownlineHistoryOfferSites.Contains("*", StringComparer.CurrentCultureIgnoreCase)
             || TransferToDownlineHistoryOfferSites.Contains(site, StringComparer.CurrentCultureIgnoreCase);
 
-        public static DateTime? EnableSupportAutoTransferDate()
+        public static bool IsEnableAutoTransfer(string currency, bool isSubAcc, PageAccess subPageAccess)
         {
-            DateTime enableSupportAutoTransferDate;
+            if (isSubAcc && !subPageAccess.Transfer)
+            {
+                return false;
+            }
 
-            return DateTime.TryParse(AppSettingValues["EnableSupportAutoTransferDate"], out enableSupportAutoTransferDate)
-              ? enableSupportAutoTransferDate
-              : (DateTime?)null;
+            var s = GetConfigValue("OfferAutoTransfer.Currencies");
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return false;
+            }
+
+            if (s == "*")
+            {
+                return true;
+            }
+
+            return s.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+                .Any(c => string.Equals(currency, c.Trim(), StringComparison.OrdinalIgnoreCase));
         }
 
         public static string VirtualDirectory
@@ -65,5 +79,9 @@
                 return AppPathHelper.GetAppPath(GetConfigValue("VirtualDirectory"), "~/");
             }
         }
+
+        public static string SiteGroup => GetConfigValue("SiteLabel") ?? string.Empty;
+
+        public static bool IsMBCSite => !SiteGroup.Equals("789y", StringComparison.OrdinalIgnoreCase);
     }
 }

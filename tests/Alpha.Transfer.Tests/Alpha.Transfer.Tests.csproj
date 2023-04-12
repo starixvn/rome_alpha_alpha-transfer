@@ -277,6 +277,9 @@
     <Compile Include="Configurations\AppSettingsTests.cs" />
     <Compile Include="Constants\DefaultVariablesTest.cs" />
     <Compile Include="Constants\RoleId.cs" />
+    <Compile Include="Criteria\AutoTransfer\GetJobStatusCriteriaTests.cs" />
+    <Compile Include="Criteria\AutoTransfer\GetTodayTransfersCriteriaTests.cs" />
+    <Compile Include="Criteria\AutoTransfer\GetHistoryTransfersCriteriaTests.cs" />
     <Compile Include="Criteria\AutoTransfer\UpdateMultipleCriteriaTests.cs" />
     <Compile Include="Criteria\AutoTransfer\CancelJobCriteriaTests.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\AddCashBalanceTransferCriteriaTests.cs" />
@@ -296,6 +299,7 @@
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Extensions\DateTimeExtensionsTests.cs" />
+    <Compile Include="Extensions\IEnumerableExtensionsTests.cs" />
     <Compile Include="Extensions\NumberExtensionsTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="Fixtures\ObjectDbFixture.cs" />

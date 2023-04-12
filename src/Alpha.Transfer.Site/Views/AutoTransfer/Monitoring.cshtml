@@ -22,6 +22,11 @@
                 <a id="tab-history" data-tablink="/@(AppSettings.VirtualDirectory+"autotransfer/history")" role="tab" aria-controls="history" data-toggle="tab" class="lnk-changetab">@Resources.AutoTransferHistory</a>
             </li>
         }
+        <li class="icon-tab">
+            <a href="@Model.UserGuideLink" target="_blank" class="user-guide-link pull-right">
+                <span class="icon icon-book"></span>
+            </a>
+        </li>
     </ul>
 </div>
 <div class="tab-content">
@@ -49,12 +54,14 @@
                         <option value="Completed" selected="selected">@Resources.Completed</option>
                         <option value="Failed" selected="selected">@Resources.Failed</option>
                         <option value="Cancelled" selected="selected">@Resources.Cancelled</option>
+                        <option value="Pending" selected="selected">@Resources.Pending</option>
+                        <option value="Ignored" selected="selected">@Resources.Ignored</option>
                     </select>
                 </div>
                 @VisibleColumnsDropdown.Render(Model.Columns)
-                @RefreshCountDown.Render()
+                @RefreshCountDown.Render(new[] { 15, 30, 45, 60, 75 })
                 <div class="form-group submit-box">
-                    <input type="button" class="btn-submit" id="btn-submit" value="@Resources.Submit">
+                    <input type="submit" class="btn-submit" id="btn-submit" value="@Resources.Submit">
                 </div>
                 <div class="form-group">
                     <div class="icon icon-information-outline"></div>
@@ -109,13 +116,15 @@
 @Html.Hidden("VirtualDirectory", AppSettings.VirtualDirectory)
 @Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)
 @Html.Hidden("ViewerId", Model.ViewerId)
-@Html.Hidden("SubAccId", Resources.NoInformationIsAvailable)
+@Html.Hidden("SubAccId", Model.SubAccId)
 @Html.Hidden("New", Resources.New)
 @Html.Hidden("Waiting", Resources.Waiting)
 @Html.Hidden("Processing", Resources.Processing)
 @Html.Hidden("Completed", Resources.Completed)
 @Html.Hidden("Failed", Resources.Failed)
 @Html.Hidden("Cancelled", Resources.Cancelled)
+@Html.Hidden("Pending", Resources.Pending)
+@Html.Hidden("Ignored", Resources.Ignored)
 @Html.Hidden("confirmCancelJob", Resources.confirmCancelJob)
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")

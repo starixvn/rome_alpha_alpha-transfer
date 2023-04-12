@@ -10,9 +10,11 @@
         public GetTodayTransfersQuery(IUser user)
         {
             CustId = user.Id;
+            Language = user.LanguageKey;
         }
 
         public int CustId { get; }
+        public string Language { get; set; }
 
         [AllowHtml]
         public string Username { get; set; }

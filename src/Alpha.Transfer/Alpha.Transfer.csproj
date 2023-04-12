@@ -256,6 +256,7 @@
     <Compile Include="Models\TransferAllAndClearCredit\TransferStep.cs" />
     <Compile Include="Models\TransferToDownlineHistory\TransferToDownlineHistoryModel.cs" />
     <Compile Include="Models\UserLevel.cs" />
+    <Compile Include="Params\AutoTransfer\CancelJobParam.cs" />
     <Compile Include="Params\AutoTransfer\GetHistoryTransfersParam.cs" />
     <Compile Include="Params\AutoTransfer\GetTodayTransfersParam.cs" />
     <Compile Include="Params\MultipleTransfer\GetCustomerListParam.cs" />

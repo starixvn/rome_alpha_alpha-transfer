@@ -1,18 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Functions SiteId="105" SiteName="Member Information">  
+<Functions SiteId="105" SiteName="Member Information">
   <!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
   <Function Name="Multiple Transfer">
     <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag_ForDBTrans" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
   </Function>
   <!-- 107963 - End-->
-  <Function Name="Auto Transfer">
-    <Setting Key="Age_ClearBalanceCust_ProcessSel" SpName="Age_ClearBalanceCust_ProcessSel" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0">
-      <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
-    </Setting>
-    <Setting Key="Age_ClearBalanceCust_ProcessHistorySel" SpName="Age_ClearBalanceCust_ProcessHistorySel" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" >
-      <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
-    </Setting>
-    <Setting Key="Age_ClearBalanceCust_Job_StatusCheck" SpName="Age_ClearBalanceCust_Job_StatusCheck" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
-    <Setting Key="Age_ClearBalanceCust_ProcessCancel" SpName="Age_ClearBalanceCust_ProcessCancel" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
-  </Function>
 </Functions>

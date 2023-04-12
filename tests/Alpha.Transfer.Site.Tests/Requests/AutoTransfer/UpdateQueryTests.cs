@@ -5,30 +5,23 @@ using Xunit;
 namespace Alpha.Transfer.Site.Tests.RequestsTest.AutoTransfer
 {
     [Trait("Category", "AutoTransfer")]
-    public class GetTransferConditionQueryTest
+    public class UpdateQueryTests
     {
         private readonly UserFixture userFixture;
 
-        public GetTransferConditionQueryTest()
+        public UpdateQueryTests()
         {
             userFixture = new UserFixture();
         }
 
-
         [Fact]
-        public void ValidCustIds_Always_ReturnsIsValid()
+        public void IsValid_ValidQuery_ReturnsTrue()
         {
             // Arrange
-
-            var message = new UpdateMultipleQuery(userFixture.User);
-
-            var model = new GetTransferConditionQuery(message)
-            {
-                SearchAccountIds = "1176083,33278659,14373487",
-            };
+            var message = new UpdateQuery(userFixture.User) { CustId = 2 };
 
             // Act
-            var actualValue = model.IsValid();
+            var actualValue = message.IsValid();
 
             // Assert
             Assert.True(actualValue);

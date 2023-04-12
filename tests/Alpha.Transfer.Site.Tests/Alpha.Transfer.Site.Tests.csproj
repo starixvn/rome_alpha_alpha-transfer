@@ -212,9 +212,12 @@
     <Compile Include="Helpers\QueryEntityModelBinderTests.cs" />
     <Compile Include="Models\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requests\AutoTransfer\GetTransferConditionQueryTest.cs" />
-    <Compile Include="Requests\AutoTransfer\GetTodayTransfersQueryTest.cs" />
-    <Compile Include="Requests\AutoTransfer\GetHistoryTransfersQueryTest.cs" />
+    <Compile Include="Requests\AutoTransfer\CancelJobQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\UpdateQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\UpdateMultipleQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\GetTransferConditionQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\GetTodayTransfersQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\GetHistoryTransfersQueryTests.cs" />
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryBaseQueryTests.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModelTests.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModelTests.cs" />

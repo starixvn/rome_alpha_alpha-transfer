@@ -193,5 +193,47 @@
             //// Assert
             Assert.Equal(expected, act);
         }
+
+        [Theory]
+        [InlineData("10000000")]
+        [InlineData("11000000")]
+        [InlineData("01000000")]
+        public async Task GetTransferCondition_DailyTransfer_ReturnIsDaily(string transferOption)
+        {
+            //// Arrange
+            dynamicRepository.ExecuteAsync(Arg.Any<GetTransferOptionCriteria>()).Returns(x =>
+            {
+                ((GetTransferOptionCriteria)x[0]).TransferOption = transferOption;
+
+                return Task.CompletedTask;
+            });
+
+            //// Act
+            var (isDaily, days) = await serviceImpl.GetTransferCondition(263);
+
+            //// Assert
+            Assert.True(isDaily);
+        }
+
+        [Theory]
+        [InlineData("10000001", "Sunday")]
+        [InlineData("11000001", "Monday - Sunday")]
+        [InlineData("01000001", "Monday")]
+        public async Task GetTransferCondition_HasAllowTransferAndNotDaily_ReturnCorrectText(string transferOption, string expectedValue)
+        {
+            //// Arrange
+            dynamicRepository.ExecuteAsync(Arg.Any<GetTransferOptionCriteria>()).Returns(x =>
+            {
+                ((GetTransferOptionCriteria)x[0]).TransferOption = transferOption;
+
+                return Task.CompletedTask;
+            });
+
+            //// Act
+            var (isDaily, days) = await serviceImpl.GetTransferCondition(263);
+
+            //// Assert
+            Assert.Equal(expectedValue, string.Join(" - ", days));
+        }
     }
 }

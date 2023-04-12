@@ -8,5 +8,8 @@
     {
         public static IEnumerable<SelectListItem> GetSelectListItems(this string[] columns)
             => columns.Select((c, i) => new SelectListItem { Value = (i + 1).ToString(), Text = c });
+
+        public static string ToSeparatedString(this IEnumerable<string> l)
+            => string.Join(", ", l);
     }
 }

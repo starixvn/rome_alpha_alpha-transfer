@@ -1,56 +1,30 @@
 ﻿namespace Alpha.Transfer.Tests.Models.AutoTransfer
 {
     using Alpha.Transfer.Models.AutoTransfer;
-    using System;
-    using System.Globalization;
-    using System.Threading;
     using Xunit;
 
     [Trait("Category", "AutoTransfer")]
     public class AutoTransferMonitoringModelTest
     {
         [Theory]
-        [InlineData("Lu")]
-        [InlineData("")]
-        public void FirstLastName_HasFirstName_ReturnsCorrectValue(string lastName)
+        [InlineData("First", "", "First")]
+        [InlineData("First", "Last", "First\\Last")]
+        [InlineData("", "Last", "Last")]
+        [InlineData("", "", "")]
+        public void FirstLastName_HasFirstName_ReturnsCorrectValue(string firstName, string lastName, string expectedValue)
         {
             // Arrange
             var model = new AutoTransferMonitoringModel()
             {
-                FirstName = "master01",
+                FirstName = firstName,
                 LastName = lastName
             };
 
-
             // Act
-            var actualValue = string.IsNullOrWhiteSpace(lastName) ? model.FirstName : $"{model.FirstName}\\{lastName}";
+            var actualValue = model.FirstLastName;
 
             // Assert
-            Assert.Equal(model.FirstLastName, actualValue);
+            Assert.Equal(expectedValue, actualValue);
         }
-
-        [Theory]
-        [InlineData("Lu")]
-        [InlineData("")]
-        public void FirstLastName_NotHasFirstName_ReturnsCorrectValue(string lastName)
-        {
-            // Arrange
-            var model = new AutoTransferMonitoringModel()
-            {
-                FirstName = "",
-                LastName = lastName
-
-            };
-
-
-            // Act
-            var actualValue = lastName;
-
-            // Assert
-            Assert.Equal(model.FirstLastName, actualValue);
-        }
-
-
-
     }
 }

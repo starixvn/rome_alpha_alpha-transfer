@@ -6,6 +6,8 @@ namespace Alpha.Transfer.Params.AutoTransfer
     {
         public int CustId { get; set; }
 
+        public string Language { get; set; }
+
         public string Username { get; set; }
 
         public string Status { get; set; }
@@ -21,5 +23,7 @@ namespace Alpha.Transfer.Params.AutoTransfer
         public DateTime FromDate { get; set; }
 
         public DateTime ToDate { get; set; }
+
+        public DateTime LimitedDateToShowInfo { get; set; }
     }
 }

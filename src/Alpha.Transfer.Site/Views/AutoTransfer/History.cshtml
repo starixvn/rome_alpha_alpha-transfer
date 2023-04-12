@@ -19,6 +19,11 @@
         <li role="presentation" class="active">
             <a data-tablink="/@(AppSettings.VirtualDirectory+"autotransfer/history")" role="tab" aria-controls="history" data-toggle="tab" class="lnk-changetab">@Resources.AutoTransferHistory</a>
         </li>
+        <li class="icon-tab">
+            <a href="@Model.UserGuideLink" target="_blank" class="user-guide-link pull-right">
+                <span class="icon icon-book"></span>
+            </a>
+        </li>
     </ul>
 </div>
 <div class="tab-content">
@@ -43,12 +48,12 @@
                         <option value="Completed" selected="selected">@Resources.Completed</option>
                         <option value="Failed" selected="selected">@Resources.Failed</option>
                         <option value="Cancelled" selected="selected">@Resources.Cancelled</option>
+                        <option value="Ignored" selected="selected">@Resources.Ignored</option>
                     </select>
                 </div>
 
-                @DateRangePicker.Render(Model.DateRangePickerViewModel)
                 @VisibleColumnsDropdown.Render(Model.Columns)
-                @RefreshCountDown.Render()
+                @DateRangePicker.Render(Model.DateRangePickerViewModel)
                 <div class="form-group">
                     <div class="icon icon-information-outline"></div>
                 </div>
@@ -107,6 +112,7 @@
 @Html.Hidden("Completed", Resources.Completed)
 @Html.Hidden("Failed", Resources.Failed)
 @Html.Hidden("Cancelled", Resources.Cancelled)
+@Html.Hidden("Ignored", Resources.Ignored)
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/pagination")

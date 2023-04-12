@@ -6,7 +6,7 @@ class AlphaTransfer {
 
     numberDisplayedSelectedOnFilter = 1;
     pager = {
-        pageSize: 20,
+        pageSize: 500,
         pageIndex: 1
     };
 

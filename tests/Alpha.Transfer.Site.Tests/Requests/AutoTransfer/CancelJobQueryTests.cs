@@ -5,27 +5,29 @@ using Xunit;
 namespace Alpha.Transfer.Site.Tests.RequestsTest.AutoTransfer
 {
     [Trait("Category", "AutoTransfer")]
-    public class GetHistoryTransfersQueryTest
+    public class CancelJobQueryTests
     {
         private readonly UserFixture userFixture;
 
-        public GetHistoryTransfersQueryTest()
+        public CancelJobQueryTests()
         {
             userFixture = new UserFixture();
         }
 
-
-        [Fact]
-        public void ValidCustId_Always_ReturnsIsValid()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData(" ")]
+        public void IsValid_ValidQuery_ReturnsTrue(string searchAccountIds)
         {
             // Arrange
-            var model = new GetHistoryTransfersQuery(userFixture.User);
+            var message = new CancelJobQuery(userFixture.User);
 
             // Act
-            var actualValue = model.IsValid();
+            var actualValue = message.IsValid();
 
             // Assert
-            Assert.True(actualValue);
+            Assert.False(actualValue);
         }
     }
 }

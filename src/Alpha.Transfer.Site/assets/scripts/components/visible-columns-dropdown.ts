@@ -35,29 +35,29 @@ class VisibleColumnDropdownComponent {
             allSelectedText: ddlColumn.data("label-all"),
             selectAllText: ddlColumn.data("label-select-all"),
             includeSelectAllOption: true,
-            onChange: (option, checked) => {
-                var v = $(option).val();
-
-                this.visibleStatus[v.toString()] = checked;
-                options.onChange(v, checked);
-                this.updateStatus(options);
-            },
+            onChange: (option, checked) => { },
             enableCollapsibleOptGroups: true,
             optionClass: this.optionClass,
             enableFiltering: true,
             filterPlaceholder: ddlColumn.data("label-search-column"),
             onDropdownHidden: () => {
-                this.updateStatus(options);
-            },
-            onSelectAll: (checked) => {
                 ddlColumnOptions.each((_, c) => {
                     var v = this.$(c).val();
-                    this.visibleStatus[v] = checked;
-                    options.onChange(v, checked);
+                    this.visibleStatus[v] = false;
+                    options.onChange(v, false);
+                });
+
+                var selecteds = ddlColumn.find('option:selected');
+                selecteds.each((_, c) => {
+                    var v = this.$(c).val();
+                    this.visibleStatus[v] = true;
+                    options.onChange(v, true);
                 });
 
                 this.updateStatus(options);
-            }
+            },
+            onSelectAll: (checked) => { },
+            enableCaseInsensitiveFiltering: true,
         });
     }
 

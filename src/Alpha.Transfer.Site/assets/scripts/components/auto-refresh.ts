@@ -66,12 +66,15 @@ class AutoRefreshComponent {
     startCountdown = function () {
         var self = this;
         var ddlRefresh = this.$('#ddlRefresh');
+        this.isStartCountdown = false;
 
         ddlRefresh.countdown({
             date: +(new Date) + this.countDownSeconds * 1000,
             render: function (data) {
-                if (data.sec != 0) {
-                    ddlRefresh.text(data.sec);
+                var t = data.min * 60 + data.sec;
+
+                if (t != 0) {
+                    ddlRefresh.text(t);
                 }
             },
             onEnd: function () {
@@ -80,7 +83,6 @@ class AutoRefreshComponent {
         });
 
         ddlRefresh.data('countdown').update(+(new Date) + this.countDownSeconds * 1000).start();
-
         this.isStartCountdown = true;
     };
 
@@ -88,6 +90,9 @@ class AutoRefreshComponent {
         var ddlRefresh = this.$('#ddlRefresh');
         var t = this.countDownSeconds;
         ddlRefresh.text(t > 0 ? this.countDownSeconds : this.norefresh);
-        this.startCountdown();
+
+        if (t > 0) {
+            this.startCountdown();
+        }
     };
 }

@@ -2,6 +2,7 @@
 {
     using System.Threading.Tasks;
     using Alpha.Transfer.Criteria.AutoTransfer;
+    using Alpha.Transfer.Extensions;
     using Alpha.Transfer.Models.AutoTransfer;
     using Alpha.Transfer.Params.AutoTransfer;
     using Fanex.Data.Repository;
@@ -12,7 +13,7 @@
         Task<Result> UpdateAsync(int custId, int creator, string ip, string language, string state);
         Task<AutoTransferMonitoringPageModel> GetTodayTransfersAsync(GetTodayTransfersParam param);
         Task<AutoTransferMonitoringPageModel> GetHistoryTransfersAsync(GetHistoryTransfersParam param);
-        Task<Result> CancelJobAsync(int custId, int creator, string viewStatus);
+        Task<Result> CancelJobAsync(CancelJobParam param);
     }
 
     public class AutoTransferServiceImpl : AutoTransferService
@@ -34,7 +35,7 @@
             return new Result
             {
                 Code = criteria.ErrCode,
-                Message = criteria.ErrCode == 0 ? string.Empty : criteria.ErrMsg
+                Message = criteria.ErrMsg
             };
         }
 
@@ -43,6 +44,7 @@
             var criteria = new GetTodayTransfersCriteria
             {
                 FromCustId = param.CustId,
+                Language = param.Language,
                 Searchname = param.Username,
                 ViewStatus = param.Status,
                 SortBy = param.SortedBy,
@@ -69,14 +71,15 @@
             var criteria = new GetHistoryTransfersCriteria
             {
                 FromCustId = param.CustId,
+                Language = param.Language,
                 Searchname = param.Username,
                 ViewStatus = param.Status,
                 SortBy = param.SortedBy,
                 SortType = param.Direction,
                 PageSize = param.PageSize,
                 PageIndex = param.PageIndex,
-                FromDate = param.FromDate,
-                ToDate = param.ToDate,
+                FromDate = param.FromDate.GetGreaterDate(param.LimitedDateToShowInfo),
+                ToDate = param.ToDate.GetGreaterDate(param.LimitedDateToShowInfo),
             };
 
             var transfers = await repository.FetchAsync<AutoTransferMonitoringModel>(criteria);
@@ -93,9 +96,9 @@
             };
         }
 
-        public async Task<Result> CancelJobAsync(int custId, int creator, string viewStatus)
+        public async Task<Result> CancelJobAsync(CancelJobParam param)
         {
-            var criteria = new CancelJobCriteria(creator, custId, viewStatus);
+            var criteria = new CancelJobCriteria(param);
 
             await repository.ExecuteAsync(criteria);
 
@@ -108,7 +111,7 @@
 
         private async Task<bool> GetJobStatus(int custId, int creator, string state)
         {
-            var criteria = new GetJobStatusCriteria(custId, creator, state);
+            var criteria = new GetJobStatusCriteria(creator, custId, state);
 
             await repository.ExecuteAsync(criteria);
 

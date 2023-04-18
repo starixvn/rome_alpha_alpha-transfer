@@ -438,17 +438,23 @@
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>Your upline has disallowed you to use All Day Balance Transfer. The page will be automatically refreshed.</value>
   </data>
+  <data name="confirmCancelJob" xml:space="preserve">
+    <value>Would you like to cancel Auto Transfer process for this account?</value>
+  </data>
+  <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
+    <value>Would you like to enable Auto Transfer for these accounts?</value>
+  </data>
+  <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
+    <value>Would you like to disable Auto Transfer for these accounts?</value>
+  </data>
   <data name="AutoTransfer_InfoSettingTime" xml:space="preserve">
     <value>The Auto Transfer process will be executed at &lt;span class="blue-text"&gt;12:15 AM &lt;/span&gt;(GMT+8)</value>
   </data>
   <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
-    <value>To ensure the accuracy of data while auto transfer us running, you CANNOT transfer to your downline whose auto transfer option is on at the process time.</value>
+    <value>To ensure the accuracy of data while Auto Transfer process is in progress, you CANNOT transfer to your downline whose Auto Transfer is enabled.</value>
   </data>
   <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
-    <value>If ON, The Auto Transfer process will be executed right after 12:00 AM (GMT+8) on {0}.</value>
-  </data>
-  <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
-    <value>Are you sure you want to turn on Auto Transfer process for these customers?</value>
+    <value>If ENABLED, the Auto Transfer process will be executed right after 12:00 PM (GMT+8) on {0}.</value>
   </data>
   <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
     <value>Update successfully!</value>
@@ -463,7 +469,7 @@
     <value>Off</value>
   </data>
   <data name="AutoTransferMonitoring" xml:space="preserve">
-    <value>Auto Transfer Monitoring</value>
+    <value>Auto Transfer Monitor</value>
   </data>
   <data name="AutoTransferHistory" xml:space="preserve">
     <value>Auto Transfer History</value>
@@ -513,11 +519,8 @@
   <data name="SearchColumn" xml:space="preserve">
     <value>Search column</value>
   </data>
-  <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
-    <value>Are you sure you want to turn off Auto Transfer process for these customers?</value>
-  </data>
   <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
-    <value>If you turn ON auto transfer setting during the process time, it will take effect at the next schedule defined by your account's Transfer Condition.</value>
+    <value>If you ENABLE Auto Transfer during its runtime, the Auto Transfer process will take effect at the next scheduled time according to your transfer condition.</value>
   </data>
   <data name="CompletedTime" xml:space="preserve">
     <value>Completed Time</value>
@@ -533,9 +536,6 @@
   </data>
   <data name="AutoTransfer_CancelSuccess" xml:space="preserve">
     <value>Job's cancelled!</value>
-  </data>
-  <data name="confirmCancelJob" xml:space="preserve">
-    <value>Are you sure you want to cancel?</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>

@@ -435,6 +435,15 @@
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>อัพไลน์ของคุณได้ปิดการใช้งานระบบ โอนยอดคงเหลือทั้งวัน ของคุณ ข้อมูลในหน้านี้จะรีเฟรชเพื่อแสดงผลใหม่โดยอัตโนมัติ</value>
   </data>
+  <data name="confirmCancelJob" xml:space="preserve">
+    <value>คุณต้องการยกเลิกการทำรายการโอนอัตโนมัติสำหรับบัญชีนี้หรือไม่</value>
+  </data>
+  <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
+    <value>คุณต้องการเปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีเหล่านี้หรือไม่</value>
+  </data>
+  <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
+    <value>คุณต้องการปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีเหล่านี้หรือไม่</value>
+  </data>
   <data name="UsernameOrFirstLastName" xml:space="preserve">
     <value>ยูเซอร์เนม หรือ ชื่อ/นามสุกล</value>
   </data>
@@ -479,5 +488,35 @@
   </data>
   <data name="Search" xml:space="preserve">
     <value>ค้นหา</value>
+  </data>
+  <data name="AutoTransfer_InfoSettingTime" xml:space="preserve">
+    <value>ระบบโอนอัตโนมัติจะดำเนินการ ณ เวลา &lt;span class="blue-text"&gt;12:00 PM&lt;/span&gt; (GMT+8)</value>
+  </data>
+  <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
+    <value>เพื่อความถูกต้องของข้อมูล ในระหว่างที่ระบบโอนอัตโนมัติกำลังดำเนินการอยู่ เพื่อความถูกต้องของข้อมูล ในระหว่างที่ระบบโอนอัตโนมัติกำลังดำเนินการอยู่ คุณจะไม่สามารถถ่ายโอนไปยังดาวน์ไลน์ของคุณที่เปิดใช้งานการถ่ายโอนอัตโนมัติ</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
+    <value>ถ้าคุณเปิดการใช้งานโอนเงินอัตโนมัติในขณะที่ระบบกำลังดำเนินการอยู่  การโอนอัตโนมัติจะเริ่มต้นใช้งานในรอบการทำงานครั้งถัดไปตามเงื่อนไขที่คุณกำหนดไว้</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
+    <value>ถ้าเปิดใช้งานไว้  ระบบโอนอัตโนมัติจะดำเนินการ ณ เวลา 12:00 PM (GMT+8) ตามเงื่อนไข {0}</value>
+  </data>
+  <data name="CompletedTime" xml:space="preserve">
+    <value>เวลาสิ้นสุด</value>
+  </data>
+  <data name="AutoTransferMonitoring" xml:space="preserve">
+    <value>ตรวจสถานะการโอนอัตโนมัติ</value>
+  </data>
+  <data name="AutoTransferHistory" xml:space="preserve">
+    <value>ประวัติการโอนอัตโนมัติ</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>ใหม่</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>ล้มเหลว</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>ยกเลิก</value>
   </data>
 </root>

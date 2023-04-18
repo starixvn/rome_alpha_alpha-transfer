@@ -19,7 +19,7 @@ namespace Alpha.Transfer.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -403,7 +403,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to cancel?.
+        ///   Looks up a localized string similar to Would you like to cancel Auto Transfer process for this account?.
         /// </summary>
         public static string confirmCancelJob {
             get {
@@ -421,7 +421,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to turn off Auto Transfer process for these customers?.
+        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for these accounts?.
         /// </summary>
         public static string confirmTurnOffAutoTransfer {
             get {
@@ -430,7 +430,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to turn on Auto Transfer process for these customers?.
+        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for these accounts?.
         /// </summary>
         public static string confirmTurnOnAutoTransfer {
             get {

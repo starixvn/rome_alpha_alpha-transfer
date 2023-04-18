@@ -435,6 +435,15 @@
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>您的上线不允许您使用全天余额转账。该页面将自动刷新。</value>
   </data>
+  <data name="confirmCancelJob" xml:space="preserve">
+    <value>您要为此客户取消自动转账流程吗？</value>
+  </data>
+  <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
+    <value>您要为这些客户开启自动转账吗？</value>
+  </data>
+  <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
+    <value>您要为这些客戶禁用自动转账吗？</value>
+  </data>
   <data name="UsernameOrFirstLastName" xml:space="preserve">
     <value>用户名或名/姓</value>
   </data>
@@ -479,5 +488,35 @@
   </data>
   <data name="Search" xml:space="preserve">
     <value>搜寻</value>
+  </data>
+  <data name="AutoTransfer_InfoSettingTime" xml:space="preserve">
+    <value>自动转账流程将执行于 &lt;span class="blue-text"&gt;中午12:00 &lt;/span&gt; (GMT+8)</value>
+  </data>
+  <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
+    <value>为了确保自动转账数据的准确性，您无法向已经开启自动转账的下线进行转账。</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
+    <value>如果您在其运行中开启自动转账，自动转账将会根据您账号的转账设定在下一个预定时间生效。</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
+    <value>如果开启，自动转账流程将在 12:00中午(GMT+8) 后立即执行在{0}</value>
+  </data>
+  <data name="CompletedTime" xml:space="preserve">
+    <value>完成时间</value>
+  </data>
+  <data name="AutoTransferMonitoring" xml:space="preserve">
+    <value>监控自动转账</value>
+  </data>
+  <data name="AutoTransferHistory" xml:space="preserve">
+    <value>自动转账记录</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>新</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>取消</value>
   </data>
 </root>

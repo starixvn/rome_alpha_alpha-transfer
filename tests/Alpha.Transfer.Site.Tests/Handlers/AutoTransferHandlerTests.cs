@@ -111,7 +111,7 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             var expectedViewModel = new Result
             {
                 Code = 0,
-                Message = Resources.AutoTransfer_UpdateMultipleSuccess
+                Message = Resources.AutoTransfer_UpdateSuccess
             };
 
 
@@ -144,7 +144,7 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             var expectedViewModel = new Result
             {
                 Code = 0,
-                Message = Resources.AutoTransfer_UpdateMultipleSuccess
+                Message = Resources.AutoTransfer_UpdateSuccess
             };
 
             // Act

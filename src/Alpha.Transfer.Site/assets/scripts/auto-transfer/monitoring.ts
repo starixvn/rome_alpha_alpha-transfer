@@ -283,6 +283,8 @@ class AutoTransferMonitoring {
             success: results => {
                 if (results.Code) {
                     this.topWindow.bootboxAlert(results.Message, null, () => this.refreshTransfers());
+                } else {
+                    this.refreshTransfers();
                 }
             },
             error: (e) => { },

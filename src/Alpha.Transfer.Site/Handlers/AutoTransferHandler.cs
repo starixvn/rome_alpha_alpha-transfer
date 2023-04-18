@@ -66,7 +66,7 @@
             return new Result
             {
                 Code = resultMessages.Any() ? 1 : 0,
-                Message = resultMessages.Any() ? string.Join("<br />", resultMessages) : AppResources.Resources.AutoTransfer_UpdateMultipleSuccess
+                Message = resultMessages.Any() ? string.Join("<br />", resultMessages) : AppResources.Resources.AutoTransfer_UpdateSuccess
             };
         }
 

@@ -409,7 +409,7 @@
     <value>Old Balance</value>
   </data>
   <data name="TransferAmount" xml:space="preserve">
-    <value>Transfer Amount</value>
+    <value>轉帳餘額</value>
   </data>
   <data name="TransferType" xml:space="preserve">
     <value>Transfer Type</value>
@@ -461,9 +461,6 @@
   </data>
   <data name="SelectNone" xml:space="preserve">
     <value>選擇 無</value>
-  </data>
-  <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
-    <value>修改成功!</value>
   </data>
   <data name="On" xml:space="preserve">
     <value>開啟</value>
@@ -518,5 +515,14 @@
   </data>
   <data name="Cancelled" xml:space="preserve">
     <value>取消</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
+    <value>修改成功!</value>
+  </data>
+  <data name="AutoTransfer" xml:space="preserve">
+    <value>自動轉賬</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>原因</value>
   </data>
 </root>

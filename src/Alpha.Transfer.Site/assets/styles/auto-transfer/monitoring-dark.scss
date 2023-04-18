@@ -1,95 +1,97 @@
 ﻿.nav-tabs {
-    > li.active > a,
-    > li.active > a:focus,
-    > li.active > a:hover,
-    > li > a:hover {
-        color: #2267b6;
-    }
+  > li.active > a,
+  > li.active > a:focus,
+  > li.active > a:hover,
+  > li > a:hover {
+    color: #2267b6;
+  }
 }
 
 .filter .form-group #txt-username {
-    width: 200px;
-    background-color: #171717;
-    border: 1px solid #292929;
+  width: 200px;
+  background-color: #171717;
+  border: 1px solid #292929;
 }
 
 .tblRpt {
-    border: none;
+  border: none;
 }
 
 table.dataTable tbody tr {
-    background: transparent !important;
+  background: transparent !important;
 }
 
 .tblRpt.tblRpt-bordered#tbl-monitoring {
-    > thead > tr > th,
-    > tbody > tr > td,
-    tfoot > tr > td {
-        border: 1px solid #5F626B;
-    }
+  > thead > tr > th,
+  > tbody > tr > td,
+  tfoot > tr > td {
+    border: 1px solid #5F626B;
+  }
 }
 
 .tblRpt.tblRpt-bordered#tbl-monitoring {
-    > thead > tr > th:last-child,
-    > tbody > tr > td:last-child,
-    > tfoot > tr > td:last-child {
-        border-right: 1px solid #5F626B !important;
-    }
+  > thead > tr > th:last-child,
+  > tbody > tr > td:last-child,
+  > tfoot > tr > td:last-child {
+    border-right: 1px solid #5F626B !important;
+  }
 }
 
 .page-auto-transfer {
-    padding: 0;
+  padding: 0;
 }
 
 
 #content {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .col-status {
-    &.failed {
-        color: red;
-    }
+  &.failed {
+    color: red;
+  }
 }
 
 .tblRpt thead th, .tblRpt tbody td, .tblRpt tfoot td {
-    height: 28px;
+  height: 28px;
 }
 
 .daterange-picker {
-    display: inline-block;
+  display: inline-block;
 }
 
 .column-multiselect-container {
-    .btn-group {
-        float: none !important;
-    }
+  .btn-group {
+    float: none !important;
+  }
 
-    .dropdown-toggle {
-        width: 180px;
-    }
+  .dropdown-toggle {
+    width: 180px;
+  }
 }
+
 .tblRpt.tblRpt-bordered {
-    tfoot {
-        > tr {
-            > td{
-                padding: 0;
-            }
-        }
+  tfoot {
+    > tr {
+      > td {
+        padding: 0;
+      }
     }
+  }
 }
+
 table.dataTable.display tr td .pagination table tbody td {
-    border: 0 !important;
+  border: 0 !important;
 }
 
 .pagination {
-    table tbody {
-        td {
-            padding: 0;
+  table tbody {
+    td {
+      padding: 0;
 
-            &:last-child {
-                border: 0 !important;
-            }
-        }
+      &:last-child {
+        border: 0 !important;
+      }
     }
+  }
 }

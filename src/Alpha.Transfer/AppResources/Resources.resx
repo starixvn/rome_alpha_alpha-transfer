@@ -456,9 +456,6 @@
   <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
     <value>If ENABLED, the Auto Transfer process will be executed right after 12:00 PM (GMT+8) on {0}.</value>
   </data>
-  <data name="AutoTransfer_UpdateMultipleSuccess" xml:space="preserve">
-    <value>Update successfully!</value>
-  </data>
   <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
     <value>Update successfully!</value>
   </data>

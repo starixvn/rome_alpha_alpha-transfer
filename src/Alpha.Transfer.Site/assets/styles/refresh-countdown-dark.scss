@@ -67,6 +67,15 @@
 
 
 /*******************Dropdown****************/
+.dropdown-daterange-box {
+    .dropdown {
+        vertical-align: bottom;
+    }
+
+    .dropdown-toggle {
+        line-height: 28px;
+    }
+}
 .dropdown {
     display: inline-block;
 

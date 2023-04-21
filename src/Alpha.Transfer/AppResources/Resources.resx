@@ -438,4 +438,7 @@
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>Your upline has disallowed you to use All Day Balance Transfer. The page will be automatically refreshed.</value>
   </data>
+  <data name="pendingTransfer3rd" xml:space="preserve">
+    <value>3rd Party Pending Transfer</value>
+  </data>
 </root>

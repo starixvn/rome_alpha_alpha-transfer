@@ -438,4 +438,7 @@
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>Cấp trên đã áp giới hạn thời gian chuyển khoản trong ngày của bạn. Trang web này sẽ tự động làm mới để cập nhật các cài đặt mới.</value>
   </data>
+  <data name="pendingTransfer3rd" xml:space="preserve">
+    <value>Tiền Chưa Chuyển Về Từ Trò Chơi</value>
+  </data>
 </root>

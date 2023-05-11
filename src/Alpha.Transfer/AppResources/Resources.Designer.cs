@@ -574,6 +574,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 3rd Party Pending Transfer.
+        /// </summary>
+        public static string pendingTransfer3rd {
+            get {
+                return ResourceManager.GetString("pendingTransfer3rd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saturday.
         /// </summary>
         public static string Saturday {

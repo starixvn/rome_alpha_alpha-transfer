@@ -21,6 +21,7 @@
             CustUserLevel = custUserLevel;
             CashBalance = cashBalance;
             Outstanding = outstanding;
+            PendingTransfer3rd = pendingTransfer3rd;
             GivenCredit = givenCredit;
 
             TransferAmountFrom = CashBalance - Outstanding - pendingTransfer3rd;
@@ -70,6 +71,8 @@
         public decimal CashBalance { get; }
 
         public decimal Outstanding { get; }
+
+        public decimal PendingTransfer3rd { get; }
 
         public decimal GivenCredit { get; }
 

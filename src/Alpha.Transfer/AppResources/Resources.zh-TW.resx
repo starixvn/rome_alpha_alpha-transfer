@@ -438,4 +438,7 @@
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>您的上線不允許您使用全天餘額轉賬。該頁面將自動刷新。</value>
   </data>
+  <data name="pendingTransfer3rd" xml:space="preserve">
+    <value>第三方待定轉賬</value>
+  </data>
 </root>

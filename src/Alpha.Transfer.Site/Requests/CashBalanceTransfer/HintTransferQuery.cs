@@ -19,8 +19,6 @@
 
         public string Language { get; }
 
-        public bool ShowWarningTransfer { get; set; }
-
         public bool IsValid() => CustId > 0;
     }
 }

@@ -189,9 +189,6 @@
   <data name="Member" xml:space="preserve">
     <value>Member</value>
   </data>
-  <data name="WarningMultipleTransfer" xml:space="preserve">
-    <value>Cảnh báo: nếu thực hiện giao dịch với Tổng số tiền giao dịch, những thành viên được tô đậm dưới đây sẽ bị âm hạn mức khả dụng và do đó họ có thể thua nhiều hơn hạn mức tín dụng được cấp.</value>
-  </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Bạn không được cho phép sử dụng chức năng này.</value>
   </data>

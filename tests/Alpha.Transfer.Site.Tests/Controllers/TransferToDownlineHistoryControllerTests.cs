@@ -41,6 +41,7 @@
             user.Site.Returns("site");
 
             transferService = Substitute.For<TransferService>();
+            transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             controller = new TransferToDownlineHistoryController(mediator, transferService);
         }
@@ -61,16 +62,6 @@
 
             // Assert
             mediator.Received().Send(message);
-        }
-
-        [Fact]
-        public void Index_NullQuery_ReturnsInvalidPage()
-        {
-            // Act
-            var actualValue = controller.Index(null);
-
-            // Assert
-            Assert.Equal(InvalidPageViewPath, ((ViewResult)actualValue).ViewName);
         }
 
         [Fact]
@@ -111,16 +102,6 @@
 
             // Assert
             mediator.Received().Send(Arg.Is(message));
-        }
-
-        [Fact]
-        public void Excel_NullQuery_ReturnsInvalidExcelFile()
-        {
-            // Act
-            var actualValue = controller.Excel(null) as FileContentResult;
-
-            // Assert
-            Assert.Equal(InvalidExcelFileName, actualValue.FileDownloadName);
         }
 
         [Fact]

@@ -189,9 +189,6 @@
   <data name="Member" xml:space="preserve">
     <value>會員</value>
   </data>
-  <data name="WarningMultipleTransfer" xml:space="preserve">
-    <value>註意： 若已轉賬 “昨天余額” ，以下重點顯示的會員投註額度將會出現負數，此會員有可能會輸超過他的信用額度</value>
-  </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>您沒有使用此功能的權限</value>
   </data>

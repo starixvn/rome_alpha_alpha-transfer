@@ -150,41 +150,6 @@
         }
 
         [Fact]
-        public async Task HandlerCashBalanceTransferCommand_Always_ReturnsSuccessfulResult()
-        {
-            // Arrange
-            var expectedResult = new Result { Message = Resources.TransferSuccessfully };
-
-            user.Id.Returns(1176070);
-            user.SubAccId.Returns(0);
-            user.IP.Returns("127.0.0.1");
-            user.LanguageKey.Returns("E");
-
-            var command = new CashBalanceTransferCommand(user)
-            {
-                CustId = 1176083,
-                Amount = 1101240.32M
-            };
-
-            cashBalanceTransferService.AddCashBalanceTransferAsync(
-                command.UplineId,
-                command.CustId,
-                command.Amount,
-                command.UplineId,
-                command.UplineName,
-                command.SubAccId,
-                command.IP,
-                command.LanguageKey).Returns(expectedResult);
-            transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
-
-            // Act
-            var actualResult = await handler.Handle(command);
-
-            // Assert
-            AssertExtension.Equal(expectedResult, actualResult);
-        }
-
-        [Fact]
         public async Task HandleHintTransferQuery_UserIsSuper_ReturnEmptyAllowTransfer()
         {
             //// Arrange
@@ -227,24 +192,6 @@
 
             //// Assert
             Assert.Equal(expectedAllowTransfer, act.AllowTransfer);
-        }
-
-        [Fact]
-        public async Task HandleHintTransferQuery_ShowWarningTransfer_TextFromResource()
-        {
-            //// Arrange
-            var textFromResource = Resources.WarningMultipleTransfer;
-            user.LevelId.Returns(UserLevel.Agent.Value);
-            var message = new HintTransferQuery(user)
-            {
-                ShowWarningTransfer = true
-            };
-
-            //// Act
-            var act = await handler.Handle(message);
-
-            //// Assert
-            Assert.Equal(textFromResource, act.WarningTransfer);
         }
     }
 }

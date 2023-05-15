@@ -189,9 +189,6 @@
   <data name="Member" xml:space="preserve">
     <value>회원</value>
   </data>
-  <data name="WarningMultipleTransfer" xml:space="preserve">
-    <value>Warning: if yesterday balance is full transfered, the highlighted members below will have negative bet credit and consequently, they might lose more than their given credit.</value>
-  </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>해당 기능에 대한 권한이 없습니다.</value>
   </data>

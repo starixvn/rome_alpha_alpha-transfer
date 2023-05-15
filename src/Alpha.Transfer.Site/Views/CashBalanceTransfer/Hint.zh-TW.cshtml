@@ -20,10 +20,6 @@
         {
             <li>@Html.Raw(Model.AllowTransfer)</li>
         }
-        @if (!string.IsNullOrEmpty(Model.WarningTransfer))
-        {
-            <li>@Html.Raw(Model.WarningTransfer)</li>
-        }
         <li>您可以根據自己的需要每天做無限次交易（包括昨天余額和現金余額）。</li>
         <li>為了確保處理數據時的準確性，所有交易均無法進行。</li>
         <li>@Resources.showhidecolumnAd</li>

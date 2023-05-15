@@ -189,9 +189,6 @@
   <data name="Member" xml:space="preserve">
     <value>สมาชิก</value>
   </data>
-  <data name="WarningMultipleTransfer" xml:space="preserve">
-    <value>คำเตือน: หากยอดเงินถูกโอนจาก"ยอดคงเหลือเมื่อวาน" สมาชิกที่ไฮไลต์ด้านล่างนี้จะมียอดเครดิตเดิมพันติดลบและอาจจะเสียมากกว่าวงเงินเครดิตของพวกเขา</value>
-  </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>คุณไม่มีอำนาจในการเข้าใช้งานฟังก์ชันนี้</value>
   </data>

@@ -67,7 +67,7 @@
                 : string.Empty;
             var isAllDayBalTransfer = await transferService.IsAllDayBalanceTransferAsync(message.CustId);
 
-            return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer, isAllDayBalTransfer);
+            return new HintTransferViewModel(allowTransfer, isAllDayBalTransfer);
         }
     }
 }

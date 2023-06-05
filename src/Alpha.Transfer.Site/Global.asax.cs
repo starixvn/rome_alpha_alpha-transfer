@@ -28,6 +28,7 @@
     using Web;
     using Web.Filters;
     using Web.Helpers;
+    using Alpha.Transfer.Site.Utilities;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -48,7 +49,7 @@
                 .StartNewSession()
                 .Use(new OldConnectionStringProvider())
                 .UseDefaultDbSettingProvider(resourcePath: AppSettings.StoreProcedurePath, enableWatching: true)
-                .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
+                .UseShardDbSettingProvider()
                 .Run();
 
             AppSettings.Verify();

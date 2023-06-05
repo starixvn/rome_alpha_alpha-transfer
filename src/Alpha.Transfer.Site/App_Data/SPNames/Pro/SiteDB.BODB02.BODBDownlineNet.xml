@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Functions SiteId="105" SiteName="Member Information">  
+  <Function Name="Transfer All and Clear Credit">    
+    <Setting Key="SiteDB_Age_Customer_TotalAmount_Sel" SpName="Age_Customer_TotalAmount_Sel" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
+  </Function>	
+</Functions>

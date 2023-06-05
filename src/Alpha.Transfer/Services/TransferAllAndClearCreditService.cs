@@ -3,6 +3,7 @@
     using System.Linq;
     using Criteria.TransferAllAndClearCredit;
     using DataAccesses;
+    using Fanex.Data.Repository;
     using Models.TransferAllAndClearCredit;
     using Params.TransferAllAndClearCredit;
 
@@ -16,9 +17,13 @@
     public class TransferAllAndClearCreditServiceImpl : TransferAllAndClearCreditService
     {
         private readonly TransferAllAndClearCreditDataAccess transferAllAndClearCreditDataAccess;
+        private readonly IDynamicRepository repository;
 
-        public TransferAllAndClearCreditServiceImpl(TransferAllAndClearCreditDataAccess transferAllAndClearCreditDataAccess)
+        public TransferAllAndClearCreditServiceImpl(
+            IDynamicRepository dynamicRepository,
+            TransferAllAndClearCreditDataAccess transferAllAndClearCreditDataAccess)
         {
+            repository = dynamicRepository;
             this.transferAllAndClearCreditDataAccess = transferAllAndClearCreditDataAccess;
         }
 
@@ -46,16 +51,29 @@
                     param.IsAllDayBalanceTransfer));
 
             var clearCreditResult = (skipTransfer || transferResult.IsSuccess) && param.IsClearCredit
-                ? transferAllAndClearCreditDataAccess.ClearCredit(new ClearCreditCriteria(
+                ? ClearCredit(param)
+                : new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty, Enumerable.Empty<string>());
+
+            return new TransferResult(transferResult, clearCreditResult, skipTransfer);
+        }
+
+        private ClearCreditResult ClearCredit(GetTransferResultParam param)
+        {
+            var command = new GetCustomerInfoCriteria(param.Username);
+            repository.Execute(command);
+
+            var totalAmts = repository.Fetch<TotalAmtModel>(new GetTotalAmtCriteria(command.CustId, command.RoleId));
+
+            var result = transferAllAndClearCreditDataAccess.ClearCredit(new ClearCreditCriteria(
                     param.CustId,
                     param.UserId,
                     param.SubAccId,
                     param.Username,
                     param.IP,
-                    param.Language))
-                    : new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty, Enumerable.Empty<string>());
+                    param.Language,
+                    totalAmts));
 
-            return new TransferResult(transferResult, clearCreditResult, skipTransfer);
+            return result;
         }
     }
 }

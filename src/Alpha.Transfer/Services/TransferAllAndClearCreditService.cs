@@ -29,7 +29,21 @@
 
         public TransferResult GetCalculateResult(GetCalculationResultParam param)
         {
-            var criteria = new GetCalculateResultCriteria(param.CustId, param.Username, param.Language, param.AllowedTotalBalanceTransferSuperIds, param.IsAllDayBalanceTransfer);
+            var getDownlineCriteria = new GetDownlineTransferCriteria(param.CustId, param.Username);
+            repository.Execute(getDownlineCriteria);
+
+            var getNetPositionCriteria = new GetNetPositionCriteria(getDownlineCriteria.DownlineCustId, getDownlineCriteria.DownlineRoleId);
+            var netPositionModels = repository.Fetch<NetPositionModel>(getNetPositionCriteria);
+
+            var criteria = new GetCalculateResultCriteria(
+                param.CustId, 
+                param.Username, 
+                param.Language, 
+                param.AllowedTotalBalanceTransferSuperIds, 
+                param.IsAllDayBalanceTransfer,
+                netPositionModels,
+                getDownlineCriteria.DownlineCustId);
+
             var transferResult = transferAllAndClearCreditDataAccess.GetCalculateResult(criteria);
             return transferResult;
         }

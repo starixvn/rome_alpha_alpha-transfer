@@ -21,7 +21,7 @@
         public bool IsAllDayBalanceTransfer(int custId)
             => transferDataAccess.IsAllDayBalanceTransfer(new GetIsAllDayBalTransferCriteria(custId));
 
-        public Task<bool> IsAllDayBalanceTransferAsync(int custId)
-            => transferDataAccess.IsAllDayBalanceTransferAsync(new GetIsAllDayBalTransferCriteria(custId));
+        public async Task<bool> IsAllDayBalanceTransferAsync(int custId)
+            => await transferDataAccess.IsAllDayBalanceTransferAsync(new GetIsAllDayBalTransferCriteria(custId));
     }
 }

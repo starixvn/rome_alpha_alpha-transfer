@@ -49,7 +49,7 @@
         public string ErrMsg { get; set; }
 
         public override string GetSettingKey()
-            => "Age_Transfer_All_Ins";
+            => "SiteDB_Age_Transfer_All_Ins";
 
         public override bool IsValid()
             => !string.IsNullOrWhiteSpace(Username);

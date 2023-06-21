@@ -24,45 +24,49 @@
             var transferSteps = new List<TransferStep>();
             var clearCreditSteps = new List<ClearCreditStep>();
             var conditions = new List<string>();
-
+            
             using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                using (var reader = objectDb.ExecuteReader(criteria.GetSpParams()))
+                if (criteria.IsValid())
                 {
-                    if (reader != null)
+                    using (var reader = objectDb.ExecuteReader(criteria.GetSpParams()))
                     {
-                        while (reader.Read())
-                        {
-                            conditions.Add(Converter.ToString2(reader["Content"]));
-                        }
-
-                        if (reader.NextResult())
+                        if (reader != null)
                         {
                             while (reader.Read())
                             {
-                                var transferStep = new TransferStep(
-                                    Converter.To<byte>(reader["RowId"]),
-                                    Converter.ToDecimal(reader["TransferableAmount"]),
-                                    reader["MemberOutStanding"] == DBNull.Value ? (decimal?)null : Converter.ToDecimal(reader["MemberOutStanding"]));
-                                transferSteps.Add(transferStep);
+                                conditions.Add(Converter.ToString2(reader["Content"]));
                             }
-                        }
 
-                        if (reader.NextResult())
-                        {
-                            while (reader.Read())
+                            if (reader.NextResult())
                             {
-                                var clearCreditStep = new ClearCreditStep(
-                                    Converter.To<byte>(reader["RowId"]),
-                                    Converter.ToDecimal(reader["GivenCredit"]),
-                                    Converter.ToDecimal(reader["ClearableCredit"]));
-                                clearCreditSteps.Add(clearCreditStep);
+                                while (reader.Read())
+                                {
+                                    var transferStep = new TransferStep(
+                                        Converter.To<byte>(reader["RowId"]),
+                                        Converter.ToDecimal(reader["TransferableAmount"]),
+                                        reader["MemberOutStanding"] == DBNull.Value ? (decimal?)null : Converter.ToDecimal(reader["MemberOutStanding"]));
+                                    transferSteps.Add(transferStep);
+                                }
                             }
-                        }
 
-                        reader.Close();
+                            if (reader.NextResult())
+                            {
+                                while (reader.Read())
+                                {
+                                    var clearCreditStep = new ClearCreditStep(
+                                        Converter.To<byte>(reader["RowId"]),
+                                        Converter.ToDecimal(reader["GivenCredit"]),
+                                        Converter.ToDecimal(reader["ClearableCredit"]));
+                                    clearCreditSteps.Add(clearCreditStep);
+                                }
+                            }
+
+                            reader.Close();
+                        }
                     }
                 }
+
             }
 
             return new TransferResult(transferSteps, clearCreditSteps, conditions);

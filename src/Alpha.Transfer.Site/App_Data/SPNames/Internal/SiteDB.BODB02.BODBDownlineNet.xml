@@ -2,5 +2,11 @@
 <Functions SiteId="105" SiteName="Member Information">  
   <Function Name="Transfer All and Clear Credit">    
     <Setting Key="SiteDB_Age_Customer_TotalAmount_Sel" SpName="Age_Customer_TotalAmount_Sel" DbName="SiteDB.BODB02.BODBDownlineNetView" Plain="0" />
-  </Function>	
+    <Setting Key="SiteDB_Age_GetCustomerNetPosition" SpName="Age_GetCustomerNetPosition" DbName="SiteDB.BODB02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="SiteDB_Age_Transfer_All_Ins" SpName="Age_Transfer_All_Ins" DbName="SiteDB.BODB02.BODBDownlineNetView" Plain="0" />
+  </Function>
+
+  <Function Name="Cash Balance Transfer">
+    <Setting Key="SiteDB_Age_Transfer_CashBalance_Ins" SpName="Age_Transfer_CashBalance_Ins" DbName="SiteDB.BODB02.BODBDownlineNetView" Plain="0" />
+  </Function>
 </Functions>

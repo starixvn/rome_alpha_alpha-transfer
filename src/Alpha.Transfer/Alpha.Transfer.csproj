@@ -215,6 +215,8 @@
     <Compile Include="Criteria\GetIsAllDayBalTransferCriteria.cs" />
     <Compile Include="Criteria\GetTransferOptionCriteria.cs" />
     <Compile Include="Criteria\MultipleTransfer\GetCustomerListCriteria.cs" />
+    <Compile Include="Criteria\TransferAllAndClearCredit\GetNetPositionCriteria.cs" />
+    <Compile Include="Criteria\TransferAllAndClearCredit\GetDownlineTransferCriteria.cs" />
     <Compile Include="Criteria\TransferAllAndClearCredit\GetCustomerInfoCriteria.cs" />
     <Compile Include="Criteria\TransferAllAndClearCredit\GetTotalAmtCriteria.cs" />
     <Compile Include="Criteria\TransferAllAndClearCredit\ClearCreditCriteria.cs" />
@@ -238,6 +240,7 @@
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\ClearCreditStep.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\ClearCreditResult.cs" />
+    <Compile Include="Models\TransferAllAndClearCredit\NetPositionModel.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TotalAmtModel.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferAllResult.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferResult.cs" />

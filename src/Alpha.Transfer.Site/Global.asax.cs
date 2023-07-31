@@ -49,6 +49,7 @@
                 .StartNewSession()
                 .Use(new OldConnectionStringProvider())
                 .UseDefaultDbSettingProvider(resourcePath: AppSettings.StoreProcedurePath, enableWatching: true)
+                .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
                 .UseShardDbSettingProvider()
                 .Run();
 

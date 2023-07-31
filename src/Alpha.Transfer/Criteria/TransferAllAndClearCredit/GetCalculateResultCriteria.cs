@@ -1,7 +1,10 @@
 ﻿namespace Alpha.Transfer.Criteria.TransferAllAndClearCredit
 {
+    using Alpha.Transfer.Models.TransferAllAndClearCredit;
     using Fanex.Data;
     using Fanex.Data.Repository;
+    using System.Collections.Generic;
+    using System.Text;
 
     public class GetCalculateResultCriteria : CriteriaBase
     {
@@ -10,14 +13,29 @@
             string username,
             string language,
             string allowedTotalBalanceTransferSuperIds,
-            bool isAllDayBalanceTransfer)
+            bool isAllDayBalanceTransfer,
+            IEnumerable<NetPositionModel> netPositions,
+            int downlineCustId)
         {
             CustId = custId;
             Username = username;
             Language = language;
             AllowedTotalBalanceTransferSuperIds = allowedTotalBalanceTransferSuperIds;
             IsAllDayBalanceTransfer = isAllDayBalanceTransfer;
+            DownlineCustId = downlineCustId;
+
+            var xmlData = new StringBuilder("<ROOT>");
+            foreach (var item in netPositions)
+            {
+                xmlData.Append(item.ToXML);
+            }
+            xmlData.Append("</ROOT>");
+            DownlineNetPosition = xmlData.ToString();
         }
+
+        public string DownlineNetPosition { get; set; }
+
+        public int DownlineCustId { get; set; }
 
         public int CustId { get; set; }
 
@@ -36,6 +54,6 @@
             => "Age_Transfer_Credit_All_Sel";
 
         public override bool IsValid()
-            => !string.IsNullOrWhiteSpace(Username);
+            => !string.IsNullOrWhiteSpace(Username) && DownlineCustId > 0;
     }
 }

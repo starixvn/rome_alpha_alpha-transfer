@@ -42,7 +42,7 @@
 
         public string ErrMsg { get; set; }
 
-        public override string GetSettingKey() => "Age_Transfer_CashBalance_Ins";
+        public override string GetSettingKey() => "SiteDB_Age_Transfer_CashBalance_Ins";
 
         public override bool IsValid() =>
             FromCustId > 0 &&

@@ -10,7 +10,7 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Age_Transfer_All_Ins";
+            var expectedSettingKey = "SiteDB_Age_Transfer_All_Ins";
             var criteria = new TransferAllCriteria(1, 1, 1, string.Empty, string.Empty, string.Empty, string.Empty, false);
 
             // Act

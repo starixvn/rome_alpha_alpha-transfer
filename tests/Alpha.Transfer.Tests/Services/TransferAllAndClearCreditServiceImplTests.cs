@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Transfer.Tests.Services
 {
     using Alpha.Transfer.Params.TransferAllAndClearCredit;
+    using Fanex.Data.Repository;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
@@ -17,6 +18,7 @@
     {
         private readonly AnyValueCreatorFixture anyValueCreatorFixture;
         private readonly TransferAllAndClearCreditDataAccess repository;
+        private readonly IDynamicRepository dynamicRepository;        
         private readonly TransferAllAndClearCreditServiceImpl serviceImpl;
         private readonly CompareLogic compareLogic;
 
@@ -25,7 +27,8 @@
             this.anyValueCreatorFixture = anyValueCreatorFixture;
 
             repository = Substitute.For<TransferAllAndClearCreditDataAccess>();
-            serviceImpl = new TransferAllAndClearCreditServiceImpl(repository);
+            dynamicRepository = Substitute.For<IDynamicRepository>();
+            serviceImpl = new TransferAllAndClearCreditServiceImpl(dynamicRepository, repository);
             compareLogic = new CompareLogic();
         }
 

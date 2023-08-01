@@ -32,7 +32,7 @@
         public void GetCalculateResult_NullDataReturnFromDb_ReturnsDefaultData()
         {
             // Arrange
-            var criteria = new GetCalculateResultCriteria(0, string.Empty, string.Empty, string.Empty, false);
+            var criteria = new GetCalculateResultCriteria(0, string.Empty, string.Empty, string.Empty, false, new List<NetPositionModel>(), 0);
 
             IDataReader dataReader = null;
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataReader);
@@ -50,7 +50,7 @@
         public void GetCalculateResult_NoCredit_ReturnsDataFromObjectDb()
         {
             // Arrange
-            var criteria = new GetCalculateResultCriteria(0, string.Empty, string.Empty, string.Empty, false);
+            var criteria = new GetCalculateResultCriteria(0, "user1", string.Empty, string.Empty, false, new List<NetPositionModel>(), 1);
 
             var dataSet = TransferAllAndClearCreditDatabase.Calculation_NoCredit.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
@@ -74,7 +74,7 @@
         public void GetCalculateResult_TransferCredit_ReturnsDataFromObjectDb()
         {
             // Arrange
-            var criteria = new GetCalculateResultCriteria(0, string.Empty, string.Empty, string.Empty, false);
+            var criteria = new GetCalculateResultCriteria(0, "user1", string.Empty, string.Empty, false, new List<NetPositionModel>(), 1);
 
             var dataSet = TransferAllAndClearCreditDatabase.Calculation_TransferCredit.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
@@ -103,7 +103,7 @@
         public void GetCalculateResult_NoTransferAndNoCredit_ReturnsDataFromObjectDb()
         {
             // Arrange
-            var criteria = new GetCalculateResultCriteria(0, string.Empty, string.Empty, string.Empty, false);
+            var criteria = new GetCalculateResultCriteria(0, "user1", string.Empty, string.Empty, false, new List<NetPositionModel>(), 1);
 
             var dataSet = TransferAllAndClearCreditDatabase.Calculation_NoTransferAndNoCredit.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
@@ -195,7 +195,7 @@
         public void ClearCredit_NullDataReturnFromDb_ReturnsDefaultData()
         {
             // Arrange
-            var criteria = new ClearCreditCriteria(0, 1, 2, string.Empty, string.Empty, string.Empty);
+            var criteria = new ClearCreditCriteria(0, 1, 2, string.Empty, string.Empty, string.Empty, new List<TotalAmtModel>());
 
             IDataReader dataReader = null;
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataReader);
@@ -218,7 +218,7 @@
         public void ClearCredit_HasData_ReturnsCorrectData()
         {
             // Arrange
-            var criteria = new ClearCreditCriteria(0, 1, 2, string.Empty, string.Empty, string.Empty);
+            var criteria = new ClearCreditCriteria(0, 1, 2, string.Empty, string.Empty, string.Empty, new List<TotalAmtModel>());
 
             var dataSet = TransferAllAndClearCreditDatabase.ClearCredit.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
@@ -246,7 +246,7 @@
         public void ClearCredit_NoData_ReturnsCorrectData()
         {
             // Arrange
-            var criteria = new ClearCreditCriteria(0, 1, 2, string.Empty, string.Empty, string.Empty);
+            var criteria = new ClearCreditCriteria(0, 1, 2, string.Empty, string.Empty, string.Empty, new List<TotalAmtModel>());
 
             var dataSet = TransferAllAndClearCreditDatabase.ClearCreditNoData.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);

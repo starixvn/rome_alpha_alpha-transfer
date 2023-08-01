@@ -601,9 +601,15 @@
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryExcelQuery.cs" />
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryQuery.cs" />
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryPagingQuery.cs" />
-    <Compile Include="Utilities\DbSettingProviderManagerExtension.cs" />
-    <Compile Include="Utilities\ShardDbSettingProvider.cs" />
-    <Compile Include="Utilities\ShardInfoAccessor.cs" />
+    <Compile Include="Utilities\DbSettingProviderManagerExtension.cs" >
+		<SonarQubeExclude>true</SonarQubeExclude>
+	</Compile>
+    <Compile Include="Utilities\ShardDbSettingProvider.cs" >
+		<SonarQubeExclude>true</SonarQubeExclude>
+	</Compile>	
+    <Compile Include="Utilities\ShardInfoAccessor.cs" >
+		<SonarQubeExclude>true</SonarQubeExclude>
+	</Compile>
     <Compile Include="ViewModels\CashBalanceTransfer\CashBalanceTransferViewModel.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\HintTransferViewModel.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />

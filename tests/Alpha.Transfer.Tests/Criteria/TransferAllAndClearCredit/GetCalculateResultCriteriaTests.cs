@@ -1,5 +1,7 @@
 ﻿namespace Alpha.Transfer.Tests.Criteria.TransferAllAndClearCredit
 {
+    using Alpha.Transfer.Models.TransferAllAndClearCredit;
+    using System.Collections.Generic;
     using Transfer.Criteria.TransferAllAndClearCredit;
     using Xunit;
 
@@ -11,7 +13,7 @@
         {
             // Arrange
             var expectedSettingKey = "Age_Transfer_Credit_All_Sel";
-            var criteria = new GetCalculateResultCriteria(1, string.Empty, string.Empty, string.Empty, false);
+            var criteria = new GetCalculateResultCriteria(1, string.Empty, string.Empty, string.Empty, false, new List<NetPositionModel>(), 0);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -29,13 +31,27 @@
         public void IsValid_CustId_ReturnsTrue(string username, bool expectedValue)
         {
             // Arrange
-            var criteria = new GetCalculateResultCriteria(1, username, string.Empty, string.Empty, false);
+            var criteria = new GetCalculateResultCriteria(1, username, string.Empty, string.Empty, false, new List<NetPositionModel>(), 1);
 
             // Act
             var actualValue = criteria.IsValid();
 
             // Assert
             Assert.Equal(expectedValue, actualValue);
+        }
+
+        [Fact]
+        public void DownlineNetPosition_Always_CorrectXMLData()
+        {
+            // Arrange            
+            var criteria = new GetCalculateResultCriteria(1, string.Empty, string.Empty, string.Empty, false, new List<NetPositionModel>(), 0);
+
+            // Act
+            var actualSettingKey = criteria.DownlineNetPosition;
+
+            // Assert
+            Assert.True(actualSettingKey.Contains("<ROOT>"));
+            Assert.True(actualSettingKey.Contains("</ROOT>"));
         }
     }
 }

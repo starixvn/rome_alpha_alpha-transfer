@@ -10,7 +10,7 @@
         public void AddCashBalanceTransferCriteria_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Age_Transfer_CashBalance_Ins";
+            var expectedSettingKey = "SiteDB_Age_Transfer_CashBalance_Ins";
             var criteria = new AddCashBalanceTransferCriteria(1176070, 1176083, 1101240.32M, 1176070, 0, "127.0.0.1", "E");
 
             // Act

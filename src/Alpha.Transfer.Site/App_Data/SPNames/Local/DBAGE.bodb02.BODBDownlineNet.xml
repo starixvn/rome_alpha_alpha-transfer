@@ -7,6 +7,7 @@
     <Setting Key="Age_CustomerSelCheckBelonging" SpName="Age_CustomerSelCheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" SpName="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCheckBelonging_MultiCust" SpName="Age_CustomerSelCheckBelonging_MultiCust" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Cash Balance Transfer">
     <Setting Key="Age_Transfer_CashBalance_Sel" SpName="Age_Transfer_CashBalance_Sel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
@@ -24,9 +25,9 @@
     </Setting>
   </Function>
   <Function Name="Multiple Transfer">
-	<!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
+    <!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
     <!-- <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" /> -->
-	<!-- 107963 - End-->
+    <!-- 107963 - End-->
     <Setting Key="Age_Transfer_SelList_MAg" SpName="Age_Transfer_SelList_MAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_Transfer_SelList_SAg" SpName="Age_Transfer_SelList_SAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>

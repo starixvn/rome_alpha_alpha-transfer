@@ -129,7 +129,7 @@
             var userSession = UserSession.Current;
             var enabled = AppSettings.IsEnableAutoTransfer(userSession.Currency, userSession.IsSubAcc, userSession.SubPageAccess);
 
-            if ((userSession.IsSubAcc && !userSession.SubPageAccess.Transfer) || !enabled)
+            if (!enabled)
             {
                 filterContext.Result = new HttpUnauthorizedResult("You are not authorized on this function!");
 

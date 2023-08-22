@@ -549,4 +549,7 @@
   <data name="Ignored" xml:space="preserve">
     <value>ละเว้น</value>
   </data>
+  <data name="AutoTransferGuideline" xml:space="preserve">
+    <value>คู่มือระบบโอนอัตโนมัติ</value>
+  </data>
 </root>

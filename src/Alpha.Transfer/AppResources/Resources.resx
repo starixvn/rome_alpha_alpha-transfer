@@ -567,4 +567,7 @@
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
     <value>The Auto Transfer has been enabled for this account. However, this process is running, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions.</value>
   </data>
+  <data name="AutoTransferGuideline" xml:space="preserve">
+    <value>Auto Transfer Guideline</value>
+  </data>
 </root>

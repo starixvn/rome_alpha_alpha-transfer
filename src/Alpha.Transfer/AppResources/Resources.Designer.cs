@@ -232,6 +232,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer Guideline.
+        /// </summary>
+        public static string AutoTransferGuideline {
+            get {
+                return ResourceManager.GetString("AutoTransferGuideline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Auto Transfer History.
         /// </summary>
         public static string AutoTransferHistory {

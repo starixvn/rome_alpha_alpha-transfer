@@ -549,4 +549,7 @@
   <data name="Ignored" xml:space="preserve">
     <value>忽视</value>
   </data>
+  <data name="AutoTransferGuideline" xml:space="preserve">
+    <value>自动转账指南</value>
+  </data>
 </root>

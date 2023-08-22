@@ -15,7 +15,7 @@
         <li>Cụm từ "Số dư tài khoản" sẽ được ghi trong phần Chi tiết giao dịch.</li>
     </ul>
     <p>Ghi chú</p>
-    <ul>
+    <ul class="ul-remark">
         @if (!string.IsNullOrEmpty(Model.AllowTransfer))
         {
             <li>@Html.Raw(Model.AllowTransfer)</li>
@@ -28,11 +28,20 @@
 else
 {
     <p>Ghi chú</p>
-    <ul>
+    <ul class="ul-remark">
         @if (!string.IsNullOrEmpty(Model.AllowTransfer))
         {
             <li>@Html.Raw(Model.AllowTransfer)</li>
         }
         <li>@Resources.showhidecolumnAd</li>
+    </ul>
+}
+
+@if (Model.IsEnabledAutoTransfer)
+{
+    <ul>
+        <li>The Auto Transfer process will be executed at <span class="blue-text">12:15 AM </span>(GMT+8)</li>
+        <li>To ensure the accuracy of data while auto transfer us running, you CANNOT transfer to your downline whose auto transfer option is on at the process time.</li>
+        <li>If you turn ON auto transfer setting during the process time, it will take effect at the next schedule defined by your account's Transfer Condition.</li>
     </ul>
 }

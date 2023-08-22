@@ -363,9 +363,6 @@
   <data name="Today" xml:space="preserve">
     <value>Hôm nay</value>
   </data>
-  <data name="Yesterday_Duplicate[1]" xml:space="preserve">
-    <value>Hôm qua</value>
-  </data>
   <data name="LastWeek" xml:space="preserve">
     <value>Tuần trước</value>
   </data>
@@ -435,7 +432,52 @@
   <data name="DisallowedAllDayBalanceTransferError" xml:space="preserve">
     <value>Cấp trên đã áp giới hạn thời gian chuyển khoản trong ngày của bạn. Trang web này sẽ tự động làm mới để cập nhật các cài đặt mới.</value>
   </data>
+  <data name="UsernameOrFirstLastName" xml:space="preserve">
+    <value>Tên đăng nhập hoặc Tên/Họ</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>Hiển thị {from} đến {to} của {total}</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Chọn tất cả</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Đã chọn</value>
+  </data>
+  <data name="SelectNone" xml:space="preserve">
+    <value>Bỏ chọn tất cả</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>Mở</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="Waiting" xml:space="preserve">
+    <value>Đang Chờ</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Kết thúc</value>
+  </data>
+  <data name="First_LastName" xml:space="preserve">
+    <value>Họ / tên</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>Tiền Chưa Chuyển Về Từ Trò Chơi</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Chưa xử lý</value>
   </data>
 </root>

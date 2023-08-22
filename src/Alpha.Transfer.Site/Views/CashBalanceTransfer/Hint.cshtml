@@ -15,7 +15,7 @@
         <li>"Cash Balance" phrase will be noted in transfer details accordingly.</li>
     </ul>
     <p>Remark</p>
-    <ul>
+    <ul class="ul-remark">
         @if (!string.IsNullOrEmpty(Model.AllowTransfer))
         {
             <li>@Html.Raw(Model.AllowTransfer)</li>
@@ -28,11 +28,20 @@
 else
 {
     <p>Remark</p>
-    <ul>
+    <ul class="ul-remark">
         @if (!string.IsNullOrEmpty(Model.AllowTransfer))
         {
             <li>@Html.Raw(Model.AllowTransfer)</li>
         }
         <li>@Resources.showhidecolumnAd</li>
+    </ul>
+}
+
+@if (Model.IsEnabledAutoTransfer)
+{
+    <ul>
+        <li>@Resources.AutoTransfer_InfoSettingTime</li>
+        <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
+        <li>@Resources.AutoTransfer_InfoAffectTime2</li>
     </ul>
 }

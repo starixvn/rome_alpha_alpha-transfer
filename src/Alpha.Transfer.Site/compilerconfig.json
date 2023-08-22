@@ -1,54 +1,78 @@
 ﻿[
-  {
-    "outputFile": "assets/styles/site.css",
-    "inputFile": "assets/styles/site.scss"
-  },
-  {
-    "outputFile": "assets/styles/site-mobile.css",
-    "inputFile": "assets/styles/site-mobile.scss"
-  },
-  {
-    "outputFile": "assets/styles/datepicker-mobile.css",
-    "inputFile": "assets/styles/datepicker-mobile.scss"
-  },
-  {
-    "outputFile": "assets/styles/transfer-all-clear-credit.css",
-    "inputFile": "assets/styles/transfer-all-clear-credit.scss"
-  },
-  {
-    "outputFile": "assets/bundles/cash-balance-transfer.css",
-    "inputFile": "assets/styles/cash-balance-transfer.scss"
-  },
-  {
-    "outputFile": "assets/bundles/transfer-hint.css",
-    "inputFile": "assets/styles/transfer-hint.scss"
-  },
-  {
-    "outputFile": "assets/styles/transfer-to-downline-history/index.css",
-    "inputFile": "assets/styles/transfer-to-downline-history/index.scss"
-  },
-  {
-    "outputFile": "assets/styles/transfer-to-downline-history/index-mobile.css",
-    "inputFile": "assets/styles/transfer-to-downline-history/index-mobile.scss"
-  },
-  {
-    "outputFile": "assets/styles/cash-balance-transfer-dark.css",
-    "inputFile": "assets/styles/cash-balance-transfer-dark.scss"
-  },
-  {
-    "outputFile": "assets/styles/site-dark.css",
-    "inputFile": "assets/styles/site-dark.scss"
-  },
-  {
-    "outputFile": "assets/styles/transfer-all-clear-credit-dark.css",
-    "inputFile": "assets/styles/transfer-all-clear-credit-dark.scss"
-  },
-  {
-    "outputFile": "assets/styles/transfer-hint-dark.css",
-    "inputFile": "assets/styles/transfer-hint-dark.scss"
-  },
-  {
-    "outputFile": "assets/styles/transfer-to-downline-history/index-dark.css",
-    "inputFile": "assets/styles/transfer-to-downline-history/index-dark.scss"
-  }
+    {
+        "outputFile": "assets/styles/site.css",
+        "inputFile": "assets/styles/site.scss"
+    },
+    {
+        "outputFile": "assets/styles/site-mobile.css",
+        "inputFile": "assets/styles/site-mobile.scss"
+    },
+    {
+        "outputFile": "assets/styles/datepicker-mobile.css",
+        "inputFile": "assets/styles/datepicker-mobile.scss"
+    },
+    {
+        "outputFile": "assets/styles/transfer-all-clear-credit.css",
+        "inputFile": "assets/styles/transfer-all-clear-credit.scss"
+    },
+    {
+        "outputFile": "assets/bundles/cash-balance-transfer.css",
+        "inputFile": "assets/styles/cash-balance-transfer.scss"
+    },
+    {
+        "outputFile": "assets/bundles/transfer-hint.css",
+        "inputFile": "assets/styles/transfer-hint.scss"
+    },
+    {
+        "outputFile": "assets/styles/transfer-to-downline-history/index.css",
+        "inputFile": "assets/styles/transfer-to-downline-history/index.scss"
+    },
+    {
+        "outputFile": "assets/styles/transfer-to-downline-history/index-mobile.css",
+        "inputFile": "assets/styles/transfer-to-downline-history/index-mobile.scss"
+    },
+    {
+        "outputFile": "assets/styles/cash-balance-transfer-dark.css",
+        "inputFile": "assets/styles/cash-balance-transfer-dark.scss"
+    },
+    {
+        "outputFile": "assets/styles/site-dark.css",
+        "inputFile": "assets/styles/site-dark.scss"
+    },
+    {
+        "outputFile": "assets/styles/transfer-all-clear-credit-dark.css",
+        "inputFile": "assets/styles/transfer-all-clear-credit-dark.scss"
+    },
+    {
+        "outputFile": "assets/styles/transfer-hint-dark.css",
+        "inputFile": "assets/styles/transfer-hint-dark.scss"
+    },
+    {
+        "outputFile": "assets/styles/transfer-to-downline-history/index-dark.css",
+        "inputFile": "assets/styles/transfer-to-downline-history/index-dark.scss"
+    },
+    {
+        "outputFile": "assets/styles/auto-transfer/multiple-update.css",
+        "inputFile": "assets/styles/auto-transfer/multiple-update.scss"
+    },
+    {
+        "outputFile": "assets/styles/auto-transfer/multiple-update-dark.css",
+        "inputFile": "assets/styles/auto-transfer/multiple-update-dark.scss"
+    },
+    {
+        "outputFile": "assets/styles/auto-transfer/monitoring.css",
+        "inputFile": "assets/styles/auto-transfer/monitoring.scss"
+    },
+    {
+        "outputFile": "assets/styles/auto-transfer/monitoring-dark.css",
+        "inputFile": "assets/styles/auto-transfer/monitoring-dark.scss"
+    },
+    {
+        "outputFile": "assets/styles/refresh-countdown.css",
+        "inputFile": "assets/styles/refresh-countdown.scss"
+    },
+    {
+        "outputFile": "assets/styles/refresh-countdown-dark.css",
+        "inputFile": "assets/styles/refresh-countdown-dark.scss"
+    }
 ]

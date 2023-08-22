@@ -19,6 +19,8 @@
     public class TransferToDownlineHistoryControllerTests
     {
         private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
+        private const string InvalidTransferStatusViewPath = "~/Views/Shared/InvalidTransferStatus.cshtml";
+
         private const string InvalidExcelFileName = "InvalidExcelFile.xls";
 
         private readonly IMediator mediator;
@@ -56,7 +58,7 @@
                 CustName = "CustName",
                 CustLevelId = 2
             };
-
+            transferService.IsAllDayBalanceTransfer(message.ViewerId).Returns(true);
             // Act
             controller.Index(message);
 
@@ -65,21 +67,16 @@
         }
 
         [Fact]
-        public void Index_InvalidQuery_ReturnsInvalidePage()
+        public void Index_InvalidQuery_ReturnsInvalidPage()
         {
             // Arrange
-            var message = new TransferToDownlineHistoryQuery(user)
-            {
-                CustId = 1,
-                CustName = "CustName",
-                CustLevelId = 4
-            };
+            TransferToDownlineHistoryQuery message = null;
 
             // Act
             var actualValue = controller.Index(message);
 
             // Assert
-            Assert.Equal(InvalidPageViewPath, ((ViewResult)actualValue).ViewName);
+            Assert.Equal(InvalidTransferStatusViewPath, ((ViewResult)actualValue).ViewName);
         }
 
         [Fact]
@@ -92,6 +89,7 @@
                 CustName = "CustName",
                 CustLevelId = 2
             };
+            transferService.IsAllDayBalanceTransfer(message.ViewerId).Returns(true);
 
             mediator
                 .Send(Arg.Any<TransferToDownlineHistoryExcelQuery>())
@@ -101,7 +99,7 @@
             controller.Excel(message);
 
             // Assert
-            mediator.Received().Send(Arg.Is(message));
+            mediator.Received().Send(message);
         }
 
         [Fact]
@@ -114,6 +112,7 @@
                 CustName = "CustName",
                 CustLevelId = 4
             };
+            transferService.IsAllDayBalanceTransfer(message.ViewerId).Returns(true);
 
             // Act
             var actualValue = controller.Excel(message) as FileContentResult;
@@ -132,7 +131,7 @@
                 CustName = "CustName",
                 CustLevelId = 2
             };
-
+            transferService.IsAllDayBalanceTransfer(message.ViewerId).Returns(true);
             mediator.Send(Arg.Any<TransferToDownlineHistoryPagingQuery>())
                 .Returns(new TransferToDownlineHistoryPagingViewModel(
                     new List<TransferToDownlineHistoryModel>(),
@@ -142,7 +141,7 @@
             controller.GetTransferToDownlineHistoryData(message);
 
             // Assert
-            mediator.Received().Send(Arg.Is(message));
+            mediator.Received().Send(message);
         }
     }
 }

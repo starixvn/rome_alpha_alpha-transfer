@@ -79,6 +79,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are allowed to transfer on.
         /// </summary>
         public static string AllowTransfer {
@@ -106,6 +115,141 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer.
+        /// </summary>
+        public static string AutoTransfer {
+            get {
+                return ResourceManager.GetString("AutoTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job&apos;s cancelled!.
+        /// </summary>
+        public static string AutoTransfer_CancelSuccess {
+            get {
+                return ResourceManager.GetString("AutoTransfer_CancelSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Once enabled, the Auto Transfer process is scheduled to occur at 12:00 PM (GMT+8) - {0}..
+        /// </summary>
+        public static string AutoTransfer_InfoAffectTime {
+            get {
+                return ResourceManager.GetString("AutoTransfer_InfoAffectTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you ENABLE Auto Transfer during its runtime, the Auto Transfer process will take effect at the next scheduled time according to your transfer condition..
+        /// </summary>
+        public static string AutoTransfer_InfoAffectTime2 {
+            get {
+                return ResourceManager.GetString("AutoTransfer_InfoAffectTime2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To ensure the accuracy of data during Auto Transfer process, you CANNOT transfer to your downline whose Auto Transfer is enabled..
+        /// </summary>
+        public static string AutoTransfer_InfoCannotTransfer {
+            get {
+                return ResourceManager.GetString("AutoTransfer_InfoCannotTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Auto Transfer process is scheduled to run at 12:00 PM (GMT+8)..
+        /// </summary>
+        public static string AutoTransfer_InfoSettingTime {
+            get {
+                return ResourceManager.GetString("AutoTransfer_InfoSettingTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Auto Transfer has been enabled for these accounts. However, this process is running, and these accounts will be queued for Auto Transfer at the next scheduled time based on their transfer conditions..
+        /// </summary>
+        public static string AutoTransfer_MultipleAffectNextConditionWarning {
+            get {
+                return ResourceManager.GetString("AutoTransfer_MultipleAffectNextConditionWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Auto Transfer has been enabled for this account. However, this process is running, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions..
+        /// </summary>
+        public static string AutoTransfer_MultipleAffectNextConditionWarning_Single {
+            get {
+                return ResourceManager.GetString("AutoTransfer_MultipleAffectNextConditionWarning_Single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot disable Auto Transfer for these accounts because the Auto Transfer process is in progress. Please try again after the process has been completed..
+        /// </summary>
+        public static string AutoTransfer_MultipleErrorProccessing {
+            get {
+                return ResourceManager.GetString("AutoTransfer_MultipleErrorProccessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot disable Auto Transfer for this account because the Auto Transfer process is in progress. Please try again after the process has been completed..
+        /// </summary>
+        public static string AutoTransfer_MultipleErrorProccessing_Single {
+            get {
+                return ResourceManager.GetString("AutoTransfer_MultipleErrorProccessing_Single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update successfully!.
+        /// </summary>
+        public static string AutoTransfer_UpdateSuccess {
+            get {
+                return ResourceManager.GetString("AutoTransfer_UpdateSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer for account {0} has been successfully disabled..
+        /// </summary>
+        public static string AutoTransfer_UpdateSuccessOff {
+            get {
+                return ResourceManager.GetString("AutoTransfer_UpdateSuccessOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer for account {0} has been successfully enabled..
+        /// </summary>
+        public static string AutoTransfer_UpdateSuccessOn {
+            get {
+                return ResourceManager.GetString("AutoTransfer_UpdateSuccessOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer History.
+        /// </summary>
+        public static string AutoTransferHistory {
+            get {
+                return ResourceManager.GetString("AutoTransferHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer Monitor.
+        /// </summary>
+        public static string AutoTransferMonitoring {
+            get {
+                return ResourceManager.GetString("AutoTransferMonitoring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount to transfer must be between {0} and {1}..
         /// </summary>
         public static string AvailableRangeTransfer {
@@ -129,6 +273,24 @@ namespace Alpha.Transfer.AppResources {
         public static string Calculate {
             get {
                 return ResourceManager.GetString("Calculate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled.
+        /// </summary>
+        public static string Cancelled {
+            get {
+                return ResourceManager.GetString("Cancelled", resourceCulture);
             }
         }
         
@@ -259,11 +421,65 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Columns.
+        /// </summary>
+        public static string Columns {
+            get {
+                return ResourceManager.GetString("Columns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed.
+        /// </summary>
+        public static string Completed {
+            get {
+                return ResourceManager.GetString("Completed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed Time.
+        /// </summary>
+        public static string CompletedTime {
+            get {
+                return ResourceManager.GetString("CompletedTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to cancel Auto Transfer process for this account?.
+        /// </summary>
+        public static string confirmCancelJob {
+            get {
+                return ResourceManager.GetString("confirmCancelJob", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to transfer?.
         /// </summary>
         public static string ConfirmTransfer {
             get {
                 return ResourceManager.GetString("ConfirmTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for these accounts?.
+        /// </summary>
+        public static string confirmTurnOffAutoTransfer {
+            get {
+                return ResourceManager.GetString("confirmTurnOffAutoTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for these accounts?.
+        /// </summary>
+        public static string confirmTurnOnAutoTransfer {
+            get {
+                return ResourceManager.GetString("confirmTurnOnAutoTransfer", resourceCulture);
             }
         }
         
@@ -322,6 +538,24 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed.
+        /// </summary>
+        public static string Failed {
+            get {
+                return ResourceManager.GetString("Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First / Last Name.
+        /// </summary>
+        public static string First_LastName {
+            get {
+                return ResourceManager.GetString("First_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FirstName {
@@ -372,6 +606,15 @@ namespace Alpha.Transfer.AppResources {
         public static string HintRangeTransfer {
             get {
                 return ResourceManager.GetString("HintRangeTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ignored.
+        /// </summary>
+        public static string Ignored {
+            get {
+                return ResourceManager.GetString("Ignored", resourceCulture);
             }
         }
         
@@ -493,6 +736,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        public static string New {
+            get {
+                return ResourceManager.GetString("New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Balance.
         /// </summary>
         public static string NewBalance {
@@ -502,11 +754,29 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No information is available.
         /// </summary>
         public static string NoInformationIsAvailable {
             get {
                 return ResourceManager.GetString("NoInformationIsAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string NoRefresh {
+            get {
+                return ResourceManager.GetString("NoRefresh", resourceCulture);
             }
         }
         
@@ -529,11 +799,29 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string Off {
+            get {
+                return ResourceManager.GetString("Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Old Balance.
         /// </summary>
         public static string OldBalance {
             get {
                 return ResourceManager.GetString("OldBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On.
+        /// </summary>
+        public static string On {
+            get {
+                return ResourceManager.GetString("On", resourceCulture);
             }
         }
         
@@ -565,11 +853,29 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Displaying {from} to {to} of {total} items.
+        /// </summary>
+        public static string Pager_DisplayItems {
+            get {
+                return ResourceManager.GetString("Pager_DisplayItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page Size.
         /// </summary>
         public static string PageSize {
             get {
                 return ResourceManager.GetString("PageSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pending.
+        /// </summary>
+        public static string Pending {
+            get {
+                return ResourceManager.GetString("Pending", resourceCulture);
             }
         }
         
@@ -583,11 +889,74 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Processing.
+        /// </summary>
+        public static string Processing {
+            get {
+                return ResourceManager.GetString("Processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reason.
+        /// </summary>
+        public static string Reason {
+            get {
+                return ResourceManager.GetString("Reason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saturday.
         /// </summary>
         public static string Saturday {
             get {
                 return ResourceManager.GetString("Saturday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search column.
+        /// </summary>
+        public static string SearchColumn {
+            get {
+                return ResourceManager.GetString("SearchColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select all.
+        /// </summary>
+        public static string SelectAll {
+            get {
+                return ResourceManager.GetString("SelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to selected.
+        /// </summary>
+        public static string Selected {
+            get {
+                return ResourceManager.GetString("Selected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select none.
+        /// </summary>
+        public static string SelectNone {
+            get {
+                return ResourceManager.GetString("SelectNone", resourceCulture);
             }
         }
         
@@ -972,9 +1341,27 @@ namespace Alpha.Transfer.AppResources {
         /// <summary>
         ///   Looks up a localized string similar to Username or First/Last Name.
         /// </summary>
+        public static string UsernameOrFirstLastName {
+            get {
+                return ResourceManager.GetString("UsernameOrFirstLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username or First/Last Name.
+        /// </summary>
         public static string UsernamePlaceHolder {
             get {
                 return ResourceManager.GetString("UsernamePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting.
+        /// </summary>
+        public static string Waiting {
+            get {
+                return ResourceManager.GetString("Waiting", resourceCulture);
             }
         }
         

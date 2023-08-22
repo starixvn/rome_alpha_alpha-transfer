@@ -1,9 +1,12 @@
 ﻿<Functions SiteId="105" SiteName="Member Information">
-  <Function Name="Transfer">
-    <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_GetIsAllDayBalTransfer" SpName="Age_GetIsAllDayBalTransfer" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
-  </Function>
-  <Function Name="Transfer All and Clear Credit">
-    <Setting Key="Age_ClearCredit_All_Ins" SpName="Age_ClearCredit_All_Ins" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
-  </Function>
+    <Function Name="Transfer">
+        <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+        <Setting Key="Age_GetIsAllDayBalTransfer" SpName="Age_GetIsAllDayBalTransfer" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    </Function>
+    <Function Name="Transfer All and Clear Credit">
+        <Setting Key="Age_ClearCredit_All_Ins" SpName="Age_ClearCredit_All_Ins" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    </Function>
+    <Function Name="Auto Transfer">
+        <Setting Key="Age_ClearBalanceCust_SettingUpdate" SpName="Age_ClearBalanceCust_SettingUpdate" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    </Function>
 </Functions>

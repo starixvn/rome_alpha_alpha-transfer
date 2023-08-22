@@ -438,4 +438,133 @@
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>3rd Party Pending Transfer</value>
   </data>
+  <data name="confirmCancelJob" xml:space="preserve">
+    <value>Would you like to cancel Auto Transfer process for this account?</value>
+  </data>
+  <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
+    <value>Would you like to enable Auto Transfer for these accounts?</value>
+  </data>
+  <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
+    <value>Would you like to disable Auto Transfer for these accounts?</value>
+  </data>
+  <data name="AutoTransfer_InfoSettingTime" xml:space="preserve">
+    <value>The Auto Transfer process is scheduled to run at 12:00 PM (GMT+8).</value>
+  </data>
+  <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
+    <value>To ensure the accuracy of data during Auto Transfer process, you CANNOT transfer to your downline whose Auto Transfer is enabled.</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
+    <value>Once enabled, the Auto Transfer process is scheduled to occur at 12:00 PM (GMT+8) - {0}.</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
+    <value>Update successfully!</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="AutoTransferMonitoring" xml:space="preserve">
+    <value>Auto Transfer Monitor</value>
+  </data>
+  <data name="AutoTransferHistory" xml:space="preserve">
+    <value>Auto Transfer History</value>
+  </data>
+  <data name="UsernameOrFirstLastName" xml:space="preserve">
+    <value>Username or First/Last Name</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Waiting" xml:space="preserve">
+    <value>Waiting</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>Displaying {from} to {to} of {total} items</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>selected</value>
+  </data>
+  <data name="SelectNone" xml:space="preserve">
+    <value>Select none</value>
+  </data>
+  <data name="SearchColumn" xml:space="preserve">
+    <value>Search column</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
+    <value>If you ENABLE Auto Transfer during its runtime, the Auto Transfer process will take effect at the next scheduled time according to your transfer condition.</value>
+  </data>
+  <data name="CompletedTime" xml:space="preserve">
+    <value>Completed Time</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="First_LastName" xml:space="preserve">
+    <value>First / Last Name</value>
+  </data>
+  <data name="NoRefresh" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="AutoTransfer_CancelSuccess" xml:space="preserve">
+    <value>Job's cancelled!</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="AutoTransfer" xml:space="preserve">
+    <value>Auto Transfer</value>
+  </data>
+  <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
+    <value>The Auto Transfer has been enabled for these accounts. However, this process is running, and these accounts will be queued for Auto Transfer at the next scheduled time based on their transfer conditions.</value>
+  </data>
+  <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
+    <value>You cannot disable Auto Transfer for these accounts because the Auto Transfer process is in progress. Please try again after the process has been completed.</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccessOn" xml:space="preserve">
+    <value>Auto Transfer for account {0} has been successfully enabled.</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccessOff" xml:space="preserve">
+    <value>Auto Transfer for account {0} has been successfully disabled.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Ignored" xml:space="preserve">
+    <value>Ignored</value>
+  </data>
+  <data name="AutoTransfer_MultipleErrorProccessing_Single" xml:space="preserve">
+    <value>You cannot disable Auto Transfer for this account because the Auto Transfer process is in progress. Please try again after the process has been completed.</value>
+  </data>
+  <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
+    <value>The Auto Transfer has been enabled for this account. However, this process is running, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions.</value>
+  </data>
 </root>

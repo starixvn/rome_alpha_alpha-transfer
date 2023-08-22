@@ -21,7 +21,7 @@
 
         public ActionResult Index(TransferToDownlineHistoryQuery message)
         {
-            if (transferService.IsAllDayBalanceTransfer(message.ViewerId))
+            if (message != null && transferService.IsAllDayBalanceTransfer(message.ViewerId))
             {
                 return View(message);
             }
@@ -31,7 +31,7 @@
 
         public ActionResult Excel(TransferToDownlineHistoryExcelQuery message)
         {
-            if (transferService.IsAllDayBalanceTransfer(message.ViewerId))
+            if (message != null && transferService.IsAllDayBalanceTransfer(message.ViewerId))
             {
                 return ExcelView(message);
             }

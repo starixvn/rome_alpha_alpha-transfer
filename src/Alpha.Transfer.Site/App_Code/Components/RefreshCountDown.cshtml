@@ -1,0 +1,21 @@
+﻿@using Alpha.Transfer.AppResources;
+
+@helper Render(int[] intervals)
+{
+    <div class="form-group">
+        <div class="dropdown btn btn-default btn-countdown">
+            <span class="icon-refresh"></span>
+            <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span id="ddlRefresh" data-norefresh="@Resources.NoRefresh">@Resources.NoRefresh</span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="refresh-value" aria-labelledby="dropdownMenu2">
+                <li><a href="javascript:void(0);" data-refresh-value="-1">@Resources.NoRefresh</a></li>
+                @foreach (var i in intervals)
+                {
+                    <li><a href="javascript:void(0);" data-refresh-value="@i">@i</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+}

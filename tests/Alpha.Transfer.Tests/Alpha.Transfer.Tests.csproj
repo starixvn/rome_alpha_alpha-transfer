@@ -277,6 +277,11 @@
     <Compile Include="Configurations\AppSettingsTests.cs" />
     <Compile Include="Constants\DefaultVariablesTest.cs" />
     <Compile Include="Constants\RoleId.cs" />
+    <Compile Include="Criteria\AutoTransfer\GetJobStatusCriteriaTests.cs" />
+    <Compile Include="Criteria\AutoTransfer\GetTodayTransfersCriteriaTests.cs" />
+    <Compile Include="Criteria\AutoTransfer\GetHistoryTransfersCriteriaTests.cs" />
+    <Compile Include="Criteria\AutoTransfer\UpdateMultipleCriteriaTests.cs" />
+    <Compile Include="Criteria\AutoTransfer\CancelJobCriteriaTests.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\AddCashBalanceTransferCriteriaTests.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\GetCashBalanceTransferCriteriaTests.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\GetTransferOptionCriteriaTests.cs" />
@@ -294,6 +299,7 @@
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Extensions\DateTimeExtensionsTests.cs" />
+    <Compile Include="Extensions\IEnumerableExtensionsTests.cs" />
     <Compile Include="Extensions\NumberExtensionsTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="Fixtures\ObjectDbFixture.cs" />
@@ -301,6 +307,7 @@
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\JsonHelperTests.cs" />
     <Compile Include="ModelsForTesting\UserLevelForTesting.cs" />
+    <Compile Include="Models\AutoTransfer\AutoTransferMonitoringModelTest.cs" />
     <Compile Include="Models\ResultTests.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferAllResultTests.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferResultTests.cs" />
@@ -309,6 +316,7 @@
     <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryPagingParamTests.cs" />
     <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryParamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AutoTransferServiceImplTests.cs" />
     <Compile Include="Services\CashBalanceTransferServiceImplTests.cs" />
     <Compile Include="Services\MultipleTransferServiceImplTests.cs" />
     <Compile Include="Services\TransferAllAndClearCreditServiceImplTests.cs" />
@@ -359,6 +367,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

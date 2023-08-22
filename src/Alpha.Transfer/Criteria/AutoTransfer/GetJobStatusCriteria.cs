@@ -1,0 +1,33 @@
+﻿using Alpha.Transfer.Constants;
+using Fanex.Data.Repository;
+
+namespace Alpha.Transfer.Criteria.AutoTransfer
+{
+  public class GetJobStatusCriteria : NonQueryCommand
+  {
+    public GetJobStatusCriteria(int fromCustId, int toCustId, string status)
+    {
+      FromCustId = fromCustId;
+      ToCustId = toCustId;
+      IsAllowAutoTransfer = string.Equals(AutoTransferConstant.On, status, System.StringComparison.InvariantCultureIgnoreCase);
+      ErrCode = 0;
+      ErrMsg = string.Empty;
+    }
+
+    public int FromCustId { get; }
+
+    public int ToCustId { get; }
+
+    public bool IsAllowAutoTransfer { get; }
+
+    public bool IsAutoJobRunning { get; set; }
+
+    public int ErrCode { get; set; }
+
+    public string ErrMsg { get; set; }
+
+    public override string GetSettingKey() => "SiteDB_Age_ClearBalanceCust_Job_StatusCheck";
+
+    public override bool IsValid() => true;
+  }
+}

@@ -38,5 +38,10 @@
         public DateTime LimitedDateToShowInfo => userSession.GetProperty<DateTime>("CustomerDateLimit");
 
         public string Site => userSession.Site;
+
+        public string Currency => userSession.Currency;
+
+        public bool IsSubAcc => userSession.IsSubAcc;
+        public PageAccess SubPageAccess => userSession.SubPageAccess;
     }
 }

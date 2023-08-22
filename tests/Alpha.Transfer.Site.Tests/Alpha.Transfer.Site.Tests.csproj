@@ -195,12 +195,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\UserCollection.cs" />
+    <Compile Include="Controllers\AutoTransferControllerTests.cs" />
     <Compile Include="Controllers\CashBalanceTransferControllerTests.cs" />
     <Compile Include="Controllers\MultipleTransferControllerTests.cs" />
     <Compile Include="Controllers\TransferAllAndClearCreditControllerTests.cs" />
     <Compile Include="Controllers\TransferToDownlineHistoryControllerTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Fixtures\UserFixture.cs" />
+    <Compile Include="Handlers\AutoTransferHandlerTests.cs" />
     <Compile Include="Handlers\CashBalanceTransferHandlerTests.cs" />
     <Compile Include="Handlers\MultipleTransferHandlerTests.cs" />
     <Compile Include="Handlers\TransferAllAndClearCreditHandlerTests.cs" />
@@ -210,7 +212,13 @@
     <Compile Include="Helpers\QueryEntityModelBinderTests.cs" />
     <Compile Include="Models\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requests\TransferToDownlineHistoryBaseQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\CancelJobQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\UpdateQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\UpdateMultipleQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\GetTransferConditionQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\GetTodayTransfersQueryTests.cs" />
+    <Compile Include="Requests\AutoTransfer\GetHistoryTransfersQueryTests.cs" />
+    <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryBaseQueryTests.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModelTests.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModelTests.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModelTests.cs" />
@@ -239,6 +247,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

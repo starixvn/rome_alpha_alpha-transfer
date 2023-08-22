@@ -224,7 +224,7 @@ input[type="button"][disabled] {
 .output {
     @include border-radius(1px);
     @include box-shadow-multiple('0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)');
-    background: #313131 ;
+    background: #313131;
     position: absolute;
     border: 1px solid #474747;
     color: #e7e7e7;

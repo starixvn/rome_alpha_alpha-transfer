@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Multiple Update Auto Transfer";
+}
+
+@using Alpha.Transfer.Site.ViewModels.AutoTransfer;
+@model GetTransferConditionViewModel
+
+@section Styles {
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/auto-transfer/multiple-update")
+}
+
+<div id="result-msg" class="msg hide"></div>
+<div class="div-usernames">@Model.Usernames.Replace(",", ", ")</div>
+<div class="auto-transfer">
+    @Resources.AutoTransfer:
+    <div id="switch-auto-transfer" class="switch-auto-transfer"></div>
+</div>
+
+<ul>
+    <li>@string.Format(Resources.AutoTransfer_InfoAffectTime, Model.TransferCondition)</li>
+    <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
+</ul>
+
+<input type="hidden" id="custIds" value="@Model.SearchAccountIds" />
+@Html.Hidden("confirmTurnOnAutoTransfer", Resources.confirmTurnOnAutoTransfer)
+@Html.Hidden("confirmTurnOffAutoTransfer", Resources.confirmTurnOffAutoTransfer)
+@Html.Hidden("autoTransferUpdateSuccess", Resources.AutoTransfer_UpdateSuccess)
+@Html.Hidden("lblOn", Resources.On)
+@Html.Hidden("lblOff", Resources.Off)
+@Html.Hidden("usernames", Model.Usernames)
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/auto-transfer/multiple-update")
+}

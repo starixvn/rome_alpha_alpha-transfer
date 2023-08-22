@@ -1,9 +1,9 @@
 ﻿namespace Alpha.Transfer.Services
 {
+    using System;
     using System.Collections.Generic;
-    using System.Text;
+    using System.Linq;
     using System.Threading.Tasks;
-    using Alpha.Transfer.Configurations;
     using AppResources;
     using Criteria;
     using Criteria.CashBalanceTransfer;
@@ -30,6 +30,7 @@
             string languageKey);
 
         Task<string> GetAllowTransfer(int custId);
+        Task<Tuple<bool, IEnumerable<string>>> GetTransferCondition(int custId);
     }
 
     public class CashBalanceTransferServiceImpl : CashBalanceTransferService
@@ -107,51 +108,53 @@
 
         public async Task<string> GetAllowTransfer(int custId)
         {
+            var (isDaily, days) = await GetTransferCondition(custId);
+            var transferCondition = isDaily ? Resources.Daily : string.Join(" - ", days);
+
+            return Resources.AllowTransfer + (string.IsNullOrEmpty(transferCondition) ? string.Empty : " " + transferCondition);
+        }
+
+        public async Task<Tuple<bool, IEnumerable<string>>> GetTransferCondition(int custId)
+        {
             string transferOption = await GetTransferOption(custId);
 
-            string transferTime = Resources.AllowTransfer;
             char[] charArray = transferOption.ToCharArray();
 
-            if (charArray.Length > 0)
+            if (charArray.Length == 0)
             {
-                StringBuilder dayBuilder = new StringBuilder();
-                string[] dayArray =
-                {
-                    Resources.Sunday,
-                    Resources.Monday,
-                    Resources.Tuesday,
-                    Resources.Wednesday,
-                    Resources.Thursday,
-                    Resources.Friday,
-                    Resources.Saturday
-                };
-
-                for (int i = 1, max = charArray.Length; i < max - 1; i++)
-                {
-                    if (charArray[i] == '1')
-                    {
-                        dayBuilder.Append(" - ").Append(dayArray[i]);
-                    }
-                }
-
-                if (charArray[0] == '1')
-                {
-                    dayBuilder.Append(" - ").Append(dayArray[0]);
-                }
-
-                string day = dayBuilder.ToString();
-
-                if (day.Length > 0)
-                {
-                    day = day.Substring(3);
-                }
-
-                transferTime += charArray[7] == '1' ?
-                    " " + day :
-                    " " + Resources.Daily;
+                return new Tuple<bool, IEnumerable<string>>(false, Enumerable.Empty<string>());
             }
 
-            return transferTime;
+            const int dayInWeek = 7;
+            if (charArray[dayInWeek] != '1')
+            {
+                return new Tuple<bool, IEnumerable<string>>(true, Enumerable.Empty<string>());
+            }
+
+            var dayBuilder = new List<string>();
+
+            string[] dayArray =
+            {
+                Resources.Sunday,
+                Resources.Monday,
+                Resources.Tuesday,
+                Resources.Wednesday,
+                Resources.Thursday,
+                Resources.Friday,
+                Resources.Saturday
+            };
+
+            for (int i = 1, max = charArray.Length; i < max; i++)
+            {
+                var id = i % dayInWeek;
+
+                if (charArray[id] == '1')
+                {
+                    dayBuilder.Add(dayArray[id]);
+                }
+            }
+
+            return new Tuple<bool, IEnumerable<string>>(false, dayBuilder);
         }
 
         private async Task<string> GetTransferOption(int custId)

@@ -209,7 +209,13 @@
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Constants\PagerConstant.cs" />
+    <Compile Include="Constants\AutoTransferConstant.cs" />
     <Compile Include="Constants\StatusConstant.cs" />
+    <Compile Include="Criteria\AutoTransfer\GetHistoryTransfersCriteria.cs" />
+    <Compile Include="Criteria\AutoTransfer\GetTodayTransfersCriteria.cs" />
+    <Compile Include="Criteria\AutoTransfer\CancelJobCriteria.cs" />
+    <Compile Include="Criteria\AutoTransfer\GetJobStatusCriteria.cs" />
+    <Compile Include="Criteria\AutoTransfer\UpdateMultipleCriteria.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\AddCashBalanceTransferCriteria.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\GetCashBalanceTransferCriteria.cs" />
     <Compile Include="Criteria\GetIsAllDayBalTransferCriteria.cs" />
@@ -228,10 +234,13 @@
     <Compile Include="DataAccesses\TransferObjectDbFactory.cs" />
     <Compile Include="DataAccesses\TransferAllAndClearCreditDataAccess.cs" />
     <Compile Include="DataAccesses\TransferToDownlineHistoryDataAccess.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\NumberExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
+    <Compile Include="Models\AutoTransfer\AutoTransferMonitoringModel.cs" />
+    <Compile Include="Models\AutoTransfer\AutoTransferMonitoringPageModel.cs" />
     <Compile Include="Models\CashBalanceTransfer\CashBalanceTransfer.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\IUser.cs" />
@@ -247,12 +256,16 @@
     <Compile Include="Models\TransferAllAndClearCredit\TransferStep.cs" />
     <Compile Include="Models\TransferToDownlineHistory\TransferToDownlineHistoryModel.cs" />
     <Compile Include="Models\UserLevel.cs" />
+    <Compile Include="Params\AutoTransfer\CancelJobParam.cs" />
+    <Compile Include="Params\AutoTransfer\GetHistoryTransfersParam.cs" />
+    <Compile Include="Params\AutoTransfer\GetTodayTransfersParam.cs" />
     <Compile Include="Params\MultipleTransfer\GetCustomerListParam.cs" />
     <Compile Include="Params\TransferAllAndClearCredit\GetCalculationResultParam.cs" />
     <Compile Include="Params\TransferAllAndClearCredit\GetTransferResultParam.cs" />
     <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryPagingParam.cs" />
     <Compile Include="Params\TransferToDownlineHistory\TransferToDownlineHistoryParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AutoTransferService.cs" />
     <Compile Include="Services\CashBalanceTransferService.cs" />
     <Compile Include="Services\MultipleTransferService.cs" />
     <Compile Include="Services\TransferAllAndClearCreditService.cs" />

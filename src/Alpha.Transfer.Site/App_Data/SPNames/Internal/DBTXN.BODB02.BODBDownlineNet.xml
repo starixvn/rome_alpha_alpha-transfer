@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Functions SiteId="105" SiteName="Member Information">  
-	<!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
+<Functions SiteId="105" SiteName="Member Information">
+  <!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
   <Function Name="Multiple Transfer">
-	<Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag_ForDBTrans" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag_ForDBTrans" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
   </Function>
-	<!-- 107963 - End-->
+  <!-- 107963 - End-->
 </Functions>

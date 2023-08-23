@@ -448,13 +448,13 @@
     <value>Would you like to disable Auto Transfer for these accounts?</value>
   </data>
   <data name="AutoTransfer_InfoSettingTime" xml:space="preserve">
-    <value>The Auto Transfer process is scheduled to run at 12:00 PM (GMT+8).</value>
+    <value>The Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8).</value>
   </data>
   <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
     <value>To ensure the accuracy of data during Auto Transfer process, you CANNOT transfer to your downline whose Auto Transfer is enabled.</value>
   </data>
   <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
-    <value>Once enabled, the Auto Transfer process is scheduled to occur at 12:00 PM (GMT+8) - {0}.</value>
+    <value>Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8) in accordance with your transfer condition ({0}).</value>
   </data>
   <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
     <value>Update successfully!</value>
@@ -475,7 +475,7 @@
     <value>Username or First/Last Name</value>
   </data>
   <data name="New" xml:space="preserve">
-    <value>New</value>
+    <value>Ready to Transfer</value>
   </data>
   <data name="Waiting" xml:space="preserve">
     <value>Waiting</value>
@@ -526,7 +526,7 @@
     <value>Cancelled</value>
   </data>
   <data name="First_LastName" xml:space="preserve">
-    <value>First / Last Name</value>
+    <value>First/ Last Name</value>
   </data>
   <data name="NoRefresh" xml:space="preserve">
     <value>No</value>
@@ -544,7 +544,7 @@
     <value>Auto Transfer</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
-    <value>The Auto Transfer has been enabled for these accounts. However, this process is running, and these accounts will be queued for Auto Transfer at the next scheduled time based on their transfer conditions.</value>
+    <value>The Auto Transfer has been enabled for these accounts. However, this process is taking place, and these accounts will be queued for Auto Transfer at the next scheduled time based on their transfer conditions.</value>
   </data>
   <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
     <value>You cannot disable Auto Transfer for these accounts because the Auto Transfer process is in progress. Please try again after the process has been completed.</value>
@@ -565,9 +565,12 @@
     <value>You cannot disable Auto Transfer for this account because the Auto Transfer process is in progress. Please try again after the process has been completed.</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
-    <value>The Auto Transfer has been enabled for this account. However, this process is running, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions.</value>
+    <value>The Auto Transfer has been enabled for this account. However, this process is taking place, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions.</value>
   </data>
   <data name="AutoTransferGuideline" xml:space="preserve">
     <value>Auto Transfer Guideline</value>
+  </data>
+  <data name="ReadyToTransfer" xml:space="preserve">
+    <value>Ready to Transfer</value>
   </data>
 </root>

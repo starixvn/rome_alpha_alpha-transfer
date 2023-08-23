@@ -48,9 +48,8 @@
                             data-label-search="@Resources.Search"
                             multiple="multiple"
                             class="select-multiple">
-                        <option value="New" selected="selected">@Resources.New</option>
-                        <option value="Waiting" selected="selected">@Resources.Waiting</option>
-                        <option value="Processing" selected="selected">@Resources.Processing</option>
+                        <option value="New" selected="selected">@Resources.ReadyToTransfer</option>
+                        <option value="Waiting,Processing" selected="selected">@Resources.Processing</option>
                         <option value="Completed" selected="selected">@Resources.Completed</option>
                         <option value="Failed" selected="selected">@Resources.Failed</option>
                         <option value="Cancelled" selected="selected">@Resources.Cancelled</option>
@@ -117,7 +116,7 @@
 @Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)
 @Html.Hidden("ViewerId", Model.ViewerId)
 @Html.Hidden("SubAccId", Model.SubAccId)
-@Html.Hidden("New", Resources.New)
+@Html.Hidden("New", Resources.ReadyToTransfer)
 @Html.Hidden("Waiting", Resources.Waiting)
 @Html.Hidden("Processing", Resources.Processing)
 @Html.Hidden("Completed", Resources.Completed)

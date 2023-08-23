@@ -466,7 +466,7 @@
     <value>Kết thúc</value>
   </data>
   <data name="First_LastName" xml:space="preserve">
-    <value>Họ / tên</value>
+    <value>Họ/ tên</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Hủy</value>

@@ -23,7 +23,6 @@ namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
 
         public IEnumerable<SelectListItem> Columns
             => new[] {
-                new SelectListItem { Text = Resources.No, Value = "1" },
                 new SelectListItem { Text = Resources.First_LastName, Value = "3" },
                 new SelectListItem { Text = Resources.TransferAmount, Value = "4" },
                 new SelectListItem { Text = Resources.Status, Value = "5" },

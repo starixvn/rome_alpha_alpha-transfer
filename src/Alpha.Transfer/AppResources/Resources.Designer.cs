@@ -133,7 +133,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once enabled, the Auto Transfer process is scheduled to occur at 12:00 PM (GMT+8) - {0}..
+        ///   Looks up a localized string similar to Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8) in accordance with your transfer condition ({0})..
         /// </summary>
         public static string AutoTransfer_InfoAffectTime {
             get {
@@ -160,7 +160,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Auto Transfer process is scheduled to run at 12:00 PM (GMT+8)..
+        ///   Looks up a localized string similar to The Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8)..
         /// </summary>
         public static string AutoTransfer_InfoSettingTime {
             get {
@@ -169,7 +169,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Auto Transfer has been enabled for these accounts. However, this process is running, and these accounts will be queued for Auto Transfer at the next scheduled time based on their transfer conditions..
+        ///   Looks up a localized string similar to The Auto Transfer has been enabled for these accounts. However, this process is taking place, and these accounts will be queued for Auto Transfer at the next scheduled time based on their transfer conditions..
         /// </summary>
         public static string AutoTransfer_MultipleAffectNextConditionWarning {
             get {
@@ -178,7 +178,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Auto Transfer has been enabled for this account. However, this process is running, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions..
+        ///   Looks up a localized string similar to The Auto Transfer has been enabled for this account. However, this process is taking place, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions..
         /// </summary>
         public static string AutoTransfer_MultipleAffectNextConditionWarning_Single {
             get {
@@ -556,7 +556,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First / Last Name.
+        ///   Looks up a localized string similar to First/ Last Name.
         /// </summary>
         public static string First_LastName {
             get {
@@ -745,7 +745,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New.
+        ///   Looks up a localized string similar to Ready to Transfer.
         /// </summary>
         public static string New {
             get {
@@ -903,6 +903,15 @@ namespace Alpha.Transfer.AppResources {
         public static string Processing {
             get {
                 return ResourceManager.GetString("Processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready to Transfer.
+        /// </summary>
+        public static string ReadyToTransfer {
+            get {
+                return ResourceManager.GetString("ReadyToTransfer", resourceCulture);
             }
         }
         

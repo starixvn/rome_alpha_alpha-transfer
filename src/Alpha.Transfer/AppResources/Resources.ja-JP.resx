@@ -355,7 +355,7 @@
     <value>試合終了</value>
   </data>
   <data name="First_LastName" xml:space="preserve">
-    <value>First / Last Name</value>
+    <value>First/ Last Name</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>

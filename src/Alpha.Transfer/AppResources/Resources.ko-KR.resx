@@ -358,7 +358,7 @@
     <value>완료됨</value>
   </data>
   <data name="First_LastName" xml:space="preserve">
-    <value>First / Last Name</value>
+    <value>First/ Last Name</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>취소</value>

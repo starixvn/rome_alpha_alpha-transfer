@@ -8,7 +8,7 @@ namespace Alpha.Transfer.Site.Utilities
         private readonly IShardInfoAccessor _shardInfoAccessor;
 
         public ShardDbSettingProvider(IShardInfoAccessor shardInfoAccessor, string resourcePath)
-            : base(resourcePath, true)
+            : base(resourcePath)
         {
             _shardInfoAccessor = shardInfoAccessor;
         }
@@ -24,12 +24,15 @@ namespace Alpha.Transfer.Site.Utilities
                     DataSource = dbServer
                 };
 
-                var dbSetting = new DbSetting(connectionStr.ToString(), 
-                    originalShardSetting.CustomMappingColumns, 
-                    originalShardSetting.FirmParameters, 
-                    originalShardSetting.DbName, 
-                    originalShardSetting.SpName, 
-                    originalShardSetting.ExecuteTimeout);
+                var dbSetting = new DbSetting(
+                    originalShardSetting.Key,
+                    originalShardSetting.DbName,
+                    connectionStr.ToString(),
+                    originalShardSetting.SpName,
+                    originalShardSetting.CommandTimeout,
+                    originalShardSetting.ColumnMaps,
+                    originalShardSetting.FirmParameters);
+
                 return dbSetting;
             }
 

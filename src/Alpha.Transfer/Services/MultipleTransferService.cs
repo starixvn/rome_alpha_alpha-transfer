@@ -21,9 +21,24 @@
 
         public CustomerListModel GetCustomerList(GetCustomerListParam param)
         {
-            var criteria = new GetCustomerListCriteria(param);
+            var criteria = CreateCriteria(param);
             var data = multipleTransferDataAccess.GetCustomerList(criteria);
             return data;
+        }
+
+        private static GetCustomerListCriteria CreateCriteria(GetCustomerListParam param)
+        {
+            if (param.UserLevel.IsAgentLevel())
+            {
+                return new GetAgentTransferListCriteria(param);
+            }
+
+            if (param.UserLevel.IsMasterLevel())
+            {
+                return new GetMasterTransferListCriteria(param);
+            }
+
+            return new GetSuperTransferListCriteria(param);
         }
     }
 }

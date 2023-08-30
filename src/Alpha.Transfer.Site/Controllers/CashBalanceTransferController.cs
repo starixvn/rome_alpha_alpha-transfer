@@ -3,10 +3,10 @@
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using System.Web.SessionState;
+    using AlphaPlus.User.Models;
     using AppResources;
     using MediatR;
     using Requests.CashBalanceTransfer;
-    using Sunplus.Agent.Model.Entities;
     using Transfer.Models;
 
     [SessionState(SessionStateBehavior.Default)]

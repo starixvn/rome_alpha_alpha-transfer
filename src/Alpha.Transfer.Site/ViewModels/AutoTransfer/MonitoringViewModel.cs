@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Alpha.Transfer.AppResources;
-using Alpha.Web.Helpers;
-using Sunplus.Agent.Model.Entities;
 using Alpha.Transfer.Configurations;
 using Alpha.Transfer.Site.Requests.AutoTransfer;
+using Alpha.Web.Helpers;
+using AlphaPlus.User.Models;
 
 namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
 {

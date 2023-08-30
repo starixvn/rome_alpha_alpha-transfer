@@ -6,6 +6,7 @@
     using System.Configuration;
     using System.Linq;
     using Alpha.Web.Helpers;
+    using AlphaPlus.User.Models;
 
     public static class AppSettings
     {
@@ -57,8 +58,8 @@
             }
         }
 
-        public static string SiteGroup => GetConfigValue("SiteLabel") ?? string.Empty;
+        public static string SiteLabel => GetConfigValue("SiteLabel") ?? string.Empty;
 
-        public static bool IsMBCSite => !SiteGroup.Equals("789y", StringComparison.OrdinalIgnoreCase);
+        public static bool IsMBCSite => !SiteLabel.Equals("789y", StringComparison.OrdinalIgnoreCase);
     }
 }

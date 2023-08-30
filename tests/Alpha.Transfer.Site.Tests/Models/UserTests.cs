@@ -1,9 +1,9 @@
 ﻿namespace Alpha.Transfer.Site.Tests.Models
 {
+    using System;
+    using AlphaPlus.User.Models;
     using NSubstitute;
     using Site.Models;
-    using Sunplus.Agent.Model.Entities;
-    using System;
     using Xunit;
 
     public class UserTests

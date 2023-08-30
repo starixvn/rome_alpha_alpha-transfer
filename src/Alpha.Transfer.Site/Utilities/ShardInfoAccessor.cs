@@ -1,6 +1,5 @@
-﻿using Sunplus.Agent.Model.Entities;
-using System;
-using System.Web;
+﻿using System;
+using AlphaPlus.User.Models;
 
 namespace Alpha.Transfer.Site.Utilities
 {
@@ -11,7 +10,7 @@ namespace Alpha.Transfer.Site.Utilities
 
     public class ShardInfoAccessor : IShardInfoAccessor
     {
-        const string PrefixSiteDB = "sitedb_";
+        private const string PrefixSiteDB = "sitedb_";
 
         public bool TryUseShardDB(string key, out string dbServer)
         {

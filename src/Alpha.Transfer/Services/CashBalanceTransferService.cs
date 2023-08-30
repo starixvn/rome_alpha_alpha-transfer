@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Alpha.Transfer.Configurations;
     using AppResources;
     using Criteria;
     using Criteria.CashBalanceTransfer;
@@ -30,6 +31,7 @@
             string languageKey);
 
         Task<string> GetAllowTransfer(int custId);
+
         Task<Tuple<bool, IEnumerable<string>>> GetTransferCondition(int custId);
     }
 
@@ -63,7 +65,7 @@
             string ip,
             string languageKey)
         {
-            string cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, Web.Configurations.AppSettings.SiteLabel, creator);
+            string cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, AppSettings.SiteLabel, creator);
             TransferCacheService transferCacheService = new TransferCacheServiceImplement(creator, creatorName, cacheService);
 
             var custIdCache = transferCacheService.Get(cacheKey) ?? new List<TransferCacheModel>();

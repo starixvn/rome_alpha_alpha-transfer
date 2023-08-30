@@ -125,7 +125,7 @@
 
             IDataReader dataReader = null;
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataReader);
-            objectDbFixture.ObjectDb.GetOuputParams().Returns(new Hashtable
+            objectDbFixture.ObjectDb.GetOutputParams().Returns(new Hashtable
             {
                 ["ErrCode"] = 1,
                 ["ErrMsg"] = string.Empty
@@ -148,7 +148,7 @@
 
             var dataSet = TransferAllAndClearCreditDatabase.TransferAllHasErrorAndNoData.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
-            objectDbFixture.ObjectDb.GetOuputParams().Returns(new Hashtable
+            objectDbFixture.ObjectDb.GetOutputParams().Returns(new Hashtable
             {
                 ["ErrCode"] = 0,
                 ["ErrMsg"] = string.Empty
@@ -171,7 +171,7 @@
 
             var dataSet = TransferAllAndClearCreditDatabase.TransferAll.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
-            objectDbFixture.ObjectDb.GetOuputParams().Returns(new Hashtable
+            objectDbFixture.ObjectDb.GetOutputParams().Returns(new Hashtable
             {
                 ["ErrCode"] = 0,
                 ["ErrMsg"] = string.Empty
@@ -199,7 +199,7 @@
 
             IDataReader dataReader = null;
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataReader);
-            objectDbFixture.ObjectDb.GetOuputParams().Returns(new Hashtable
+            objectDbFixture.ObjectDb.GetOutputParams().Returns(new Hashtable
             {
                 ["ErrCode"] = 1,
                 ["ErrMsg"] = string.Empty
@@ -222,7 +222,7 @@
 
             var dataSet = TransferAllAndClearCreditDatabase.ClearCredit.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
-            objectDbFixture.ObjectDb.GetOuputParams().Returns(new Hashtable
+            objectDbFixture.ObjectDb.GetOutputParams().Returns(new Hashtable
             {
                 ["ErrCode"] = 0,
                 ["ErrMsg"] = string.Empty
@@ -250,7 +250,7 @@
 
             var dataSet = TransferAllAndClearCreditDatabase.ClearCreditNoData.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);
-            objectDbFixture.ObjectDb.GetOuputParams().Returns(new Hashtable
+            objectDbFixture.ObjectDb.GetOutputParams().Returns(new Hashtable
             {
                 ["ErrCode"] = 0,
                 ["ErrMsg"] = string.Empty

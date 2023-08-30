@@ -1,4 +1,3 @@
-
 namespace Alpha.Transfer.Tests.Services
 {
     using System;
@@ -8,10 +7,8 @@ namespace Alpha.Transfer.Tests.Services
     using Alpha.Transfer.Constants;
     using Alpha.Transfer.Params.AutoTransfer;
     using Fanex.Data.Repository;
-    using Fanex.Logging.Extensions.Database;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
-    using Logging;
     using NSubstitute;
     using Transfer.Criteria.AutoTransfer;
     using Transfer.Models;
@@ -41,8 +38,6 @@ namespace Alpha.Transfer.Tests.Services
         public AutoTransferServiceImplTests(AnyValueCreatorFixture anyValueCreatorFixture)
         {
             this.anyValueCreatorFixture = anyValueCreatorFixture;
-            LoggingConfig.Init(getDbExceptionInfo: DatabaseInfoGetters.GetDbExceptionInfo);
-
             dynamicRepository = Substitute.For<IDynamicRepository>();
             serviceImpl = new AutoTransferServiceImpl(dynamicRepository);
             compareLogic = new CompareLogic();

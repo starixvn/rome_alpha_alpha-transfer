@@ -50,7 +50,11 @@
             => TransferToDownlineHistoryOfferSites.Contains("*", StringComparer.CurrentCultureIgnoreCase)
             || TransferToDownlineHistoryOfferSites.Contains(site, StringComparer.CurrentCultureIgnoreCase);
 
-        public static bool IsEnableAutoTransfer(string currency, bool isSubAcc, PageAccess subPageAccess)
+        public static bool IsEnableAutoTransfer(
+            int custId,
+            string currency,
+            bool isSubAcc,
+            PageAccess subPageAccess)
         {
             if (isSubAcc && !subPageAccess.Transfer)
             {

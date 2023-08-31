@@ -552,4 +552,7 @@
   <data name="AutoTransferGuideline" xml:space="preserve">
     <value>คู่มือระบบโอนอัตโนมัติ</value>
   </data>
+  <data name="ADBTChangeError" xml:space="preserve">
+    <value>บัญชีของคุณไม่สามารถใช้ระบบโอนอัตโนมัติได้ เนื่องจากอัพไลน์ได้เปิดใช้งานระบบโอนยอดคงเหลือตลอดทั้งวันสำหรับบัญชีของคุณ  หน้าแสดงผลนี้จะรีเฟรชโดยอัตโนมัติ</value>
+  </data>
 </root>

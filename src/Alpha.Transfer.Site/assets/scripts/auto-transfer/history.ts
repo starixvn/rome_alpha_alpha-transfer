@@ -130,6 +130,11 @@ class AutoTransferHistory {
     };
 
     showTransfers = (results) => {
+        if (results.Code == 100) {
+            location.reload();
+            return;
+        }
+
         var html = '';
 
         if (results.Transfers.length === 0) {

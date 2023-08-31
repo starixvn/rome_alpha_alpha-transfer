@@ -90,6 +90,12 @@ class MultipleUpdateAutoTransfer {
                     this.$resultMsg.html(results.Message);
                     this.$resultMsg.removeClass('hide');
                     this.$switch.setTheSwitchValue(this.state);
+
+
+                    if (results.Code === 100) {
+                        this.topWindow.reloadMainFrame();
+                    }
+
                     return;
                 }
 

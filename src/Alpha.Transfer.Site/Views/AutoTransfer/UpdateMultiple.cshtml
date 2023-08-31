@@ -17,7 +17,7 @@
 </div>
 
 <ul>
-    <li>@string.Format(Resources.AutoTransfer_InfoAffectTime, Model.TransferCondition)</li>
+    <li>@Html.Raw(string.Format(@Resources.AutoTransfer_InfoAffectTime, Model.TransferCondition))</li>
     <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
 </ul>
 

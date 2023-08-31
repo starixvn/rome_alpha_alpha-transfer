@@ -70,6 +70,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your account cannot use Auto Transfer because upline has enabled All Day Balance Transfer for you. The page will refresh automatically..
+        /// </summary>
+        public static string ADBTChangeError {
+            get {
+                return ResourceManager.GetString("ADBTChangeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Agent.
         /// </summary>
         public static string Agent {
@@ -133,7 +142,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8) in accordance with your transfer condition ({0})..
+        ///   Looks up a localized string similar to Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8) in accordance with your transfer condition &lt;b&gt;({0})&lt;/b&gt;..
         /// </summary>
         public static string AutoTransfer_InfoAffectTime {
             get {

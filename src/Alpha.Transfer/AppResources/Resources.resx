@@ -454,7 +454,7 @@
     <value>To ensure the accuracy of data during Auto Transfer process, you CANNOT transfer to your downline whose Auto Transfer is enabled.</value>
   </data>
   <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
-    <value>Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8) in accordance with your transfer condition ({0}).</value>
+	<value>Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8) in accordance with your transfer condition &lt;b&gt;({0})&lt;/b&gt;.</value>
   </data>
   <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
     <value>Update successfully!</value>
@@ -572,5 +572,8 @@
   </data>
   <data name="ReadyToTransfer" xml:space="preserve">
     <value>Ready to Transfer</value>
+  </data>
+  <data name="ADBTChangeError" xml:space="preserve">
+    <value>Your account cannot use Auto Transfer because upline has enabled All Day Balance Transfer for you. The page will refresh automatically.</value>
   </data>
 </root>

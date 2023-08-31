@@ -782,6 +782,7 @@
     <Content Include="Views\AutoTransfer\Monitoring.cshtml" />
     <Content Include="Views\AutoTransfer\History.cshtml" />
     <Content Include="Views\AutoTransfer\Hint.cshtml" />
+    <Content Include="Views\AutoTransfer\ADBTChange.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

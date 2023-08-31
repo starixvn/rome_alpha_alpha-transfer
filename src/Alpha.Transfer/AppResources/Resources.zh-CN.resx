@@ -552,4 +552,7 @@
   <data name="AutoTransferGuideline" xml:space="preserve">
     <value>自动转账指南</value>
   </data>
+  <data name="ADBTChangeError" xml:space="preserve">
+    <value>您的账号无法使用自动转账，因为您的上线已为您开启全天余额转账。该页面将会自动刷新。</value>
+  </data>
 </root>

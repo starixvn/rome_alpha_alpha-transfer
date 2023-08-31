@@ -7,6 +7,7 @@
     using Alpha.Transfer.AppResources;
     using Alpha.Transfer.Configurations;
     using Alpha.Transfer.Models;
+    using Alpha.Transfer.Services;
     using Alpha.Transfer.Site.Requests.AutoTransfer;
     using Alpha.Transfer.Site.ViewModels.AutoTransfer;
     using MediatR;
@@ -16,11 +17,17 @@
     public class AutoTransferController : SiteBaseController
     {
         private readonly IUserSession userSession;
+        private readonly TransferService transferService;
+        private const string InvalidTransferStatusViewPath = "~/Views/AutoTransfer/ADBTChange.cshtml";
 
-        public AutoTransferController(IMediator mediator, IUserSession userSession)
+        public AutoTransferController(
+            IMediator mediator,
+            IUserSession userSession,
+            TransferService transferService)
             : base(mediator)
         {
             this.userSession = userSession;
+            this.transferService = transferService;
         }
 
         [HttpPost]
@@ -28,7 +35,11 @@
         {
             Result result;
 
-            if (message == null || !message.IsValid())
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
+            }
+            else if (message == null || !message.IsValid())
             {
                 result = Result.CreateErrorResult(Resources.BadRequest, 400);
             }
@@ -47,6 +58,11 @@
         [HttpGet]
         public async Task<ViewResult> UpdateMultiple(UpdateMultipleQuery message)
         {
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                return View(InvalidTransferStatusViewPath);
+            }
+
             var viewModel = await mediator.SendAsync(new GetTransferConditionQuery(message));
 
             return View(viewModel);
@@ -57,7 +73,11 @@
         {
             Result result;
 
-            if (message == null || !message.IsValid())
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
+            }
+            else if (message == null || !message.IsValid())
             {
                 result = Result.CreateErrorResult(Resources.BadRequest, 400);
             }
@@ -75,19 +95,45 @@
 
         [HttpGet]
         public ViewResult Monitoring()
-            => View(new MonitoringViewModel(userSession) { IsProtectedMode = userSession.IsProtectedMode });
+        {
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                return View(InvalidTransferStatusViewPath);
+            }
+
+            return View(new MonitoringViewModel(userSession) { IsProtectedMode = userSession.IsProtectedMode });
+        }
 
         [HttpGet]
         public ViewResult History()
-            => View(new HistoryViewModel(userSession));
+        {
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                return View(InvalidTransferStatusViewPath);
+            }
+
+            return View(new HistoryViewModel(userSession));
+        }
 
         [HttpGet]
         public ViewResult Hint()
-            => View();
+        {
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                return View(InvalidTransferStatusViewPath);
+            }
+
+            return View();
+        }
 
         [HttpPost]
         public async Task<ActionResult> GetTodayTransfers(GetTodayTransfersQuery message)
         {
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, 100), JsonRequestBehavior.DenyGet);
+            }
+
             var result = await mediator.SendAsync(message);
 
             return Json(result, JsonRequestBehavior.DenyGet);
@@ -96,6 +142,11 @@
         [HttpPost]
         public async Task<ActionResult> GetHistoryTransfers(GetHistoryTransfersQuery message)
         {
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, 100), JsonRequestBehavior.DenyGet);
+            }
+
             var result = await mediator.SendAsync(message);
 
             return Json(result, JsonRequestBehavior.DenyGet);
@@ -106,7 +157,11 @@
         {
             Result result;
 
-            if (message == null || !message.IsValid())
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
+            }
+            else if (message == null || !message.IsValid())
             {
                 result = Result.CreateErrorResult(Resources.BadRequest, 400);
             }
@@ -127,19 +182,23 @@
             base.OnAuthorization(filterContext);
 
             var userSession = UserSession.Current;
-            var enabled = AppSettings.IsEnableAutoTransfer(userSession.Currency, userSession.IsSubAcc, userSession.SubPageAccess);
+            var method = filterContext.HttpContext?.Request?.HttpMethod;
 
-            if (!enabled)
+            var enabled = AppSettings.IsEnableAutoTransfer(userSession.CustId, userSession.Currency, userSession.IsSubAcc, userSession.SubPageAccess);
+
+            if (enabled)
             {
-                filterContext.Result = new HttpUnauthorizedResult("You are not authorized on this function!");
+                return;
+            }
 
-                var session = filterContext.HttpContext.Session;
-                session.Clear();
-                session.Abandon();
-                if (!session.IsCookieless)
-                {
-                    FormsAuthentication.SignOut();
-                }
+            filterContext.Result = new HttpUnauthorizedResult("You are not authorized on this function!");
+
+            var session = filterContext.HttpContext.Session;
+            session.Clear();
+            session.Abandon();
+            if (!session.IsCookieless)
+            {
+                FormsAuthentication.SignOut();
             }
         }
     }

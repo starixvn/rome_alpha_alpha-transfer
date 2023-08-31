@@ -552,4 +552,7 @@
   <data name="AutoTransferGuideline" xml:space="preserve">
     <value>自動轉賬指南</value>
   </data>
+  <data name="ADBTChangeError" xml:space="preserve">
+    <value>您的賬號無法使用自動轉賬，因為您的上線已為您開啟全天餘額轉賬。該頁面將會自動刷新。</value>
+  </data>
 </root>

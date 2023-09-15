@@ -6,7 +6,6 @@
     using System.Configuration;
     using System.Linq;
     using Alpha.Web.Helpers;
-    using Sunplus.Agent.Model.Entities;
 
     public static class AppSettings
     {
@@ -49,32 +48,6 @@
         public static bool IsAllowedTransferToDownlineHistorySite(string site)
             => TransferToDownlineHistoryOfferSites.Contains("*", StringComparer.CurrentCultureIgnoreCase)
             || TransferToDownlineHistoryOfferSites.Contains(site, StringComparer.CurrentCultureIgnoreCase);
-
-        public static bool IsEnableAutoTransfer(
-            int custId,
-            string currency,
-            bool isSubAcc,
-            PageAccess subPageAccess)
-        {
-            if (isSubAcc && !subPageAccess.Transfer)
-            {
-                return false;
-            }
-
-            var s = GetConfigValue("OfferAutoTransfer.Currencies");
-            if (string.IsNullOrWhiteSpace(s))
-            {
-                return false;
-            }
-
-            if (s == "*")
-            {
-                return true;
-            }
-
-            return s.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
-                .Any(c => string.Equals(currency, c.Trim(), StringComparison.OrdinalIgnoreCase));
-        }
 
         public static string VirtualDirectory
         {

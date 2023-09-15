@@ -16,11 +16,12 @@
     display: flex;
     align-items: center;
     margin-bottom: 14px;
+    font-weight: bold;
 }
 .switch-auto-transfer {
     width: auto !important;
     display: flex !important;
-    height: auto !important;
+    height: 16px !important;
     align-items: center;
     text-transform: uppercase;
     margin-left: 12px !important;
@@ -256,6 +257,7 @@
             border-radius: 8px !important;
             margin: 0 !important;
             pointer-events: none;
+
             div {
                 width: 14px !important;
                 height: 14px !important;
@@ -268,14 +270,21 @@
         }
     }
 }
-ul {
-    padding: 0 0 0 19px;
-
+.note-list-transfer {
+    padding: 2px 25px 12px;
+    background: #F0F7FF;
+    border-radius: 3px;
+    margin-bottom: 17px;
     li {
         list-style: disc;
         font-size: 13px;
         line-height: 15px;
-        margin-bottom: 10px;
+        margin-top: 10px;
+
+        span {
+            color: #0B599C;
+            font-weight: bold;
+        }
     }
 }
 .msg {

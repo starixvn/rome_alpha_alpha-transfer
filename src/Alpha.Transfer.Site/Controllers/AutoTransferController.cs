@@ -94,14 +94,14 @@
         }
 
         [HttpGet]
-        public ViewResult Monitoring()
+        public ViewResult Monitoring(MonitoringQuery message)
         {
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
                 return View(InvalidTransferStatusViewPath);
             }
 
-            return View(new MonitoringViewModel(userSession) { IsProtectedMode = userSession.IsProtectedMode });
+            return View(new MonitoringViewModel(userSession, message));
         }
 
         [HttpGet]
@@ -184,7 +184,7 @@
             var userSession = UserSession.Current;
             var method = filterContext.HttpContext?.Request?.HttpMethod;
 
-            var enabled = AppSettings.IsEnableAutoTransfer(userSession.CustId, userSession.Currency, userSession.IsSubAcc, userSession.SubPageAccess);
+            var enabled = transferService.IsEnableAutoTransfer(userSession.CustId, userSession.Currency, userSession.IsSubAcc, userSession.SubPageAccess, AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
 
             if (enabled)
             {

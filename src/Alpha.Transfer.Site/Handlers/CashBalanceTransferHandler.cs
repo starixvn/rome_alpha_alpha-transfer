@@ -67,7 +67,7 @@
                 ? await cashBalanceTransferService.GetAllowTransfer(message.CustId)
                 : string.Empty;
             var isAllDayBalTransfer = await transferService.IsAllDayBalanceTransferAsync(message.CustId);
-            var isEnabledAutoTransfer = !transferService.IsAllDayBalanceTransfer(message.CustId) && AppSettings.IsEnableAutoTransfer(message.User.Id, message.User.Currency, message.User.IsSubAcc, message.User.SubPageAccess);
+            var isEnabledAutoTransfer = !transferService.IsAllDayBalanceTransfer(message.CustId) && transferService.IsEnableAutoTransfer(message.User.Id, message.User.Currency, message.User.IsSubAcc, message.User.SubPageAccess, AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
 
             return new HintTransferViewModel(allowTransfer, isAllDayBalTransfer, isEnabledAutoTransfer);
         }

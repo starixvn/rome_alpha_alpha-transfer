@@ -8,11 +8,14 @@
         public GetTransferConditionQuery(UpdateMultipleQuery message)
         {
             UplineId = message.UplineId;
+            ViewerLevel = message.ViewerLevel;
             SearchAccountIds = message.SearchAccountIds;
             Usernames = message.Usernames;
         }
 
         public int UplineId { get; set; }
+
+        public byte ViewerLevel { get; set; }
 
         public string SearchAccountIds { get; set; }
 

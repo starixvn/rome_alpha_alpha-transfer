@@ -19,14 +19,14 @@ namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
         {
             var minDate = SystemTime.Today.AddDays(-1).AddMonths(reportMonth);
             MinDate = minDate;
-            DateRangePickerViewModel = new DateRangePickerViewModel(MinDate, MaxDate, FromDate, ToDate, 7);
+            DateRangePickerViewModel = new DateRangePickerViewModel(MinDate, MaxDate, FromDate, ToDate, 1);
             DateRangePickerViewModel.RangeOptions = DateRangePickerViewModel.RangeOptions.Where(x => x.Value != "0");
 
             ViewerId = userSession.CustId;
             SubAccId = userSession.SubAccId;
         }
 
-        public DateTime FromDate => SystemTime.Today.AddDays(-1).AddMonths(reportMonth);
+        public DateTime FromDate => SystemTime.Today.AddDays(-1);
 
         public DateTime ToDate => SystemTime.Today.AddDays(-1);
 

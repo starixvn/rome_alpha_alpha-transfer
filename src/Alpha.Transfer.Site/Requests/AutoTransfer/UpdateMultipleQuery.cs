@@ -8,6 +8,7 @@
         public UpdateMultipleQuery(IUser user)
         {
             UplineId = user.Id;
+            ViewerLevel = user.LevelId;
             SubAccId = user.SubAccId;
             IP = user.IP;
             Language = user.LanguageKey;
@@ -20,6 +21,8 @@
         public string State { get; set; }
 
         public int UplineId { get; }
+
+        public byte ViewerLevel { get; }
 
         public int SubAccId { get; }
 

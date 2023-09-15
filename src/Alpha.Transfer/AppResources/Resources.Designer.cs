@@ -70,7 +70,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your account cannot use Auto Transfer because upline has enabled All Day Balance Transfer for you. The page will refresh automatically..
+        ///   Looks up a localized string similar to You cannot use Auto Transfer because upline has enabled All Day Balance Transfer for you. The page will refresh automatically..
         /// </summary>
         public static string ADBTChangeError {
             get {
@@ -142,7 +142,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8) in accordance with your transfer condition &lt;b&gt;({0})&lt;/b&gt;..
+        ///   Looks up a localized string similar to Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; based on your transfer condition &lt;b&gt;({0})&lt;/b&gt;..
         /// </summary>
         public static string AutoTransfer_InfoAffectTime {
             get {
@@ -160,6 +160,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;.
+        /// </summary>
+        public static string AutoTransfer_InfoAffectTimeSuper {
+            get {
+                return ResourceManager.GetString("AutoTransfer_InfoAffectTimeSuper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To ensure the accuracy of data during Auto Transfer process, you CANNOT transfer to your downline whose Auto Transfer is enabled..
         /// </summary>
         public static string AutoTransfer_InfoCannotTransfer {
@@ -169,7 +178,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8)..
+        ///   Looks up a localized string similar to Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8), during which the Yesterday Balance will be cleared..
         /// </summary>
         public static string AutoTransfer_InfoSettingTime {
             get {

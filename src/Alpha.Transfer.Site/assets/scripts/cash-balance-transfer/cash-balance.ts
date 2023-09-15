@@ -1,6 +1,8 @@
 ﻿"use strict";
 
 interface Window {
+    indexManager: any;
+    main: any;
     OnPopupComplete(isReload: boolean): void;
 }
 
@@ -225,8 +227,8 @@ class CashBalance {
 
     afterAddTransferSuccessfully = (data: Result) => {
         if (data.Code === 6001) {
-            this.topWindow["bootboxAlert"](data.Message, null, null);
-            this.topWindow["closePopupAndReloadMainFrameAfterUpdateSuccess"](200);
+            this.topWindow.indexManager.updateCurrentUrl("adbt=False&informingMessage=" + data.Message);
+            this.topWindow.location.reload();
         } else {
             this.showMessage(data.Code, data.Message);
 

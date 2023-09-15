@@ -4,15 +4,18 @@ using Alpha.Transfer.AppResources;
 using Alpha.Web.Helpers;
 using Sunplus.Agent.Model.Entities;
 using Alpha.Transfer.Configurations;
+using Alpha.Transfer.Site.Requests.AutoTransfer;
 
 namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
 {
     public class MonitoringViewModel
     {
-        public MonitoringViewModel(IUserSession userSession)
+        public MonitoringViewModel(IUserSession userSession, MonitoringQuery message)
         {
             ViewerId = userSession.CustId;
             SubAccId = userSession.SubAccId;
+            IsProtectedMode = userSession.IsProtectedMode;
+            Status = message.Status;
         }
 
         public bool IsProtectedMode { get; set; }
@@ -20,6 +23,8 @@ namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
         public int ViewerId { get; set; }
 
         public int SubAccId { get; set; }
+
+        public string Status { get; set; }
 
         public IEnumerable<SelectListItem> Columns
             => new[] {

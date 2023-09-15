@@ -100,6 +100,9 @@ class AutoTransferMonitoring {
                 this.refreshTransfers();
             }));
 
+        if (this.$('#status').val() === "Failed") {
+            this.viewTransfers();
+        }
     };
 
     viewHistory = () => {

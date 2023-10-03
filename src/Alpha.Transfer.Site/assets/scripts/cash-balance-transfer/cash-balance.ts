@@ -227,7 +227,7 @@ class CashBalance {
 
     afterAddTransferSuccessfully = (data: Result) => {
         if (data.Code === 6001) {
-            this.topWindow.indexManager.updateCurrentUrl("adbt=False&informingMessage=" + data.Message);
+            this.topWindow.indexManager.updateCurrentUrl("adbt=True&informingMessage=" + data.Message);
             this.topWindow.location.reload();
         } else {
             this.showMessage(data.Code, data.Message);

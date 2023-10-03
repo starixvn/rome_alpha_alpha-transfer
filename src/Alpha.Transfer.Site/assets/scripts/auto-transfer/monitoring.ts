@@ -100,6 +100,9 @@ class AutoTransferMonitoring {
                 this.refreshTransfers();
             }));
 
+        if (this.$('#status').val() === "Failed") {
+            this.viewTransfers();
+        }
     };
 
     viewHistory = () => {
@@ -138,6 +141,11 @@ class AutoTransferMonitoring {
     };
 
     showTransfers = (results) => {
+        if (results.Code == 100) {
+            location.reload();
+            return;
+        }
+
         var html = '';
 
         if (results.Transfers.length === 0) {
@@ -148,13 +156,15 @@ class AutoTransferMonitoring {
                 var cancellable = t.IsAllowCancel;
                 var amount = t.TransferAmount ? this.numeral(t.TransferAmount).format(this.amountFormat) : '';
                 var ino = i + 1 + results.PageSize * (results.PageIndex - 1);
+                var amountClass = (t.TransferAmount || 0) < 0 ? " format-negative" : "";
+                var status = t.Status.toLowerCase() === 'waiting' ? 'Processing' : t.Status;
 
                 html += '<tr>' +
                     '<td col-value="1" class="text-center">' + ino + '</td>' +
                     '<td col-value="2" class="text-left">' + t.Username + '</td>' +
                     '<td col-value="3" class="text-left">' + t.FirstLastName + '</td>' +
-                    '<td col-value="4" class="text-right">' + amount + '</td>' +
-                    '<td col-value="5" class="text-left col-status ' + t.Status.toLowerCase() + '">' + this.$('#' + t.Status).val() + '</td>' +
+                    '<td col-value="4" class="text-right' + amountClass + '">' + amount + '</td>' +
+                    '<td col-value="5" class="text-left col-status ' + status.toLowerCase() + '">' + this.$('#' + status).val() + '</td>' +
                     '<td col-value="6" class="text-left">' + (t.Reason || '') + '</td>' +
                     '<td col-value="7" class="text-center">' + (t.CompletedTime || '') + '</td>' +
                     '<td col-value="8" class="text-center">' +

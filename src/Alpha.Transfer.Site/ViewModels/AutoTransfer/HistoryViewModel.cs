@@ -19,14 +19,14 @@ namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
         {
             var minDate = SystemTime.Today.AddDays(-1).AddMonths(reportMonth);
             MinDate = minDate;
-            DateRangePickerViewModel = new DateRangePickerViewModel(MinDate, MaxDate, FromDate, ToDate, 7);
+            DateRangePickerViewModel = new DateRangePickerViewModel(MinDate, MaxDate, FromDate, ToDate, 1);
             DateRangePickerViewModel.RangeOptions = DateRangePickerViewModel.RangeOptions.Where(x => x.Value != "0");
 
             ViewerId = userSession.CustId;
             SubAccId = userSession.SubAccId;
         }
 
-        public DateTime FromDate => SystemTime.Today.AddDays(-1).AddMonths(reportMonth);
+        public DateTime FromDate => SystemTime.Today.AddDays(-1);
 
         public DateTime ToDate => SystemTime.Today.AddDays(-1);
 
@@ -42,7 +42,6 @@ namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
 
         public IEnumerable<SelectListItem> Columns
             => new[] {
-                new SelectListItem { Text = Resources.No, Value = "1" },
                 new SelectListItem { Text = Resources.First_LastName, Value = "3" },
                 new SelectListItem { Text = Resources.TransferAmount, Value = "4" },
                 new SelectListItem { Text = Resources.Status, Value = "5" },

@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -484,7 +484,7 @@
     <value>ค้นหา</value>
   </data>
   <data name="AutoTransfer_InfoSettingTime" xml:space="preserve">
-    <value>ระบบโอนอัตโนมัติจะดำเนินการ ณ เวลา  12:00 PM (GMT+8)</value>
+    <value>ระบบโอนอัตโนมัติมีกำหนดจะดำเนินการ ณ เวลา 12:00 น. (GMT+8) ซึ่งยอดคงเหลือเมื่อวานจะถูกเคลีย</value>
   </data>
   <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
     <value>เพื่อความถูกต้องของข้อมูล ในระหว่างที่ระบบโอนอัตโนมัติกำลังดำเนินการอยู่ คุณจะไม่สามารถถ่ายโอนไปยังดาวน์ไลน์ของคุณที่เปิดใช้งานการถ่ายโอนอัตโนมัติ</value>
@@ -493,7 +493,7 @@
     <value>ถ้าคุณเปิดการใช้งานโอนเงินอัตโนมัติในขณะที่ระบบกำลังดำเนินการอยู่  การโอนอัตโนมัติจะเริ่มต้นใช้งานในรอบการทำงานครั้งถัดไปตามเงื่อนไขที่คุณกำหนดไว้</value>
   </data>
   <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
-    <value>ถ้าเปิดใช้งานไว้  ระบบโอนอัตโนมัติจะดำเนินการ ณ เวลา 12:00 PM (GMT+8) - {0}</value>
+    <value>เมื่อเปิดใช้งานแล้ว ยอดคงเหลือเมื่อวานจะถูกเคลียเวลา &lt;span&gt;12:00 น. (GMT+8)&lt;/span&gt; ตามเงื่อนไขการโอนของคุณ &lt;b&gt;({0})&lt;/b&gt;</value>
   </data>
   <data name="CompletedTime" xml:space="preserve">
     <value>เวลาสิ้นสุด</value>
@@ -548,5 +548,14 @@
   </data>
   <data name="Ignored" xml:space="preserve">
     <value>ละเว้น</value>
+  </data>
+  <data name="AutoTransferGuideline" xml:space="preserve">
+    <value>คู่มือระบบโอนอัตโนมัติ</value>
+  </data>
+  <data name="ADBTChangeError" xml:space="preserve">
+    <value>บัญชีของคุณไม่สามารถใช้ระบบโอนอัตโนมัติได้ เนื่องจากอัพไลน์ได้เปิดใช้งานระบบโอนยอดคงเหลือตลอดทั้งวันสำหรับบัญชีของคุณ  หน้าแสดงผลนี้จะรีเฟรชโดยอัตโนมัติ</value>
+  </data>
+  <data name="AutoTransfer_InfoAffectTimeSuper" xml:space="preserve">
+    <value>เมื่อเปิดใช้งานแล้ว ยอดคงเหลือเมื่อวานจะถูกเคลีย ณ เวลา 12:00 น. (GMT+8) </value>
   </data>
 </root>

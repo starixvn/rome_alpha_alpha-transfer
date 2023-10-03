@@ -23,7 +23,7 @@
             </li>
         }
         <li class="icon-tab">
-            <a href="@Model.UserGuideLink" target="_blank" class="user-guide-link pull-right">
+            <a href="@Model.UserGuideLink" target="_blank" class="user-guide-link pull-right" title="@Resources.AutoTransferGuideline">
                 <span class="icon icon-book"></span>
             </a>
         </li>
@@ -48,14 +48,12 @@
                             data-label-search="@Resources.Search"
                             multiple="multiple"
                             class="select-multiple">
-                        <option value="New" selected="selected">@Resources.New</option>
-                        <option value="Waiting" selected="selected">@Resources.Waiting</option>
-                        <option value="Processing" selected="selected">@Resources.Processing</option>
-                        <option value="Completed" selected="selected">@Resources.Completed</option>
+                        <option value="New,Waiting,Processing" @(Model.Status == "Failed" ? string.Empty : "selected=\"selected\"")>@Resources.Processing</option>
+                        <option value="Completed" @(Model.Status == "Failed" ? string.Empty : "selected=\"selected\"")>@Resources.Completed</option>
                         <option value="Failed" selected="selected">@Resources.Failed</option>
-                        <option value="Cancelled" selected="selected">@Resources.Cancelled</option>
-                        <option value="Pending" selected="selected">@Resources.Pending</option>
-                        <option value="Ignored" selected="selected">@Resources.Ignored</option>
+                        <option value="Cancelled" @(Model.Status == "Failed" ? string.Empty : "selected=\"selected\"")>@Resources.Cancelled</option>
+                        <option value="Pending" @(Model.Status == "Failed" ? string.Empty : "selected=\"selected\"")>@Resources.Pending</option>
+                        <option value="Ignored" @(Model.Status == "Failed" ? string.Empty : "selected=\"selected\"")>@Resources.Ignored</option>
                     </select>
                 </div>
                 @VisibleColumnsDropdown.Render(Model.Columns)
@@ -117,8 +115,8 @@
 @Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)
 @Html.Hidden("ViewerId", Model.ViewerId)
 @Html.Hidden("SubAccId", Model.SubAccId)
-@Html.Hidden("New", Resources.New)
-@Html.Hidden("Waiting", Resources.Waiting)
+@Html.Hidden("New", Resources.Processing)
+@Html.Hidden("Waiting", Resources.Processing)
 @Html.Hidden("Processing", Resources.Processing)
 @Html.Hidden("Completed", Resources.Completed)
 @Html.Hidden("Failed", Resources.Failed)
@@ -126,6 +124,7 @@
 @Html.Hidden("Pending", Resources.Pending)
 @Html.Hidden("Ignored", Resources.Ignored)
 @Html.Hidden("confirmCancelJob", Resources.confirmCancelJob)
+@Html.Hidden("status", Model.Status)
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/pagination")

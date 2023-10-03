@@ -2,6 +2,7 @@
 {
     using System.Threading.Tasks;
     using System.Web.Mvc;
+    using Alpha.Transfer.Services;
     using Alpha.Transfer.Site.Requests.AutoTransfer;
     using Alpha.Transfer.Site.Tests.Extensions;
     using AppResources;
@@ -17,6 +18,7 @@
     {
         private readonly IMediator mediator;
         private readonly IUserSession userSession;
+        private readonly TransferService transferService;
         private readonly IUser user;
         private readonly AutoTransferController controller;
 
@@ -24,9 +26,10 @@
         {
             mediator = Substitute.For<IMediator>();
             userSession = Substitute.For<IUserSession>();
+            transferService = Substitute.For<TransferService>();
             user = Substitute.For<IUser>();
             user.Id.Returns(1);
-            controller = new AutoTransferController(mediator, userSession);
+            controller = new AutoTransferController(mediator, userSession, transferService);
         }
 
         [Fact]

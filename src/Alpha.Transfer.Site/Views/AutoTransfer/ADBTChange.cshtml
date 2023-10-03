@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = Resources.NoInformationIsAvailable;
+}
+
+<input type="hidden" id="hiddenError" value="@Resources.ADBTChangeError" />
+@section Scripts {
+    <script type="text/javascript">
+        window.top.bootboxAlert($("#hiddenError").val(), null, window.top.headerNav.reloadPage);
+        window.location.href = window.top.alpha.urls.mainRootPath + "Dashboard/Index";
+    </script>
+}

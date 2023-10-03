@@ -20,7 +20,7 @@
             <a data-tablink="/@(AppSettings.VirtualDirectory+"autotransfer/history")" role="tab" aria-controls="history" data-toggle="tab" class="lnk-changetab">@Resources.AutoTransferHistory</a>
         </li>
         <li class="icon-tab">
-            <a href="@Model.UserGuideLink" target="_blank" class="user-guide-link pull-right">
+            <a href="@Model.UserGuideLink" target="_blank" class="user-guide-link pull-right" title="@Resources.AutoTransferGuideline">
                 <span class="icon icon-book"></span>
             </a>
         </li>
@@ -106,8 +106,8 @@
 @Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)
 @Html.Hidden("ViewerId", Model.ViewerId)
 @Html.Hidden("SubAccId", Model.SubAccId)
-@Html.Hidden("New", Resources.New)
-@Html.Hidden("Waiting", Resources.Waiting)
+@Html.Hidden("New", Resources.Processing)
+@Html.Hidden("Waiting", Resources.Processing)
 @Html.Hidden("Processing", Resources.Processing)
 @Html.Hidden("Completed", Resources.Completed)
 @Html.Hidden("Failed", Resources.Failed)

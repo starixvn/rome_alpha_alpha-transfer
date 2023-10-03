@@ -23,7 +23,7 @@
                     return LastName;
                 }
 
-                return string.IsNullOrWhiteSpace(LastName) ? FirstName : $"{FirstName}\\{LastName}";
+                return string.IsNullOrWhiteSpace(LastName) ? FirstName : $"{FirstName}/ {LastName}";
             }
         }
     }

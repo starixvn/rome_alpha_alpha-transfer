@@ -38,6 +38,7 @@
 
             return new GetTransferConditionViewModel
             {
+                ViewerLevel = message.ViewerLevel,
                 SearchAccountIds = message.SearchAccountIds,
                 Usernames = message.Usernames,
                 TransferCondition = transferCondition

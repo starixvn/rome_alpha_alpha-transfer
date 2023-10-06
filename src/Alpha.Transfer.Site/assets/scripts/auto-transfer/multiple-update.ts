@@ -91,9 +91,9 @@ class MultipleUpdateAutoTransfer {
                     this.$resultMsg.removeClass('hide');
                     this.$switch.setTheSwitchValue(this.state);
 
-
                     if (results.Code === 100) {
-                        this.topWindow.reloadMainFrame();
+                        this.topWindow.bootboxAlert(results.Message, null, () => { });
+                        this.topWindow.main.location.reload(true);
                     }
 
                     return;

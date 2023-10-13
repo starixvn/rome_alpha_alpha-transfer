@@ -14,11 +14,13 @@
 
     public class AutoTransferHandler :
         IAsyncRequestHandler<GetTransferConditionQuery, GetTransferConditionViewModel>,
-        IAsyncRequestHandler<UpdateMultipleQuery, Result>,
         IAsyncRequestHandler<UpdateQuery, Result>,
         IAsyncRequestHandler<GetTodayTransfersQuery, AutoTransferMonitoringPageModel>,
         IAsyncRequestHandler<GetHistoryTransfersQuery, AutoTransferMonitoringPageModel>,
-        IAsyncRequestHandler<CancelJobQuery, Result>
+        IAsyncRequestHandler<CancelJobQuery, Result>,
+        IAsyncRequestHandler<CancelAllJobsQuery, Result>,
+        IAsyncRequestHandler<PostUpdateScheduleQuery, Result>,
+        IAsyncRequestHandler<PostUpdateMultipleAutoTransferQuery, Result>
     {
         private readonly AutoTransferService service;
         private readonly CashBalanceTransferService cashBalanceTransferService;
@@ -45,61 +47,21 @@
             };
         }
 
-        public async Task<Result> Handle(UpdateMultipleQuery message)
-        {
-            var ids = message.SearchAccountIds.Split(new[] { ',' });
-            var names = message.Usernames.Split(new[] { ',' });
-
-            var failedCusts = new List<string>();
-            var isError = false;
-            var isWarning = false;
-
-            for (var i = 0; i < ids.Length; i++)
-            {
-                var id = ids[i];
-                var name = names[i];
-                int custId;
-
-                if (!int.TryParse(id, out custId) || custId == 0)
-                {
-                    continue;
-                }
-
-                var result = await service.UpdateAsync(custId, message.UplineId, message.IP, message.Language, message.State);
-
-                if (result.Code != 0)
-                {
-                    failedCusts.Add(name);
-                    isError = true;
-                }
-                else if (!string.IsNullOrWhiteSpace(result.Message))
-                {
-                    failedCusts.Add(name);
-                    isWarning = true;
-                }
-            }
-
-            var resultMessage = string.Empty;
-
-            if (isError)
-            {
-                resultMessage = $"{(failedCusts.Count > 1 ? Resources.AutoTransfer_MultipleErrorProccessing : Resources.AutoTransfer_MultipleErrorProccessing_Single)} ({failedCusts.ToSeparatedString()})";
-            }
-            else if (isWarning)
-            {
-                resultMessage = $"{(failedCusts.Count > 1 ? Resources.AutoTransfer_MultipleAffectNextConditionWarning : Resources.AutoTransfer_MultipleAffectNextConditionWarning_Single)} ({failedCusts.ToSeparatedString()})";
-            }
-
-            return new Result
-            {
-                Code = isError ? 1 : 0,
-                Message = resultMessage
-            };
-        }
-
         public async Task<Result> Handle(UpdateQuery message)
         {
-            var result = await service.UpdateAsync(message.CustId, message.UplineId, message.IP, message.Language, message.State);
+            var param = new UpdateStatusParam
+            {
+                CustId = message.CustId,
+                UplineId = message.UplineId,
+                IP = message.IP,
+                Language = message.Language,
+                State = message.State,
+                Schedule = message.DateSchedule,
+                SubAccId = message.SubAccId,
+            };
+
+            var result = await service.UpdateAsync(param);
+
             var successMessage =
                 string.Equals("on", message.State, System.StringComparison.OrdinalIgnoreCase)
                 ? AppResources.Resources.AutoTransfer_UpdateSuccessOn
@@ -163,6 +125,73 @@
             };
 
             return await service.CancelJobAsync(param);
+        }
+
+        public async Task<Result> Handle(CancelAllJobsQuery message)
+        {
+            var param = new CancelAllJobParam
+            {
+                FromCustId = message.UplineId,
+                Language = message.LanguageKey,
+                IP = message.IP,
+            };
+
+            var result = await service.CancelAllJobAsync(param);
+
+            return new Result
+            {
+                Code = result.Code,
+                Message = result.Code == 0 ? Resources.AutoTransfer_CancelAllSuccess : result.Message
+            };
+        }
+
+        public async Task<Result> Handle(PostUpdateScheduleQuery message)
+        {
+            var param = new UpdateScheduleParam
+            {
+                CustId = message.CustId,
+                CustName = message.CustName,
+                Schedule = message.Schedule,
+
+                UplineId = message.UplineId,
+                SubAccId = message.SubAccId,
+                IP = message.IP,
+                Language = message.Language,
+            };
+
+            var result = await service.UpdateScheduleAsync(param);
+
+            return new Result
+            {
+                Code = result.Code,
+                Message = result.Code == 0 ? Resources.AutoTransfer_UpdateScheduleSuccess : result.Message
+            };
+        }
+
+        public async Task<Result> Handle(PostUpdateMultipleAutoTransferQuery message)
+        {
+            var param = new UpdateMultipleAutoTransferParam
+            {
+                UplineId = message.UplineId,
+                SubAccId = message.SubAccId,
+                IP = message.IP,
+                Language = message.Language,
+
+                OnIds = message.OnIds,
+                OffIds = message.OffIds,
+                OnStatus = message.OnStatus,
+                OffStatus = message.OffStatus,
+                OnSchedule = message.OnSchedule,
+                OffSchedule = message.OffSchedule,
+            };
+
+            var result = await service.UpdateMultipleAutoTransferAsync(param);
+
+            return new Result
+            {
+                Code = result.Code,
+                Message = result.Code == 0 ? Resources.AutoTransfer_UpdateSuccess : result.Message
+            };
         }
     }
 }

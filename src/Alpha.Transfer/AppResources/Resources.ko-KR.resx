@@ -369,4 +369,25 @@
   <data name="Pending" xml:space="preserve">
     <value>보류</value>
   </data>
+  <data name="Sun" xml:space="preserve">
+    <value>일</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>토</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>월</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>수요일</value>
+  </data>
+  <data name="Thurs" xml:space="preserve">
+    <value>목요일</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>금</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>화</value>
+  </data>
 </root>

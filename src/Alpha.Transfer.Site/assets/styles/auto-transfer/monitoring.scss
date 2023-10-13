@@ -130,3 +130,54 @@ table.dataTable.display {
 .format-negative {
     color: #b50000;
 }
+
+.div-status-all {
+    display: flex;
+
+    .div-pending-all, .div-processing-all, .div-failed-all, .div-cancel-all {
+        border: 1px solid #E8BB90;
+        border-radius: 3px;
+        background-color: #FDF9EE;
+        margin-right: 15px;
+        padding-right: 3px;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        min-width: 118px;
+        font-weight: bold;
+        margin-bottom: 6px;
+
+        .text {
+            text-align: center;
+            padding: 0 12px;
+            flex: 1;
+        }
+
+        .spn-pending-count, .spn-processing-count, .spn-failed-count, .cancel-all-count {
+            width: 24px;
+            height: 24px;
+            border-radius: 3px;
+            text-align: center;
+            line-height: 24px;
+            color: #7E3D00;
+            background: #F6C699;
+        }
+    }
+
+    .div-cancel-all {
+        background-color: #0B599C;
+        border-color: #0B599C;
+
+        .btn-submit {
+            background-color: #0B599C;
+            color: #EDEDED;
+            box-shadow: none;
+            margin: 0;
+        }
+
+        .cancel-all-count {
+            color: #0B599C;
+            background-color: #FFFFFF;
+        }
+    }
+}

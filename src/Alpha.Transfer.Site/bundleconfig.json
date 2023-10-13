@@ -67,12 +67,6 @@
         ]
     },
     {
-        "outputFileName": "assets/bundles/auto-transfer/multiple-update.js",
-        "inputFiles": [
-            "assets/scripts/auto-transfer/multiple-update.js"
-        ]
-    },
-    {
         "outputFileName": "assets/bundles/auto-transfer/monitoring.css",
         "inputFiles": [
             "assets/styles/refresh-countdown.css",
@@ -100,6 +94,24 @@
             "assets/scripts/components/auto-refresh.js",
             "assets/scripts/components/multiple-selection-dropdown.js",
             "assets/scripts/auto-transfer/history.js"
+        ]
+    },
+    {
+        "outputFileName": "assets/bundles/auto-transfer/update-schedule.js",
+        "inputFiles": [
+            "assets/scripts/auto-transfer/update-schedule.js"
+        ]
+    },
+    {
+        "outputFileName": "assets/bundles/auto-transfer/update-multiple.js",
+        "inputFiles": [
+            "assets/scripts/auto-transfer/update-multiple.js"
+        ]
+    },
+    {
+        "outputFileName": "assets/bundles/auto-transfer/update-schedule.css",
+        "inputFiles": [           
+            "assets/styles/auto-transfer/update-schedule.css"
         ]
     },
     /************************** Dark Mode ************************/
@@ -150,5 +162,11 @@
             "assets/styles/refresh-countdown-dark.css",
             "assets/styles/auto-transfer/monitoring-dark.css"
         ]
-    }
+    },
+    {
+        "outputFileName": "assets/bundles/auto-transfer/update-schedule-dark.css",
+        "inputFiles": [           
+            "assets/styles/auto-transfer/update-schedule-dark.css"
+        ]
+    },
 ]

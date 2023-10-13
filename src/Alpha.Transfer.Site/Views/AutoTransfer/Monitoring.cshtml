@@ -67,6 +67,24 @@
             </form>
         </div>
         <div id="content">
+            <div class="div-status-all hide">
+                <div class="div-pending-all">
+                    <span class="text"> @Resources.Pending</span>
+                    <span class="spn-pending-count"></span>
+                </div>
+                <div class="div-processing-all">
+                    <span class="text">@Resources.Processing</span>
+                    <span class="spn-processing-count"></span>
+                </div>
+                <div class="div-failed-all">
+                    <span class="text">@Resources.Failed</span>
+                    <span class="spn-failed-count"></span>
+                </div>
+                <div class="div-cancel-all" title="@Resources.CancelSuspendedTransactionsTip">
+                    <input type="button" class="btn-submit" id="btn-cancel-all" value="@Resources.CancelSuspendedTransactions">
+                    <span class="cancel-all-count"></span>
+                </div>
+            </div>
             <table id="tbl-monitoring" class="hide width-100per tblRpt tblRpt-bordered dataTable display">
                 <thead>
                     <tr role="row">
@@ -77,7 +95,6 @@
                         <th col-value="5"></th>
                         <th col-value="6"></th>
                         <th col-value="7"></th>
-                        <th col-value="8"></th>
                     </tr>
                     <tr class="RptHeader">
                         <th col-value="1">@Resources.No</th>
@@ -87,13 +104,12 @@
                         <th col-value="5" class="sorting" data-sort="2">@Resources.Status</th>
                         <th col-value="6">@Resources.Reason</th>
                         <th col-value="7" class="sorting" data-sort="4">@Resources.CompletedTime</th>
-                        <th col-value="8">@Resources.Cancel</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="8">
+                        <td colspan="7">
                             <div id="report-pager"
                                  class="hide"
                                  data-labelpage="@Resources.Page"
@@ -124,6 +140,9 @@
 @Html.Hidden("Pending", Resources.Pending)
 @Html.Hidden("Ignored", Resources.Ignored)
 @Html.Hidden("confirmCancelJob", Resources.confirmCancelJob)
+@Html.Hidden("CancelAllAutoTransferJobsConfirm", Resources.CancelAllAutoTransferJobsConfirm)
+@Html.Hidden("AutoTransfer_NoCancellable", Resources.AutoTransfer_NoCancellable)
+
 @Html.Hidden("status", Model.Status)
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")

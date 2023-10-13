@@ -74,5 +74,13 @@
     {
         "outputFile": "assets/styles/refresh-countdown-dark.css",
         "inputFile": "assets/styles/refresh-countdown-dark.scss"
+    },
+    {
+        "outputFile": "assets/styles/auto-transfer/update-schedule-dark.css",
+        "inputFile": "assets/styles/auto-transfer/update-schedule-dark.scss"
+    },
+    {
+        "outputFile": "assets/styles/auto-transfer/update-schedule.css",
+        "inputFile": "assets/styles/auto-transfer/update-schedule.scss"
     }
 ]

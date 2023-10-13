@@ -558,4 +558,31 @@
   <data name="AutoTransfer_InfoAffectTimeSuper" xml:space="preserve">
     <value>เมื่อเปิดใช้งานแล้ว ยอดคงเหลือเมื่อวานจะถูกเคลีย ณ เวลา 12:00 น. (GMT+8) </value>
   </data>
+  <data name="AutoTransfer_CancelAllSuccess" xml:space="preserve">
+    <value>ยกเลิกกระบวนการโอนอัตโนมัติสำหรับทุกบัญชี</value>
+  </data>
+  <data name="SelectAll2" xml:space="preserve">
+    <value>เลือกทั้งหมด</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>วันอาทิตย์</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>วันเสาร์</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>วันจันทร์</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>วันพุธ</value>
+  </data>
+  <data name="Thurs" xml:space="preserve">
+    <value>วันพฤหัส</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>วันศุกร์</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>วันอังคาร</value>
+  </data>
 </root>

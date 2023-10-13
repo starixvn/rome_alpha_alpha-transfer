@@ -8,8 +8,12 @@ namespace Alpha.Transfer.Models.AutoTransfer
         public int TotalItems { get; set; }
         public int PageSize { get; set; }
         public int PageIndex { get; set; }
-
         public int SortedBy { get; set; }
         public int Direction { get; set; }
+
+        public int TotalCancelAll { get; set; }
+        public int TotalPending { get; set; }
+        public int TotalProcessing { get; set; }
+        public int TotalFailed { get; set; }
     }
 }

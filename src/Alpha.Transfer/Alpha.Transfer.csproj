@@ -198,11 +198,13 @@
     <Compile Include="Constants\PagerConstant.cs" />
     <Compile Include="Constants\AutoTransferConstant.cs" />
     <Compile Include="Constants\StatusConstant.cs" />
+    <Compile Include="Criteria\AutoTransfer\UpdateScheduleCriteria.cs" />
+    <Compile Include="Criteria\AutoTransfer\CancelAllJobCriteria.cs" />
     <Compile Include="Criteria\AutoTransfer\GetHistoryTransfersCriteria.cs" />
     <Compile Include="Criteria\AutoTransfer\GetTodayTransfersCriteria.cs" />
     <Compile Include="Criteria\AutoTransfer\CancelJobCriteria.cs" />
     <Compile Include="Criteria\AutoTransfer\GetJobStatusCriteria.cs" />
-    <Compile Include="Criteria\AutoTransfer\UpdateMultipleCriteria.cs" />
+    <Compile Include="Criteria\AutoTransfer\UpdateStatusCriteria.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\AddCashBalanceTransferCriteria.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\GetCashBalanceTransferCriteria.cs" />
     <Compile Include="Criteria\GetIsAllDayBalTransferCriteria.cs" />
@@ -225,6 +227,7 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\NumberExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\TransferConditionHelper.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Models\AutoTransfer\AutoTransferMonitoringModel.cs" />
     <Compile Include="Models\AutoTransfer\AutoTransferMonitoringPageModel.cs" />
@@ -243,6 +246,10 @@
     <Compile Include="Models\TransferAllAndClearCredit\TransferStep.cs" />
     <Compile Include="Models\TransferToDownlineHistory\TransferToDownlineHistoryModel.cs" />
     <Compile Include="Models\UserLevel.cs" />
+    <Compile Include="Params\AutoTransfer\UpdateScheduleParam.cs" />
+    <Compile Include="Params\AutoTransfer\CancelAllJobParam.cs" />
+    <Compile Include="Params\AutoTransfer\UpdateMultipleAutoTransferParam.cs" />
+    <Compile Include="Params\AutoTransfer\UpdateStatusParam.cs" />
     <Compile Include="Params\AutoTransfer\CancelJobParam.cs" />
     <Compile Include="Params\AutoTransfer\GetHistoryTransfersParam.cs" />
     <Compile Include="Params\AutoTransfer\GetTodayTransfersParam.cs" />

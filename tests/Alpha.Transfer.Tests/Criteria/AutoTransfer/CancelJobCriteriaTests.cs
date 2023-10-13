@@ -11,7 +11,7 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Age_ClearBalanceCust_ProcessCancel";
+            var expectedSettingKey = "SiteDB_Age_ClearBalanceCust_ProcessCancel";
             var param = new CancelJobParam
             {
                 FromCustId = 1176070,

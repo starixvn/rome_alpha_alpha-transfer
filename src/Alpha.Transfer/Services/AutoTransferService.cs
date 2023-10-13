@@ -1,8 +1,12 @@
 ﻿namespace Alpha.Transfer.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Alpha.Transfer.Criteria.AutoTransfer;
     using Alpha.Transfer.Extensions;
+    using Alpha.Transfer.Helpers;
     using Alpha.Transfer.Models.AutoTransfer;
     using Alpha.Transfer.Params.AutoTransfer;
     using Fanex.Data.Repository;
@@ -10,10 +14,13 @@
 
     public interface AutoTransferService
     {
-        Task<Result> UpdateAsync(int custId, int creator, string ip, string language, string state);
+        Task<Result> UpdateAsync(UpdateStatusParam param);
         Task<AutoTransferMonitoringPageModel> GetTodayTransfersAsync(GetTodayTransfersParam param);
         Task<AutoTransferMonitoringPageModel> GetHistoryTransfersAsync(GetHistoryTransfersParam param);
         Task<Result> CancelJobAsync(CancelJobParam param);
+        Task<Result> CancelAllJobAsync(CancelAllJobParam param);
+        Task<Result> UpdateScheduleAsync(UpdateScheduleParam param);
+        Task<Result> UpdateMultipleAutoTransferAsync(UpdateMultipleAutoTransferParam param);
     }
 
     public class AutoTransferServiceImpl : AutoTransferService
@@ -25,10 +32,10 @@
             repository = dynamicRepository;
         }
 
-        public async Task<Result> UpdateAsync(int custId, int creator, string ip, string language, string state)
+        public async Task<Result> UpdateAsync(UpdateStatusParam param)
         {
-            var isAutoJobRunning = await GetJobStatus(custId, creator, state);
-            var criteria = new UpdateMultipleCriteria(creator, custId, isAutoJobRunning, language, ip, state);
+            var isAutoJobRunning = await GetJobStatus(param.CustId, param.UplineId, param.State);
+            var criteria = new UpdateStatusCriteria(param, isAutoJobRunning);
 
             await repository.ExecuteAsync(criteria);
 
@@ -62,7 +69,13 @@
                 PageSize = param.PageSize,
                 PageIndex = param.PageIndex,
                 SortedBy = param.SortedBy,
-                Direction = param.Direction
+                Direction = param.Direction,
+
+
+                TotalCancelAll = criteria.TotalCancelAll,
+                TotalPending = criteria.TotalPending,
+                TotalProcessing = criteria.TotalProcessing,
+                TotalFailed = criteria.TotalFailed,
             };
         }
 
@@ -109,6 +122,19 @@
             };
         }
 
+        public async Task<Result> CancelAllJobAsync(CancelAllJobParam param)
+        {
+            var criteria = new CancelAllJobCriteria(param);
+
+            await repository.ExecuteAsync(criteria);
+
+            return new Result
+            {
+                Code = criteria.ErrCode,
+                Message = criteria.ErrCode == 0 ? string.Empty : criteria.ErrMsg
+            };
+        }
+
         private async Task<bool> GetJobStatus(int custId, int creator, string state)
         {
             var criteria = new GetJobStatusCriteria(creator, custId, state);
@@ -116,6 +142,78 @@
             await repository.ExecuteAsync(criteria);
 
             return criteria.IsAutoJobRunning;
+        }
+
+        public async Task<Result> UpdateScheduleAsync(UpdateScheduleParam param)
+        {
+            var criteria = new UpdateScheduleCriteria(param);
+
+            await repository.ExecuteAsync(criteria);
+
+            return new Result
+            {
+                Code = criteria.ErrCode,
+                Message = criteria.ErrCode == 0 ? string.Empty : criteria.ErrMsg
+            };
+        }
+
+        public async Task<Result> UpdateMultipleAutoTransferAsync(UpdateMultipleAutoTransferParam param)
+        {
+            var messages = new List<string>();
+
+            var onIds = (param.OnIds ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var id in onIds)
+            {
+                var updateSingleParam = new UpdateStatusParam
+                {
+                    CustId = int.Parse(id),
+                    UplineId = param.UplineId,
+                    IP = param.IP,
+                    Language = param.Language,
+                    State = param.OnStatus,
+                    SubAccId = param.SubAccId,
+                    Schedule = (param.OnSchedule ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                };
+
+                var isAutoJobRunning = await GetJobStatus(updateSingleParam.CustId, param.UplineId, param.OnStatus);
+                var criteria = new UpdateStatusCriteria(updateSingleParam, isAutoJobRunning);
+                await repository.ExecuteAsync(criteria);
+
+                if (criteria.ErrCode != 0)
+                {
+                    messages.Add(criteria.ErrMsg);
+                }
+            }
+
+            var offIds = (param.OffIds ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var id in offIds)
+            {
+                var updateSingleParam = new UpdateStatusParam
+                {
+                    CustId = int.Parse(id),
+                    UplineId = param.UplineId,
+                    IP = param.IP,
+                    Language = param.Language,
+                    State = param.OffStatus,
+                    SubAccId = param.SubAccId,
+                    Schedule = (param.OffSchedule ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                };
+
+                var isAutoJobRunning = await GetJobStatus(updateSingleParam.CustId, param.UplineId, param.OffStatus);
+                var criteria = new UpdateStatusCriteria(updateSingleParam, isAutoJobRunning);
+                await repository.ExecuteAsync(criteria);
+
+                if (criteria.ErrCode != 0)
+                {
+                    messages.Add(criteria.ErrMsg);
+                }
+            }
+
+            return new Result
+            {
+                Code = messages.Any() ? 1 : 0,
+                Message = string.Join("<br />", messages)
+            };
         }
     }
 }

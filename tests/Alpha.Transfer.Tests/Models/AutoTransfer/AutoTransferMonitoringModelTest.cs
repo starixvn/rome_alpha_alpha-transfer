@@ -8,7 +8,7 @@
     {
         [Theory]
         [InlineData("First", "", "First")]
-        [InlineData("First", "Last", "First\\Last")]
+        [InlineData("First", "Last", "First/ Last")]
         [InlineData("", "Last", "Last")]
         [InlineData("", "", "")]
         public void FirstLastName_HasFirstName_ReturnsCorrectValue(string firstName, string lastName, string expectedValue)

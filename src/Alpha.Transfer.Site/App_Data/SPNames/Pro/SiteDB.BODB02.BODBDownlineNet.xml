@@ -15,5 +15,6 @@
     </Setting>
     <Setting Key="SiteDB_Age_ClearBalanceCust_Job_StatusCheck" SpName="Age_ClearBalanceCust_Job_StatusCheck" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
     <Setting Key="SiteDB_Age_ClearBalanceCust_ProcessCancel" SpName="Age_ClearBalanceCust_ProcessCancel" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
+    <Setting Key="SiteDB_Age_ClearBalanceCust_ProcessCancel_All" SpName="Age_ClearBalanceCust_ProcessCancel_All" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>

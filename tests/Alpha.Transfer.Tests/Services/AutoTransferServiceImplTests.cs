@@ -73,8 +73,18 @@ namespace Alpha.Transfer.Tests.Services
                 Message = string.Empty
             };
 
+            var param = new UpdateStatusParam
+            {
+                CustId = custId,
+                UplineId = creator,
+                IP = ip,
+                Language = languageKey,
+                State = state,
+                Schedule = new[] { "1" },
+            };
+
             // Act
-            var actualData = await serviceImpl.UpdateAsync(custId, creator, ip, languageKey, state);
+            var actualData = await serviceImpl.UpdateAsync(param);
 
             // Assert
             Assert.True(compareLogic.Compare(messageResult, actualData).AreEqual);
@@ -91,9 +101,9 @@ namespace Alpha.Transfer.Tests.Services
             var custId = 0;
             int creator = 1176083;
 
-            dynamicRepository.ExecuteAsync(Arg.Any<UpdateMultipleCriteria>()).Returns(x =>
+            dynamicRepository.ExecuteAsync(Arg.Any<UpdateStatusCriteria>()).Returns(x =>
             {
-                var criteria = (UpdateMultipleCriteria)x[0];
+                var criteria = (UpdateStatusCriteria)x[0];
                 if (criteria != null)
                 {
                     criteria.ErrCode = 1;
@@ -122,8 +132,18 @@ namespace Alpha.Transfer.Tests.Services
                 Message = ""
             };
 
+            var param = new UpdateStatusParam
+            {
+                CustId = custId,
+                UplineId = creator,
+                IP = ip,
+                Language = languageKey,
+                State = state,
+                Schedule = new string[] { },
+            };
+
             // Act
-            var actualData = await serviceImpl.UpdateAsync(custId, creator, ip, languageKey, state);
+            var actualData = await serviceImpl.UpdateAsync(param);
 
             // Assert
             Assert.True(compareLogic.Compare(messageResult, actualData).AreEqual);

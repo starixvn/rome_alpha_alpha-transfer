@@ -10,7 +10,7 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Age_ClearBalanceCust_Job_StatusCheck";
+            var expectedSettingKey = "SiteDB_Age_ClearBalanceCust_Job_StatusCheck";
             var criteria = new GetJobStatusCriteria(1, 2, "on");
 
             // Act

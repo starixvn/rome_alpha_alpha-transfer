@@ -1,5 +1,7 @@
-﻿using Alpha.Transfer.Constants;
+﻿using System.Collections.Generic;
+using Alpha.Transfer.Constants;
 using Alpha.Transfer.Criteria.AutoTransfer;
+using Alpha.Transfer.Params.AutoTransfer;
 using NSubstitute;
 using Xunit;
 
@@ -15,7 +17,17 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
         {
             // Arrange
             var expectedSettingKey = "Age_ClearBalanceCust_SettingUpdate";
-            var criteria = new UpdateMultipleCriteria(1176070, 1176083, Arg.Any<bool>(), "E", "127.0.0.1", state);
+            var param = new UpdateStatusParam
+            {
+                CustId = 1176083,
+                UplineId = 1176070,
+                IP = "127.0.0.1",
+                Language = "E",
+                State = state,
+                Schedule = new[] { "1" },
+            };
+
+            var criteria = new UpdateStatusCriteria(param, true);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -30,7 +42,17 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
         public void IsValid_ValidCriteria_ReturnsTrue(string state)
         {
             // Arrange
-            var criteria = new UpdateMultipleCriteria(1176070, 1176083, Arg.Any<bool>(), "E", "127.0.0.1", state);
+            var param = new UpdateStatusParam
+            {
+                CustId = 1176083,
+                UplineId = 1176070,
+                IP = "127.0.0.1",
+                Language = "E",
+                State = state,
+                Schedule = new[] { "1" },
+            };
+
+            var criteria = new UpdateStatusCriteria(param, true);
             bool expectedResult = true;
 
             // Act
@@ -47,7 +69,16 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
         public void IsValid_InvalidCriteria_ReturnsFalse(int fromCustId, int toCustId, string ip)
         {
             // Arrange
-            var criteria = new UpdateMultipleCriteria(fromCustId, toCustId, Arg.Any<bool>(), "E", ip, "on");
+            var param = new UpdateStatusParam
+            {
+                CustId = toCustId,
+                UplineId = fromCustId,
+                IP = ip,
+                Language = "E",
+                State = "on",
+                Schedule = new[] { "1" },
+            };
+            var criteria = new UpdateStatusCriteria(param, true);
 
             // Act
             var actualIsValid = criteria.IsValid();

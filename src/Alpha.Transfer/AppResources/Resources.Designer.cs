@@ -133,11 +133,29 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer processing has been successfully cancelled.
+        /// </summary>
+        public static string AutoTransfer_CancelAllSuccess {
+            get {
+                return ResourceManager.GetString("AutoTransfer_CancelAllSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Job&apos;s cancelled!.
         /// </summary>
         public static string AutoTransfer_CancelSuccess {
             get {
                 return ResourceManager.GetString("AutoTransfer_CancelSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Once disabled, the current Auto Transfer Schedule will be cleared..
+        /// </summary>
+        public static string AutoTransfer_ClearSchedule {
+            get {
+                return ResourceManager.GetString("AutoTransfer_ClearSchedule", resourceCulture);
             }
         }
         
@@ -223,7 +241,43 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update successfully!.
+        ///   Looks up a localized string similar to There are no cancellable transfer processing..
+        /// </summary>
+        public static string AutoTransfer_NoCancellable {
+            get {
+                return ResourceManager.GetString("AutoTransfer_NoCancellable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can set up Auto Transfer schedule  for your downline from the available options based on your transfer condition..
+        /// </summary>
+        public static string AutoTransfer_SetSchedule {
+            get {
+                return ResourceManager.GetString("AutoTransfer_SetSchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Each tag shows the number of &quot;Pending&quot;, &quot;Processing&quot;, &quot;Failed&quot;, and &quot;Cancellable suspended transactions&quot; for all downlines..
+        /// </summary>
+        public static string AutoTransfer_Statistic {
+            get {
+                return ResourceManager.GetString("AutoTransfer_Statistic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer Schedule has been successfully updated.
+        /// </summary>
+        public static string AutoTransfer_UpdateScheduleSuccess {
+            get {
+                return ResourceManager.GetString("AutoTransfer_UpdateScheduleSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer for accounts has been successfully updated..
         /// </summary>
         public static string AutoTransfer_UpdateSuccess {
             get {
@@ -313,11 +367,47 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel All.
+        /// </summary>
+        public static string CancelAll {
+            get {
+                return ResourceManager.GetString("CancelAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to cancel Auto Transfer process for all {0} account(s)?.
+        /// </summary>
+        public static string CancelAllAutoTransferJobsConfirm {
+            get {
+                return ResourceManager.GetString("CancelAllAutoTransferJobsConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancelled.
         /// </summary>
         public static string Cancelled {
             get {
                 return ResourceManager.GetString("Cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel suspended transactions.
+        /// </summary>
+        public static string CancelSuspendedTransactions {
+            get {
+                return ResourceManager.GetString("CancelSuspendedTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click here to Cancel all Suspend Processing.
+        /// </summary>
+        public static string CancelSuspendedTransactionsTip {
+            get {
+                return ResourceManager.GetString("CancelSuspendedTransactionsTip", resourceCulture);
             }
         }
         
@@ -484,6 +574,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Would you like to change schedule Auto Transfer for this account: {0}?.
+        /// </summary>
+        public static string confirmChangeAutoTransferSchedule {
+            get {
+                return ResourceManager.GetString("confirmChangeAutoTransferSchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to transfer?.
         /// </summary>
         public static string ConfirmTransfer {
@@ -507,6 +606,15 @@ namespace Alpha.Transfer.AppResources {
         public static string confirmTurnOnAutoTransfer {
             get {
                 return ResourceManager.GetString("confirmTurnOnAutoTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to Update Auto Transfer for these accounts: {0}.
+        /// </summary>
+        public static string confirmUpdateAutoTransfer {
+            get {
+                return ResourceManager.GetString("confirmUpdateAutoTransfer", resourceCulture);
             }
         }
         
@@ -588,6 +696,15 @@ namespace Alpha.Transfer.AppResources {
         public static string FirstName {
             get {
                 return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fri.
+        /// </summary>
+        public static string Fri {
+            get {
+                return ResourceManager.GetString("Fri", resourceCulture);
             }
         }
         
@@ -745,6 +862,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mon.
+        /// </summary>
+        public static string Mon {
+            get {
+                return ResourceManager.GetString("Mon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Monday.
         /// </summary>
         public static string Monday {
@@ -831,6 +957,15 @@ namespace Alpha.Transfer.AppResources {
         public static string Off {
             get {
                 return ResourceManager.GetString("Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
             }
         }
         
@@ -943,6 +1078,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sat.
+        /// </summary>
+        public static string Sat {
+            get {
+                return ResourceManager.GetString("Sat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saturday.
         /// </summary>
         public static string Saturday {
@@ -975,6 +1119,15 @@ namespace Alpha.Transfer.AppResources {
         public static string SelectAll {
             get {
                 return ResourceManager.GetString("SelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select All.
+        /// </summary>
+        public static string SelectAll2 {
+            get {
+                return ResourceManager.GetString("SelectAll2", resourceCulture);
             }
         }
         
@@ -1096,6 +1249,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sun.
+        /// </summary>
+        public static string Sun {
+            get {
+                return ResourceManager.GetString("Sun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sunday.
         /// </summary>
         public static string Sunday {
@@ -1128,6 +1290,15 @@ namespace Alpha.Transfer.AppResources {
         public static string ThisWeek {
             get {
                 return ResourceManager.GetString("ThisWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thurs.
+        /// </summary>
+        public static string Thurs {
+            get {
+                return ResourceManager.GetString("Thurs", resourceCulture);
             }
         }
         
@@ -1348,6 +1519,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tue.
+        /// </summary>
+        public static string Tue {
+            get {
+                return ResourceManager.GetString("Tue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tuesday.
         /// </summary>
         public static string Tuesday {
@@ -1398,6 +1578,15 @@ namespace Alpha.Transfer.AppResources {
         public static string Waiting {
             get {
                 return ResourceManager.GetString("Waiting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wed.
+        /// </summary>
+        public static string Wed {
+            get {
+                return ResourceManager.GetString("Wed", resourceCulture);
             }
         }
         

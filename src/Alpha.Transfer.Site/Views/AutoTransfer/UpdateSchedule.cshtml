@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Update Auto Transfer Schedule";
+}
+
+@using Alpha.Transfer.Site.Requests.AutoTransfer;
+@using Alpha.Transfer.Helpers;
+@model UpdateScheduleQuery
+
+@section Styles {
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/auto-transfer/update-schedule")
+}
+
+<div id="result-msg" class="msg hide"></div>
+<ul class="ul-confirm">
+    <li><b>@string.Format(Resources.confirmChangeAutoTransferSchedule, Model.CustName)</b></li>
+    <li>@Resources.AutoTransfer_SetSchedule</li>
+    <li class="li-schedule">
+        <span class="spn-schedule">
+            <input id="opt-schedule-all" type="checkbox" class="opt-schedule-all"
+                   @(Model.ScheduleDates.Count == Model.TransferrableDates.Count ? "checked='checked'" : string.Empty) />
+            @Resources.SelectAll
+        </span>
+
+        @foreach (var d in Model.TransferrableDates)
+        {
+            <span class="spn-schedule">
+                <input type="checkbox" class="opt-schedule"
+                       @(Model.ScheduleDates.Any(s => d == s) ? "checked='checked'" : "")
+                       data-val="@d" />
+                @TransferConditionHelper.GetDateName(d)
+            </span>
+        }
+    </li>
+</ul>
+<div class="list-btn-update" >
+    <button type="button" class="btn btn-default btn-cancel">@Resources.Cancel.ToUpperInvariant()</button>
+    <button type="button" class="btn btn-primary btn-ok">@Resources.OK</button>
+</div>
+
+@Html.Hidden("CustId", Model.CustId)
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/auto-transfer/update-schedule")
+}

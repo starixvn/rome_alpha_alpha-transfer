@@ -1,27 +1,25 @@
 ﻿using Alpha.Transfer.Constants;
+using Alpha.Transfer.Helpers;
+using Alpha.Transfer.Params.AutoTransfer;
 using Fanex.Data.Repository;
 
 namespace Alpha.Transfer.Criteria.AutoTransfer
 {
-    public class UpdateMultipleCriteria : NonQueryCommand
+    public class UpdateStatusCriteria : NonQueryCommand
     {
-        public UpdateMultipleCriteria(
-            int fromCustId,
-            int toCustId,
-            bool isAutoJobRunning,
-            string language,
-            string ip,
-            string state)
+        public UpdateStatusCriteria(UpdateStatusParam param, bool isAutoJobRunning)
         {
-            FromCustId = fromCustId;
-            ToCustId = toCustId;
+            FromCustId = param.UplineId;
+            ToCustId = param.CustId;
+            AutoTransferSchedule = TransferConditionHelper.GetAutoTransferScheduleFromDates(param.Schedule);
             IsAutoJobRunning = isAutoJobRunning;
 
-            IsAllowAutoTransfer = string.Equals(AutoTransferConstant.On, state, System.StringComparison.InvariantCultureIgnoreCase);
-            Language = language;
-            IP = ip;
+            IsAllowAutoTransfer = string.Equals(AutoTransferConstant.On, param.State, System.StringComparison.InvariantCultureIgnoreCase);
+            Language = param.Language;
+            IP = param.IP;
             ErrCode = 0;
             ErrMsg = string.Empty;
+            SubAccId = param.SubAccId;
         }
 
         public int FromCustId { get; }
@@ -29,6 +27,10 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
         public int ToCustId { get; }
 
         public bool IsAutoJobRunning { get; }
+
+        public string AutoTransferSchedule { get; }
+
+        public int SubAccId { get; }
 
         public int Creator => FromCustId;
 

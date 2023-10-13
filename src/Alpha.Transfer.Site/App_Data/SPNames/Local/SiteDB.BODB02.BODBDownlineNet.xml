@@ -9,10 +9,11 @@
     <Setting Key="SiteDB_Age_Transfer_CashBalance_Ins" SpName="Age_Transfer_CashBalance_Ins" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Auto Transfer">
-    <Setting Key="SiteDB_Age_ClearBalanceCust_ProcessSel" SpName="Age_ClearBalanceCust_ProcessSel" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0">
+    <Setting Key="SiteDB_Age_ClearBalanceCust_ProcessSel" SpName="Age_ClearBalanceCust_ProcessSel_xtest" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0">
       <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
     </Setting>
     <Setting Key="SiteDB_Age_ClearBalanceCust_Job_StatusCheck" SpName="Age_ClearBalanceCust_Job_StatusCheck" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
     <Setting Key="SiteDB_Age_ClearBalanceCust_ProcessCancel" SpName="Age_ClearBalanceCust_ProcessCancel" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
+    <Setting Key="SiteDB_Age_ClearBalanceCust_ProcessCancel_All" SpName="Age_ClearBalanceCust_ProcessCancel_All_xtest" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>

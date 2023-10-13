@@ -457,7 +457,7 @@
     <value>Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; based on your transfer condition &lt;b&gt;({0})&lt;/b&gt;.</value>
   </data>
   <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
-    <value>Update successfully!</value>
+    <value>Auto Transfer for accounts has been successfully updated.</value>
   </data>
   <data name="On" xml:space="preserve">
     <value>On</value>
@@ -578,5 +578,68 @@
   </data>
   <data name="AutoTransfer_InfoAffectTimeSuper" xml:space="preserve">
     <value>Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;</value>
+  </data>
+  <data name="CancelAll" xml:space="preserve">
+    <value>Cancel All</value>
+  </data>
+  <data name="CancelAllAutoTransferJobsConfirm" xml:space="preserve">
+    <value>Would you like to cancel Auto Transfer process for all {0} account(s)?</value>
+  </data>
+  <data name="AutoTransfer_CancelAllSuccess" xml:space="preserve">
+    <value>Auto Transfer processing has been successfully cancelled</value>
+  </data>
+  <data name="CancelSuspendedTransactions" xml:space="preserve">
+    <value>Cancel suspended transactions</value>
+  </data>
+  <data name="AutoTransfer_NoCancellable" xml:space="preserve">
+    <value>There are no cancellable transfer processing.</value>
+  </data>
+  <data name="confirmChangeAutoTransferSchedule" xml:space="preserve">
+    <value>Would you like to change schedule Auto Transfer for this account: {0}?</value>
+  </data>
+  <data name="AutoTransfer_SetSchedule" xml:space="preserve">
+    <value>You can set up Auto Transfer schedule  for your downline from the available options based on your transfer condition.</value>
+  </data>
+  <data name="SelectAll2" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>Mon</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>Tue</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>Wed</value>
+  </data>
+  <data name="Thurs" xml:space="preserve">
+    <value>Thurs</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>Fri</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>Sat</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Sun</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AutoTransfer_UpdateScheduleSuccess" xml:space="preserve">
+    <value>Auto Transfer Schedule has been successfully updated</value>
+  </data>
+  <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
+    <value>Once disabled, the current Auto Transfer Schedule will be cleared.</value>
+  </data>
+  <data name="confirmUpdateAutoTransfer" xml:space="preserve">
+    <value>Would you like to Update Auto Transfer for these accounts: {0}</value>
+  </data>
+  <data name="AutoTransfer_Statistic" xml:space="preserve">
+    <value>Each tag shows the number of "Pending", "Processing", "Failed", and "Cancellable suspended transactions" for all downlines.</value>
+  </data>
+  <data name="CancelSuspendedTransactionsTip" xml:space="preserve">
+    <value>Click here to Cancel all Suspend Processing</value>
   </data>
 </root>

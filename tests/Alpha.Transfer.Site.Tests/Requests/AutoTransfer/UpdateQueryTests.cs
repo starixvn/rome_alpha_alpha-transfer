@@ -18,7 +18,7 @@ namespace Alpha.Transfer.Site.Tests.RequestsTest.AutoTransfer
         public void IsValid_ValidQuery_ReturnsTrue()
         {
             // Arrange
-            var message = new UpdateQuery(userFixture.User) { CustId = 2 };
+            var message = new UpdateQuery(userFixture.User) { CustId = 2, State = "off" };
 
             // Act
             var actualValue = message.IsValid();

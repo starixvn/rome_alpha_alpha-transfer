@@ -22,6 +22,5 @@
 
         public bool IsMixStatus => !string.IsNullOrWhiteSpace(OnIds) && !string.IsNullOrWhiteSpace(OffIds);
         public List<int> TransferrableDates => TransferConditionHelper.GetTransferrableDatesFromDates(UplineCondition);
-        public string AllNames => (OnNames + "," + OffNames).Trim(new[] { ',' }).Replace(",", ", ");
     }
 }

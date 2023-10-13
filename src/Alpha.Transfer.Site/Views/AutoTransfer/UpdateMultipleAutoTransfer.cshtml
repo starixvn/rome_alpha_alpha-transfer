@@ -59,7 +59,7 @@
 </div>
 <ul class="note-list-transfer">
     <li class="@(string.IsNullOrWhiteSpace(Model.OnNames) ? "hide" : "")">*@Resources.AutoTransfer_ClearSchedule</li>
-    <li>*@Html.Raw(Resources.AutoTransfer_InfoAffectTimeSuper)</li>
+    <li class="@(string.IsNullOrWhiteSpace(Model.OffNames) ? "hide" : "")">*@Html.Raw(Resources.AutoTransfer_InfoAffectTimeSuper)</li>
     <li>@Resources.AutoTransfer_SetSchedule</li>
     <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
 </ul>
@@ -73,10 +73,10 @@
 @Html.Hidden("IsMixStatus", Model.IsMixStatus ? 1 : 0)
 @Html.Hidden("lblOn", Resources.On)
 @Html.Hidden("lblOff", Resources.Off)
-@Html.Hidden("confirmUpdateAutoTransfer", string.Format(Resources.confirmUpdateAutoTransfer, Model.AllNames))
+@Html.Hidden("confirmUpdateAutoTransfer", Resources.confirmUpdateAutoTransfer)
 @Html.Hidden("OnIds", Model.OnIds)
 @Html.Hidden("OffIds", Model.OffIds)
-@Html.Hidden("OnNamess", Model.OnNames)
+@Html.Hidden("OnNames", Model.OnNames)
 @Html.Hidden("OffNames", Model.OffNames)
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/auto-transfer/update-multiple")

@@ -610,7 +610,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to Update Auto Transfer for these accounts: {0}.
+        ///   Looks up a localized string similar to Would you like to Update Auto Transfer for these accounts:.
         /// </summary>
         public static string confirmUpdateAutoTransfer {
             get {
@@ -1294,7 +1294,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thurs.
+        ///   Looks up a localized string similar to Thu.
         /// </summary>
         public static string Thurs {
             get {

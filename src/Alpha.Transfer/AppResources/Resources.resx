@@ -613,7 +613,7 @@
     <value>Wed</value>
   </data>
   <data name="Thurs" xml:space="preserve">
-    <value>Thurs</value>
+    <value>Thu</value>
   </data>
   <data name="Fri" xml:space="preserve">
     <value>Fri</value>
@@ -634,7 +634,7 @@
     <value>Once disabled, the current Auto Transfer Schedule will be cleared.</value>
   </data>
   <data name="confirmUpdateAutoTransfer" xml:space="preserve">
-    <value>Would you like to Update Auto Transfer for these accounts: {0}</value>
+    <value>Would you like to Update Auto Transfer for these accounts:</value>
   </data>
   <data name="AutoTransfer_Statistic" xml:space="preserve">
     <value>Each tag shows the number of "Pending", "Processing", "Failed", and "Cancellable suspended transactions" for all downlines.</value>

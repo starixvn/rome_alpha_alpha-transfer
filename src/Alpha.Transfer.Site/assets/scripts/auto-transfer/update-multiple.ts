@@ -69,15 +69,16 @@ class UpdateAutoTransferMultiple {
 
         var chks = this.$(".div-on-users .opt-schedule,.div-on-users .opt-schedule-all");
         this.$switchOn.setTheSwitch({
+            steps: 2,
             action: 'on',
             onLabel: this.$("#lblOn").val(),
             offLabel: this.$("#lblOff").val(),
             onClickOn: (e) => {
                 chks.attr("disabled", null);
-                chks.prop('checked', true); 
+                chks.prop('checked', true);
             },
             onClickOff: (e) => {
-                chks.prop('checked', false); 
+                chks.prop('checked', false);
                 chks.attr("disabled", "disabled");
             }
         });
@@ -88,15 +89,16 @@ class UpdateAutoTransferMultiple {
         self.$switchOff.attr("data-value", null);
         var chks = this.$(".div-off-users .opt-schedule,.div-off-users .opt-schedule-all");
         this.$switchOff.setTheSwitch({
+            steps: 2,
             action: 'off',
             onLabel: this.$("#lblOn").val(),
             offLabel: this.$("#lblOff").val(),
             onClickOn: (e) => {
                 chks.attr("disabled", null);
-                chks.prop('checked', true); 
+                chks.prop('checked', true);
             },
             onClickOff: (e) => {
-                chks.prop('checked', false); 
+                chks.prop('checked', false);
                 chks.attr("disabled", "disabled");
             }
         });
@@ -142,6 +144,17 @@ class UpdateAutoTransferMultiple {
     };
     confirmUpdate = () => {
         var msg = this.$("#confirmUpdateAutoTransfer").val();
+        var onNames = this.$("#OnNames").val();
+        var offNames = this.$switchOff.attr('data-value') == 'off' ? '' : this.$("#OffNames").val();
+
+        if (onNames && offNames) {
+            msg += " " + onNames + ", " + offNames;
+        } else if (onNames) {
+            msg += " " + onNames;
+        } else {
+            msg += " " + offNames;
+        }
+
         this.topWindow.bootboxConfirm(msg, null, () => this.acceptUpdate());
     };
     getSchedule = (container) => {

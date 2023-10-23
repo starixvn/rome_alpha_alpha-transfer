@@ -99,7 +99,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Transfer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Transfer.4.0.0-standard2-01\lib\net461\Sunplus.Agent.Model.Transfer.dll</HintPath>
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Transfer.4.0.0-standard2-02\lib\net461\Sunplus.Agent.Model.Transfer.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.4.0.0-beta3\lib\net461\Sunplus.Agent.Utilities.dll</HintPath>

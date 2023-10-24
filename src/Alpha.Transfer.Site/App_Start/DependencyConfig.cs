@@ -1,7 +1,6 @@
 ﻿namespace Alpha.Transfer.Site.App_Start
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web.Mvc;
     using Alpha.Web.Helpers;
@@ -19,7 +18,6 @@
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
-    using StackExchange.Redis;
     using Transfer.Models;
 
     public static class DependencyConfig
@@ -96,13 +94,11 @@
         private static RedisCache InitRedisCache()
         {
             var redisConfigurationOptions = Configurations.AppSettings.TransferRedisConfigurationOptions;
-            var configurationOptions = ConfigurationOptions.Parse(redisConfigurationOptions);
 
             return new RedisCache(
                 new RedisCacheOptions
                 {
-                    ApplicationName = configurationOptions.ClientName,
-                    ConnectionOptions = configurationOptions
+                    ConnectionString = redisConfigurationOptions
                 });
         }
     }

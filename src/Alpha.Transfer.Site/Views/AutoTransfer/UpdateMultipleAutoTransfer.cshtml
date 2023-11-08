@@ -9,9 +9,8 @@
 @section Styles {
     @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/auto-transfer/update-multiple")
 }
-
+<div class="div-separator-top"></div>
 <div class="div-on-users @(string.IsNullOrWhiteSpace(Model.OnNames) ? "hide" : "")">
-    <div class="div-usernames">@((Model.OnNames ?? string.Empty).Replace(",", ", "))</div>
     <div class="auto-transfer">
         @Resources.AutoTransfer:
         <div id="switch-auto-transfer-on" class="switch-auto-transfer two-state @Model.Language"></div>
@@ -32,10 +31,10 @@
             }
         </li>
     </ul>
+    <div class="div-usernames">@((Model.OnNames ?? string.Empty).Replace(",", ", "))</div>
 </div>
 <div class="div-separator hide"></div>
 <div class="div-off-users @(string.IsNullOrWhiteSpace(Model.OffNames) ? "hide" : "")">
-    <div class="div-usernames">@((Model.OffNames ?? string.Empty).Replace(",", ", "))</div>
     <div class="auto-transfer">
         @Resources.AutoTransfer:
         <div id="switch-auto-transfer-off" class="switch-auto-transfer two-state @Model.Language"></div>
@@ -56,10 +55,11 @@
             }
         </li>
     </ul>
+    <div class="div-usernames">@((Model.OffNames ?? string.Empty).Replace(",", ", "))</div>
 </div>
 <ul class="note-list-transfer">
-    <li class="red @(string.IsNullOrWhiteSpace(Model.OnNames) ? "hide" : "")">*@Resources.AutoTransfer_ClearSchedule</li>
-    <li class="@(string.IsNullOrWhiteSpace(Model.OffNames) ? "hide" : "")">*@Html.Raw(Resources.AutoTransfer_InfoAffectTimeSuper)</li>
+    <li class="red">@Resources.AutoTransfer_ClearSchedule</li>
+    <li class="@(string.IsNullOrWhiteSpace(Model.OffNames) ? "hide" : "")">@Html.Raw(Resources.AutoTransfer_InfoAffectTimeSuper)</li>
     <li>@Resources.AutoTransfer_SetSchedule</li>
     <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
 </ul>

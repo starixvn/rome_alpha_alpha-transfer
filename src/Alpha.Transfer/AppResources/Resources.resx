@@ -634,7 +634,7 @@
     <value>Once disabled, the current Auto Transfer Schedule will be cleared.</value>
   </data>
   <data name="confirmUpdateAutoTransfer" xml:space="preserve">
-    <value>Would you like to Update Auto Transfer for these accounts:</value>
+    <value>&lt;b&gt;Would you like to Update Auto Transfer for these accounts:&lt;b&gt;</value>
   </data>
   <data name="AutoTransfer_Statistic" xml:space="preserve">
     <value>Each tag shows the number of "Pending", "Processing", "Failed", and "Cancellable suspended transactions" for all downlines.</value>

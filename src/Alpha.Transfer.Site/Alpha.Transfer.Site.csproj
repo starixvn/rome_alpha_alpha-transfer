@@ -495,18 +495,6 @@
     <Content Include="assets\styles\auto-transfer\monitoring.min.css">
       <DependentUpon>monitoring.css</DependentUpon>
     </Content>
-    <Content Include="assets\styles\auto-transfer\multiple-update-dark.css">
-      <DependentUpon>multiple-update-dark.scss</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\auto-transfer\multiple-update-dark.min.css">
-      <DependentUpon>multiple-update-dark.css</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\auto-transfer\multiple-update.css">
-      <DependentUpon>multiple-update.scss</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\auto-transfer\multiple-update.min.css">
-      <DependentUpon>multiple-update.css</DependentUpon>
-    </Content>
     <Content Include="assets\styles\auto-transfer\update-multiple-dark.css">
       <DependentUpon>update-multiple-dark.scss</DependentUpon>
     </Content>
@@ -776,8 +764,6 @@
     <Content Include="assets\styles\transfer-all-clear-credit-dark.scss" />
     <Content Include="assets\styles\transfer-hint-dark.scss" />
     <Content Include="assets\styles\transfer-to-downline-history\index-dark.scss" />
-    <Content Include="assets\styles\auto-transfer\multiple-update.scss" />
-    <Content Include="assets\styles\auto-transfer\multiple-update-dark.scss" />
     <Content Include="assets\styles\auto-transfer\monitoring.scss" />
     <Content Include="assets\styles\auto-transfer\monitoring-dark.scss" />
     <Content Include="App_Code\Components\VisibleColumnsDropdown.cshtml" />

@@ -1,7 +1,245 @@
 ﻿.switch-auto-transfer {
+    &.en-US {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
+    &.zh-TW {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
+    &.zh-CN {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
+    &.ja-JP {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
+    &.th-TH {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
+    &.ko-KR {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
+    &.vi-VN {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
     &[data-value="on"] {
         &.two-state {
-            margin: 0 64px;
+            margin: 0 35px;
             position: relative;
             width: 40px !important;
             height: 16px !important;
@@ -70,7 +308,7 @@
 
     &[data-value="off"] {
         &.two-state {
-            margin: 0 64px;
+            margin: 0 35px;
             position: relative;
             width: 40px !important;
             height: 16px !important;
@@ -138,11 +376,14 @@
     }
 }
 .div-on-users, .div-off-users {
-    padding-top: 10px;
+    padding: 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+    background: #f7f7f7;
 
     .div-usernames {
-        border: 1px solid #d1d1d1;
-        background: #f7f7f7;
+        border: 1px solid #d2d2d2;
+        background: #efefef;
         font-weight: bold;
         border-radius: 3px;
         padding: 10px;
@@ -151,7 +392,7 @@
     .auto-transfer {
         display: flex;
         align-items: center;
-        padding: 15px 0 5px;
+        padding: 0;
         font-weight: bold;
     }
 }
@@ -160,6 +401,7 @@
     background: #F0F7FF;
     border-radius: 3px;
     margin-bottom: 17px;
+    margin-top: 10px;
 
     li {
         list-style: disc;
@@ -173,14 +415,12 @@
         }
 
         &.red {
-            color: #DD3333;
             font-weight: bold;
         }
     }
 }
-.div-separator {
-    border-top: 1px solid #d1d1d1;
-    height: 1px;
+.div-separator, .div-separator-top {
+    height: 10px;
 }
 .list-btn-update {
     text-align: right;

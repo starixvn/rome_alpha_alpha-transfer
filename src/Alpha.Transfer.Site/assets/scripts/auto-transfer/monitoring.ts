@@ -175,9 +175,11 @@ class AutoTransferMonitoring {
                     '<td col-value="2" class="text-left">' + t.Username + '</td>' +
                     '<td col-value="3" class="text-left">' + t.FirstLastName + '</td>' +
                     '<td col-value="4" class="text-right' + amountClass + '">' + amount + '</td>' +
-                    '<td col-value="5" class="text-left col-status ' + status.toLowerCase() + '">'
+                    '<td col-value="5" class="text-left col-status ' + status.toLowerCase() + '">' + 
+                    '<div class="flex">' +
                     + this.$('#' + status).val()
-                    + (cancellable ? '<div class="icon icon-cancel" data-custid="' + t.CustId + '" data-status="' + t.Status + '" data-custname="' + t.Username + '"></div>' : '')
+                    + (cancellable ? '<div class="icon-close-circle"></div> data-custid="' + t.CustId + '" data-status="' + t.Status + '" data-custname="' + t.Username + '"></div>' : '')
+                    '</div>' +
                     + '</td>' +
                     '<td col-value="6" class="text-left">' + (t.Reason || '') + '</td>' +
                     '<td col-value="7" class="text-center">' + (t.CompletedTime || '') + '</td>' +

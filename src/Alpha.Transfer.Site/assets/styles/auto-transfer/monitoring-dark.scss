@@ -194,3 +194,13 @@ table.dataTable.display tr td .pagination table tbody td {
         }
     }
 }
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-close-circle {
+    color: #DD3333;
+    font-size: 18px;
+}

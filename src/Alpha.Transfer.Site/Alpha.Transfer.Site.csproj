@@ -376,7 +376,15 @@
     <Content Include="assets\bundles\auto-transfer\multiple-update.min.css">
       <DependentUpon>multiple-update.css</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\auto-transfer\update-multiple-dark.css" />
+    <Content Include="assets\bundles\auto-transfer\update-multiple-dark.min.css">
+      <DependentUpon>update-multiple-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\update-multiple.css" />
     <Content Include="assets\bundles\auto-transfer\update-multiple.js" />
+    <Content Include="assets\bundles\auto-transfer\update-multiple.min.css">
+      <DependentUpon>update-multiple.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\auto-transfer\update-multiple.min.js">
       <DependentUpon>update-multiple.js</DependentUpon>
     </Content>
@@ -498,6 +506,18 @@
     </Content>
     <Content Include="assets\styles\auto-transfer\multiple-update.min.css">
       <DependentUpon>multiple-update.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-multiple-dark.css">
+      <DependentUpon>update-multiple-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-multiple-dark.min.css">
+      <DependentUpon>update-multiple-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-multiple.css">
+      <DependentUpon>update-multiple.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-multiple.min.css">
+      <DependentUpon>update-multiple.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\auto-transfer\update-schedule-dark.css">
       <DependentUpon>update-schedule-dark.scss</DependentUpon>
@@ -766,6 +786,8 @@
     <Content Include="assets\styles\refresh-countdown-dark.scss" />
     <Content Include="assets\styles\auto-transfer\update-schedule.scss" />
     <Content Include="assets\styles\auto-transfer\update-schedule-dark.scss" />
+    <Content Include="assets\styles\auto-transfer\update-multiple.scss" />
+    <Content Include="assets\styles\auto-transfer\update-multiple-dark.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

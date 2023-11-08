@@ -8,6 +8,7 @@
     {
         public UpdateMultipleAutoTransferQuery(IUser user)
         {
+            Language = user.Language;
         }
 
         public string UplineCondition { get; set; }
@@ -19,6 +20,8 @@
         public string OffIds { get; set; }
 
         public string OffNames { get; set; }
+
+        public string Language { get; set; }
 
         public bool IsMixStatus => !string.IsNullOrWhiteSpace(OnIds) && !string.IsNullOrWhiteSpace(OffIds);
         public List<int> TransferrableDates => TransferConditionHelper.GetTransferrableDatesFromDates(UplineCondition);

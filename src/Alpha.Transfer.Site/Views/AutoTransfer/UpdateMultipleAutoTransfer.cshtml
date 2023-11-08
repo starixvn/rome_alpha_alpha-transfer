@@ -14,7 +14,7 @@
     <div class="div-usernames">@((Model.OnNames ?? string.Empty).Replace(",", ", "))</div>
     <div class="auto-transfer">
         @Resources.AutoTransfer:
-        <div id="switch-auto-transfer-on" class="switch-auto-transfer"></div>
+        <div id="switch-auto-transfer-on" class="switch-auto-transfer two-state @Model.Language"></div>
     </div>
     <ul class="ul-confirm">
         <li class="li-schedule">
@@ -38,7 +38,7 @@
     <div class="div-usernames">@((Model.OffNames ?? string.Empty).Replace(",", ", "))</div>
     <div class="auto-transfer">
         @Resources.AutoTransfer:
-        <div id="switch-auto-transfer-off" class="switch-auto-transfer"></div>
+        <div id="switch-auto-transfer-off" class="switch-auto-transfer two-state @Model.Language"></div>
     </div>
     <ul class="ul-confirm">
         <li class="li-schedule">
@@ -58,14 +58,14 @@
     </ul>
 </div>
 <ul class="note-list-transfer">
-    <li class="@(string.IsNullOrWhiteSpace(Model.OnNames) ? "hide" : "")">*@Resources.AutoTransfer_ClearSchedule</li>
+    <li class="red @(string.IsNullOrWhiteSpace(Model.OnNames) ? "hide" : "")">*@Resources.AutoTransfer_ClearSchedule</li>
     <li class="@(string.IsNullOrWhiteSpace(Model.OffNames) ? "hide" : "")">*@Html.Raw(Resources.AutoTransfer_InfoAffectTimeSuper)</li>
     <li>@Resources.AutoTransfer_SetSchedule</li>
     <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
 </ul>
 
 <div id="result-msg" class="msg hide"></div>
-<div>
+<div class="list-btn-update">
     <button type="button" class="btn btn-default btn-cancel">@Resources.Cancel.ToUpperInvariant()</button>
     <button type="button" class="btn btn-primary btn-ok">@Resources.OK</button>
 </div>

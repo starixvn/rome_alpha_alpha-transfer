@@ -61,12 +61,6 @@
         "sourceMap": true
     },
     {
-        "outputFileName": "assets/bundles/auto-transfer/multiple-update.css",
-        "inputFiles": [
-            "assets/styles/auto-transfer/multiple-update.css"
-        ]
-    },
-    {
         "outputFileName": "assets/bundles/auto-transfer/monitoring.css",
         "inputFiles": [
             "assets/styles/refresh-countdown.css",
@@ -114,6 +108,12 @@
             "assets/styles/auto-transfer/update-schedule.css"
         ]
     },
+    {
+        "outputFileName": "assets/bundles/auto-transfer/update-multiple.css",
+        "inputFiles": [           
+            "assets/styles/auto-transfer/update-multiple.css"
+        ]
+    },
     /************************** Dark Mode ************************/
     {
         "outputFileName": "assets/bundles/default-dark.css",
@@ -150,13 +150,6 @@
         ]
     },
     {
-        "outputFileName": "assets/bundles/auto-transfer/multiple-update-dark.css",
-        "inputFiles": [
-            "assets/styles/auto-transfer/multiple-update-dark.css"
-        ]
-    },
-
-    {
         "outputFileName": "assets/bundles/auto-transfer/monitoring-dark.css",
         "inputFiles": [
             "assets/styles/refresh-countdown-dark.css",
@@ -169,4 +162,10 @@
             "assets/styles/auto-transfer/update-schedule-dark.css"
         ]
     },
+    {
+        "outputFileName": "assets/bundles/auto-transfer/update-multiple-dark.css",
+        "inputFiles": [           
+            "assets/styles/auto-transfer/update-multiple-dark.css"
+        ]
+    }
 ]

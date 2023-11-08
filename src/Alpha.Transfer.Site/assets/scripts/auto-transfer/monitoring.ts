@@ -178,7 +178,7 @@ class AutoTransferMonitoring {
                     '<td col-value="5" class="text-left col-status ' + status.toLowerCase() + '">' + 
                     '<div class="flex">' +
                     + this.$('#' + status).val()
-                    + (cancellable ? '<div class="icon-close-circle"></div> data-custid="' + t.CustId + '" data-status="' + t.Status + '" data-custname="' + t.Username + '"></div>' : '')
+                    + (cancellable ? '<div class="icon-close-circle" data-custid="' + t.CustId + '" data-status="' + t.Status + '" data-custname="' + t.Username + '"></div>' : '')
                     '</div>' +
                     + '</td>' +
                     '<td col-value="6" class="text-left">' + (t.Reason || '') + '</td>' +

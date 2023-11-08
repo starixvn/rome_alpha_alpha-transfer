@@ -73,7 +73,7 @@ namespace Alpha.Transfer.Tests.Services
                 Message = string.Empty
             };
 
-            var param = new UpdateStatusParam
+            var param = new UpdateSingleParam
             {
                 CustId = custId,
                 UplineId = creator,
@@ -132,7 +132,7 @@ namespace Alpha.Transfer.Tests.Services
                 Message = ""
             };
 
-            var param = new UpdateStatusParam
+            var param = new UpdateSingleParam
             {
                 CustId = custId,
                 UplineId = creator,

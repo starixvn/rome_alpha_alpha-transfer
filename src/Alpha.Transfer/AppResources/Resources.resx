@@ -451,13 +451,13 @@
     <value>Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8), during which the Yesterday Balance will be cleared.</value>
   </data>
   <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
-    <value>To ensure the accuracy of data during Auto Transfer process, you CANNOT transfer to your downline whose Auto Transfer is enabled.</value>
+    <value>To ensure data accuracy during Auto Transfer process, you CANNOT transfer to your downlines whose Auto Transfer is enabled.</value>
   </data>
   <data name="AutoTransfer_InfoAffectTime" xml:space="preserve">
     <value>Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; based on your transfer condition &lt;b&gt;({0})&lt;/b&gt;.</value>
   </data>
   <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
-    <value>Auto Transfer for accounts has been successfully updated.</value>
+    <value>Auto Transfer has been successfully updated for these accounts.</value>
   </data>
   <data name="On" xml:space="preserve">
     <value>On</value>
@@ -544,7 +544,7 @@
     <value>Auto Transfer</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
-    <value>The Auto Transfer has been enabled for these accounts. However, this process is taking place, and these accounts will be queued for Auto Transfer at the next scheduled time based on their transfer conditions.</value>
+    <value>The Auto Transfer has been enabled for these accounts. However, this process is taking place, and these accounts will be queued for Auto Transfer at the next scheduled time based on their Auto Transfer schedule.</value>
   </data>
   <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
     <value>You cannot disable Auto Transfer for these accounts because the Auto Transfer process is in progress. Please try again after the process has been completed.</value>
@@ -565,7 +565,7 @@
     <value>You cannot disable Auto Transfer for this account because the Auto Transfer process is in progress. Please try again after the process has been completed.</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
-    <value>The Auto Transfer has been enabled for this account. However, this process is taking place, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions.</value>
+    <value>The Auto Transfer has been enabled for this account. However, this process is taking place, and the account will be queued for Auto Transfer at the next scheduled time based on its Auto Transfer Schedule.</value>
   </data>
   <data name="AutoTransferGuideline" xml:space="preserve">
     <value>Auto Transfer Guideline</value>
@@ -583,7 +583,7 @@
     <value>Cancel All</value>
   </data>
   <data name="CancelAllAutoTransferJobsConfirm" xml:space="preserve">
-    <value>Would you like to cancel Auto Transfer process for all {0} account(s)?</value>
+    <value>Would you like to cancel Auto Transfer process for {0} account(s)?</value>
   </data>
   <data name="AutoTransfer_CancelAllSuccess" xml:space="preserve">
     <value>Auto Transfer processing has been successfully cancelled</value>
@@ -592,13 +592,13 @@
     <value>Cancel suspended transactions</value>
   </data>
   <data name="AutoTransfer_NoCancellable" xml:space="preserve">
-    <value>There are no cancellable transfer processing.</value>
+    <value>There are no cancellable transactions.</value>
   </data>
   <data name="confirmChangeAutoTransferSchedule" xml:space="preserve">
-    <value>Would you like to change schedule Auto Transfer for this account: {0}?</value>
+    <value>Would you like to change Auto Transfer schedule for this account: {0}?</value>
   </data>
   <data name="AutoTransfer_SetSchedule" xml:space="preserve">
-    <value>You can set up Auto Transfer schedule  for your downline from the available options based on your transfer condition.</value>
+    <value>You can set up Auto Transfer schedule for your downline from the available options based on your transfer condition.</value>
   </data>
   <data name="SelectAll2" xml:space="preserve">
     <value>Select All</value>
@@ -628,18 +628,27 @@
     <value>OK</value>
   </data>
   <data name="AutoTransfer_UpdateScheduleSuccess" xml:space="preserve">
-    <value>Auto Transfer Schedule has been successfully updated</value>
+    <value>Auto Transfer schedule for account {0} has been successfully updated.</value>
   </data>
   <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
-    <value>Once disabled, the current Auto Transfer Schedule will be cleared.</value>
+    <value>Once disabled, the current Auto Transfer schedule will be cleared.</value>
   </data>
   <data name="confirmUpdateAutoTransfer" xml:space="preserve">
-    <value>&lt;b&gt;Would you like to Update Auto Transfer for these accounts:&lt;b&gt;</value>
+    <value>&lt;b&gt;Would you like to update Auto Transfer for these accounts:&lt;b&gt;</value>
   </data>
   <data name="AutoTransfer_Statistic" xml:space="preserve">
-    <value>Each tag shows the number of "Pending", "Processing", "Failed", and "Cancellable suspended transactions" for all downlines.</value>
+    <value>The number of transfers in the "Pending", "Processing", "Failed", and "Cancel suspended transactions" categories is counted for all downlines.</value>
   </data>
   <data name="CancelSuspendedTransactionsTip" xml:space="preserve">
-    <value>Click here to Cancel all Suspend Processing</value>
+    <value>Click here to Cancel all pending/processing transactions over 15 minutes.</value>
+  </data>
+  <data name="EditMultipleAutoTransfer" xml:space="preserve">
+    <value>Edit Multiple Auto Transfer</value>
+  </data>
+  <data name="EditAutoTransferSchedule" xml:space="preserve">
+    <value>Edit Auto Transfer Schedule</value>
+  </data>
+  <data name="AutoTransfer_UplineConditionChanged" xml:space="preserve">
+    <value>Your Transfer Condition was changed by upline. Please refresh the page.</value>
   </data>
 </root>

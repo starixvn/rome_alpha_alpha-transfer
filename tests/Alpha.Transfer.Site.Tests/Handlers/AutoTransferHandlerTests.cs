@@ -93,7 +93,7 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             {
                 Code = 0
             };
-            autoTransferService.UpdateAsync(Arg.Any<UpdateStatusParam>()).Returns(result);
+            autoTransferService.UpdateAsync(Arg.Any<UpdateSingleParam>()).Returns(result);
 
             var expectedViewModel = new Result
             {
@@ -129,7 +129,7 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 Message = "Error"
             };
 
-            autoTransferService.UpdateAsync(Arg.Any<UpdateStatusParam>()).Returns(result);
+            autoTransferService.UpdateAsync(Arg.Any<UpdateSingleParam>()).Returns(result);
 
             var expectedViewModel = new Result
             {

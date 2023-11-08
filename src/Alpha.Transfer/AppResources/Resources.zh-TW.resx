@@ -487,7 +487,7 @@
     <value>自動轉賬流程安排於中午 12:00 (GMT+8) 進行，在這期間昨天餘額將被清算。</value>
   </data>
   <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
-    <value>為了確保自動轉賬數據的準確性，您無法向已經開啟自動轉賬的下線進行轉賬。</value>
+    <value>爲確保自動轉賬過程中數據的准確性，您不能向已啓用自動轉賬的下線進行轉賬。</value>
   </data>
   <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
     <value>如果您在其運行中開啟自動轉賬，自動轉賬將會根據您賬號的轉賬設定在下一個預定時間生效。</value>
@@ -514,7 +514,7 @@
     <value>取消</value>
   </data>
   <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
-    <value>修改成功!</value>
+    <value>這些賬號的自動轉賬已成功更新。</value>
   </data>
   <data name="AutoTransfer" xml:space="preserve">
     <value>自動轉賬</value>
@@ -526,16 +526,16 @@
     <value>第三方待定轉賬</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
-    <value>這些賬號已啟用自動轉賬。但是，自動轉賬的過程正在進行，所以這些賬號將根據您的賬號轉賬設定在隊列中等待下一個預定時間自動轉賬。</value>
+    <value>您這些賬號已啓用自動轉賬。 但是，轉賬過程正在進行，並且這些賬號將根據其自動轉賬流程在隊列中等他們下一個日程表的自動轉賬.</value>
   </data>
   <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
     <value>您無法禁用這些賬號的自動轉賬功能，因為自動轉賬正在進行中。請等進行完畢之後再重試。。</value>
   </data>
   <data name="AutoTransfer_UpdateSuccessOff" xml:space="preserve">
-    <value>這個賬號{0}的自動轉賬已經成功禁用。</value>
+    <value>賬號 {0} 自動轉賬已成功禁用。</value>
   </data>
   <data name="AutoTransfer_UpdateSuccessOn" xml:space="preserve">
-    <value>這個賬號{0}的自動轉賬已經成功啟用。</value>
+    <value>賬號 {0} 自動轉賬已成功啓用。</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>等待中</value>
@@ -544,7 +544,7 @@
     <value>您無法禁用此賬號的自動轉賬功能，因為自動轉賬正在進行中。請等進行完畢之後再重試。</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
-    <value>這個賬號已啟用自動轉賬。但是，自動轉賬的過程正在進行，所以該賬號將根據您的賬號轉賬設定在隊列中等待下一個預定時間自動轉賬。</value>
+    <value>該帳戶已啟用自動轉帳。但是，轉帳過程正在進行中，所以該帳戶將根據其自動轉帳日程表在下一個時間段隊列中等待自動轉帳。</value>
   </data>
   <data name="Ignored" xml:space="preserve">
     <value>忽視</value>
@@ -556,7 +556,7 @@
     <value>由於上線已為您啟用全天餘額轉賬，所以您無法使用自動轉賬。頁面將會自動刷新。</value>
   </data>
   <data name="AutoTransfer_InfoAffectTimeSuper" xml:space="preserve">
-    <value>一旦啟用自動轉賬功能，系統將於 12:00 (GMT+8)清除昨日餘額。</value>
+    <value>一旦啟用自動轉賬功能，系統將於 &lt;span&gt;12:00 (GMT+8)&lt;/span&gt;清除昨日餘額。</value>
   </data>
   <data name="SelectAll2" xml:space="preserve">
     <value>全選</value>
@@ -581,5 +581,47 @@
   </data>
   <data name="Tue" xml:space="preserve">
     <value>二</value>
+  </data>
+  <data name="AutoTransfer_CancelAllSuccess" xml:space="preserve">
+    <value>自動轉賬過程已成功取消</value>
+  </data>
+  <data name="CancelSuspendedTransactions" xml:space="preserve">
+    <value>取消暫停交易</value>
+  </data>
+  <data name="AutoTransfer_Statistic" xml:space="preserve">
+    <value>所有下线的类别转账数量是从“等待中”、“進行中”、“失败”和“取消暂停交易”中计算。</value>
+  </data>
+  <data name="CancelAllAutoTransferJobsConfirm" xml:space="preserve">
+    <value>您想取消 {0}個賬號的自動轉賬流程嗎？</value>
+  </data>
+  <data name="AutoTransfer_NoCancellable" xml:space="preserve">
+    <value>沒有可取消的交易。</value>
+  </data>
+  <data name="AutoTransfer_SetSchedule" xml:space="preserve">
+    <value>您可以為您的下線設定自動轉帳日程表根據您轉帳設定可有的選項。</value>
+  </data>
+  <data name="confirmChangeAutoTransferSchedule" xml:space="preserve">
+    <value>您想更改自動轉帳日程表於此帳號：{0}？</value>
+  </data>
+  <data name="AutoTransfer_UpdateScheduleSuccess" xml:space="preserve">
+    <value>賬號 {0} 自動轉賬日程表已成功更新。</value>
+  </data>
+  <data name="confirmUpdateAutoTransfer" xml:space="preserve">
+    <value>&lt;b&gt;您想要更新這些賬號的自動轉賬：&lt;b&gt;</value>
+  </data>
+  <data name="CancelSuspendedTransactionsTip" xml:space="preserve">
+    <value>點擊此處取消所有等待中/進行中已超過15分鐘的交易。</value>
+  </data>
+  <data name="EditMultipleAutoTransfer" xml:space="preserve">
+    <value>修改多重轉賬</value>
+  </data>
+  <data name="EditAutoTransferSchedule" xml:space="preserve">
+    <value>修改自動轉帳日程表</value>
+  </data>
+  <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
+    <value>壹旦禁用，當前的自動轉賬日程表將被清除。</value>
+  </data>
+  <data name="AutoTransfer_UplineConditionChanged" xml:space="preserve">
+    <value>您的轉賬設定已被上線更改。請刷新頁面。</value>
   </data>
 </root>

@@ -236,6 +236,7 @@
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\MultipleTransfer\CustomerInformation.cs" />
     <Compile Include="Models\MultipleTransfer\CustomerListModel.cs" />
+    <Compile Include="Models\AutoTransfer\UpdateMultipleAutoTransferResultModel.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\ClearCreditStep.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\ClearCreditResult.cs" />
@@ -249,7 +250,7 @@
     <Compile Include="Params\AutoTransfer\UpdateScheduleParam.cs" />
     <Compile Include="Params\AutoTransfer\CancelAllJobParam.cs" />
     <Compile Include="Params\AutoTransfer\UpdateMultipleAutoTransferParam.cs" />
-    <Compile Include="Params\AutoTransfer\UpdateStatusParam.cs" />
+    <Compile Include="Params\AutoTransfer\UpdateSingleParam.cs" />
     <Compile Include="Params\AutoTransfer\CancelJobParam.cs" />
     <Compile Include="Params\AutoTransfer\GetHistoryTransfersParam.cs" />
     <Compile Include="Params\AutoTransfer\GetTodayTransfersParam.cs" />

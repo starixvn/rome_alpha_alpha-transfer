@@ -17,7 +17,7 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
         {
             // Arrange
             var expectedSettingKey = "Age_ClearBalanceCust_SettingUpdate";
-            var param = new UpdateStatusParam
+            var param = new UpdateSingleParam
             {
                 CustId = 1176083,
                 UplineId = 1176070,
@@ -42,7 +42,7 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
         public void IsValid_ValidCriteria_ReturnsTrue(string state)
         {
             // Arrange
-            var param = new UpdateStatusParam
+            var param = new UpdateSingleParam
             {
                 CustId = 1176083,
                 UplineId = 1176070,
@@ -69,7 +69,7 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
         public void IsValid_InvalidCriteria_ReturnsFalse(int fromCustId, int toCustId, string ip)
         {
             // Arrange
-            var param = new UpdateStatusParam
+            var param = new UpdateSingleParam
             {
                 CustId = toCustId,
                 UplineId = fromCustId,

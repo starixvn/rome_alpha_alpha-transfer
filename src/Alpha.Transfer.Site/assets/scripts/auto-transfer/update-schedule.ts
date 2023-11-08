@@ -11,7 +11,7 @@ class UpdateAutoTransferSchedule {
     $: JQueryStatic;
     topWindow: Window;
     $resultMsg: JQuery;
-   
+
     constructor($: JQueryStatic, topWindow: Window) {
         this.$ = $;
         this.topWindow = topWindow;
@@ -80,14 +80,16 @@ class UpdateAutoTransferSchedule {
             method: "POST",
             data: {
                 CustId: this.$("#CustId").val(),
-                Schedule: scheduleDates.join(',')
+                Schedule: scheduleDates.join(','),
+                CustName: this.$("#CustName").val(),
+                Old_TransferOption: this.$("#Old_TransferOption").val(),
             },
             dataType: 'json',
             url: "PostUpdateSchedule",
             success: results => {
                 this.$resultMsg.removeClass('msg-success msg-error msg-warning');
-                if (results.Code === 0) {
-                    this.$resultMsg.addClass('msg-success');
+                if (results.Code === 0 || results.Code === -1) {
+                    this.$resultMsg.addClass(results.Code === 0 ? 'msg-success' : 'msg-warning');
                     this.$resultMsg.html(results.Message);
                     this.$resultMsg.removeClass('hide');
                     this.topWindow.closePopupAndReloadMainFrameAfterUpdateSuccess(3000);
@@ -98,10 +100,18 @@ class UpdateAutoTransferSchedule {
                 this.$resultMsg.addClass('msg-error');
                 this.$resultMsg.html(results.Message);
                 this.$resultMsg.removeClass('hide');
-                if (results.Code === 100) {
-                    this.topWindow.bootboxAlert(results.Message, null, () => { });
-                    this.topWindow.main.location.reload(true);
+
+                if (results.Code !== 108 || results.Code !== 105) {
+                    return;
                 }
+
+                if (results.Code === 108) {
+                    // ADBT changed
+                    this.topWindow.indexManager.updateCurrentUrl("adbt=False");
+                }
+
+                this.topWindow.indexManager.addCustomCookies('messageForReloadSite', results.Message);
+                this.topWindow.location.reload();
             },
             error: (e) => {
                 if (e.status !== 200) {

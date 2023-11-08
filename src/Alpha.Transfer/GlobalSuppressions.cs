@@ -82,3 +82,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S1192:String literals should not be duplicated", Justification = "<Pending>", Scope = "member", Target = "~M:Alpha.Transfer.Criteria.MultipleTransfer.GetCustomerListCriteria.GetSpParams~System.Collections.Hashtable")]
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Code Smell", "S134:Control flow statements \"if\", \"switch\", \"for\", \"foreach\", \"while\", \"do\"  and \"try\" should not be nested too deeply", Justification = "<Pending>", Scope = "member", Target = "~M:Alpha.Transfer.DataAccesses.TransferAllAndClearCreditDataAccessImpl.GetCalculateResult(Alpha.Transfer.Criteria.TransferAllAndClearCredit.GetCalculateResultCriteria)~Alpha.Transfer.Models.TransferAllAndClearCredit.TransferResult")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S2325:Methods and properties that don't access instance data should be static", Justification = "<Pending>", Scope = "member", Target = "~P:Alpha.Transfer.Models.AutoTransfer.UpdateMultipleAutoTransferResultModel.SuccessMessage")]
+

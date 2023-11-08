@@ -12,7 +12,10 @@ class UpdateAutoTransferMultiple {
 
     $switchOn: JQuery;
     $switchOff: JQuery;
-    $resultMsg: JQuery;
+
+    $msgWarning: JQuery;
+    $msgError: JQuery;
+    $msgSuccess: JQuery;
 
     constructor($: JQueryStatic, topWindow: Window) {
         this.$ = $;
@@ -27,7 +30,10 @@ class UpdateAutoTransferMultiple {
     cacheDOMElements = () => {
         this.$switchOn = this.$('#switch-auto-transfer-on');
         this.$switchOff = this.$('#switch-auto-transfer-off');
-        this.$resultMsg = this.$('#result-msg');
+
+        this.$msgWarning = this.$('#msg-warning');
+        this.$msgError = this.$('#msg-error');
+        this.$msgSuccess = this.$('#msg-success');
     };
     initDOMElements = () => {
         var isMixStatus = this.$('#IsMixStatus').val();
@@ -141,20 +147,22 @@ class UpdateAutoTransferMultiple {
 
     cancelUpdate = () => {
         this.topWindow.popupManager.close();
+        this.topWindow.main.$("#product-popup").modal('hide');
     };
     confirmUpdate = () => {
-        var msg = this.$("#confirmUpdateAutoTransfer").val();
         var onNames = this.$("#OnNames").val();
         var offNames = this.$switchOff.attr('data-value') == 'off' ? '' : this.$("#OffNames").val();
+        var allNames = "";
 
         if (onNames && offNames) {
-            msg += " " + onNames + ", " + offNames;
+            allNames += onNames + ", " + offNames;
         } else if (onNames) {
-            msg += " " + onNames;
+            allNames += onNames;
         } else {
-            msg += " " + offNames;
+            allNames += offNames;
         }
 
+        var msg = this.$("#confirmUpdateAutoTransfer").val() + " " + allNames;
         this.topWindow.bootboxConfirm(msg, null, () => this.acceptUpdate());
     };
     getSchedule = (container) => {
@@ -175,37 +183,68 @@ class UpdateAutoTransferMultiple {
             data: {
                 OnIds: this.$("#OnIds").val(),
                 OffIds: this.$("#OffIds").val(),
+                OnNames: this.$("#OnNames").val(),
+                OffNames: this.$("#OffNames").val(),
                 OnStatus: this.$switchOn.attr('data-value'),
                 OffStatus: this.$switchOff.attr('data-value'),
                 OnSchedule: this.getSchedule(".div-on-users"),
                 OffSchedule: this.getSchedule(".div-off-users"),
+                Old_TransferOption: this.$("#Old_TransferOption").val(),
             },
             dataType: 'json',
             url: "UpdateMultipleAutoTransfer",
             success: results => {
-                this.$resultMsg.removeClass('msg-success msg-error msg-warning');
-                if (results.Code === 0) {
-                    this.$resultMsg.addClass('msg-success');
-                    this.$resultMsg.html(results.Message);
-                    this.$resultMsg.removeClass('hide');
+                this.$msgWarning.addClass('hide');
+                this.$msgError.addClass('hide');
+                this.$msgSuccess.addClass('hide');
+
+                if (results.Code === 108 || results.Code === 105) {
+                    if (results.Code === 108) {
+                        // ADBT changed
+                        this.topWindow.indexManager.updateCurrentUrl("adbt=False");
+                    }
+
+                    this.topWindow.indexManager.addCustomCookies('messageForReloadSite', results.StopMessage);
+                    this.topWindow.location.reload();
+                    return;
+                }
+
+                if (results.StopMessage) {
+                    this.$msgError.html(results.StopMessage);
+                    this.$msgError.removeClass('hide');
+                    return;
+                }
+
+                if (results.ErrorMessage && results.WarningMessage) {
+                    this.$msgError.html(results.ErrorMessage);
+                    this.$msgError.removeClass('hide');
+
+                    this.$msgWarning.html(results.WarningMessage);
+                    this.$msgWarning.removeClass('hide');
+                    return;
+                }
+
+                if (results.ErrorMessage) {
+                    this.$msgError.html(results.ErrorMessage);
+                    this.$msgError.removeClass('hide');
+                    return;
+                }
+
+                if (results.WarningMessage) {
+                    this.$msgWarning.html(results.WarningMessage);
+                    this.$msgWarning.removeClass('hide');
                     this.topWindow.closePopupAndReloadMainFrameAfterUpdateSuccess(3000);
                     return;
                 }
 
-                this.$resultMsg.addClass('msg-error');
-                this.$resultMsg.html(results.Message);
-                this.$resultMsg.removeClass('hide');
-                if (results.Code === 100) {
-                    this.topWindow.bootboxAlert(results.Message, null, () => { });
-                    this.topWindow.main.location.reload(true);
-                }
+                this.$msgSuccess.html(results.SuccessMessage);
+                this.$msgSuccess.removeClass('hide');
+                this.topWindow.closePopupAndReloadMainFrameAfterUpdateSuccess(3000);
             },
             error: (e) => {
                 if (e.status !== 200) {
-                    this.$resultMsg.html(e.statusText);
-                    this.$resultMsg.removeClass('msg-success msg-warning');
-                    this.$resultMsg.addClass('msg-error');
-                    this.$resultMsg.removeClass('hide');
+                    this.$msgError.html(e.statusText);
+                    this.$msgError.removeClass('hide');
                 }
             },
             complete: () => { this.$.unblockUI(); }

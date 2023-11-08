@@ -101,7 +101,8 @@
         public async Task Update_ValidQueryAndNotInternal_CallsMediatorUpdateQuery()
         {
             // Arrange
-            var message = new UpdateQuery(user) {
+            var message = new UpdateQuery(user)
+            {
                 CustId = 1176083,
                 State = "off"
             };

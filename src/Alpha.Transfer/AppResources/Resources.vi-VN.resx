@@ -504,4 +504,64 @@
   <data name="Tue" xml:space="preserve">
     <value>Thứ 3</value>
   </data>
+  <data name="AutoTransfer_CancelAllSuccess" xml:space="preserve">
+    <value>Chuyển Khoản Tự Động đã hủy thành công</value>
+  </data>
+  <data name="CancelSuspendedTransactions" xml:space="preserve">
+    <value>Hủy giao dịch treo</value>
+  </data>
+  <data name="AutoTransfer_Statistic" xml:space="preserve">
+    <value>Số giao dịch trong danh mục "Chờ xử lý", "Đang xử lý", "Không thành công" và "Hủy giao dịch treo" được tính trên tất cả cấp dưới.</value>
+  </data>
+  <data name="CancelAllAutoTransferJobsConfirm" xml:space="preserve">
+    <value>Bạn có muốn hủy Chuyển Khoản Tự Động cho {0} tài khoản?</value>
+  </data>
+  <data name="AutoTransfer_NoCancellable" xml:space="preserve">
+    <value>Không có giao dịch có thể hủy.</value>
+  </data>
+  <data name="AutoTransfer_SetSchedule" xml:space="preserve">
+    <value>Bạn có thể đặt lịch Chuyển Khoản Tự Động cho cấp dưới từ các tùy chọn có sẵn dựa trên điều kiện chuyển khoản của bạn.</value>
+  </data>
+  <data name="confirmChangeAutoTransferSchedule" xml:space="preserve">
+    <value>Bạn có muốn thay đổi lịch Chuyển Khoản Tự Động cho tài khoản: {0}?</value>
+  </data>
+  <data name="AutoTransfer_UpdateScheduleSuccess" xml:space="preserve">
+    <value>Chuyển Khoản Tự Động cho tài khoản {0} đã được cập nhật thành công.</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccessOff" xml:space="preserve">
+    <value>Chuyển Khoản Tự Động cho tài khoản {0} đã được tắt thành công.</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccessOn" xml:space="preserve">
+    <value>Chuyển Khoản Tự Động cho tài khoản {0} đã được mở thành công.</value>
+  </data>
+  <data name="confirmUpdateAutoTransfer" xml:space="preserve">
+    <value>&lt;b&gt;Bạn có muốn cập nhật Chuyển Khoản Tự Động cho các tài khoản:&lt;b&gt;</value>
+  </data>
+  <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
+    <value>Chuyển Khoản Tự Động đã được cập nhật thành công cho các tài khoản này.</value>
+  </data>
+  <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
+    <value>Để đảm báo tính chính xác của dữ liệu trong quá trình Chuyển Khoản Tự Động, bạn KHÔNG THỂ chuyển khoản cho cấp dưới của bạn nếu Chuyển Khoản Tự Động của họ đang bật.</value>
+  </data>
+  <data name="CancelSuspendedTransactionsTip" xml:space="preserve">
+    <value>Nhấn vào để hủy các giao dịch đang chờ hoặc xử lý quá 15 phút.</value>
+  </data>
+  <data name="EditMultipleAutoTransfer" xml:space="preserve">
+    <value>Tùy Chỉnh Đồng Loạt Chuyển Khoản Tự Động</value>
+  </data>
+  <data name="EditAutoTransferSchedule" xml:space="preserve">
+    <value>Tùy Chỉnh Lịch Chuyển Khoản Tự Động</value>
+  </data>
+  <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
+    <value>Sau khi tắt, lịch Chuyển Khoản Tự Động hiện tại sẽ bị xóa.</value>
+  </data>
+  <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
+    <value>Điều Kiện Chuyển Khoản của bạn đã được cấp trên thay đổi.  Vui lòng tải lại trang.</value>
+  </data>
+  <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
+    <value>Chuyển Khoản Tự Động đã được bật cho tài khoản này. Tuy nhiên, do quá trình chuyển khoản tự động đang diễn ra, tài khoản này sẽ được thêm vào danh sách chờ để được xử lý vào lần sau theo lịch chuyển khoản định kỳ.</value>
+  </data>
+  <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
+    <value>Chuyển Khoản Tự Động đã được bật cho các tài khoản này. Tuy nhiên, quá trình này đang diễn ra, do đó các tài khoản này sẽ được lên lịch để thực hiện Chuyển Khoản Tự Động vào lượt tiếp theo, dựa trên lịch Chuyển Khoản Tự Động của từng tài khoản.</value>
+  </data>
 </root>

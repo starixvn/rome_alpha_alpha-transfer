@@ -97,7 +97,34 @@ table.dataTable tbody tr {
 table.dataTable.display tr td .pagination table tbody td {
     border: 0 !important;
 }
+.tblRpt thead th, .tblRpt tbody td, .tblRpt tfoot td {
+    white-space: normal;
+}
+#tbl-monitoring {
+    [col-value="1"] {
+        width: 3%;
+    }
 
+    [col-value="2"] {
+        width: 10%;
+    }
+
+    [col-value="3"] {
+        width: 10%;
+    }
+
+    [col-value="4"] {
+        width: 10%;
+    }
+
+    [col-value="5"] {
+        width: 10%;
+    }
+
+    [col-value="7"] {
+        width: 15%;
+    }
+}
 .pagination {
     table tbody {
         td {
@@ -203,4 +230,5 @@ table.dataTable.display tr td .pagination table tbody td {
 .icon-close-circle {
     color: #DD3333;
     font-size: 18px;
+    cursor: pointer;
 }

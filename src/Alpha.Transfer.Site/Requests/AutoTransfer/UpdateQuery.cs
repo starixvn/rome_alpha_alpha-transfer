@@ -23,6 +23,8 @@
 
         public string Schedule { get; set; }
 
+        public string Old_TransferOption { get; set; }
+
         public int UplineId { get; }
 
         public int SubAccId { get; }

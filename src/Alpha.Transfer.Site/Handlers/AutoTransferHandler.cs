@@ -1,9 +1,7 @@
 ﻿namespace Alpha.Transfer.Site.Handlers
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Alpha.Transfer.AppResources;
-    using Alpha.Transfer.Extensions;
     using Alpha.Transfer.Models.AutoTransfer;
     using Alpha.Transfer.Params.AutoTransfer;
     using Alpha.Transfer.Services;
@@ -20,7 +18,7 @@
         IAsyncRequestHandler<CancelJobQuery, Result>,
         IAsyncRequestHandler<CancelAllJobsQuery, Result>,
         IAsyncRequestHandler<PostUpdateScheduleQuery, Result>,
-        IAsyncRequestHandler<PostUpdateMultipleAutoTransferQuery, Result>
+        IAsyncRequestHandler<PostUpdateMultipleAutoTransferQuery, UpdateMultipleAutoTransferResultModel>
     {
         private readonly AutoTransferService service;
         private readonly CashBalanceTransferService cashBalanceTransferService;
@@ -49,7 +47,7 @@
 
         public async Task<Result> Handle(UpdateQuery message)
         {
-            var param = new UpdateStatusParam
+            var param = new UpdateSingleParam
             {
                 CustId = message.CustId,
                 UplineId = message.UplineId,
@@ -58,6 +56,7 @@
                 State = message.State,
                 Schedule = message.DateSchedule,
                 SubAccId = message.SubAccId,
+                Old_TransferOption = message.Old_TransferOption
             };
 
             var result = await service.UpdateAsync(param);
@@ -157,6 +156,7 @@
                 SubAccId = message.SubAccId,
                 IP = message.IP,
                 Language = message.Language,
+                Old_TransferOption = message.Old_TransferOption
             };
 
             var result = await service.UpdateScheduleAsync(param);
@@ -164,11 +164,11 @@
             return new Result
             {
                 Code = result.Code,
-                Message = result.Code == 0 ? Resources.AutoTransfer_UpdateScheduleSuccess : result.Message
+                Message = result.Code == 0 ? string.Format(Resources.AutoTransfer_UpdateScheduleSuccess, message.CustName) : result.Message
             };
         }
 
-        public async Task<Result> Handle(PostUpdateMultipleAutoTransferQuery message)
+        public async Task<UpdateMultipleAutoTransferResultModel> Handle(PostUpdateMultipleAutoTransferQuery message)
         {
             var param = new UpdateMultipleAutoTransferParam
             {
@@ -183,15 +183,12 @@
                 OffStatus = message.OffStatus,
                 OnSchedule = message.OnSchedule,
                 OffSchedule = message.OffSchedule,
+                Old_TransferOption = message.Old_TransferOption,
+                OnNames = message.OnNames,
+                OffNames = message.OffNames,
             };
 
-            var result = await service.UpdateMultipleAutoTransferAsync(param);
-
-            return new Result
-            {
-                Code = result.Code,
-                Message = result.Code == 0 ? Resources.AutoTransfer_UpdateSuccess : result.Message
-            };
+            return await service.UpdateMultipleAutoTransferAsync(param);
         }
     }
 }

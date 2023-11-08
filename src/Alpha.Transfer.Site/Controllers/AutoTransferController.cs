@@ -7,6 +7,7 @@
     using Alpha.Transfer.AppResources;
     using Alpha.Transfer.Configurations;
     using Alpha.Transfer.Models;
+    using Alpha.Transfer.Models.AutoTransfer;
     using Alpha.Transfer.Services;
     using Alpha.Transfer.Site.Requests.AutoTransfer;
     using Alpha.Transfer.Site.ViewModels.AutoTransfer;
@@ -19,6 +20,7 @@
         private readonly IUserSession userSession;
         private readonly TransferService transferService;
         private const string InvalidTransferStatusViewPath = "~/Views/AutoTransfer/ADBTChange.cshtml";
+        private const int ADBTChangeCode = 108;
 
         public AutoTransferController(
             IMediator mediator,
@@ -37,7 +39,7 @@
 
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode);
             }
             else if (message == null || !message.IsValid())
             {
@@ -93,7 +95,7 @@
         {
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, 100), JsonRequestBehavior.DenyGet);
+                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode), JsonRequestBehavior.DenyGet);
             }
 
             var result = await mediator.SendAsync(message);
@@ -106,7 +108,7 @@
         {
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, 100), JsonRequestBehavior.DenyGet);
+                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode), JsonRequestBehavior.DenyGet);
             }
 
             var result = await mediator.SendAsync(message);
@@ -121,7 +123,7 @@
 
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode);
             }
             else if (message == null || !message.IsValid())
             {
@@ -146,7 +148,7 @@
 
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode);
             }
             else if (message == null || !message.IsValid())
             {
@@ -182,7 +184,7 @@
 
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode);
             }
             else if (userSession.IsInternal)
             {
@@ -214,19 +216,15 @@
         [HttpPost]
         public async Task<ActionResult> UpdateMultipleAutoTransfer(PostUpdateMultipleAutoTransferQuery message)
         {
-            Result result;
+            UpdateMultipleAutoTransferResultModel result;
 
-            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            if (userSession.IsInternal)
             {
-                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
-            }
-            else if (userSession.IsInternal)
-            {
-                result = Result.CreateErrorResult(Resources.NotAuthorized, 403);
+                result = new UpdateMultipleAutoTransferResultModel(403, Resources.NotAuthorized);
             }
             else if (message == null)
             {
-                result = Result.CreateErrorResult(Resources.BadRequest, 400);
+                result = new UpdateMultipleAutoTransferResultModel(400, Resources.BadRequest);
             }
             else
             {

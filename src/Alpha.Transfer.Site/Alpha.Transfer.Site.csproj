@@ -368,14 +368,6 @@
     <Content Include="assets\bundles\auto-transfer\monitoring.min.js">
       <DependentUpon>monitoring.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\auto-transfer\multiple-update-dark.css" />
-    <Content Include="assets\bundles\auto-transfer\multiple-update-dark.min.css">
-      <DependentUpon>multiple-update-dark.css</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\auto-transfer\multiple-update.css" />
-    <Content Include="assets\bundles\auto-transfer\multiple-update.min.css">
-      <DependentUpon>multiple-update.css</DependentUpon>
-    </Content>
     <Content Include="assets\bundles\auto-transfer\update-multiple-dark.css" />
     <Content Include="assets\bundles\auto-transfer\update-multiple-dark.min.css">
       <DependentUpon>update-multiple-dark.css</DependentUpon>

@@ -15,5 +15,7 @@
         public string IP { get; set; }
 
         public string Language { get; set; }
+
+        public string Old_TransferOption { get; set; }
     }
 }

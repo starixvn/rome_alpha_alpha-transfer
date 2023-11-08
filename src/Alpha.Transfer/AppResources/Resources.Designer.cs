@@ -151,7 +151,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once disabled, the current Auto Transfer Schedule will be cleared..
+        ///   Looks up a localized string similar to Once disabled, the current Auto Transfer schedule will be cleared..
         /// </summary>
         public static string AutoTransfer_ClearSchedule {
             get {
@@ -187,7 +187,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To ensure the accuracy of data during Auto Transfer process, you CANNOT transfer to your downline whose Auto Transfer is enabled..
+        ///   Looks up a localized string similar to To ensure data accuracy during Auto Transfer process, you CANNOT transfer to your downlines whose Auto Transfer is enabled..
         /// </summary>
         public static string AutoTransfer_InfoCannotTransfer {
             get {
@@ -205,7 +205,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Auto Transfer has been enabled for these accounts. However, this process is taking place, and these accounts will be queued for Auto Transfer at the next scheduled time based on their transfer conditions..
+        ///   Looks up a localized string similar to The Auto Transfer has been enabled for these accounts. However, this process is taking place, and these accounts will be queued for Auto Transfer at the next scheduled time based on their Auto Transfer schedule..
         /// </summary>
         public static string AutoTransfer_MultipleAffectNextConditionWarning {
             get {
@@ -214,7 +214,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Auto Transfer has been enabled for this account. However, this process is taking place, and the account will be queued for Auto Transfer at the next scheduled time based on its transfer conditions..
+        ///   Looks up a localized string similar to The Auto Transfer has been enabled for this account. However, this process is taking place, and the account will be queued for Auto Transfer at the next scheduled time based on its Auto Transfer Schedule..
         /// </summary>
         public static string AutoTransfer_MultipleAffectNextConditionWarning_Single {
             get {
@@ -241,7 +241,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are no cancellable transfer processing..
+        ///   Looks up a localized string similar to There are no cancellable transactions..
         /// </summary>
         public static string AutoTransfer_NoCancellable {
             get {
@@ -250,7 +250,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can set up Auto Transfer schedule  for your downline from the available options based on your transfer condition..
+        ///   Looks up a localized string similar to You can set up Auto Transfer schedule for your downline from the available options based on your transfer condition..
         /// </summary>
         public static string AutoTransfer_SetSchedule {
             get {
@@ -259,7 +259,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Each tag shows the number of &quot;Pending&quot;, &quot;Processing&quot;, &quot;Failed&quot;, and &quot;Cancellable suspended transactions&quot; for all downlines..
+        ///   Looks up a localized string similar to The number of transfers in the &quot;Pending&quot;, &quot;Processing&quot;, &quot;Failed&quot;, and &quot;Cancel suspended transactions&quot; categories is counted for all downlines..
         /// </summary>
         public static string AutoTransfer_Statistic {
             get {
@@ -268,7 +268,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Auto Transfer Schedule has been successfully updated.
+        ///   Looks up a localized string similar to Auto Transfer schedule for account {0} has been successfully updated..
         /// </summary>
         public static string AutoTransfer_UpdateScheduleSuccess {
             get {
@@ -277,7 +277,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Auto Transfer for accounts has been successfully updated..
+        ///   Looks up a localized string similar to Auto Transfer has been successfully updated for these accounts..
         /// </summary>
         public static string AutoTransfer_UpdateSuccess {
             get {
@@ -300,6 +300,15 @@ namespace Alpha.Transfer.AppResources {
         public static string AutoTransfer_UpdateSuccessOn {
             get {
                 return ResourceManager.GetString("AutoTransfer_UpdateSuccessOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Transfer Condition was changed by upline. Please refresh the page..
+        /// </summary>
+        public static string AutoTransfer_UplineConditionChanged {
+            get {
+                return ResourceManager.GetString("AutoTransfer_UplineConditionChanged", resourceCulture);
             }
         }
         
@@ -376,7 +385,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to cancel Auto Transfer process for all {0} account(s)?.
+        ///   Looks up a localized string similar to Would you like to cancel Auto Transfer process for {0} account(s)?.
         /// </summary>
         public static string CancelAllAutoTransferJobsConfirm {
             get {
@@ -403,7 +412,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Click here to Cancel all Suspend Processing.
+        ///   Looks up a localized string similar to Click here to Cancel all pending/processing transactions over 15 minutes..
         /// </summary>
         public static string CancelSuspendedTransactionsTip {
             get {
@@ -574,7 +583,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to change schedule Auto Transfer for this account: {0}?.
+        ///   Looks up a localized string similar to Would you like to change Auto Transfer schedule for this account: {0}?.
         /// </summary>
         public static string confirmChangeAutoTransferSchedule {
             get {
@@ -610,7 +619,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to Update Auto Transfer for these accounts:.
+        ///   Looks up a localized string similar to &lt;b&gt;Would you like to update Auto Transfer for these accounts:&lt;b&gt;.
         /// </summary>
         public static string confirmUpdateAutoTransfer {
             get {
@@ -660,6 +669,24 @@ namespace Alpha.Transfer.AppResources {
         public static string DisallowedAllDayBalanceTransferError {
             get {
                 return ResourceManager.GetString("DisallowedAllDayBalanceTransferError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Auto Transfer Schedule.
+        /// </summary>
+        public static string EditAutoTransferSchedule {
+            get {
+                return ResourceManager.GetString("EditAutoTransferSchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Auto Transfer.
+        /// </summary>
+        public static string EditMultipleAutoTransfer {
+            get {
+                return ResourceManager.GetString("EditMultipleAutoTransfer", resourceCulture);
             }
         }
         

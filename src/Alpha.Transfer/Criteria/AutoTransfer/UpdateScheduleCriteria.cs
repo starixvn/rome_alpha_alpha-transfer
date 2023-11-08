@@ -7,7 +7,7 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
 {
     public class UpdateScheduleCriteria : NonQueryCommand
     {
-        public UpdateScheduleCriteria(UpdateScheduleParam param)
+        public UpdateScheduleCriteria(UpdateScheduleParam param, bool isAutoJobRunning)
         {
             CustId = param.CustId;
             CustName = param.CustName;
@@ -17,6 +17,8 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
             SubAccId = param.SubAccId;
             IP = param.IP;
             Language = param.Language;
+            Old_TransferOption = param.Old_TransferOption;
+            IsAutoJobRunning = isAutoJobRunning;
 
             ErrCode = 0;
             ErrMsg = string.Empty;
@@ -38,6 +40,10 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
         public string IP { get; set; }
 
         public string Language { get; set; }
+
+        public string Old_TransferOption { get; set; }
+
+        public bool IsAutoJobRunning { get; set; }
 
         public int Creator => UplineId;
 

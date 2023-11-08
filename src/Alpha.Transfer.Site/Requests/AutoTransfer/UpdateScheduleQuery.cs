@@ -29,6 +29,8 @@
         public List<int> ScheduleDates => TransferConditionHelper.GetTransferrableDatesFromSchedule(Schedule);
         public List<int> TransferrableDates => (UplineCondition ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(d => int.Parse(d)).ToList();
 
+        public string Old_TransferOption => TransferConditionHelper.GetTransferOption(TransferrableDates);
+
         public bool IsValid() => CustId > 0 && UplineId > 0 && ScheduleDates.Any() && TransferrableDates.Any();
     }
 }

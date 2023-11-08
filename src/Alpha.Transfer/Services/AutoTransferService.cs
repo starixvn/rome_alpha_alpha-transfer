@@ -6,7 +6,6 @@
     using System.Threading.Tasks;
     using Alpha.Transfer.Criteria.AutoTransfer;
     using Alpha.Transfer.Extensions;
-    using Alpha.Transfer.Helpers;
     using Alpha.Transfer.Models.AutoTransfer;
     using Alpha.Transfer.Params.AutoTransfer;
     using Fanex.Data.Repository;
@@ -14,13 +13,13 @@
 
     public interface AutoTransferService
     {
-        Task<Result> UpdateAsync(UpdateStatusParam param);
+        Task<Result> UpdateAsync(UpdateSingleParam param);
         Task<AutoTransferMonitoringPageModel> GetTodayTransfersAsync(GetTodayTransfersParam param);
         Task<AutoTransferMonitoringPageModel> GetHistoryTransfersAsync(GetHistoryTransfersParam param);
         Task<Result> CancelJobAsync(CancelJobParam param);
         Task<Result> CancelAllJobAsync(CancelAllJobParam param);
         Task<Result> UpdateScheduleAsync(UpdateScheduleParam param);
-        Task<Result> UpdateMultipleAutoTransferAsync(UpdateMultipleAutoTransferParam param);
+        Task<UpdateMultipleAutoTransferResultModel> UpdateMultipleAutoTransferAsync(UpdateMultipleAutoTransferParam param);
     }
 
     public class AutoTransferServiceImpl : AutoTransferService
@@ -32,7 +31,7 @@
             repository = dynamicRepository;
         }
 
-        public async Task<Result> UpdateAsync(UpdateStatusParam param)
+        public async Task<Result> UpdateAsync(UpdateSingleParam param)
         {
             var isAutoJobRunning = await GetJobStatus(param.CustId, param.UplineId, param.State);
             var criteria = new UpdateStatusCriteria(param, isAutoJobRunning);
@@ -146,74 +145,97 @@
 
         public async Task<Result> UpdateScheduleAsync(UpdateScheduleParam param)
         {
-            var criteria = new UpdateScheduleCriteria(param);
+            var isAutoJobRunning = await GetJobStatus(param.CustId, param.UplineId, "on");
+            var criteria = new UpdateScheduleCriteria(param, isAutoJobRunning);
 
             await repository.ExecuteAsync(criteria);
 
+            var warningCase = string.IsNullOrWhiteSpace(criteria.ErrMsg) ? 0 : -1;
+
             return new Result
             {
-                Code = criteria.ErrCode,
-                Message = criteria.ErrCode == 0 ? string.Empty : criteria.ErrMsg
+                Code = criteria.ErrCode == 0 ? warningCase : criteria.ErrCode,
+                Message = criteria.ErrMsg ?? string.Empty
             };
         }
 
-        public async Task<Result> UpdateMultipleAutoTransferAsync(UpdateMultipleAutoTransferParam param)
+        public async Task<UpdateMultipleAutoTransferResultModel> UpdateMultipleAutoTransferAsync(UpdateMultipleAutoTransferParam param)
         {
-            var messages = new List<string>();
+            var offResult = await UpdateMultipleAutoTransferToStatusAsync(param, param.OffStatus, param.OffIds, param.OffNames, param.OffSchedule);
 
-            var onIds = (param.OnIds ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var id in onIds)
+            if (!string.IsNullOrWhiteSpace(offResult.StopMessage))
             {
-                var updateSingleParam = new UpdateStatusParam
-                {
-                    CustId = int.Parse(id),
-                    UplineId = param.UplineId,
-                    IP = param.IP,
-                    Language = param.Language,
-                    State = param.OnStatus,
-                    SubAccId = param.SubAccId,
-                    Schedule = (param.OnSchedule ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                };
-
-                var isAutoJobRunning = await GetJobStatus(updateSingleParam.CustId, param.UplineId, param.OnStatus);
-                var criteria = new UpdateStatusCriteria(updateSingleParam, isAutoJobRunning);
-                await repository.ExecuteAsync(criteria);
-
-                if (criteria.ErrCode != 0)
-                {
-                    messages.Add(criteria.ErrMsg);
-                }
+                return offResult;
             }
 
-            var offIds = (param.OffIds ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var id in offIds)
+            var onResult = await UpdateMultipleAutoTransferToStatusAsync(param, param.OnStatus, param.OnIds, param.OnNames, param.OnSchedule);
+            return new UpdateMultipleAutoTransferResultModel
             {
-                var updateSingleParam = new UpdateStatusParam
-                {
-                    CustId = int.Parse(id),
-                    UplineId = param.UplineId,
-                    IP = param.IP,
-                    Language = param.Language,
-                    State = param.OffStatus,
-                    SubAccId = param.SubAccId,
-                    Schedule = (param.OffSchedule ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                };
-
-                var isAutoJobRunning = await GetJobStatus(updateSingleParam.CustId, param.UplineId, param.OffStatus);
-                var criteria = new UpdateStatusCriteria(updateSingleParam, isAutoJobRunning);
-                await repository.ExecuteAsync(criteria);
-
-                if (criteria.ErrCode != 0)
-                {
-                    messages.Add(criteria.ErrMsg);
-                }
-            }
-
-            return new Result
-            {
-                Code = messages.Any() ? 1 : 0,
-                Message = string.Join("<br />", messages)
+                Code = offResult.Code ?? onResult.Code,
+                StopMessage = offResult.StopMessage ?? onResult.StopMessage,
+                WarningCusts = offResult.WarningCusts.Concat(onResult.WarningCusts).ToList(),
+                ErrorCusts = offResult.ErrorCusts.Concat(onResult.ErrorCusts).ToList(),
             };
+        }
+
+        public async Task<UpdateMultipleAutoTransferResultModel> UpdateMultipleAutoTransferToStatusAsync(
+            UpdateMultipleAutoTransferParam param,
+            string status,
+            string pIds,
+            string pNames,
+            string schedule)
+        {
+            var stopCodes = new[] { 105, 108 };
+
+            var ids = (pIds ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            var names = (pNames ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            var dates = (schedule ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            var result = new UpdateMultipleAutoTransferResultModel
+            {
+                WarningCusts = new List<string>(),
+                ErrorCusts = new List<string>()
+            };
+
+            for (var i = 0; i < ids.Length; i++)
+            {
+                var id = ids[i];
+                var name = names[i];
+
+                var updateSingleParam = new UpdateSingleParam
+                {
+                    CustId = int.Parse(id),
+                    UplineId = param.UplineId,
+                    IP = param.IP,
+                    Language = param.Language,
+                    State = status,
+                    SubAccId = param.SubAccId,
+                    Schedule = dates,
+                    Old_TransferOption = param.Old_TransferOption
+                };
+
+                var singleResult = await UpdateAsync(updateSingleParam);
+
+                if (stopCodes.Any(s => s == singleResult.Code))
+                {
+                    result.Code = singleResult.Code;
+                    result.StopMessage = singleResult.Message;
+                    return result;
+                }
+
+                if (singleResult.Code != 0)
+                {
+                    result.ErrorCusts.Add(name);
+                    continue;
+                }
+
+                if (singleResult.Code == 0 && !string.IsNullOrWhiteSpace(singleResult.Message))
+                {
+                    result.WarningCusts.Add(name);
+                }
+            }
+
+            return result;
         }
     }
 }

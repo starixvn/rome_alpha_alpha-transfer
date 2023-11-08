@@ -7,7 +7,7 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
 {
     public class UpdateStatusCriteria : NonQueryCommand
     {
-        public UpdateStatusCriteria(UpdateStatusParam param, bool isAutoJobRunning)
+        public UpdateStatusCriteria(UpdateSingleParam param, bool isAutoJobRunning)
         {
             FromCustId = param.UplineId;
             ToCustId = param.CustId;
@@ -17,9 +17,11 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
             IsAllowAutoTransfer = string.Equals(AutoTransferConstant.On, param.State, System.StringComparison.InvariantCultureIgnoreCase);
             Language = param.Language;
             IP = param.IP;
+
+            Old_TransferOption = param.Old_TransferOption;
+            SubAccId = param.SubAccId;
             ErrCode = 0;
             ErrMsg = string.Empty;
-            SubAccId = param.SubAccId;
         }
 
         public int FromCustId { get; }
@@ -37,6 +39,8 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
         public string Language { get; set; }
 
         public string IP { get; set; }
+
+        public string Old_TransferOption { get; set; }
 
         public int ErrCode { get; set; }
 

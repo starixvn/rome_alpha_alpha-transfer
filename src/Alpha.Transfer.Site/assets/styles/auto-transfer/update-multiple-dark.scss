@@ -1,4 +1,262 @@
 ﻿.switch-auto-transfer {
+    &.en-US {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
+    &.zh-TW {
+        &.two-state {
+            margin: 0 40px !important;
+        }
+
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "關閉";
+                        white-space: nowrap;
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "開啟";
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "關閉";
+                        white-space: nowrap;
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "開啟";
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+
+    &.zh-CN {
+        &.two-state {
+            margin: 0 40px !important;
+        }
+
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "关闭";
+                        white-space: nowrap;
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "开启";
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "关闭";
+                        white-space: nowrap;
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "开启";
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+
+    &.ja-JP {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
+    &.th-TH {
+        &.two-state {
+            margin: 0 34px !important;
+        }
+
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "ปิด";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "เปิด";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "ปิด";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "เปิด";
+                    }
+                }
+            }
+        }
+    }
+
+    &.ko-KR {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Off";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "On";
+                    }
+                }
+            }
+        }
+    }
+
+    &.vi-VN {
+        &[data-value="on"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Đóng";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "Mở";
+                    }
+                }
+            }
+        }
+
+        &[data-value="off"] {
+            &.two-state {
+                #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
+                    &:before {
+                        content: "Đóng";
+                    }
+                }
+
+                #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
+                    &:before {
+                        content: "Mở";
+                    }
+                }
+            }
+        }
+    }
+
     &[data-value="on"] {
         &.two-state {
             margin: 0 64px;
@@ -139,11 +397,14 @@
     }
 }
 .div-on-users, .div-off-users {
-    padding-top: 10px;
+    padding: 10px;
+    border: 1px solid #3E3F41;
+    border-radius: 3px;
+    background: #212121;
 
     .div-usernames {
         border: 1px solid #3E3F41;
-        background: #272727;
+        background: #202020;
         font-weight: bold;
         border-radius: 3px;
         padding: 10px;
@@ -152,7 +413,8 @@
     .auto-transfer {
         display: flex;
         align-items: center;
-        padding: 15px 0 5px;
+        padding: 0;
+        font-weight: bold;
     }
 }
 .note-list-transfer {
@@ -160,6 +422,7 @@
     background: #333E4B;
     border-radius: 3px;
     margin-bottom: 17px;
+    margin-top: 10px;
 
     li {
         list-style: disc;
@@ -174,12 +437,12 @@
 
         &.red {
             font-weight: bold;
+            color: #FF6262;
         }
     }
 }
-.div-separator {
-    border-top: 1px solid #3E3F41;
-    height: 1px;
+.div-separator, .div-separator-top {
+    height: 10px;
 }
 .list-btn-update {
     text-align: right;

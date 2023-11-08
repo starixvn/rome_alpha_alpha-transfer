@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Update Auto Transfer Schedule";
+    ViewBag.Title = Resources.EditMultipleAutoTransfer;
 }
 
 @using Alpha.Transfer.Site.Requests.AutoTransfer;
@@ -59,12 +59,14 @@
 </div>
 <ul class="note-list-transfer">
     <li class="red">@Resources.AutoTransfer_ClearSchedule</li>
-    <li class="@(string.IsNullOrWhiteSpace(Model.OffNames) ? "hide" : "")">@Html.Raw(Resources.AutoTransfer_InfoAffectTimeSuper)</li>
+    <li>@Html.Raw(Resources.AutoTransfer_InfoAffectTimeSuper)</li>
     <li>@Resources.AutoTransfer_SetSchedule</li>
     <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
 </ul>
 
-<div id="result-msg" class="msg hide"></div>
+<div id="msg-warning" class="msg msg-warning hide"></div>
+<div id="msg-error" class="msg msg-error hide"></div>
+<div id="msg-success" class="msg msg-success hide"></div>
 <div class="list-btn-update">
     <button type="button" class="btn btn-default btn-cancel">@Resources.Cancel.ToUpperInvariant()</button>
     <button type="button" class="btn btn-primary btn-ok">@Resources.OK</button>
@@ -76,8 +78,9 @@
 @Html.Hidden("confirmUpdateAutoTransfer", Resources.confirmUpdateAutoTransfer)
 @Html.Hidden("OnIds", Model.OnIds)
 @Html.Hidden("OffIds", Model.OffIds)
-@Html.Hidden("OnNames", Model.OnNames)
-@Html.Hidden("OffNames", Model.OffNames)
+@Html.Hidden("Old_TransferOption", Model.Old_TransferOption)
+<input type="hidden" id="OnNames" value="@((Model.OnNames ?? "").Replace(",", ", "))" />
+<input type="hidden" id="OffNames" value="@((Model.OffNames ?? "").Replace(",", ", "))" />
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/auto-transfer/update-multiple")
 }

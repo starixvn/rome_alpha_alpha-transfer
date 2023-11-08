@@ -33,6 +33,8 @@
         Task<string> GetAllowTransfer(int custId);
 
         Task<Tuple<bool, IEnumerable<string>>> GetTransferCondition(int custId);
+
+        Task<string> GetTransferOption(int custId);
     }
 
     public class CashBalanceTransferServiceImpl : CashBalanceTransferService
@@ -159,7 +161,7 @@
             return new Tuple<bool, IEnumerable<string>>(false, dayBuilder);
         }
 
-        private async Task<string> GetTransferOption(int custId)
+        public async Task<string> GetTransferOption(int custId)
         {
             var criteria = new GetTransferOptionCriteria(custId);
 

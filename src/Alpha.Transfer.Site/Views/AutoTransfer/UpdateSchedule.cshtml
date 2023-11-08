@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Update Auto Transfer Schedule";
+    ViewBag.Title = Resources.EditAutoTransferSchedule;
 }
 
 @using Alpha.Transfer.Site.Requests.AutoTransfer;
@@ -32,12 +32,14 @@
         }
     </li>
 </ul>
-<div class="list-btn-update" >
+<div class="list-btn-update">
     <button type="button" class="btn btn-default btn-cancel">@Resources.Cancel.ToUpperInvariant()</button>
     <button type="button" class="btn btn-primary btn-ok">@Resources.OK</button>
 </div>
 
 @Html.Hidden("CustId", Model.CustId)
+@Html.Hidden("CustName", Model.CustName)
+@Html.Hidden("Old_TransferOption", Model.Old_TransferOption)
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/auto-transfer/update-schedule")
 }

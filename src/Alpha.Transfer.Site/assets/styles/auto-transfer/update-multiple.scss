@@ -34,17 +34,23 @@
     }
 
     &.zh-TW {
+        &.two-state {
+            margin: 0 40px !important;
+        }
+
         &[data-value="on"] {
             &.two-state {
                 #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
                     &:before {
-                        content: "Off";
+                        content: "關閉";
+                        white-space: nowrap;
                     }
                 }
 
                 #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
                     &:before {
-                        content: "On";
+                        content: "開啟";
+                        white-space: nowrap;
                     }
                 }
             }
@@ -54,13 +60,15 @@
             &.two-state {
                 #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
                     &:before {
-                        content: "Off";
+                        content: "關閉";
+                        white-space: nowrap;
                     }
                 }
 
                 #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
                     &:before {
-                        content: "On";
+                        content: "開啟";
+                        white-space: nowrap;
                     }
                 }
             }
@@ -68,17 +76,23 @@
     }
 
     &.zh-CN {
+        &.two-state {
+            margin: 0 40px !important;
+        }
+
         &[data-value="on"] {
             &.two-state {
                 #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
                     &:before {
-                        content: "Off";
+                        content: "关闭";
+                        white-space: nowrap;
                     }
                 }
 
                 #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
                     &:before {
-                        content: "On";
+                        content: "开启";
+                        white-space: nowrap;
                     }
                 }
             }
@@ -88,13 +102,15 @@
             &.two-state {
                 #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
                     &:before {
-                        content: "Off";
+                        content: "关闭";
+                        white-space: nowrap;
                     }
                 }
 
                 #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
                     &:before {
-                        content: "On";
+                        content: "开启";
+                        white-space: nowrap;
                     }
                 }
             }
@@ -136,17 +152,21 @@
     }
 
     &.th-TH {
+        &.two-state {
+            margin: 0 34px !important;
+        }
+
         &[data-value="on"] {
             &.two-state {
                 #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
                     &:before {
-                        content: "Off";
+                        content: "ปิด";
                     }
                 }
 
                 #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
                     &:before {
-                        content: "On";
+                        content: "เปิด";
                     }
                 }
             }
@@ -156,13 +176,13 @@
             &.two-state {
                 #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
                     &:before {
-                        content: "Off";
+                        content: "ปิด";
                     }
                 }
 
                 #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
                     &:before {
-                        content: "On";
+                        content: "เปิด";
                     }
                 }
             }
@@ -208,13 +228,13 @@
             &.two-state {
                 #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
                     &:before {
-                        content: "Off";
+                        content: "Đóng";
                     }
                 }
 
                 #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
                     &:before {
-                        content: "On";
+                        content: "Mở";
                     }
                 }
             }
@@ -224,13 +244,13 @@
             &.two-state {
                 #switch-auto-transfer-on_railoff, #switch-auto-transfer-off_railoff {
                     &:before {
-                        content: "Off";
+                        content: "Đóng";
                     }
                 }
 
                 #switch-auto-transfer-on_railon, #switch-auto-transfer-off_railon {
                     &:before {
-                        content: "On";
+                        content: "Mở";
                     }
                 }
             }
@@ -416,6 +436,7 @@
 
         &.red {
             font-weight: bold;
+            color: #DD3333;
         }
     }
 }

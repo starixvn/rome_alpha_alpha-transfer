@@ -5,7 +5,7 @@
     using System.Threading.Tasks;
     using Alpha.Transfer.Criteria;
     using Alpha.Transfer.DataAccesses;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
 
     public interface TransferService
     {

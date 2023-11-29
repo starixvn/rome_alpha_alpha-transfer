@@ -5,11 +5,11 @@
     using Alpha.Transfer.Services;
     using Alpha.Transfer.Site.Requests.AutoTransfer;
     using Alpha.Transfer.Site.Tests.Extensions;
+    using AlphaPlus.User.Models;
     using AppResources;
     using MediatR;
     using NSubstitute;
     using Site.Controllers;
-    using Sunplus.Agent.Model.Entities;
     using Transfer.Models;
     using Xunit;
 
@@ -211,7 +211,6 @@
             await mediator.Received().SendAsync(message);
         }
 
-
         [Fact]
         public async Task GetTodayTransfers_Always_CallsMediatorGetTodayTransfers()
         {
@@ -226,7 +225,6 @@
             // Assert
             await mediator.Received().SendAsync(message);
         }
-
 
         [Fact]
         public async Task GetHistoryTransfers_Always_CallsMediatorGetHistoryTransfers()

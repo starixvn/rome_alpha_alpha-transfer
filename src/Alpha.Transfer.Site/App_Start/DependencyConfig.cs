@@ -1,9 +1,10 @@
 ﻿namespace Alpha.Transfer.Site.App_Start
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web.Mvc;
+    using Alpha.Web.Helpers;
+    using AlphaPlus.User.Models;
     using Controllers;
     using DataAccesses;
     using Fanex.Caching;
@@ -17,14 +18,10 @@
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
-    using StackExchange.Redis;
-    using Sunplus.Agent.Model.Base;
-    using Sunplus.Agent.Model.Entities;
     using Transfer.Models;
 
     public static class DependencyConfig
     {
-        [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Reviewed")]
         public static void Init()
         {
             var container = new Container();
@@ -80,6 +77,7 @@
             container.RegisterSingleton<ICache>(InitRedisCache());
             container.RegisterSingleton<ICacheService, CacheService>();
 
+            UserSession.Init(new HttpContextHelper());
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
 
@@ -96,13 +94,11 @@
         private static RedisCache InitRedisCache()
         {
             var redisConfigurationOptions = Configurations.AppSettings.TransferRedisConfigurationOptions;
-            var configurationOptions = ConfigurationOptions.Parse(redisConfigurationOptions);
 
             return new RedisCache(
                 new RedisCacheOptions
                 {
-                    ApplicationName = configurationOptions.ClientName,
-                    ConnectionOptions = configurationOptions
+                    ConnectionString = redisConfigurationOptions
                 });
         }
     }

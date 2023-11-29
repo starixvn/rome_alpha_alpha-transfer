@@ -1,9 +1,7 @@
 ﻿using Alpha.Transfer.Models;
-using Alpha.Transfer.Site.Models;
 using Alpha.Transfer.Site.Requests.AutoTransfer;
 using Alpha.Transfer.Site.Tests.Fixtures;
 using NSubstitute;
-using Sunplus.Agent.Model.Entities;
 using Xunit;
 
 namespace Alpha.Transfer.Site.Tests.RequestsTest.AutoTransfer

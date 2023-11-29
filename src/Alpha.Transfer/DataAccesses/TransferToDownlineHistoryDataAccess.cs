@@ -3,6 +3,7 @@
     using Criteria.TransferToDownlineHistory;
     using Fanex.Common;
     using Fanex.Common.Extensions;
+    using Fanex.Data;
     using Models.TransferToDownlineHistory;
     using System;
     using System.Collections.Generic;
@@ -22,9 +23,9 @@
 
             if (criteria.IsValid())
             {
-                using (var objDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+                using (var objDb = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
                 {
-                    using (var reader = objDb.ExecuteReader(criteria.GetSpParams()))
+                    using (var reader = objDb.ExecuteReader(criteria))
                     {
                         while (reader.Read())
                         {
@@ -32,7 +33,7 @@
                         }
                     }
 
-                    totalRecords = Converter.ToInt(objDb.GetOuputParams()["TotalRecords"]);
+                    totalRecords = Converter.ToInt(objDb.GetOutputParams()["TotalRecords"]);
                 }
             }
 

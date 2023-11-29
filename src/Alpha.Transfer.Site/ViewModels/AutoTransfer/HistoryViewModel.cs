@@ -6,8 +6,8 @@ using Alpha.Transfer.AppResources;
 using Alpha.Transfer.Site.ViewModels.Components;
 using Alpha.Transfer.Utils;
 using Alpha.Web.Helpers;
-using Sunplus.Agent.Model.Entities;
 using Alpha.Transfer.Configurations;
+using AlphaPlus.User.Models;
 
 namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
 {

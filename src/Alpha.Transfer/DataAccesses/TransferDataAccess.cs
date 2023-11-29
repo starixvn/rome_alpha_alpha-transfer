@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
+    using Fanex.Data;
     using Fanex.Data.Repository;
 
     public interface TransferDataAccess
@@ -15,9 +16,9 @@
     {
         public bool IsAllDayBalanceTransfer(ICriteria criteria)
         {
-            using (var db = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+            using (var db = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
+                using (var reader = db.ExecuteReader(criteria))
                 {
                     return reader.Read() && Convert.ToBoolean(reader["IsAllDayBalTransfer"]);
                 }
@@ -26,9 +27,9 @@
 
         public async Task<bool> IsAllDayBalanceTransferAsync(ICriteria criteria)
         {
-            using (var db = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+            using (var db = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                using (var reader = await db.ExecuteReaderAsync(criteria.GetSpParams()))
+                using (var reader = await db.ExecuteReaderAsync(criteria))
                 {
                     return reader.Read() && Convert.ToBoolean(reader["IsAllDayBalTransfer"]);
                 }

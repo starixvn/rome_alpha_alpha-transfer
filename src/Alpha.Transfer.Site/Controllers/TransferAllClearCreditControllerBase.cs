@@ -4,8 +4,8 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Alpha.Auth.Configurations;
 using Alpha.Web;
+using AlphaPlus.User.Models;
 using MediatR;
-using Sunplus.Agent.Model.Entities;
 
 namespace Alpha.Transfer.Site.Controllers
 {

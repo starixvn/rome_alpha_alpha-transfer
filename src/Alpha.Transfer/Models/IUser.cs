@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Transfer.Models
 {
     using System;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
 
     public interface IUser
     {

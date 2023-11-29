@@ -2,14 +2,13 @@
 {
     using Fanex.Data;
     using NSubstitute;
-    using Transfer.DataAccesses;
 
     public class ObjectDbFixture
     {
         public ObjectDbFixture()
         {
             ObjectDb = Substitute.For<IObjectDb>();
-            TransferObjectDbFactory.CreateInstance = (settingKey) => ObjectDb;
+            ObjectDbFactory.Mock((settingKey, commandTimeout) => ObjectDb);
         }
 
         public IObjectDb ObjectDb { get; private set; }

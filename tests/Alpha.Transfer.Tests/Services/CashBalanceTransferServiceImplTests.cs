@@ -5,10 +5,8 @@
     using AppResources;
     using Fanex.Caching;
     using Fanex.Data.Repository;
-    using Fanex.Logging.Extensions.Database;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
-    using Logging;
     using NSubstitute;
     using NSubstitute.ExceptionExtensions;
     using Transfer.Criteria;
@@ -30,7 +28,6 @@
         public CashBalanceTransferServiceImplTests(AnyValueCreatorFixture anyValueCreatorFixture)
         {
             this.anyValueCreatorFixture = anyValueCreatorFixture;
-            LoggingConfig.Init(getDbExceptionInfo: DatabaseInfoGetters.GetDbExceptionInfo);
 
             dynamicRepository = Substitute.For<IDynamicRepository>();
             cacheService = Substitute.For<ICacheService>();

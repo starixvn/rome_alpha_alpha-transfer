@@ -34,7 +34,7 @@
         {
             // Arrange
             var param = new GetCustomerListParam(UserLevel.Agent, 1, string.Empty, 1, 1, false, false, 2);
-            var criteria = new GetCustomerListCriteria(param);
+            var criteria = new GetAgentTransferListCriteria(param);
 
             IDataReader dataReader = null;
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataReader);
@@ -53,7 +53,7 @@
         {
             // Arrange
             var param = new GetCustomerListParam(UserLevel.Agent, 1, string.Empty, 1, 1, false, false, 2);
-            var criteria = new GetCustomerListCriteria(param);
+            var criteria = new GetAgentTransferListCriteria(param);
 
             var dataSet = MultipleTransferDatabase.CustomerList.CreateDataReader();
             objectDbFixture.ObjectDb.ExecuteReader(Arg.Any<Hashtable>()).Returns(dataSet);

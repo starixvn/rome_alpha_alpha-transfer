@@ -5,6 +5,7 @@
     using System.Data;
     using Criteria.TransferAllAndClearCredit;
     using Fanex.Common;
+    using Fanex.Data;
     using Fanex.Data.Repository;
     using Models.TransferAllAndClearCredit;
 
@@ -24,12 +25,12 @@
             var transferSteps = new List<TransferStep>();
             var clearCreditSteps = new List<ClearCreditStep>();
             var conditions = new List<string>();
-            
-            using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+
+            using (var objectDb = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
                 if (criteria.IsValid())
                 {
-                    using (var reader = objectDb.ExecuteReader(criteria.GetSpParams()))
+                    using (var reader = objectDb.ExecuteReader(criteria))
                     {
                         if (reader != null)
                         {
@@ -66,7 +67,6 @@
                         }
                     }
                 }
-
             }
 
             return new TransferResult(transferSteps, clearCreditSteps, conditions);
@@ -93,9 +93,9 @@
             string errMsg;
             var conditions = new List<string>();
 
-            using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+            using (var objectDb = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                using (var reader = objectDb.ExecuteReader(criteria.GetSpParams()))
+                using (var reader = objectDb.ExecuteReader(criteria))
                 {
                     if (reader != null)
                     {
@@ -115,7 +115,7 @@
                         reader.Close();
                     }
 
-                    var output = objectDb.GetOuputParams();
+                    var output = objectDb.GetOutputParams();
                     errCode = Converter.ToInt(output["ErrCode"]);
                     errMsg = Converter.ToString2(output["ErrMsg"]);
                 }

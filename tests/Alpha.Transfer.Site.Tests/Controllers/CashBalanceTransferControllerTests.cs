@@ -2,12 +2,12 @@
 {
     using System.Threading.Tasks;
     using System.Web.Mvc;
+    using AlphaPlus.User.Models;
     using AppResources;
     using MediatR;
     using NSubstitute;
     using Requests.CashBalanceTransfer;
     using Site.Controllers;
-    using Sunplus.Agent.Model.Entities;
     using Transfer.Models;
     using Xunit;
 

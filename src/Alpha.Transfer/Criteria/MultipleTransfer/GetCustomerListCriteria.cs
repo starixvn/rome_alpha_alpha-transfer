@@ -1,30 +1,78 @@
 ﻿namespace Alpha.Transfer.Criteria.MultipleTransfer
 {
-    using System.Collections;
+    using System.Collections.Generic;
     using Constants;
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using Models;
     using Params.MultipleTransfer;
 
-    public class GetCustomerListCriteria : CriteriaBase
+    public class GetAgentTransferListCriteria : GetCustomerListCriteria
     {
-        public GetCustomerListCriteria(GetCustomerListParam param)
+        public GetAgentTransferListCriteria(GetCustomerListParam param)
+            : base(param)
         {
-            UserLevel = param.UserLevel;
             CustId = param.CustId;
+        }
+
+        public int CustId { get; }
+
+        public override string GetSettingKey() => "Age_Transfer_SelList_Ag";
+
+        public override bool IsValid() => CustId > 0;
+    }
+
+    public class GetMasterTransferListCriteria : GetCustomerListCriteria
+    {
+        public GetMasterTransferListCriteria(GetCustomerListParam param)
+            : base(param)
+        {
+            MasterId = param.CustId;
+        }
+
+        public int MasterId { get; }
+
+        public override string GetSettingKey() => "Age_Transfer_SelList_MAg";
+
+        public override bool IsValid() => MasterId > 0;
+    }
+
+    public class GetSuperTransferListCriteria : GetCustomerListCriteria
+    {
+        public GetSuperTransferListCriteria(GetCustomerListParam param)
+            : base(param)
+        {
+            SuperId = param.CustId;
+        }
+
+        [SpParam(SqlParamName = "sagid")]
+        public int SuperId { get; }
+
+        public override string GetSettingKey() => "Age_Transfer_SelList_SAg";
+
+        public override bool IsValid() => SuperId > 0;
+    }
+
+    public abstract class GetCustomerListCriteria : CriteriaBase
+    {
+        private readonly IDictionary<int, string> CustStatusMapping = new Dictionary<int, string>
+        {
+            { StatusConstant.All, "All" },
+            { StatusConstant.Open, "Open" },
+            { StatusConstant.Suspended, "Suspended" },
+            { StatusConstant.Closed, "Closed" },
+            { StatusConstant.Disabled, "Disabled" },
+        };
+
+        protected GetCustomerListCriteria(GetCustomerListParam param)
+        {
             Username = param.Username;
             PageIndex = param.PageIndex;
             PageSize = param.PageSize;
             AllYesterdayBalance = param.AllYesterdayBalance;
             AllowTotalBalanceTransfer = param.AllowTotalBalanceTransfer;
-            Status = param.Status;
+            CustStatus = CustStatusMapping.ContainsKey(param.Status) ? CustStatusMapping[param.Status] : "All";
+            TotalPages = 0;
         }
-
-        [SpParam(Ignored = true)]
-        public UserLevel UserLevel { get; }
-
-        public int CustId { get; }
 
         public string Username { get; }
 
@@ -32,73 +80,14 @@
 
         public int PageSize { get; }
 
+        public int TotalPages { get; }
+
+        [SpParam(SqlParamName = "IsYesterdayBalance")]
         public bool AllYesterdayBalance { get; }
 
+        [SpParam(SqlParamName = "IsAllowTotalBalance")]
         public bool AllowTotalBalanceTransfer { get; }
 
-        public int Status { get; }
-
-        public override string GetSettingKey()
-        {
-            if (UserLevel.IsAgentLevel())
-            {
-                return "Age_Transfer_SelList_Ag";
-            }
-
-            return UserLevel.IsMasterLevel() ? "Age_Transfer_SelList_MAg" : "Age_Transfer_SelList_SAg";
-        }
-
-        public override bool IsValid()
-            => CustId > 0;
-
-        public override Hashtable GetSpParams()
-        {
-            var result = new Hashtable
-            {
-                ["pageindex"] = PageIndex,
-                ["pagesize"] = PageSize,
-                ["username"] = Username,
-                ["isyesterdaybalance"] = AllYesterdayBalance,
-                ["isallowtotalbalance"] = AllowTotalBalanceTransfer,
-                ["totalpages"] = 0
-            };
-
-            string custIdName;
-            if (UserLevel.IsAgentLevel())
-            {
-                custIdName = "custid";
-            }
-            else if (UserLevel.IsMasterLevel())
-            {
-                custIdName = "masterid";
-            }
-            else
-            {
-                custIdName = "sagid";
-            }
-
-            result[custIdName] = CustId;
-
-            switch (Status)
-            {
-                case StatusConstant.Open:
-                    result["custstatus"] = "Open";
-                    break;
-                case StatusConstant.Suspended:
-                    result["custstatus"] = "Suspended";
-                    break;
-                case StatusConstant.Closed:
-                    result["custstatus"] = "Closed";
-                    break;
-                case StatusConstant.Disabled:
-                    result["custstatus"] = "Disabled";
-                    break;
-                default:
-                    result["custstatus"] = "All";
-                    break;
-            }
-
-            return result;
-        }
+        public string CustStatus { get; }
     }
 }

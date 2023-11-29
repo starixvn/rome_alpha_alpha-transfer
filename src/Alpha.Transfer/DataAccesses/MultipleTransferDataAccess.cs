@@ -18,9 +18,9 @@
             var customerList = new List<CustomerInformation>();
             var noOfCustomer = 0;
 
-            using (var objectDb = TransferObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+            using (var objectDb = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                using (var reader = objectDb.ExecuteReader(criteria.GetSpParams()))
+                using (var reader = objectDb.ExecuteReader(criteria))
                 {
                     if (reader != null)
                     {
@@ -49,7 +49,7 @@
                         reader.Close();
                     }
 
-                    var output = objectDb.GetOuputParams();
+                    var output = objectDb.GetOutputParams();
                     noOfCustomer = Converter.ToInt(output["TotalPages"]);
                 }
             }

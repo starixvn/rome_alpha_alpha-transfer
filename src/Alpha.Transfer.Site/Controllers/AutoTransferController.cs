@@ -10,8 +10,8 @@
     using Alpha.Transfer.Services;
     using Alpha.Transfer.Site.Requests.AutoTransfer;
     using Alpha.Transfer.Site.ViewModels.AutoTransfer;
+    using AlphaPlus.User.Models;
     using MediatR;
-    using Sunplus.Agent.Model.Entities;
 
     [SessionState(SessionStateBehavior.Default)]
     public class AutoTransferController : SiteBaseController

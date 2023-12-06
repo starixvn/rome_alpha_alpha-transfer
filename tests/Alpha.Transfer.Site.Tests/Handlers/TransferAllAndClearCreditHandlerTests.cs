@@ -85,7 +85,7 @@
             var transferResult = new TransferResult();
             transferAllAndClearCreditService.GetTransferResult(Arg.Any<GetTransferResultParam>()).Returns(transferResult);
 
-            var param = new GetTransferResultParam(0, 0, 0, false, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false);
+            var param = new GetTransferResultParam(0, 0, 0, false, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false, string.Empty);
             var expectedViewModel = new TransferResultViewModel(message, param, transferResult);
 
             // Act

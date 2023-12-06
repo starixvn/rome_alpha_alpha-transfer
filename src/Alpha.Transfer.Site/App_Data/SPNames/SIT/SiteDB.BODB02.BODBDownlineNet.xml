@@ -3,7 +3,10 @@
   <Function Name="Transfer All and Clear Credit">
     <Setting Key="SiteDB_Age_Customer_TotalAmount_Sel" SpName="Age_Customer_TotalAmount_Sel" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
     <Setting Key="SiteDB_Age_GetCustomerNetPosition" SpName="Age_GetCustomerNetPosition" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
-    <Setting Key="SiteDB_Age_Transfer_All_Ins" SpName="Age_Transfer_All_Ins" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0" />
+    <Setting Key="SiteDB_Age_Transfer_All_Ins" SpName="Age_Transfer_All_Ins" DbName="SiteDB.BODB02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="RowId" ObjectProperty="Id" Class="TransferStep" />
+      <Mapping DataField="Outstanding" ObjectProperty="MemberOutStanding" Class="TransferStep" />
+    </Setting>
   </Function>
 
   <Function Name="Cash Balance Transfer">

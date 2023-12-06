@@ -13,6 +13,7 @@
             SubAccId = user.SubAccId;
             IP = user.IP;
             Language = user.LanguageKey;
+            AGIP = user.AGIP;
         }
 
         public int CustId { get; set; }
@@ -24,6 +25,7 @@
         public int UplineId { get; }
         public int SubAccId { get; }
         public string IP { get; }
+        public string AGIP { get; }
 
         public string[] ScheduleDates => (Schedule ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 

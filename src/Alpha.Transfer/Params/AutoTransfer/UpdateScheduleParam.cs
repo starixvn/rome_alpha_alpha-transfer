@@ -17,5 +17,7 @@
         public string Language { get; set; }
 
         public string Old_TransferOption { get; set; }
+
+        public string AGIP { get; set; }
     }
 }

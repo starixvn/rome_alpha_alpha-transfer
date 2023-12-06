@@ -30,7 +30,8 @@
                 message.Username,
                 message.LanguageKey,
                 message.AllowedTotalBalanceTransferSuperIds,
-                isAllDayBalanceTransfer);
+                isAllDayBalanceTransfer,
+                message.AGIP);
 
             var calculationResult = string.IsNullOrWhiteSpace(message.Username) ? new TransferResult() : transferAllAndClearCreditService.GetCalculateResult(param);
 
@@ -51,7 +52,8 @@
                 message.LanguageKey,
                 message.TransferSteps,
                 message.ClearCreditSteps,
-                isAllDayBalanceTransfer);
+                isAllDayBalanceTransfer,
+                message.AGIP);
 
             var transferResult = message.IsInternal ? null : transferAllAndClearCreditService.GetTransferResult(param);
 

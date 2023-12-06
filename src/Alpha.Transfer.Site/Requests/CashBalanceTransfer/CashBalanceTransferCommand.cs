@@ -12,6 +12,7 @@
             IP = user.IP;
             LanguageKey = user.LanguageKey;
             UplineName = user.SubAccId > 0 ? user.SubAccName : user.Name;
+            AGIP = user.AGIP;
         }
 
         public int CustId { get; set; }
@@ -27,6 +28,8 @@
         public string IP { get; }
 
         public string LanguageKey { get; }
+
+        public string AGIP { get; }
 
         public bool IsValid() => CustId > 0 && Amount != 0 && UplineId > 0;
     }

@@ -1,15 +1,14 @@
-﻿using Alpha.Transfer.Constants;
-using Fanex.Data.Repository;
-
-namespace Alpha.Transfer.Criteria.AutoTransfer
+﻿namespace Alpha.Transfer.Criteria.AutoTransfer
 {
+    using Fanex.Data.Repository;
+
     public class GetJobStatusCriteria : NonQueryCommand
     {
-        public GetJobStatusCriteria(int fromCustId, int toCustId, string status)
+        public GetJobStatusCriteria(int fromCustId, int toCustId, bool isAllowAutoTransfer)
         {
             FromCustId = fromCustId;
             ToCustId = toCustId;
-            IsAllowAutoTransfer = string.Equals(AutoTransferConstant.On, status, System.StringComparison.InvariantCultureIgnoreCase);
+            IsAllowAutoTransfer = isAllowAutoTransfer;
             ErrCode = 0;
             ErrMsg = string.Empty;
         }

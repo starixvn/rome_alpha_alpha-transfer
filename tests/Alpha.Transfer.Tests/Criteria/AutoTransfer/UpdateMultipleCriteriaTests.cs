@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Alpha.Transfer.Constants;
 using Alpha.Transfer.Criteria.AutoTransfer;
+using Alpha.Transfer.Helpers;
 using Alpha.Transfer.Params.AutoTransfer;
-using NSubstitute;
 using Xunit;
 
 namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
@@ -27,7 +27,16 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
                 Schedule = new[] { "1" },
             };
 
-            var criteria = new UpdateStatusCriteria(param, true);
+            var criteria = new UpdateStatusCriteria(
+                param.UplineId,
+                param.CustId,
+                TransferConditionHelper.GetAutoTransferScheduleFromDates(param.Schedule),
+                true,
+                string.Equals(AutoTransferConstant.On, param.State, StringComparison.InvariantCultureIgnoreCase),
+                param.Language,
+                param.IP,
+                param.Old_TransferOption,
+                param.SubAccId);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -52,7 +61,16 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
                 Schedule = new[] { "1" },
             };
 
-            var criteria = new UpdateStatusCriteria(param, true);
+            var criteria = new UpdateStatusCriteria(
+                param.UplineId,
+                param.CustId,
+                TransferConditionHelper.GetAutoTransferScheduleFromDates(param.Schedule),
+                true,
+                string.Equals(AutoTransferConstant.On, param.State, StringComparison.InvariantCultureIgnoreCase),
+                param.Language,
+                param.IP,
+                param.Old_TransferOption,
+                param.SubAccId);
             bool expectedResult = true;
 
             // Act
@@ -78,7 +96,16 @@ namespace Alpha.Transfer.Tests.Criteria.AutoTransfer
                 State = "on",
                 Schedule = new[] { "1" },
             };
-            var criteria = new UpdateStatusCriteria(param, true);
+            var criteria = new UpdateStatusCriteria(
+                param.UplineId,
+                param.CustId,
+                TransferConditionHelper.GetAutoTransferScheduleFromDates(param.Schedule),
+                true,
+                string.Equals(AutoTransferConstant.On, param.State, StringComparison.InvariantCultureIgnoreCase),
+                param.Language,
+                param.IP,
+                param.Old_TransferOption,
+                param.SubAccId);
 
             // Act
             var actualIsValid = criteria.IsValid();

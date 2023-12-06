@@ -11,9 +11,11 @@
         {
             CustId = user.Id;
             Language = user.LanguageKey;
+            AGIP = user.AGIP;
         }
 
         public int CustId { get; }
+
         public string Language { get; set; }
 
         [AllowHtml]
@@ -28,6 +30,8 @@
         public int PageSize { get; set; }
 
         public int PageIndex { get; set; }
+
+        public string AGIP { get; }
 
         public bool IsValid() => CustId > 0;
     }

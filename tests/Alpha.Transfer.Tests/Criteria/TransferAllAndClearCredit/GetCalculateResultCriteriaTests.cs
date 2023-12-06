@@ -13,7 +13,7 @@
         {
             // Arrange
             var expectedSettingKey = "Age_Transfer_Credit_All_Sel";
-            var criteria = new GetCalculateResultCriteria(1, string.Empty, string.Empty, string.Empty, false, new List<NetPositionModel>(), 0);
+            var criteria = new GetCalculateResultCriteria(1, string.Empty, string.Empty, string.Empty, false, "<ROOT></ROOT>", 0);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -31,7 +31,7 @@
         public void IsValid_CustId_ReturnsTrue(string username, bool expectedValue)
         {
             // Arrange
-            var criteria = new GetCalculateResultCriteria(1, username, string.Empty, string.Empty, false, new List<NetPositionModel>(), 1);
+            var criteria = new GetCalculateResultCriteria(1, username, string.Empty, string.Empty, false, "<ROOT></ROOT>", 1);
 
             // Act
             var actualValue = criteria.IsValid();
@@ -44,7 +44,7 @@
         public void DownlineNetPosition_Always_CorrectXMLData()
         {
             // Arrange            
-            var criteria = new GetCalculateResultCriteria(1, string.Empty, string.Empty, string.Empty, false, new List<NetPositionModel>(), 0);
+            var criteria = new GetCalculateResultCriteria(1, string.Empty, string.Empty, string.Empty, false, "<ROOT></ROOT>", 0);
 
             // Act
             var actualSettingKey = criteria.DownlineNetPosition;

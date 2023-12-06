@@ -12,7 +12,7 @@
         public void MemberAmountXML_Always_CorrectXMLData()
         {
             // Arrange            
-            var criteria = new ClearCreditCriteria(1, 1, 1, string.Empty, string.Empty, string.Empty, new List<TotalAmtModel>());
+            var criteria = new ClearCreditCriteria(1, 1, 1, string.Empty, string.Empty, string.Empty, "<ROOT></ROOT>");
 
             // Act
             var actualSettingKey = criteria.MemberAmountXML;
@@ -27,7 +27,7 @@
         {
             // Arrange
             var expectedSettingKey = "Age_ClearCredit_All_Ins";
-            var criteria = new ClearCreditCriteria(1, 1, 1, string.Empty, string.Empty, string.Empty, new List<TotalAmtModel>());
+            var criteria = new ClearCreditCriteria(1, 1, 1, string.Empty, string.Empty, string.Empty, "<ROOT></ROOT>");
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -45,7 +45,7 @@
         public void IsValid_CustId_ReturnsTrue(string username, bool expectedValue)
         {
             // Arrange
-            var criteria = new ClearCreditCriteria(1, 1, 1, username, string.Empty, string.Empty, new List<TotalAmtModel>());
+            var criteria = new ClearCreditCriteria(1, 1, 1, username, string.Empty, string.Empty, "<ROOT></ROOT>");
 
             // Act
             var actualValue = criteria.IsValid();

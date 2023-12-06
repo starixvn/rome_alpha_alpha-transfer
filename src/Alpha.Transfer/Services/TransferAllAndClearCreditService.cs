@@ -1,8 +1,9 @@
 ﻿namespace Alpha.Transfer.Services
 {
+    using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using Criteria.TransferAllAndClearCredit;
-    using DataAccesses;
     using Fanex.Data.Repository;
     using Models.TransferAllAndClearCredit;
     using Params.TransferAllAndClearCredit;
@@ -16,16 +17,10 @@
 
     public class TransferAllAndClearCreditServiceImpl : TransferAllAndClearCreditService
     {
-        private readonly TransferAllAndClearCreditDataAccess transferAllAndClearCreditDataAccess;
         private readonly IDynamicRepository repository;
 
-        public TransferAllAndClearCreditServiceImpl(
-            IDynamicRepository dynamicRepository,
-            TransferAllAndClearCreditDataAccess transferAllAndClearCreditDataAccess)
-        {
-            repository = dynamicRepository;
-            this.transferAllAndClearCreditDataAccess = transferAllAndClearCreditDataAccess;
-        }
+        public TransferAllAndClearCreditServiceImpl(IDynamicRepository dynamicRepository)
+            => repository = dynamicRepository;
 
         public TransferResult GetCalculateResult(GetCalculationResultParam param)
         {
@@ -33,7 +28,7 @@
             repository.Execute(getDownlineCriteria);
 
             var getNetPositionCriteria = new GetNetPositionCriteria(getDownlineCriteria.DownlineCustId, getDownlineCriteria.DownlineRoleId);
-            var netPositionModels = repository.Fetch<NetPositionModel>(getNetPositionCriteria);
+            var netPositionModels = repository.Fetch<NetPositionModel>(getNetPositionCriteria, param.AGIP);
 
             var criteria = new GetCalculateResultCriteria(
                 param.CustId, 
@@ -41,20 +36,39 @@
                 param.Language, 
                 param.AllowedTotalBalanceTransferSuperIds, 
                 param.IsAllDayBalanceTransfer,
-                netPositionModels,
+                BuildDownlineNetPositionXml(netPositionModels),
                 getDownlineCriteria.DownlineCustId);
 
-            var transferResult = transferAllAndClearCreditDataAccess.GetCalculateResult(criteria);
-            return transferResult;
+            var (conditionSteps, transferSteps, clearCreditSteps)
+                = repository.FetchMultiple<ConditionStep, TransferStep, ClearCreditStep>(criteria);
+
+            return new TransferResult(transferSteps, clearCreditSteps, conditionSteps.Select(c => c.Content));
+        }
+
+        private static string BuildDownlineNetPositionXml(IEnumerable<NetPositionModel> netPositions)
+        {
+            var xmlData = new StringBuilder("<ROOT>");
+            foreach (var item in netPositions)
+            {
+                xmlData.Append(item.ToXML);
+            }
+            xmlData.Append("</ROOT>");
+
+            return xmlData.ToString();
         }
 
         public TransferResult GetTransferResult(GetTransferResultParam param)
         {
             var skipTransfer = param.SkipTransfer();
+            TransferAllResult transferResult;
 
-            var transferResult = skipTransfer ?
-                new TransferAllResult() :
-                transferAllAndClearCreditDataAccess.TransferAll(new TransferAllCriteria(
+            if (skipTransfer)
+            {
+                transferResult = new TransferAllResult();
+            }
+            else
+            {
+                var criteria = new TransferAllCriteria(
                     param.CustId,
                     param.UserId,
                     param.SubAccId,
@@ -62,7 +76,11 @@
                     param.AllowedTotalBalanceTransferSuperIds,
                     param.IP,
                     param.Language,
-                    param.IsAllDayBalanceTransfer));
+                    param.IsAllDayBalanceTransfer);
+                var (conditionSteps, transferSteps) = repository.FetchMultiple<ConditionStep, TransferStep>(criteria, param.AGIP);
+
+                transferResult = new TransferAllResult(transferSteps, criteria.ErrCode, criteria.ErrMsg, conditionSteps.Select(c => c.Content));
+            }
 
             var clearCreditResult = (skipTransfer || transferResult.IsSuccess) && param.IsClearCredit
                 ? ClearCredit(param)
@@ -76,18 +94,30 @@
             var command = new GetCustomerInfoCriteria(param.Username);
             repository.Execute(command);
 
-            var totalAmts = repository.Fetch<TotalAmtModel>(new GetTotalAmtCriteria(command.CustId, command.RoleId));
+            var totalAmts = repository.Fetch<TotalAmtModel>(new GetTotalAmtCriteria(command.CustId, command.RoleId), param.AGIP);
+            var criteria = new ClearCreditCriteria(
+                param.CustId,
+                param.UserId,
+                param.SubAccId,
+                param.Username,
+                param.IP,
+                param.Language,
+                BuildMemberAmountXml(totalAmts));
+            var (conditionSteps, clearCreditSteps) = repository.FetchMultiple<ConditionStep, ClearCreditStep>(criteria);
 
-            var result = transferAllAndClearCreditDataAccess.ClearCredit(new ClearCreditCriteria(
-                    param.CustId,
-                    param.UserId,
-                    param.SubAccId,
-                    param.Username,
-                    param.IP,
-                    param.Language,
-                    totalAmts));
+            return new ClearCreditResult(clearCreditSteps, criteria.ErrCode, criteria.ErrMsg, conditionSteps.Select(c => c.Content));
+        }
 
-            return result;
+        private static string BuildMemberAmountXml(IEnumerable<TotalAmtModel> totalAmts)
+        {
+            var xmlData = new StringBuilder("<ROOT>");
+            foreach (var amt in totalAmts)
+            {
+                xmlData.Append(amt.ToXML);
+            }
+            xmlData.Append("</ROOT>");
+
+            return xmlData.ToString();
         }
     }
 }

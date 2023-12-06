@@ -4,8 +4,9 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Alpha.Transfer.Criteria;
-    using Alpha.Transfer.DataAccesses;
+    using Alpha.Transfer.Models;
     using AlphaPlus.User.Models;
+    using Fanex.Data.Repository;
 
     public interface TransferService
     {
@@ -23,16 +24,26 @@
 
     public class TransferServiceImpl : TransferService
     {
-        private readonly TransferDataAccess transferDataAccess;
+        private readonly IDynamicRepository dynamicRepository;
 
-        public TransferServiceImpl(TransferDataAccess transferDataAccess)
-            => this.transferDataAccess = transferDataAccess;
+        public TransferServiceImpl(IDynamicRepository dynamicRepository)
+            => this.dynamicRepository = dynamicRepository;
 
         public bool IsAllDayBalanceTransfer(int custId)
-            => transferDataAccess.IsAllDayBalanceTransfer(new GetIsAllDayBalTransferCriteria(custId));
+        {
+            var transferModel = dynamicRepository.Get<TransferModel>(
+                new GetIsAllDayBalTransferCriteria(custId));
+
+            return transferModel != null && transferModel.IsAllDayBalTransfer;
+        }
 
         public async Task<bool> IsAllDayBalanceTransferAsync(int custId)
-            => await transferDataAccess.IsAllDayBalanceTransferAsync(new GetIsAllDayBalTransferCriteria(custId));
+        {
+            var transferModel = await dynamicRepository.GetAsync<TransferModel>(
+                new GetIsAllDayBalTransferCriteria(custId));
+
+            return transferModel != null && transferModel.IsAllDayBalTransfer;
+        }
 
         public bool IsEnableAutoTransfer(
             int custId,

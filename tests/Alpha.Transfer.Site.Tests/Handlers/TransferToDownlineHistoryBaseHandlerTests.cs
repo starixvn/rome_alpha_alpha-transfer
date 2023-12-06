@@ -1,5 +1,9 @@
 ﻿namespace Alpha.Transfer.Site.Tests.Handlers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Params.TransferToDownlineHistory;
     using Alpha.Transfer.Services;
@@ -8,10 +12,6 @@
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
     using Xunit;
 
     [Trait("Category", "TransferToDownlineHistory")]
@@ -28,7 +28,7 @@
 
         private readonly TransferToDownlineHistoryPagingQuery query;
         private readonly TransferToDownlineHistoryPagingParam param;
-        private readonly List<TransferToDownlineHistoryModel> transferToDownlines;
+        private readonly IEnumerable<TransferToDownlineHistoryModel> transferToDownlines;
         private readonly int totalRecords = 3;
 
         private readonly UserFixture userFixture;
@@ -128,7 +128,7 @@
         public void GetTransferToDownlineHistory_HasNoData_ReturnsNoRecords()
         {
             // Arrange
-            var result = Tuple.Create(new List<TransferToDownlineHistoryModel>(), 0);
+            var result = Tuple.Create(Enumerable.Empty<TransferToDownlineHistoryModel>(), 0);
             transferToDownlineHistoryService
                 .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryPagingParam>())
                 .Returns(result);

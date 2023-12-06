@@ -4,7 +4,6 @@
     {
         public CashBalanceTransfer()
         {
-
         }
 
         public CashBalanceTransfer(
@@ -27,20 +26,20 @@
             PendingTransfer3rd = pendingTransfer3rd;
         }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
 
-        public string UserName { get; }
+        public string UserName { get; set; }
 
-        public byte RoleId { get; }
+        public byte RoleId { get; set; }
 
-        public decimal UplineCashBalance { get; }
+        public decimal UplineCashBalance { get; set; }
 
-        public decimal CashBalance { get; }
+        public decimal CashBalance { get; set; }
 
-        public decimal Outstanding { get; }
+        public decimal Outstanding { get; set; }
 
-        public decimal GivenCredit { get; }
+        public decimal GivenCredit { get; set; }
 
-        public decimal PendingTransfer3rd { get; }
+        public decimal PendingTransfer3rd { get; set; }
     }
 }

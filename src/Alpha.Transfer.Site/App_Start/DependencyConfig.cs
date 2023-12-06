@@ -6,7 +6,6 @@
     using Alpha.Web.Helpers;
     using AlphaPlus.User.Models;
     using Controllers;
-    using DataAccesses;
     using Fanex.Caching;
     using Fanex.Caching.Redis;
     using Fanex.Data.Repository;
@@ -66,10 +65,6 @@
         private static void RegisterDataAccesses(Container container)
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
-            container.RegisterSingleton<TransferAllAndClearCreditDataAccess, TransferAllAndClearCreditDataAccessImpl>();
-            container.RegisterSingleton<MultipleTransferDataAccess, MultipleTransferDataAccessImpl>();
-            container.RegisterSingleton<TransferToDownlineHistoryDataAccess, TransferToDownlineHistoryDataAccessImpl>();
-            container.RegisterSingleton<TransferDataAccess, TransferDataAccessImpl>();
         }
 
         private static void RegisterServices(Container container)

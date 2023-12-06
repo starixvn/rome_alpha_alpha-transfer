@@ -11,7 +11,7 @@
         {
             // Arrange
             var expectedSettingKey = "SiteDB_Age_ClearBalanceCust_Job_StatusCheck";
-            var criteria = new GetJobStatusCriteria(1, 2, "on");
+            var criteria = new GetJobStatusCriteria(1, 2, true);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -24,7 +24,7 @@
         public void IsValid_Always_ReturnsTrue()
         {
             // Arrange
-            var criteria = new GetJobStatusCriteria(1, 2, "on");
+            var criteria = new GetJobStatusCriteria(1, 2, true);
 
             // Act
             var actualIsValid = criteria.IsValid();

@@ -23,10 +23,10 @@ namespace Alpha.Transfer.Site.Tests.RequestsTest.AutoTransfer
         public void IsValid_NotHaveSearchAccountIds_ReturnsFalse(string searchAccountIds)
         {
             // Arrange
-            var message = new UpdateMultipleQuery(userFixture.User);
-
-            var model = new GetTransferConditionQuery(message)
+            var model = new GetTransferConditionQuery
             {
+                UplineId = userFixture.User.Id,
+                ViewerLevel = userFixture.User.LevelId,
                 SearchAccountIds = searchAccountIds
             };
 
@@ -42,10 +42,11 @@ namespace Alpha.Transfer.Site.Tests.RequestsTest.AutoTransfer
         {
             // Arrange
             var user = Substitute.For<IUser>();
-            var message = new UpdateMultipleQuery(user);
 
-            var model = new GetTransferConditionQuery(message)
+            var model = new GetTransferConditionQuery
             {
+                UplineId = user.Id,
+                ViewerLevel = user.LevelId,
                 SearchAccountIds = "1176083,33278659,14373487",
             };
 

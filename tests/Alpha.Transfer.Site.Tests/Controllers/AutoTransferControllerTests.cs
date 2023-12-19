@@ -83,6 +83,7 @@
             var query = new UpdateQuery(user)
             {
                 CustId = 1176083,
+                State = "off"
             };
 
             var expectedResult = Result.CreateErrorResult(Resources.NotAuthorized, 403);
@@ -100,112 +101,14 @@
         public async Task Update_ValidQueryAndNotInternal_CallsMediatorUpdateQuery()
         {
             // Arrange
-            var message = new UpdateQuery(user) { CustId = 1176083 };
+            var message = new UpdateQuery(user)
+            {
+                CustId = 1176083,
+                State = "off"
+            };
 
             // Act
             await controller.Update(message);
-
-            // Assert
-            await mediator.Received().SendAsync(message);
-        }
-
-        [Fact]
-        public async Task UpdateMultiple_Always_CallsMediatorUpdateMultipleQuery()
-        {
-            // Arrange
-            user.Id.Returns(1176070);
-            user.SubAccId.Returns(0);
-            user.IP.Returns("127.0.0.1");
-            user.LanguageKey.Returns("E");
-
-            var message = new UpdateMultipleQuery(user)
-            {
-                SearchAccountIds = "1176083,33278659,14373487",
-            };
-
-            // Act
-            await controller.UpdateMultiple(message);
-
-            // Assert
-            await mediator.Received().SendAsync(Arg.Any<GetTransferConditionQuery>());
-        }
-
-        [Fact]
-        public async Task PostUpdateMultiple_QueryIsNull_ReturnBadRequestResult()
-        {
-            // Arrange
-
-            var expectedResult = Result.CreateErrorResult(Resources.BadRequest, 400);
-
-            // Act
-            var actualResult = await controller.PostUpdateMultiple(null) as JsonResult;
-
-            // Assert
-            AssertExtension.Equal(expectedResult, (Result)actualResult.Data);
-        }
-
-        [Theory]
-        [InlineData("1176083,33278659,14373487", -1176070)]
-        [InlineData("", 1176070)]
-        [InlineData("1176083,33278659,14373487", 0)]
-        public async Task PostUpdateMultiple_QueryIsNotValid_ReturnBadRequestResult(string searchAccountIds, int uplineId)
-        {
-            // Arrange
-            user.Id.Returns(uplineId);
-            user.SubAccId.Returns(0);
-            user.IP.Returns("127.0.0.1");
-            user.LanguageKey.Returns("E");
-
-            var query = new UpdateMultipleQuery(user)
-            {
-                SearchAccountIds = searchAccountIds,
-            };
-
-            var expectedResult = Result.CreateErrorResult(Resources.BadRequest, 400);
-
-            // Act
-            var actualResult = await controller.PostUpdateMultiple(query) as JsonResult;
-
-            // Assert
-            AssertExtension.Equal(expectedResult, (Result)actualResult.Data);
-        }
-
-        [Fact]
-        public async Task PostUpdateMultiple_QueryIsInternal_ReturnNotAuthorizedResult()
-        {
-            // Arrange
-            user.Id.Returns(1176070);
-            user.SubAccId.Returns(0);
-            user.IP.Returns("127.0.0.1");
-            user.LanguageKey.Returns("E");
-
-            var query = new UpdateMultipleQuery(user)
-            {
-                SearchAccountIds = "1176083,33278659,14373487"
-            };
-
-            var expectedResult = Result.CreateErrorResult(Resources.NotAuthorized, 403);
-
-            userSession.IsInternal.Returns(true);
-
-            // Act
-            var actualResult = await controller.PostUpdateMultiple(query) as JsonResult;
-
-            // Assert
-            AssertExtension.Equal(expectedResult, (Result)actualResult.Data);
-        }
-
-        [Fact]
-        public async Task PostUpdateMultiple_ValidQueryAndNotInternal_CallsMediatorUpdateQuery()
-        {
-            // Arrange
-            var message = new UpdateMultipleQuery(user)
-            {
-                SearchAccountIds = "1176083,33278659,14373487",
-            };
-
-            // Act
-            await controller.PostUpdateMultiple(message);
 
             // Assert
             await mediator.Received().SendAsync(message);

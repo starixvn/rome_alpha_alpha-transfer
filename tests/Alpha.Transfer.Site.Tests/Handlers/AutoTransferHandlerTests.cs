@@ -48,9 +48,10 @@ namespace Alpha.Transfer.Site.Tests.Handlers
         public async Task HandlerGetTransferCondition_Always_ReturnsCorrectViewModel()
         {
             // Arrange
-            var message = new UpdateMultipleQuery(user);
-            var getTransferConditionQuery = new GetTransferConditionQuery(message)
+            var getTransferConditionQuery = new GetTransferConditionQuery
             {
+                UplineId = user.Id,
+                ViewerLevel = user.LevelId,
                 SearchAccountIds = "1176083,33278659,14373487",
                 Usernames = "master1, master1p1, masterkz"
             };
@@ -66,105 +67,6 @@ namespace Alpha.Transfer.Site.Tests.Handlers
 
             // Act
             var actualViewModel = await handler.Handle(getTransferConditionQuery);
-
-            // Assert
-            AssertExtension.Equal(expectedViewModel, actualViewModel);
-        }
-
-        [Theory]
-        [InlineData(AutoTransferConstant.On)]
-        [InlineData(AutoTransferConstant.Off)]
-        public async Task HandlerUpdateMultipleQuery_CustIdsIsValid_ReturnsCorrectResults(string state)
-        {
-            // Arrange
-            user.Id.Returns(1176070);
-            user.SubAccId.Returns(0);
-            user.IP.Returns("127.0.0.1");
-            user.LanguageKey.Returns("en-US");
-
-            var message = new UpdateMultipleQuery(user)
-            {
-                SearchAccountIds = "1176083,33278659,14373883",
-                State = state
-            };
-
-            autoTransferService.UpdateAsync(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns(new Result());
-
-            var expectedViewModel = new Result
-            {
-                Code = 0,
-                Message = string.Empty
-            };
-
-            // Act
-            var actualViewModel = await handler.Handle(message);
-
-            // Assert
-            AssertExtension.Equal(expectedViewModel, actualViewModel);
-        }
-
-        [Theory]
-        [InlineData(AutoTransferConstant.On)]
-        [InlineData(AutoTransferConstant.Off)]
-        public async Task HandlerUpdateMultipleQuery_CustIdsIsInvalid_ReturnsCorrectResults(string state)
-        {
-            // Arrange
-            user.Id.Returns(1176070);
-            user.SubAccId.Returns(0);
-            user.IP.Returns("127.0.0.1");
-            user.LanguageKey.Returns("en-US");
-
-            var message = new UpdateMultipleQuery(user)
-            {
-                SearchAccountIds = "a,0, ",
-                State = state
-            };
-
-            autoTransferService.UpdateAsync(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns(new Result());
-            var expectedViewModel = new Result
-            {
-                Code = 0,
-                Message = string.Empty
-            };
-
-            // Act
-            var actualViewModel = await handler.Handle(message);
-
-            // Assert
-            AssertExtension.Equal(expectedViewModel, actualViewModel);
-        }
-
-        [Theory]
-        [InlineData(AutoTransferConstant.On)]
-        [InlineData(AutoTransferConstant.Off)]
-        public async Task HandlerUpdateMultipleQuery_UpdateServiceNotSuccess_ReturnsCorrectResults(string state)
-        {
-            // Arrange
-            user.Id.Returns(1176070);
-            user.SubAccId.Returns(0);
-            user.IP.Returns("127.0.0.1");
-            user.LanguageKey.Returns("en-US");
-
-            var message = new UpdateMultipleQuery(user)
-            {
-                SearchAccountIds = "1176083,33278659,14373883",
-                State = state
-            };
-
-            autoTransferService.UpdateAsync(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns(new Result
-            {
-                Code = 1,
-                Message = "Error"
-            });
-
-            var expectedViewModel = new Result
-            {
-                Code = 1,
-                Message = AppResources.Resources.AutoTransfer_MultipleErrorProccessing
-            };
-
-            // Act
-            var actualViewModel = await handler.Handle(message);
 
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
@@ -191,7 +93,7 @@ namespace Alpha.Transfer.Site.Tests.Handlers
             {
                 Code = 0
             };
-            autoTransferService.UpdateAsync(message.CustId, message.UplineId, message.IP, message.Language, message.State).Returns(result);
+            autoTransferService.UpdateAsync(Arg.Any<UpdateSingleParam>()).Returns(result);
 
             var expectedViewModel = new Result
             {
@@ -227,7 +129,7 @@ namespace Alpha.Transfer.Site.Tests.Handlers
                 Message = "Error"
             };
 
-            autoTransferService.UpdateAsync(message.CustId, message.UplineId, message.IP, message.Language, message.State).Returns(result);
+            autoTransferService.UpdateAsync(Arg.Any<UpdateSingleParam>()).Returns(result);
 
             var expectedViewModel = new Result
             {

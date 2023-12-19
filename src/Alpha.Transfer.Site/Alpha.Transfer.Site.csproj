@@ -368,17 +368,29 @@
     <Content Include="assets\bundles\auto-transfer\monitoring.min.js">
       <DependentUpon>monitoring.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\auto-transfer\multiple-update-dark.css" />
-    <Content Include="assets\bundles\auto-transfer\multiple-update-dark.min.css">
-      <DependentUpon>multiple-update-dark.css</DependentUpon>
+    <Content Include="assets\bundles\auto-transfer\update-multiple-dark.css" />
+    <Content Include="assets\bundles\auto-transfer\update-multiple-dark.min.css">
+      <DependentUpon>update-multiple-dark.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\auto-transfer\multiple-update.css" />
-    <Content Include="assets\bundles\auto-transfer\multiple-update.js" />
-    <Content Include="assets\bundles\auto-transfer\multiple-update.min.css">
-      <DependentUpon>multiple-update.css</DependentUpon>
+    <Content Include="assets\bundles\auto-transfer\update-multiple.css" />
+    <Content Include="assets\bundles\auto-transfer\update-multiple.js" />
+    <Content Include="assets\bundles\auto-transfer\update-multiple.min.css">
+      <DependentUpon>update-multiple.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\auto-transfer\multiple-update.min.js">
-      <DependentUpon>multiple-update.js</DependentUpon>
+    <Content Include="assets\bundles\auto-transfer\update-multiple.min.js">
+      <DependentUpon>update-multiple.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\update-schedule-dark.css" />
+    <Content Include="assets\bundles\auto-transfer\update-schedule-dark.min.css">
+      <DependentUpon>update-schedule-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\update-schedule.css" />
+    <Content Include="assets\bundles\auto-transfer\update-schedule.js" />
+    <Content Include="assets\bundles\auto-transfer\update-schedule.min.css">
+      <DependentUpon>update-schedule.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\update-schedule.min.js">
+      <DependentUpon>update-schedule.js</DependentUpon>
     </Content>
     <Content Include="assets\bundles\cash-balance-transfer-dark.css" />
     <Content Include="assets\bundles\cash-balance-transfer-dark.min.css">
@@ -475,17 +487,29 @@
     <Content Include="assets\styles\auto-transfer\monitoring.min.css">
       <DependentUpon>monitoring.css</DependentUpon>
     </Content>
-    <Content Include="assets\styles\auto-transfer\multiple-update-dark.css">
-      <DependentUpon>multiple-update-dark.scss</DependentUpon>
+    <Content Include="assets\styles\auto-transfer\update-multiple-dark.css">
+      <DependentUpon>update-multiple-dark.scss</DependentUpon>
     </Content>
-    <Content Include="assets\styles\auto-transfer\multiple-update-dark.min.css">
-      <DependentUpon>multiple-update-dark.css</DependentUpon>
+    <Content Include="assets\styles\auto-transfer\update-multiple-dark.min.css">
+      <DependentUpon>update-multiple-dark.css</DependentUpon>
     </Content>
-    <Content Include="assets\styles\auto-transfer\multiple-update.css">
-      <DependentUpon>multiple-update.scss</DependentUpon>
+    <Content Include="assets\styles\auto-transfer\update-multiple.css">
+      <DependentUpon>update-multiple.scss</DependentUpon>
     </Content>
-    <Content Include="assets\styles\auto-transfer\multiple-update.min.css">
-      <DependentUpon>multiple-update.css</DependentUpon>
+    <Content Include="assets\styles\auto-transfer\update-multiple.min.css">
+      <DependentUpon>update-multiple.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-schedule-dark.css">
+      <DependentUpon>update-schedule-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-schedule-dark.min.css">
+      <DependentUpon>update-schedule-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-schedule.css">
+      <DependentUpon>update-schedule.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-schedule.min.css">
+      <DependentUpon>update-schedule.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\cash-balance-transfer-dark.css">
       <DependentUpon>cash-balance-transfer-dark.scss</DependentUpon>
@@ -633,13 +657,17 @@
     <Compile Include="Handlers\TransferToDownlineHistoryHandler.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\AutoTransfer\CancelAllJobsQuery.cs" />
     <Compile Include="Requests\AutoTransfer\GetHistoryTransfersQuery.cs" />
     <Compile Include="Requests\AutoTransfer\MonitoringQuery.cs" />
     <Compile Include="Requests\AutoTransfer\GetTransferConditionQuery.cs" />
     <Compile Include="Requests\AutoTransfer\GetTodayTransfersQuery.cs" />
     <Compile Include="Requests\AutoTransfer\CancelJobQuery.cs" />
+    <Compile Include="Requests\AutoTransfer\PostUpdateScheduleQuery.cs" />
+    <Compile Include="Requests\AutoTransfer\PostUpdateMultipleAutoTransferQuery.cs" />
+    <Compile Include="Requests\AutoTransfer\UpdateMultipleAutoTransferQuery.cs" />
+    <Compile Include="Requests\AutoTransfer\UpdateScheduleQuery.cs" />
     <Compile Include="Requests\AutoTransfer\UpdateQuery.cs" />
-    <Compile Include="Requests\AutoTransfer\UpdateMultipleQuery.cs" />
     <Compile Include="Requests\CashBalanceTransfer\CashBalanceTransferCommand.cs" />
     <Compile Include="Requests\CashBalanceTransfer\CashBalanceTransferQuery.cs" />
     <Compile Include="Requests\CashBalanceTransfer\HintTransferQuery.cs" />
@@ -728,14 +756,16 @@
     <Content Include="assets\styles\transfer-all-clear-credit-dark.scss" />
     <Content Include="assets\styles\transfer-hint-dark.scss" />
     <Content Include="assets\styles\transfer-to-downline-history\index-dark.scss" />
-    <Content Include="assets\styles\auto-transfer\multiple-update.scss" />
-    <Content Include="assets\styles\auto-transfer\multiple-update-dark.scss" />
     <Content Include="assets\styles\auto-transfer\monitoring.scss" />
     <Content Include="assets\styles\auto-transfer\monitoring-dark.scss" />
     <Content Include="App_Code\Components\VisibleColumnsDropdown.cshtml" />
     <Content Include="App_Code\Components\RefreshCountDown.cshtml" />
     <Content Include="assets\styles\refresh-countdown.scss" />
     <Content Include="assets\styles\refresh-countdown-dark.scss" />
+    <Content Include="assets\styles\auto-transfer\update-schedule.scss" />
+    <Content Include="assets\styles\auto-transfer\update-schedule-dark.scss" />
+    <Content Include="assets\styles\auto-transfer\update-multiple.scss" />
+    <Content Include="assets\styles\auto-transfer\update-multiple-dark.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -747,11 +777,12 @@
     <Content Include="Views\TransferToDownlineHistory\Index.cshtml" />
     <Content Include="Views\TransferToDownlineHistory\Filter.cshtml" />
     <Content Include="Views\Shared\InvalidTransferStatus.cshtml" />
-    <Content Include="Views\AutoTransfer\UpdateMultiple.cshtml" />
     <Content Include="Views\AutoTransfer\Monitoring.cshtml" />
     <Content Include="Views\AutoTransfer\History.cshtml" />
     <Content Include="Views\AutoTransfer\Hint.cshtml" />
     <Content Include="Views\AutoTransfer\ADBTChange.cshtml" />
+    <Content Include="Views\AutoTransfer\UpdateSchedule.cshtml" />
+    <Content Include="Views\AutoTransfer\UpdateMultipleAutoTransfer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -790,7 +821,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="assets\scripts\auto-transfer\history.ts" />
     <TypeScriptCompile Include="assets\scripts\auto-transfer\monitoring.ts" />
-    <TypeScriptCompile Include="assets\scripts\auto-transfer\multiple-update.ts" />
+    <TypeScriptCompile Include="assets\scripts\auto-transfer\update-multiple.ts" />
+    <TypeScriptCompile Include="assets\scripts\auto-transfer\update-schedule.ts" />
     <TypeScriptCompile Include="assets\scripts\components\auto-refresh.ts" />
     <TypeScriptCompile Include="assets\scripts\components\multiple-selection-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\components\visible-columns-dropdown.ts" />
@@ -805,7 +837,6 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\core.ts" />
-    <TypeScriptCompile Include="assets\scripts\tests\apps\auto-transfer\multiple-update-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>

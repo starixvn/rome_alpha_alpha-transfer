@@ -7,6 +7,7 @@
     using Alpha.Transfer.AppResources;
     using Alpha.Transfer.Configurations;
     using Alpha.Transfer.Models;
+    using Alpha.Transfer.Models.AutoTransfer;
     using Alpha.Transfer.Services;
     using Alpha.Transfer.Site.Requests.AutoTransfer;
     using Alpha.Transfer.Site.ViewModels.AutoTransfer;
@@ -19,6 +20,7 @@
         private readonly IUserSession userSession;
         private readonly TransferService transferService;
         private const string InvalidTransferStatusViewPath = "~/Views/AutoTransfer/ADBTChange.cshtml";
+        private const int ADBTChangeCode = 108;
 
         public AutoTransferController(
             IMediator mediator,
@@ -37,45 +39,7 @@
 
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
-            }
-            else if (message == null || !message.IsValid())
-            {
-                result = Result.CreateErrorResult(Resources.BadRequest, 400);
-            }
-            else if (userSession.IsInternal)
-            {
-                result = Result.CreateErrorResult(Resources.NotAuthorized, 403);
-            }
-            else
-            {
-                result = await mediator.SendAsync(message);
-            }
-
-            return Json(result, JsonRequestBehavior.DenyGet);
-        }
-
-        [HttpGet]
-        public async Task<ViewResult> UpdateMultiple(UpdateMultipleQuery message)
-        {
-            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
-            {
-                return View(InvalidTransferStatusViewPath);
-            }
-
-            var viewModel = await mediator.SendAsync(new GetTransferConditionQuery(message));
-
-            return View(viewModel);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> PostUpdateMultiple(UpdateMultipleQuery message)
-        {
-            Result result;
-
-            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
-            {
-                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode);
             }
             else if (message == null || !message.IsValid())
             {
@@ -131,7 +95,7 @@
         {
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, 100), JsonRequestBehavior.DenyGet);
+                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode), JsonRequestBehavior.DenyGet);
             }
 
             var result = await mediator.SendAsync(message);
@@ -144,7 +108,7 @@
         {
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, 100), JsonRequestBehavior.DenyGet);
+                return Json(Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode), JsonRequestBehavior.DenyGet);
             }
 
             var result = await mediator.SendAsync(message);
@@ -159,7 +123,7 @@
 
             if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
             {
-                result = Result.CreateErrorResult(Resources.ADBTChangeError, 100);
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode);
             }
             else if (message == null || !message.IsValid())
             {
@@ -168,6 +132,99 @@
             else if (userSession.IsInternal)
             {
                 result = Result.CreateErrorResult(Resources.NotAuthorized, 403);
+            }
+            else
+            {
+                result = await mediator.SendAsync(message);
+            }
+
+            return Json(result, JsonRequestBehavior.DenyGet);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CancelAllJobs(CancelAllJobsQuery message)
+        {
+            Result result;
+
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode);
+            }
+            else if (message == null || !message.IsValid())
+            {
+                result = Result.CreateErrorResult(Resources.BadRequest, 400);
+            }
+            else if (userSession.IsInternal)
+            {
+                result = Result.CreateErrorResult(Resources.NotAuthorized, 403);
+            }
+            else
+            {
+                result = await mediator.SendAsync(message);
+            }
+
+            return Json(result, JsonRequestBehavior.DenyGet);
+        }
+
+        [HttpGet]
+        public ViewResult UpdateSchedule(UpdateScheduleQuery message)
+        {
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                return View(InvalidTransferStatusViewPath);
+            }
+
+            return View(message);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> PostUpdateSchedule(PostUpdateScheduleQuery message)
+        {
+            Result result;
+
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                result = Result.CreateErrorResult(Resources.ADBTChangeError, ADBTChangeCode);
+            }
+            else if (userSession.IsInternal)
+            {
+                result = Result.CreateErrorResult(Resources.NotAuthorized, 403);
+            }
+            else if (message == null || !message.IsValid())
+            {
+                result = Result.CreateErrorResult(Resources.BadRequest, 400);
+            }
+            else
+            {
+                result = await mediator.SendAsync(message);
+            }
+
+            return Json(result, JsonRequestBehavior.DenyGet);
+        }
+
+        [HttpGet]
+        public ViewResult UpdateMultipleAutoTransfer(UpdateMultipleAutoTransferQuery message)
+        {
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                return View(InvalidTransferStatusViewPath);
+            }
+
+            return View(message);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> UpdateMultipleAutoTransfer(PostUpdateMultipleAutoTransferQuery message)
+        {
+            UpdateMultipleAutoTransferResultModel result;
+
+            if (userSession.IsInternal)
+            {
+                result = new UpdateMultipleAutoTransferResultModel(403, Resources.NotAuthorized);
+            }
+            else if (message == null)
+            {
+                result = new UpdateMultipleAutoTransferResultModel(400, Resources.BadRequest);
             }
             else
             {

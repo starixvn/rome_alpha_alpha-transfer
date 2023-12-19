@@ -10,7 +10,7 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Age_ClearBalanceCust_ProcessSel";
+            var expectedSettingKey = "SiteDB_Age_ClearBalanceCust_ProcessSel";
             var criteria = new GetTodayTransfersCriteria();
 
             // Act
@@ -24,7 +24,10 @@
         public void IsValid_Always_ReturnsTrue()
         {
             // Arrange
-            var criteria = new GetTodayTransfersCriteria();
+            var criteria = new GetTodayTransfersCriteria
+            {
+                ViewStatus = "All"
+            };
 
             // Act
             var actualIsValid = criteria.IsValid();

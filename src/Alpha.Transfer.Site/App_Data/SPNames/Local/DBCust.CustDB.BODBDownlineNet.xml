@@ -8,5 +8,6 @@
   </Function>
   <Function Name="Auto Transfer">
     <Setting Key="Age_ClearBalanceCust_SettingUpdate" SpName="Age_ClearBalanceCust_SettingUpdate" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_AutoTransferSchedule_Upd" SpName="Age_AutoTransferSchedule_Upd" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>

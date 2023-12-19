@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = Resources.EditMultipleAutoTransfer;
+}
+
+@using Alpha.Transfer.Site.Requests.AutoTransfer;
+@using Alpha.Transfer.Helpers;
+@model UpdateMultipleAutoTransferQuery
+
+@section Styles {
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/auto-transfer/update-multiple")
+}
+<div class="div-separator-top"></div>
+<div class="div-on-users @(string.IsNullOrWhiteSpace(Model.OnNames) ? "hide" : "")">
+    <div class="auto-transfer">
+        @Resources.AutoTransfer:
+        <div id="switch-auto-transfer-on" class="switch-auto-transfer two-state @Model.Language"></div>
+    </div>
+    <ul class="ul-confirm">
+        <li class="li-schedule">
+            <span class="spn-schedule">
+                <input type="checkbox" class="opt-schedule-all" checked="checked" />
+                @Resources.SelectAll
+            </span>
+
+            @foreach (var d in Model.TransferrableDates)
+            {
+                <span class="spn-schedule">
+                    <input type="checkbox" class="opt-schedule" checked="checked" data-val="@d" />
+                    @TransferConditionHelper.GetDateName(d)
+                </span>
+            }
+        </li>
+    </ul>
+    <div class="div-usernames">@((Model.OnNames ?? string.Empty).Replace(",", ", "))</div>
+</div>
+<div class="div-separator hide"></div>
+<div class="div-off-users @(string.IsNullOrWhiteSpace(Model.OffNames) ? "hide" : "")">
+    <div class="auto-transfer">
+        @Resources.AutoTransfer:
+        <div id="switch-auto-transfer-off" class="switch-auto-transfer two-state @Model.Language"></div>
+    </div>
+    <ul class="ul-confirm">
+        <li class="li-schedule">
+            <span class="spn-schedule">
+                <input type="checkbox" class="opt-schedule-all" disabled="disabled" />
+                @Resources.SelectAll
+            </span>
+
+            @foreach (var d in Model.TransferrableDates)
+            {
+                <span class="spn-schedule">
+                    <input type="checkbox" class="opt-schedule" data-val="@d" disabled="disabled" />
+                    @TransferConditionHelper.GetDateName(d)
+                </span>
+            }
+        </li>
+    </ul>
+    <div class="div-usernames">@((Model.OffNames ?? string.Empty).Replace(",", ", "))</div>
+</div>
+<ul class="note-list-transfer">
+    <li class="red">@Resources.AutoTransfer_ClearSchedule</li>
+    <li>@Html.Raw(Resources.AutoTransfer_InfoAffectTimeSuper)</li>
+    <li>@Resources.AutoTransfer_SetSchedule</li>
+    <li>@Resources.AutoTransfer_InfoCannotTransfer</li>
+</ul>
+
+<div id="msg-warning" class="msg msg-warning hide"></div>
+<div id="msg-error" class="msg msg-error hide"></div>
+<div id="msg-success" class="msg msg-success hide"></div>
+<div class="list-btn-update">
+    <button type="button" class="btn btn-default btn-cancel">@Resources.Cancel.ToUpperInvariant()</button>
+    <button type="button" class="btn btn-primary btn-ok">@Resources.OK</button>
+</div>
+
+@Html.Hidden("IsMixStatus", Model.IsMixStatus ? 1 : 0)
+@Html.Hidden("lblOn", Resources.On)
+@Html.Hidden("lblOff", Resources.Off)
+@Html.Hidden("confirmUpdateAutoTransfer", Resources.confirmUpdateAutoTransfer)
+@Html.Hidden("OnIds", Model.OnIds)
+@Html.Hidden("OffIds", Model.OffIds)
+@Html.Hidden("Old_TransferOption", Model.Old_TransferOption)
+<input type="hidden" id="OnNames" value="@((Model.OnNames ?? "").Replace(",", ", "))" />
+<input type="hidden" id="OffNames" value="@((Model.OffNames ?? "").Replace(",", ", "))" />
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/auto-transfer/update-multiple")
+}

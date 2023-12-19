@@ -487,7 +487,7 @@
     <value>自动转账流程安排于中午 12:00 (GMT+8) 进行，在这期间昨天余额将被清算。</value>
   </data>
   <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
-    <value>为了确保自动转账数据的准确性，您无法向已经开启自动转账的下线进行转账。</value>
+    <value>为确保自动转账过程中数据的准确性，您不能向已启用自动转账的下线进行转账。</value>
   </data>
   <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
     <value>如果您在其运行中开启自动转账，自动转账将会根据您账号的转账设定在下一个预定时间生效。</value>
@@ -514,7 +514,7 @@
     <value>取消</value>
   </data>
   <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
-    <value>修改成功!</value>
+    <value>这些账号的自动转账已成功更新。</value>
   </data>
   <data name="AutoTransfer" xml:space="preserve">
     <value>自动转账</value>
@@ -526,16 +526,16 @@
     <value>第三方待定转账</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
-    <value>这些账号已启用自动转账。但是，自动转账的过程正在进行，所以这些账号将根据您的账号转账设定在队列中等待下一个预定时间自动转账。</value>
+    <value>这些账号已启用自动转账。 但是，转账过程正在进行，并且这些账号将根据其自动转账流程在队列中等他们下一个日程表的自动转账.</value>
   </data>
   <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
     <value>您无法禁用這些账号的自动转账功能，因为自动转账正在进行中。请等进行完毕之后再重试。</value>
   </data>
   <data name="AutoTransfer_UpdateSuccessOff" xml:space="preserve">
-    <value>这个账号{0}的自动转账已经成功禁用。</value>
+    <value>账号 &lt;{0} 自动转账已成功禁用。</value>
   </data>
   <data name="AutoTransfer_UpdateSuccessOn" xml:space="preserve">
-    <value>这个账号{0}的自动转账已经成功启用。</value>
+    <value>账号 {0} 自动转账已成功启用。</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>等待中</value>
@@ -544,7 +544,7 @@
     <value>您无法禁用此账号的自动转账功能，因为自动转账正在进行中。请等进行完毕之后再重试。</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
-    <value>这个账号已启用自动转账。但是，自动转账的过程正在进行，所以该账号将根据您的账号转账设定在队列中等待下一个预定时间自动转账。</value>
+    <value>该帐户已启用自动转账。但是，转账过程正在进行中，所以该帐户将根据其自动转账日程表在下一个时间段队列中等待自动转账。</value>
   </data>
   <data name="Ignored" xml:space="preserve">
     <value>忽视</value>
@@ -556,6 +556,72 @@
     <value>由于上线已为您启用全天余额转账，所以您无法使用自动转账。 页面将会自动刷新。</value>
   </data>
   <data name="AutoTransfer_InfoAffectTimeSuper" xml:space="preserve">
-    <value>一旦启用自动转账功能，系统将于 12:00 (GMT+8)清除昨日余额。</value>
+    <value>一旦启用自动转账功能，系统将于 &lt;span&gt;12:00 (GMT+8)&lt;/span&gt;清除昨日余额。</value>
+  </data>
+  <data name="SelectAll2" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>六</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>一</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>三</value>
+  </data>
+  <data name="Thurs" xml:space="preserve">
+    <value>四</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>二</value>
+  </data>
+  <data name="AutoTransfer_CancelAllSuccess" xml:space="preserve">
+    <value>自动转账过程已成功取消</value>
+  </data>
+  <data name="CancelSuspendedTransactions" xml:space="preserve">
+    <value>取消暂停交易</value>
+  </data>
+  <data name="AutoTransfer_Statistic" xml:space="preserve">
+    <value>所有下线的类别转账数量是从“等待中”、“进行中”、“失败”和“取消暂停交易”中计算。</value>
+  </data>
+  <data name="CancelAllAutoTransferJobsConfirm" xml:space="preserve">
+    <value>您想取消 {0}个账号的自动转账流程吗？</value>
+  </data>
+  <data name="AutoTransfer_NoCancellable" xml:space="preserve">
+    <value>没有可取消的交易。</value>
+  </data>
+  <data name="AutoTransfer_SetSchedule" xml:space="preserve">
+    <value>您可以为您的下线设置自动转账日程表根据您转账设定可有的选项。</value>
+  </data>
+  <data name="confirmChangeAutoTransferSchedule" xml:space="preserve">
+    <value>您想更改自动转账日程表于此账号：{0}？</value>
+  </data>
+  <data name="AutoTransfer_UpdateScheduleSuccess" xml:space="preserve">
+    <value>账号 {0} 自动转账日程表已成功更新。</value>
+  </data>
+  <data name="confirmUpdateAutoTransfer" xml:space="preserve">
+    <value>&lt;b&gt;您想要更新這些账号的自动转账：&lt;b&gt;</value>
+  </data>
+  <data name="CancelSuspendedTransactionsTip" xml:space="preserve">
+    <value>点击此处取消所有等待中/进行中已超过15分钟的交易。</value>
+  </data>
+  <data name="EditMultipleAutoTransfer" xml:space="preserve">
+    <value>修改多重转账</value>
+  </data>
+  <data name="EditAutoTransferSchedule" xml:space="preserve">
+    <value>修改自动转账日程表</value>
+  </data>
+  <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
+    <value>一旦禁用，当前的自动转账日程表将被清除。</value>
+  </data>
+  <data name="AutoTransfer_UplineConditionChanged" xml:space="preserve">
+    <value>您的转账设定已被上线更改。请刷新页面。</value>
   </data>
 </root>

@@ -1,5 +1,7 @@
 ﻿namespace Alpha.Transfer.Site.Requests.AutoTransfer
 {
+    using System;
+    using System.Linq;
     using MediatR;
     using Transfer.Models;
 
@@ -19,6 +21,10 @@
 
         public string State { get; set; }
 
+        public string Schedule { get; set; }
+
+        public string Old_TransferOption { get; set; }
+
         public int UplineId { get; }
 
         public int SubAccId { get; }
@@ -27,6 +33,8 @@
 
         public string Language { get; }
 
-        public bool IsValid() => CustId > 0 && UplineId > 0;
+        public string[] DateSchedule => (Schedule ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+        public bool IsValid() => CustId > 0 && UplineId > 0 && (State == "off" || DateSchedule.Any());
     }
 }

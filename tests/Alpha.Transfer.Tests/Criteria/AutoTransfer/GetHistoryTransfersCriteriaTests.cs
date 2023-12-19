@@ -24,7 +24,7 @@
         public void IsValid_Always_ReturnsTrue()
         {
             // Arrange
-            var criteria = new GetHistoryTransfersCriteria();
+            var criteria = new GetHistoryTransfersCriteria { ViewStatus = "All" };
 
             // Act
             var actualIsValid = criteria.IsValid();

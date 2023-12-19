@@ -2,7 +2,8 @@
 declare var initAutoComplete: Function;
 interface Window {
     popupManager: {
-        open: Function
+        open: Function,
+        close: Function
     };
 }
 

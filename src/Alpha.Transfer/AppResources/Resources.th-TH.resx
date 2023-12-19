@@ -487,7 +487,7 @@
     <value>ระบบโอนอัตโนมัติมีกำหนดจะดำเนินการ ณ เวลา 12:00 น. (GMT+8) ซึ่งยอดคงเหลือเมื่อวานจะถูกเคลีย</value>
   </data>
   <data name="AutoTransfer_InfoCannotTransfer" xml:space="preserve">
-    <value>เพื่อความถูกต้องของข้อมูล ในระหว่างที่ระบบโอนอัตโนมัติกำลังดำเนินการอยู่ คุณจะไม่สามารถถ่ายโอนไปยังดาวน์ไลน์ของคุณที่เปิดใช้งานการถ่ายโอนอัตโนมัติ</value>
+    <value>เพื่อให้มั่นใจในความถูกต้องของข้อมูลในระหว่างกระบวนการโอนอัตโนมัติ คุณไม่สามารถดำเนินการโอนไปยังดาวน์ไลน์ของคุณที่ได้เปิดใช้งานระบบโอนอัตโนมัติได้</value>
   </data>
   <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
     <value>ถ้าคุณเปิดการใช้งานโอนเงินอัตโนมัติในขณะที่ระบบกำลังดำเนินการอยู่  การโอนอัตโนมัติจะเริ่มต้นใช้งานในรอบการทำงานครั้งถัดไปตามเงื่อนไขที่คุณกำหนดไว้</value>
@@ -514,7 +514,7 @@
     <value>ยกเลิก</value>
   </data>
   <data name="AutoTransfer_UpdateSuccess" xml:space="preserve">
-    <value>อัพเดทเสร็จสมบูรณ์</value>
+    <value>การโอนอัตโนมัติได้รับการอัปเดตสำหรับบัญชีเหล่านี้เรียบร้อยแล้ว</value>
   </data>
   <data name="AutoTransfer" xml:space="preserve">
     <value>โอนอัตโนมัติ</value>
@@ -526,16 +526,16 @@
     <value>บุคคลที่สามรอการถ่ายโอน</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
-    <value>การโอนอัตโนมัติสำหรับบัญชีเหล่านี้ได้เปิดใช้งานแล้ว อย่างไรก็ตาม ระบบกำลังดำเนินการอยู่ในขณะนี้ บัญชีเหล่านี้จะเริ่มการโอนอัตโนมัติในเวลาที่กำหนดครั้งถัดไปตามเงื่อนไขการโอน</value>
+    <value>การโอนอัตโนมัติได้รับการเปิดใช้งานสำหรับบัญชีเหล่านี้ อย่างไรก็ตาม กระบวนการนี้กำลังเกิดขึ้น และบัญชีเหล่านี้จะถูกจัดคิวสำหรับการโอนอัตโนมัติตามเวลาที่กำหนดครั้งถัดไปตามกำหนดการโอนอัตโนมัติ.</value>
   </data>
   <data name="AutoTransfer_UpdateSuccessOn" xml:space="preserve">
-    <value>ระบบโอนอัตโนมัติของบัญชี {0} เปิดการใช้งานแล้ว</value>
+    <value>เปิดใช้งานการโอนอัตโนมัติสำหรับบัญชี {0} เรียบร้อยแล้ว</value>
   </data>
   <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
     <value>ขณะนี้ระบบโอนอัตโนมัติกำลังดำเนินการอยู่ จึงไม่สามารถปิดการใช้งานสำหรับบัญชีเหล่านี้ได้ กรุณาลองใหม่เมื่อระบบทำงานเสร็จ</value>
   </data>
   <data name="AutoTransfer_UpdateSuccessOff" xml:space="preserve">
-    <value>ระบบโอนอัตโนมัติของบัญชี {0} ถูกปิดแล้ว</value>
+    <value>การโอนอัตโนมัติสำหรับบัญชี {0} ถูกปิดใช้งานเรียบร้อยแล้ว</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>อยู่ระหว่างการดำเนินการ</value>
@@ -544,7 +544,7 @@
     <value>ขณะนี้ระบบโอนอัตโนมัติกำลังดำเนินการอยู่ จึงไม่สามารถปิดการใช้งานสำหรับบัญชีนี้ได้ กรุณาลองใหม่เมื่อระบบทำงานเสร็จ</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
-    <value>การโอนอัตโนมัติสำหรับบัญชีนี้ได้เปิดใช้งานแล้ว อย่างไรก็ตาม ระบบกำลังดำเนินการอยู่ในขณะนี้ บัญชีนี้จะเริ่มการโอนอัตโนมัติในเวลาที่กำหนดครั้งถัดไปตามเงื่อนไขการโอน</value>
+    <value>การโอนอัตโนมัติสำหรับบัญชีนี้ได้เปิดใช้งานแล้ว อย่างไรก็ตาม ระบบกำลังดำเนินการอยู่ในขณะนี้ บัญชีนี้จะถูกจัดคิวสำหรับการโอนอัตโนมัติในครั้งถัดไปตามกำหนดการของการโอนอัตโนมัติ</value>
   </data>
   <data name="Ignored" xml:space="preserve">
     <value>ละเว้น</value>
@@ -556,6 +556,72 @@
     <value>บัญชีของคุณไม่สามารถใช้ระบบโอนอัตโนมัติได้ เนื่องจากอัพไลน์ได้เปิดใช้งานระบบโอนยอดคงเหลือตลอดทั้งวันสำหรับบัญชีของคุณ  หน้าแสดงผลนี้จะรีเฟรชโดยอัตโนมัติ</value>
   </data>
   <data name="AutoTransfer_InfoAffectTimeSuper" xml:space="preserve">
-    <value>เมื่อเปิดใช้งานแล้ว ยอดคงเหลือเมื่อวานจะถูกเคลีย ณ เวลา 12:00 น. (GMT+8) </value>
+    <value>เมื่อเปิดใช้งานแล้ว ยอดคงเหลือเมื่อวานจะถูกเคลีย ณ เวลา &lt;span&gt;12:00 น. (GMT+8)&lt;/span&gt; </value>
+  </data>
+  <data name="AutoTransfer_CancelAllSuccess" xml:space="preserve">
+    <value>ยกเลิกกระบวนการโอนอัตโนมัติสำหรับทุกบัญชี</value>
+  </data>
+  <data name="SelectAll2" xml:space="preserve">
+    <value>เลือกทั้งหมด</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>วันอาทิตย์</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>วันเสาร์</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>วันจันทร์</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>วันพุธ</value>
+  </data>
+  <data name="Thurs" xml:space="preserve">
+    <value>วันพฤหัส</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>วันศุกร์</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>วันอังคาร</value>
+  </data>
+  <data name="AutoTransfer_Statistic" xml:space="preserve">
+    <value>จำนวนการโอนในหมวดหมู่ "รอดำเนินการ" "กำลังประมวลผล" "ล้มเหลว" และ "ยกเลิกธุรกรรมที่ถูกระงับ" ถูกนับสำหรับดาวน์ไลน์ทั้งหมด</value>
+  </data>
+  <data name="CancelSuspendedTransactions" xml:space="preserve">
+    <value>ยกเลิกธุรกรรมที่ถูกระงับ</value>
+  </data>
+  <data name="CancelAllAutoTransferJobsConfirm" xml:space="preserve">
+    <value>คุณต้องการยกเลิกกระบวนการโอนอัตโนมัติสำหรับ {0} บัญชี?</value>
+  </data>
+  <data name="AutoTransfer_NoCancellable" xml:space="preserve">
+    <value>ไม่มีธุรกรรมที่สามารถยกเลิกได้</value>
+  </data>
+  <data name="AutoTransfer_SetSchedule" xml:space="preserve">
+    <value>คุณสามารถตั้งค่ากำหนดการโอนอัตโนมัติสำหรับดาวน์ไลน์ของคุณได้จากตัวเลือกที่มีให้ตามเงื่อนไขการโอนของคุณ</value>
+  </data>
+  <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
+    <value>เมื่อปิดใช้งานแล้ว ตารางการโอนอัตโนมัติปัจจุบันจะถูกล้าง</value>
+  </data>
+  <data name="confirmChangeAutoTransferSchedule" xml:space="preserve">
+    <value>คุณต้องการเปลี่ยนกำหนดการโอนอัตโนมัติสำหรับบัญชีนี้: {0} หรือไม่</value>
+  </data>
+  <data name="AutoTransfer_UpdateScheduleSuccess" xml:space="preserve">
+    <value>กำหนดการโอนอัตโนมัติสำหรับบัญชี {0} ได้รับการอัปเดตเรียบร้อยแล้ว</value>
+  </data>
+  <data name="confirmUpdateAutoTransfer" xml:space="preserve">
+    <value>&lt;b&gt;คุณต้องการอัปเดตการโอนอัตโนมัติสำหรับบัญชีเหล่านี้:&lt;b&gt;</value>
+  </data>
+  <data name="CancelSuspendedTransactionsTip" xml:space="preserve">
+    <value>คลิกที่นี่เพื่อยกเลิกธุรกรรมที่รอดำเนินการ/ประมวลผลทั้งหมดที่เกิน 15 นาที</value>
+  </data>
+  <data name="EditMultipleAutoTransfer" xml:space="preserve">
+    <value>แก้ไขการโอนอัตโนมัติหลายรายการ</value>
+  </data>
+  <data name="EditAutoTransferSchedule" xml:space="preserve">
+    <value>แก้ไขกำหนดการโอนอัตโนมัติ</value>
+  </data>
+  <data name="AutoTransfer_UplineConditionChanged" xml:space="preserve">
+    <value>เงื่อนไขการโอนของคุณถูกเปลี่ยนแปลงโดยอัพไลน์ สถานะ.โปรดทำการรีเฟรชหน้านี้</value>
   </data>
 </root>

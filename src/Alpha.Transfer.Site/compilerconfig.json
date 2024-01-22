@@ -82,5 +82,13 @@
   {
     "outputFile": "assets/styles/auto-transfer/update-multiple-dark.css",
     "inputFile": "assets/styles/auto-transfer/update-multiple-dark.scss"
+  },
+  {
+    "outputFile": "assets/styles/auto-transfer/update-single-dark.css",
+    "inputFile": "assets/styles/auto-transfer/update-single-dark.scss"
+  },
+  {
+    "outputFile": "assets/styles/auto-transfer/update-single.css",
+    "inputFile": "assets/styles/auto-transfer/update-single.scss"
   }
 ]

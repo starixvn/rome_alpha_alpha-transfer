@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Alpha.Transfer.AppResources;
+using Alpha.Transfer.Models;
 
 namespace Alpha.Transfer.Helpers
 {
@@ -10,6 +11,7 @@ namespace Alpha.Transfer.Helpers
     {
         private const string DailyOption = "00000000";
         private const int DateInWeek = 7;
+        private const int indexOfWeeklyCondition = 7;
 
         public static List<int> GetTransferrableDatesFromSchedule(string schedule)
         {
@@ -55,6 +57,46 @@ namespace Alpha.Transfer.Helpers
 
             result.Append("1");
             return result.ToString();
+        }
+
+        public static List<int> GetAutoTransferScheduleFromTransferOption(
+            string transferOption, byte roleId)
+        {
+            var allDates = new List<int> { 2, 3, 4, 5, 6, 7, 1 };
+
+            if (roleId == UserLevel.Super.Value)
+            {
+                return allDates;
+            }
+
+            var transferrableDates = new List<int>();
+            if (string.IsNullOrWhiteSpace(transferOption))
+            {
+                return transferrableDates;
+            }
+
+            char[] arrchar = transferOption.ToCharArray();
+            if (arrchar.Length == 0)
+            {
+                return transferrableDates;
+            }
+
+            var isDaily = arrchar[indexOfWeeklyCondition] == '0';
+            if (isDaily)
+            {
+                return allDates;
+            }
+
+            for (int i = 1; i < arrchar.Length; i++)
+            {
+                var dateIndex = i % indexOfWeeklyCondition;
+                if (arrchar[dateIndex] == '1')
+                {
+                    transferrableDates.Add(dateIndex + 1);
+                }
+            }
+
+            return transferrableDates;
         }
     }
 }

@@ -18,6 +18,11 @@
         {
             get
             {
+                if (string.IsNullOrWhiteSpace(FirstName) && string.IsNullOrWhiteSpace(LastName))
+                {
+                    return "--/ --";
+                }
+
                 if (string.IsNullOrWhiteSpace(FirstName))
                 {
                     return LastName;

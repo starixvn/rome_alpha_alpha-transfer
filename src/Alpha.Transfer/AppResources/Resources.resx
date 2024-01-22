@@ -442,10 +442,10 @@
     <value>Would you like to cancel Auto Transfer process for this account?</value>
   </data>
   <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
-    <value>Would you like to enable Auto Transfer for these accounts?</value>
+    <value>&lt;b&gt;Would you like to enable Auto Transfer for this account: {0}?&lt;/b&gt;</value>
   </data>
   <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
-    <value>Would you like to disable Auto Transfer for these accounts?</value>
+    <value>&lt;b&gt;Would you like to disable Auto Transfer for this account: {0}?&lt;/b&gt;</value>
   </data>
   <data name="AutoTransfer_InfoSettingTime" xml:space="preserve">
     <value>Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8), during which the Yesterday Balance will be cleared.</value>
@@ -546,7 +546,7 @@
   <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
     <value>The Auto Transfer has been enabled for these accounts. However, this process is taking place, and these accounts will be queued for Auto Transfer at the next scheduled time based on their Auto Transfer schedule.</value>
   </data>
-  <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
+  <data name="AutoTransfer_Error_103_Multiple" xml:space="preserve">
     <value>You cannot disable Auto Transfer for these accounts because the Auto Transfer process is in progress. Please try again after the process has been completed.</value>
   </data>
   <data name="AutoTransfer_UpdateSuccessOn" xml:space="preserve">
@@ -561,7 +561,7 @@
   <data name="Ignored" xml:space="preserve">
     <value>Ignored</value>
   </data>
-  <data name="AutoTransfer_MultipleErrorProccessing_Single" xml:space="preserve">
+  <data name="AutoTransfer_Error_103_Single" xml:space="preserve">
     <value>You cannot disable Auto Transfer for this account because the Auto Transfer process is in progress. Please try again after the process has been completed.</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
@@ -650,5 +650,32 @@
   </data>
   <data name="AutoTransfer_UplineConditionChanged" xml:space="preserve">
     <value>Your Transfer Condition was changed by upline. Please refresh the page.</value>
+  </data>
+  <data name="AutoTransfer_UpdateTip" xml:space="preserve">
+    <value>Tip: you can enable/disable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {0}] or [Transfer &gt;&gt; Transfer] and monitor the progress on [Transfer &gt;&gt; Auto Transfer Monitor].</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="AutoTransfer_HintPath_2" xml:space="preserve">
+    <value>Member List</value>
+  </data>
+  <data name="AutoTransfer_HintPath_3" xml:space="preserve">
+    <value>Agent List</value>
+  </data>
+  <data name="AutoTransfer_HintPath_4" xml:space="preserve">
+    <value>Master Agent List</value>
+  </data>
+  <data name="AutoTransfer_Error_101_Single" xml:space="preserve">
+    <value>This account does not exist.</value>
+  </data>
+  <data name="AutoTransfer_Error_101_Multiple" xml:space="preserve">
+    <value>These accounts do not exist:</value>
+  </data>
+  <data name="AutoTransfer_Error_102_Multiple" xml:space="preserve">
+    <value>These accounts do not belong to your downline: </value>
+  </data>
+  <data name="AutoTransfer_Error_102_Single" xml:space="preserve">
+    <value>This account does not belong to your downline</value>
   </data>
 </root>

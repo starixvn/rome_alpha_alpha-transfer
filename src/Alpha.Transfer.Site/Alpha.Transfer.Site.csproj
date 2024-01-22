@@ -383,6 +383,18 @@
     <Content Include="assets\bundles\auto-transfer\update-schedule.min.js">
       <DependentUpon>update-schedule.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\auto-transfer\update-single-dark.css" />
+    <Content Include="assets\bundles\auto-transfer\update-single-dark.min.css">
+      <DependentUpon>update-single-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\update-single.css" />
+    <Content Include="assets\bundles\auto-transfer\update-single.js" />
+    <Content Include="assets\bundles\auto-transfer\update-single.min.css">
+      <DependentUpon>update-single.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\auto-transfer\update-single.min.js">
+      <DependentUpon>update-single.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\cash-balance-transfer-dark.css" />
     <Content Include="assets\bundles\cash-balance-transfer-dark.min.css">
       <DependentUpon>cash-balance-transfer-dark.css</DependentUpon>
@@ -501,6 +513,18 @@
     </Content>
     <Content Include="assets\styles\auto-transfer\update-schedule.min.css">
       <DependentUpon>update-schedule.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-single-dark.css">
+      <DependentUpon>update-single-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-single-dark.min.css">
+      <DependentUpon>update-single-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-single.css">
+      <DependentUpon>update-single.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\auto-transfer\update-single.min.css">
+      <DependentUpon>update-single.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\cash-balance-transfer-dark.css">
       <DependentUpon>cash-balance-transfer-dark.scss</DependentUpon>
@@ -748,6 +772,8 @@
     <Content Include="assets\styles\auto-transfer\update-schedule-dark.scss" />
     <Content Include="assets\styles\auto-transfer\update-multiple.scss" />
     <Content Include="assets\styles\auto-transfer\update-multiple-dark.scss" />
+    <Content Include="assets\styles\auto-transfer\update-single.scss" />
+    <Content Include="assets\styles\auto-transfer\update-single-dark.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -771,6 +797,7 @@
     <Content Include="Web.AppSettings.drinternal.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
+    <Content Include="Views\AutoTransfer\UpdateSingleAutoTransfer.cshtml" />
     <Content Include="Web.ConnectionStrings.config" />
     <Content Include="Web.ConnectionStrings.napinternal.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
@@ -848,6 +875,7 @@
     <TypeScriptCompile Include="assets\scripts\auto-transfer\history.ts" />
     <TypeScriptCompile Include="assets\scripts\auto-transfer\monitoring.ts" />
     <TypeScriptCompile Include="assets\scripts\auto-transfer\update-multiple.ts" />
+    <TypeScriptCompile Include="assets\scripts\auto-transfer\update-single.ts" />
     <TypeScriptCompile Include="assets\scripts\auto-transfer\update-schedule.ts" />
     <TypeScriptCompile Include="assets\scripts\components\auto-refresh.ts" />
     <TypeScriptCompile Include="assets\scripts\components\multiple-selection-dropdown.ts" />

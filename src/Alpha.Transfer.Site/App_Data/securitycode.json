@@ -3,7 +3,10 @@
   "siteMainApp": "/site-main",
   "paths": [
     "TransferAllAndClearCredit/Index",
-    "CashBalanceTransfer/CashBalance"
+    "CashBalanceTransfer/CashBalance",
+    "AutoTransfer/UpdateSingleAutoTransfer",
+    "AutoTransfer/UpdateSchedule",
+    "AutoTransfer/UpdateMultipleAutoTransfer"
   ],
   "sites": [
   ],

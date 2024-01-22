@@ -104,14 +104,26 @@
     },
     {
         "outputFileName": "assets/bundles/auto-transfer/update-schedule.css",
-        "inputFiles": [           
+        "inputFiles": [
             "assets/styles/auto-transfer/update-schedule.css"
         ]
     },
     {
         "outputFileName": "assets/bundles/auto-transfer/update-multiple.css",
-        "inputFiles": [           
+        "inputFiles": [
             "assets/styles/auto-transfer/update-multiple.css"
+        ]
+    },
+    {
+        "outputFileName": "assets/bundles/auto-transfer/update-single.css",
+        "inputFiles": [
+            "assets/styles/auto-transfer/update-single.css"
+        ]
+    },
+    {
+        "outputFileName": "assets/bundles/auto-transfer/update-single.js",
+        "inputFiles": [
+            "assets/scripts/auto-transfer/update-single.js"
         ]
     },
     /************************** Dark Mode ************************/
@@ -158,14 +170,20 @@
     },
     {
         "outputFileName": "assets/bundles/auto-transfer/update-schedule-dark.css",
-        "inputFiles": [           
+        "inputFiles": [
             "assets/styles/auto-transfer/update-schedule-dark.css"
         ]
     },
     {
         "outputFileName": "assets/bundles/auto-transfer/update-multiple-dark.css",
-        "inputFiles": [           
+        "inputFiles": [
             "assets/styles/auto-transfer/update-multiple-dark.css"
+        ]
+    },
+    {
+        "outputFileName": "assets/bundles/auto-transfer/update-single-dark.css",
+        "inputFiles": [
+            "assets/styles/auto-transfer/update-single-dark.css"
         ]
     }
 ]

@@ -390,4 +390,13 @@
   <data name="Tue" xml:space="preserve">
     <value>화</value>
   </data>
+  <data name="AutoTransfer_HintPath_2" xml:space="preserve">
+    <value>고객 리스트</value>
+  </data>
+  <data name="AutoTransfer_HintPath_3" xml:space="preserve">
+    <value>에이전트 목록</value>
+  </data>
+  <data name="AutoTransfer_HintPath_4" xml:space="preserve">
+    <value>마스터 에이전트 목록</value>
+  </data>
 </root>

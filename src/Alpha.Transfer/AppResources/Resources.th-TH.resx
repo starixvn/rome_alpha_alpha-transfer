@@ -436,10 +436,10 @@
     <value>คุณต้องการยกเลิกการทำรายการโอนอัตโนมัติสำหรับบัญชีนี้หรือไม่</value>
   </data>
   <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
-    <value>คุณต้องการเปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีเหล่านี้หรือไม่</value>
+    <value>&lt;b&gt;คุณต้องการเปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีนี้หรือไม่: {0}?&lt;/b&gt;</value>
   </data>
   <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
-    <value>คุณต้องการปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีเหล่านี้หรือไม่</value>
+    <value>&lt;b&gt;คุณต้องการปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีนี้หรือไม่: {0}?&lt;/b&gt;</value>
   </data>
   <data name="UsernameOrFirstLastName" xml:space="preserve">
     <value>ยูเซอร์เนม หรือ ชื่อ/นามสุกล</value>
@@ -531,7 +531,7 @@
   <data name="AutoTransfer_UpdateSuccessOn" xml:space="preserve">
     <value>เปิดใช้งานการโอนอัตโนมัติสำหรับบัญชี {0} เรียบร้อยแล้ว</value>
   </data>
-  <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
+  <data name="AutoTransfer_Error_103_Multiple" xml:space="preserve">
     <value>ขณะนี้ระบบโอนอัตโนมัติกำลังดำเนินการอยู่ จึงไม่สามารถปิดการใช้งานสำหรับบัญชีเหล่านี้ได้ กรุณาลองใหม่เมื่อระบบทำงานเสร็จ</value>
   </data>
   <data name="AutoTransfer_UpdateSuccessOff" xml:space="preserve">
@@ -540,7 +540,7 @@
   <data name="Pending" xml:space="preserve">
     <value>อยู่ระหว่างการดำเนินการ</value>
   </data>
-  <data name="AutoTransfer_MultipleErrorProccessing_Single" xml:space="preserve">
+  <data name="AutoTransfer_Error_103_Single" xml:space="preserve">
     <value>ขณะนี้ระบบโอนอัตโนมัติกำลังดำเนินการอยู่ จึงไม่สามารถปิดการใช้งานสำหรับบัญชีนี้ได้ กรุณาลองใหม่เมื่อระบบทำงานเสร็จ</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
@@ -623,5 +623,32 @@
   </data>
   <data name="AutoTransfer_UplineConditionChanged" xml:space="preserve">
     <value>เงื่อนไขการโอนของคุณถูกเปลี่ยนแปลงโดยอัพไลน์ สถานะ.โปรดทำการรีเฟรชหน้านี้</value>
+  </data>
+  <data name="AutoTransfer_UpdateTip" xml:space="preserve">
+    <value>เคล็ดลับ: คุณสามารถเปิดใช้งานระบบโอนอัตโนมัติสำหรับหลายบัญชีได้ใน [ข้อมูลสมาชิก &gt;&gt; รายการ {0} ] และติดตามความคืบหน้าของการดำเนินงานได้ใน [โอน &gt;&gt; การตรวจสอบการโอนอัตโนมัติ]</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>ล่าสุด</value>
+  </data>
+  <data name="AutoTransfer_HintPath_2" xml:space="preserve">
+    <value>รายชื่อลูกค้า</value>
+  </data>
+  <data name="AutoTransfer_HintPath_3" xml:space="preserve">
+    <value>รายชื่อ เอเจนต์</value>
+  </data>
+  <data name="AutoTransfer_HintPath_4" xml:space="preserve">
+    <value>รายชื่อตัวแทนหลัก</value>
+  </data>
+  <data name="AutoTransfer_Error_101_Single" xml:space="preserve">
+    <value>ไม่มีบัญชีนี้</value>
+  </data>
+  <data name="AutoTransfer_Error_101_Multiple" xml:space="preserve">
+    <value>ไม่มีบัญชีเหล่านี้:</value>
+  </data>
+  <data name="AutoTransfer_Error_102_Single" xml:space="preserve">
+    <value>บัญชีนี้ไม่ได้เป็นของดาวน์ไลน์ของคุณ</value>
+  </data>
+  <data name="AutoTransfer_Error_102_Multiple" xml:space="preserve">
+    <value>บัญชีเหล่านี้ไม่ได้เป็นของดาวน์ไลน์ของคุณ:</value>
   </data>
 </root>

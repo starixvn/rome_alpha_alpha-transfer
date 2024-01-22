@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = Resources.Update;
+    string[] dates = { Resources.Sun, Resources.Mon, Resources.Tue, Resources.Wed, Resources.Thurs, Resources.Fri, Resources.Sat };
+}
+
+@using Alpha.Transfer.Site.Requests.AutoTransfer;
+@model UpdateQuery
+
+@section Styles {
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/common/common")
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/auto-transfer/update-single")
+}
+
+@if (Model.State == "on")
+{
+    @Html.Raw(string.Format(Resources.confirmTurnOnAutoTransfer, Model.CustName))
+    <ul class="ul-confirm">
+        <li>@Html.Raw(Resources.AutoTransfer_InfoAffectTimeSuper)</li>
+        <li>@Resources.AutoTransfer_SetSchedule</li>
+        <li class="li-schedule">
+            <span class="spn-schedule">
+                <input id="opt-schedule-all"
+                       type="checkbox"
+                       class="opt-schedule-all"
+                       checked="checked" />
+                @Resources.SelectAll
+            </span>
+
+            @foreach (var d in Model.TransferrableDates)
+            {
+                <span class="spn-schedule">
+                    <input type="checkbox"
+                           class="opt-schedule"
+                           checked="checked"
+                           data-val="@d" />
+                    @dates[d - 1]
+                </span>
+            }
+        </li>
+        <li class="tip">
+            <span class="icon-lightbulb-on"></span>
+            @string.Format(Resources.AutoTransfer_UpdateTip, Model.HintPath)
+        </li>
+    </ul>
+}
+else
+{
+    @Html.Raw(string.Format(Resources.confirmTurnOffAutoTransfer, Model.CustName))
+    <ul class="ul-confirm">
+        <li class="clear-schedule-note">*@Resources.AutoTransfer_ClearSchedule</li>
+        <li class="tip">
+            <span class="icon-lightbulb-on"></span>
+            @string.Format(Resources.AutoTransfer_UpdateTip, Model.HintPath)
+        </li>
+    </ul>
+}
+
+<div class="list-btn-update">
+    <button type="button" class="btn btn-default btn-cancel">@Resources.Cancel.ToUpperInvariant()</button>
+    <button type="button" class="btn btn-primary btn-ok">@Resources.OK</button>
+</div>
+
+@Html.Hidden("CustId", Model.CustId)
+@Html.Hidden("CustName", Model.CustName)
+@Html.Hidden("State", Model.State)
+@Html.Hidden("Old_TransferOption", Model.Old_TransferOption)
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/auto-transfer/update-single")
+}

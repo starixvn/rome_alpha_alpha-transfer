@@ -57,11 +57,8 @@
       <HintPath>..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Data.4.2.2\lib\net461\Fanex.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Fanex.Data.Repository, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Data.Repository.4.2.2\lib\net461\Fanex.Data.Repository.dll</HintPath>
+    <Reference Include="Fanex.Data.ProxyClient, Version=0.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.ProxyClient.0.0.3-alpha02\lib\netstandard2.0\Fanex.Data.ProxyClient.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Logging, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Logging.2.0.1\lib\net461\Fanex.Logging.dll</HintPath>
@@ -102,13 +99,6 @@
     </Reference>
     <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
       <HintPath>..\..\packages\StackExchange.Redis.2.6.122\lib\net461\StackExchange.Redis.dll</HintPath>
-    </Reference>
-    <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Sunplus.Agent.Model.Transfer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Transfer.4.0.0\lib\net461\Sunplus.Agent.Model.Transfer.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.4.0.0\lib\net461\Sunplus.Agent.Utilities.dll</HintPath>
@@ -218,11 +208,6 @@
     <Compile Include="Criteria\TransferAllAndClearCredit\GetCalculateResultCriteria.cs" />
     <Compile Include="Criteria\TransferAllAndClearCredit\TransferAllCriteria.cs" />
     <Compile Include="Criteria\TransferToDownlineHistory\GetTransferToDownlineHistoryCriteria.cs" />
-    <Compile Include="DataAccesses\MultipleTransferDataAccess.cs" />
-    <Compile Include="DataAccesses\TransferDataAccess.cs" />
-    <Compile Include="DataAccesses\TransferObjectDbFactory.cs" />
-    <Compile Include="DataAccesses\TransferAllAndClearCreditDataAccess.cs" />
-    <Compile Include="DataAccesses\TransferToDownlineHistoryDataAccess.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\NumberExtensions.cs" />
@@ -240,11 +225,14 @@
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\ClearCreditStep.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\ClearCreditResult.cs" />
+    <Compile Include="Models\TransferAllAndClearCredit\ConditionStep.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\NetPositionModel.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TotalAmtModel.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferAllResult.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferResult.cs" />
     <Compile Include="Models\TransferAllAndClearCredit\TransferStep.cs" />
+    <Compile Include="Models\TransferCacheModel.cs" />
+    <Compile Include="Models\TransferModel.cs" />
     <Compile Include="Models\TransferToDownlineHistory\TransferToDownlineHistoryModel.cs" />
     <Compile Include="Models\UserLevel.cs" />
     <Compile Include="Params\AutoTransfer\UpdateScheduleParam.cs" />
@@ -264,6 +252,7 @@
     <Compile Include="Services\CashBalanceTransferService.cs" />
     <Compile Include="Services\MultipleTransferService.cs" />
     <Compile Include="Services\TransferAllAndClearCreditService.cs" />
+    <Compile Include="Services\TransferCacheService.cs" />
     <Compile Include="Services\TransferService.cs" />
     <Compile Include="Services\TransferToDownlineHistoryService.cs" />
     <Compile Include="Utils\SystemTime.cs" />

@@ -1,8 +1,8 @@
 ﻿using Fanex.Data;
-using Fanex.Data.Repository;
-
 namespace Alpha.Transfer.Criteria.AutoTransfer
 {
+    using Fanex.Data.Repository;
+
     public class GetTodayTransfersCriteria : CriteriaBase
     {
         public int FromCustId { get; set; }

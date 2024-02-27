@@ -18,7 +18,8 @@
             string language,
             string transferSteps,
             string clearCreditSteps,
-            bool isAllDayBalanceTransfer)
+            bool isAllDayBalanceTransfer,
+            string agIP)
         {
             CustId = custId;
             UserId = userId;
@@ -34,6 +35,7 @@
                 ?? Enumerable.Empty<TransferStep>();
             ClearCreditSteps = JsonConvert.DeserializeObject<IEnumerable<ClearCreditStep>>(clearCreditSteps.Replace("'", "\""))
                 ?? Enumerable.Empty<ClearCreditStep>();
+            AGIP = agIP;
         }
 
         public int CustId { get; }
@@ -59,5 +61,7 @@
         public IEnumerable<ClearCreditStep> ClearCreditSteps { get; }
 
         public bool SkipTransfer() => !TransferSteps.Any(s => s.TransferableAmount != 0);
+
+        public string AGIP { get; }
     }
 }

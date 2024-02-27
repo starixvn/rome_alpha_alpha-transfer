@@ -1,25 +1,31 @@
-﻿using Alpha.Transfer.Constants;
-using Alpha.Transfer.Helpers;
-using Alpha.Transfer.Params.AutoTransfer;
-using Fanex.Data.Repository;
-
-namespace Alpha.Transfer.Criteria.AutoTransfer
+﻿namespace Alpha.Transfer.Criteria.AutoTransfer
 {
+    using Fanex.Data.Repository;
+
     public class UpdateStatusCriteria : NonQueryCommand
     {
-        public UpdateStatusCriteria(UpdateSingleParam param, bool isAutoJobRunning)
+        public UpdateStatusCriteria(
+            int fromCustId,
+            int toCustId,
+            string autoTransferSchedule,
+            bool isAutoJobRunning,
+            bool isAllowAutoTransfer,
+            string language,
+            string ip,
+            string oldTransferOption,
+            int subAccId)
         {
-            FromCustId = param.UplineId;
-            ToCustId = param.CustId;
-            AutoTransferSchedule = TransferConditionHelper.GetAutoTransferScheduleFromDates(param.Schedule);
+            FromCustId = fromCustId;
+            ToCustId = toCustId;
+            AutoTransferSchedule = autoTransferSchedule;
             IsAutoJobRunning = isAutoJobRunning;
 
-            IsAllowAutoTransfer = string.Equals(AutoTransferConstant.On, param.State, System.StringComparison.InvariantCultureIgnoreCase);
-            Language = param.Language;
-            IP = param.IP;
+            IsAllowAutoTransfer = isAllowAutoTransfer;
+            Language = language;
+            IP = ip;
 
-            Old_TransferOption = param.Old_TransferOption;
-            SubAccId = param.SubAccId;
+            Old_TransferOption = oldTransferOption;
+            SubAccId = subAccId;
             ErrCode = 0;
             ErrMsg = string.Empty;
         }

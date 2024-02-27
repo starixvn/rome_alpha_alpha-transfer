@@ -1,27 +1,27 @@
 ﻿namespace Alpha.Transfer.Tests.Services
 {
+    using System;
+    using System.Collections.Generic;
     using Alpha.Transfer.Criteria.TransferToDownlineHistory;
-    using Alpha.Transfer.DataAccesses;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Params.TransferToDownlineHistory;
     using Alpha.Transfer.Services;
+    using Fanex.Data.Repository;
     using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
-    using System;
-    using System.Collections.Generic;
     using Xunit;
 
     [Trait("Category", "TransferToDownlineHistory")]
     public class TransferToDownlineHistoryServiceImplTests
     {
-        private readonly TransferToDownlineHistoryDataAccess dataAccess;
+        private readonly IDynamicRepository repository;
         private readonly TransferToDownlineHistoryServiceImpl serviceImpl;
         private readonly CompareLogic compareLogic;
 
         public TransferToDownlineHistoryServiceImplTests()
         {
-            dataAccess = Substitute.For<TransferToDownlineHistoryDataAccess>();
-            serviceImpl = new TransferToDownlineHistoryServiceImpl(dataAccess);
+            repository = Substitute.For<IDynamicRepository>();
+            serviceImpl = new TransferToDownlineHistoryServiceImpl(repository);
             compareLogic = new CompareLogic();
         }
 
@@ -30,7 +30,7 @@
         {
             // Arrange
             var result = Tuple.Create(new List<TransferToDownlineHistoryModel>(), 0);
-            dataAccess.GetTransferToDownlineHistory(Arg.Any<GetTransferToDownlineHistoryCriteria>()).Returns(result);
+            //repository.GetTransferToDownlineHistory(Arg.Any<GetTransferToDownlineHistoryCriteria>()).Returns(result);
 
             var param = new TransferToDownlineHistoryPagingParam(1, string.Empty, new DateTime(), new DateTime(), 500, 1);
 
@@ -66,7 +66,7 @@
                     "To SUPERTESTTE010B")
             }, 2);
 
-            dataAccess.GetTransferToDownlineHistory(Arg.Any<GetTransferToDownlineHistoryCriteria>()).Returns(result);
+            //repository.GetTransferToDownlineHistory(Arg.Any<GetTransferToDownlineHistoryCriteria>()).Returns(result);
 
             var param = new TransferToDownlineHistoryPagingParam(1, string.Empty, new DateTime(), new DateTime(), 500, 1);
 

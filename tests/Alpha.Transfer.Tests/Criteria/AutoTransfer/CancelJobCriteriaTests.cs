@@ -18,7 +18,8 @@
                 ToCustId = 1176083
             };
 
-            var criteria = new CancelJobCriteria(param);
+            var criteria = new CancelJobCriteria(
+                param.FromCustId, param.ToCustId, param.ViewStatus, param.Language, param.IP);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -42,7 +43,8 @@
                 ToCustId = toCustId
             };
 
-            var criteria = new CancelJobCriteria(param);
+            var criteria = new CancelJobCriteria(
+                param.FromCustId, param.ToCustId, param.ViewStatus, param.Language, param.IP);
 
             // Act
             var actualIsValid = criteria.IsValid();
@@ -62,7 +64,8 @@
                 ToCustId = custId
             };
 
-            var criteria = new CancelJobCriteria(param);
+            var criteria = new CancelJobCriteria(
+                param.FromCustId, param.ToCustId, param.ViewStatus, param.Language, param.IP);
 
             // Act
             var actualIsValid = criteria.IsValid();

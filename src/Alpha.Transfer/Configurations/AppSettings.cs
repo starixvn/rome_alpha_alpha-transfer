@@ -22,6 +22,8 @@
 
         public static string StoreProcedurePath => GetConfigValue("StoredProcedurePath");
 
+        public static string FanexDataServiceApi => GetConfigValue("FanexDataServiceApi");
+
         public static string AllowedTotalBalanceTransferSuperIds => GetConfigValue("AllowedTotalBalanceTransferSuperIds");
 
         public static string TransferRedisConfigurationOptions => GetConfigValue("RedisConfigurationOptions:Alpha.Transfer");
@@ -61,5 +63,11 @@
         public static string SiteLabel => GetConfigValue("SiteLabel") ?? string.Empty;
 
         public static bool IsMBCSite => !SiteLabel.Equals("789y", StringComparison.OrdinalIgnoreCase);
+
+        public static int MultipleTransferCacheTimeOut => int.Parse(GetConfigValue("MultipleTransferCacheTimeOut"));
+
+        public static bool EnableTransferLogInfo => GetConfigValue("EnableTransferLogInfo") == "1";
+
+        public static string TransferLogCategory => GetConfigValue("TransferLogCategory");
     }
 }

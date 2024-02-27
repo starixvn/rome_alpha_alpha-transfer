@@ -1,12 +1,12 @@
 ﻿namespace Alpha.Transfer.Site.Handlers
 {
-    using Alpha.Transfer.Models.TransferToDownlineHistory;
-    using Alpha.Transfer.Params.TransferToDownlineHistory;
-    using Alpha.Transfer.Services;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Web;
+    using Alpha.Transfer.Models.TransferToDownlineHistory;
+    using Alpha.Transfer.Params.TransferToDownlineHistory;
+    using Alpha.Transfer.Services;
 
     public class TransferToDownlineHistoryBaseHandler
     {
@@ -29,7 +29,7 @@
             this.transferToDownlineHistoryService = transferToDownlineHistoryService;
         }
 
-        protected internal Tuple<List<TransferToDownlineHistoryModel>, int> GetTransferToDownlineHistory(TransferToDownlineHistoryPagingParam param)
+        protected internal Tuple<IEnumerable<TransferToDownlineHistoryModel>, int> GetTransferToDownlineHistory(TransferToDownlineHistoryPagingParam param)
             => transferToDownlineHistoryService.GetTransferToDownlineHistory(param);
 
         protected internal virtual string GetExcelTemplatePath(string templateName, string fileExtension = "xls")

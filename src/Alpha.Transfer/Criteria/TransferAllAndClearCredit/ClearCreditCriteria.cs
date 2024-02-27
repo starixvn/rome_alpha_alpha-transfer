@@ -1,10 +1,7 @@
 ﻿namespace Alpha.Transfer.Criteria.TransferAllAndClearCredit
 {
-    using Alpha.Transfer.Models.TransferAllAndClearCredit;
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using System.Collections.Generic;
-    using System.Text;
 
     public class ClearCreditCriteria : CriteriaBase
     {
@@ -15,7 +12,7 @@
             string username,
             string ip,
             string language,
-            IEnumerable<TotalAmtModel> totalAmts)
+            string memberAmountXml)
         {
             CustId = custId;
             UserId = userId;
@@ -23,14 +20,7 @@
             Username = username;
             IP = ip;
             Language = language;
-
-            var xmlData = new StringBuilder("<ROOT>");
-            foreach (var amt in totalAmts)
-            {
-                xmlData.Append(amt.ToXML);
-            }
-            xmlData.Append("</ROOT>");
-            MemberAmountXML = xmlData.ToString();
+            MemberAmountXML = memberAmountXml;
         }
 
         public int CustId { get; set; }

@@ -1,5 +1,10 @@
 ﻿namespace Alpha.Transfer.Site.Tests.Handlers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using System.Threading;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Params.TransferToDownlineHistory;
     using Alpha.Transfer.Services;
@@ -9,10 +14,6 @@
     using Alpha.Transfer.Utils;
     using NSubstitute;
     using ONEbook.SpreadSheets;
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Threading;
     using Xunit;
 
     [Trait("Category", "TransferToDownlineHistory")]
@@ -38,7 +39,7 @@
             handler.MapPath = path => path;
             handler.IsFileExist = path => true;
             handler.GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryPagingParam>())
-                .Returns(Tuple.Create(new List<TransferToDownlineHistoryModel>(), 0));
+                .Returns(Tuple.Create(Enumerable.Empty<TransferToDownlineHistoryModel>(), 0));
 
             SystemTime.Today = new DateTime(2021, 1, 11);
 
@@ -66,7 +67,7 @@
         public void Handle_HasNoData_ExportExcelFileWithNoInformationText()
         {
             // Arrange
-            var result = Tuple.Create(new List<TransferToDownlineHistoryModel>(), 0);
+            var result = Tuple.Create(Enumerable.Empty<TransferToDownlineHistoryModel>(), 0);
             transferToDownlineHistoryService
                 .GetTransferToDownlineHistory(Arg.Any<TransferToDownlineHistoryPagingParam>())
                 .Returns(result);

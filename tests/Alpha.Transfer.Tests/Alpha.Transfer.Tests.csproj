@@ -60,11 +60,8 @@
       <HintPath>..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Data.4.2.2\lib\net461\Fanex.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Fanex.Data.Repository, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Data.Repository.4.2.2\lib\net461\Fanex.Data.Repository.dll</HintPath>
+    <Reference Include="Fanex.Data.ProxyClient, Version=0.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.ProxyClient.0.0.3-alpha02\lib\netstandard2.0\Fanex.Data.ProxyClient.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Logging, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Logging.2.0.1\lib\net461\Fanex.Logging.dll</HintPath>
@@ -73,9 +70,6 @@
     <Reference Include="Fanex.Logging.Extensions, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Logging.Extensions.1.0.6\lib\net461\Fanex.Logging.Extensions.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Fanex.Logging.Extensions.Database, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Logging.Extensions.Database.1.0.8\lib\net461\Fanex.Logging.Extensions.Database.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Logging.Extensions.Web, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Logging.Extensions.Web.1.0.8\lib\net461\Fanex.Logging.Extensions.Web.dll</HintPath>
@@ -142,13 +136,6 @@
     </Reference>
     <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
       <HintPath>..\..\packages\StackExchange.Redis.2.6.122\lib\net461\StackExchange.Redis.dll</HintPath>
-    </Reference>
-    <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Sunplus.Agent.Model.Transfer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Transfer.4.0.0\lib\net461\Sunplus.Agent.Model.Transfer.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.4.0.0\lib\net461\Sunplus.Agent.Utilities.dll</HintPath>
@@ -245,7 +232,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\AnyValueCreatorCollection.cs" />
-    <Compile Include="Collections\ObjectDbCollection.cs" />
     <Compile Include="Configurations\AppSettingsTests.cs" />
     <Compile Include="Constants\DefaultVariablesTest.cs" />
     <Compile Include="Constants\RoleId.cs" />
@@ -261,9 +247,6 @@
     <Compile Include="Criteria\TransferAllAndClearCredit\GetCalculateResultCriteriaTests.cs" />
     <Compile Include="Criteria\TransferAllAndClearCredit\TransferAllCriteriaTests.cs" />
     <Compile Include="Criteria\TransferToDownlineHistory\GetTransferToDownlineHistoryCriteriaTests.cs" />
-    <Compile Include="DataAccesses\MultipleTransferDataAccessImplTests.cs" />
-    <Compile Include="DataAccesses\TransferAllAndClearCreditDataAccessTests.cs" />
-    <Compile Include="DataAccesses\TransferToDownlineHistoryDataAccessTests.cs" />
     <Compile Include="Database\MultipleTransfer\MultipleTransferDatabase.cs" />
     <Compile Include="Database\TransferAllAndClearCredit\TransferAllAndClearCreditDatabase.cs" />
     <Compile Include="Database\TransferToDownlineHistory\TransferToDownlineHistoryDatabase.cs" />
@@ -273,7 +256,6 @@
     <Compile Include="Extensions\IEnumerableExtensionsTests.cs" />
     <Compile Include="Extensions\NumberExtensionsTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
-    <Compile Include="Fixtures\ObjectDbFixture.cs" />
     <Compile Include="Helpers\ExceptionRecorder.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\JsonHelperTests.cs" />

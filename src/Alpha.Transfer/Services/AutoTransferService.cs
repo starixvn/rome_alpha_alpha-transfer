@@ -4,8 +4,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Alpha.Transfer.Constants;
     using Alpha.Transfer.Criteria.AutoTransfer;
     using Alpha.Transfer.Extensions;
+    using Alpha.Transfer.Helpers;
     using Alpha.Transfer.Models.AutoTransfer;
     using Alpha.Transfer.Params.AutoTransfer;
     using Fanex.Data.Repository;
@@ -33,8 +35,17 @@
 
         public async Task<Result> UpdateAsync(UpdateSingleParam param)
         {
-            var isAutoJobRunning = await GetJobStatus(param.CustId, param.UplineId, param.State);
-            var criteria = new UpdateStatusCriteria(param, isAutoJobRunning);
+            var isAutoJobRunning = await GetJobStatus(param.CustId, param.UplineId, param.State, param.AGIP);
+            var criteria = new UpdateStatusCriteria(
+                param.UplineId,
+                param.CustId,
+                TransferConditionHelper.GetAutoTransferScheduleFromDates(param.Schedule),
+                isAutoJobRunning,
+                string.Equals(AutoTransferConstant.On, param.State, StringComparison.InvariantCultureIgnoreCase),
+                param.Language,
+                param.IP,
+                param.Old_TransferOption,
+                param.SubAccId);
 
             await repository.ExecuteAsync(criteria);
 
@@ -59,7 +70,7 @@
                 PageIndex = param.PageIndex
             };
 
-            var transfers = await repository.FetchAsync<AutoTransferMonitoringModel>(criteria);
+            var transfers = await repository.FetchAsync<AutoTransferMonitoringModel>(criteria, param.AGIP);
 
             return new AutoTransferMonitoringPageModel
             {
@@ -110,9 +121,9 @@
 
         public async Task<Result> CancelJobAsync(CancelJobParam param)
         {
-            var criteria = new CancelJobCriteria(param);
-
-            await repository.ExecuteAsync(criteria);
+            var criteria = new CancelJobCriteria(
+                param.FromCustId, param.ToCustId, param.ViewStatus, param.Language, param.IP);
+            await repository.ExecuteAsync(criteria, param.AGIP);
 
             return new Result
             {
@@ -124,8 +135,7 @@
         public async Task<Result> CancelAllJobAsync(CancelAllJobParam param)
         {
             var criteria = new CancelAllJobCriteria(param);
-
-            await repository.ExecuteAsync(criteria);
+            await repository.ExecuteAsync(criteria, param.AGIP);
 
             return new Result
             {
@@ -134,20 +144,30 @@
             };
         }
 
-        private async Task<bool> GetJobStatus(int custId, int creator, string state)
+        private async Task<bool> GetJobStatus(int custId, int creator, string state, string agIP)
         {
-            var criteria = new GetJobStatusCriteria(creator, custId, state);
-
-            await repository.ExecuteAsync(criteria);
+            var criteria = new GetJobStatusCriteria(
+                creator,
+                custId,
+                string.Equals(AutoTransferConstant.On, state, StringComparison.InvariantCultureIgnoreCase));
+            await repository.ExecuteAsync(criteria, agIP);
 
             return criteria.IsAutoJobRunning;
         }
 
         public async Task<Result> UpdateScheduleAsync(UpdateScheduleParam param)
         {
-            var isAutoJobRunning = await GetJobStatus(param.CustId, param.UplineId, "on");
-            var criteria = new UpdateScheduleCriteria(param, isAutoJobRunning);
-
+            var isAutoJobRunning = await GetJobStatus(param.CustId, param.UplineId, "on", param.AGIP);
+            var criteria = new UpdateScheduleCriteria(
+                param.CustId,
+                param.CustName,
+                TransferConditionHelper.GetAutoTransferScheduleFromDates(param.Schedule),
+                param.UplineId,
+                param.SubAccId,
+                param.IP,
+                param.Language,
+                param.Old_TransferOption,
+                isAutoJobRunning);
             await repository.ExecuteAsync(criteria);
 
             var warningCase = string.IsNullOrWhiteSpace(criteria.ErrMsg) ? 0 : -1;
@@ -211,7 +231,8 @@
                     State = status,
                     SubAccId = param.SubAccId,
                     Schedule = dates,
-                    Old_TransferOption = param.Old_TransferOption
+                    Old_TransferOption = param.Old_TransferOption,
+                    AGIP = param.AGIP
                 };
 
                 var singleResult = await UpdateAsync(updateSingleParam);

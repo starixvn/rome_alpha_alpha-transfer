@@ -13,7 +13,11 @@
     <Setting Key="Age_Transfer_CashBalance_Sel" SpName="Age_Transfer_CashBalance_Sel" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
   </Function>
   <Function Name="Transfer all and Clear Credit">
-    <Setting Key="Age_Transfer_Credit_All_Sel" SpName="Age_Transfer_Credit_All_Sel" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_Transfer_Credit_All_Sel" SpName="Age_Transfer_Credit_All_Sel" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0">
+      <Mapping DataField="RowId" ObjectProperty="Id" Class="TransferStep" />
+      <Mapping DataField="MemberOutStanding" ObjectProperty="Outstanding" Class="TransferStep" />
+      <Mapping DataField="RowId" ObjectProperty="Id" Class="ClearCreditStep" />
+    </Setting>
     <Setting Key="Age_Transfer_Credit_All_SelDownlineInfo" SpName="Age_Transfer_Credit_All_SelDownlineInfo" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
   </Function>
   <Function Name="Transfer To Downline History">
@@ -28,7 +32,23 @@
     <!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
     <!-- <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" /> -->
     <!-- 107963 - End-->
-    <Setting Key="Age_Transfer_SelList_MAg" SpName="Age_Transfer_SelList_MAg" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
-    <Setting Key="Age_Transfer_SelList_SAg" SpName="Age_Transfer_SelList_SAg" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_Transfer_SelList_MAg" SpName="Age_Transfer_SelList_MAg" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0">
+      <Mapping DataField="yesterday_agentBalance" ObjectProperty="YesterdayBalance" />
+      <Mapping DataField="agentbalance" ObjectProperty="Balance" />
+      <Mapping DataField="yesterday_agentCashBalance" ObjectProperty="YesterdayCashBalance" />
+      <Mapping DataField="agentCashBalance" ObjectProperty="CashBalance" />
+      <Mapping DataField="agentOutstanding" ObjectProperty="Outstanding" />
+      <Mapping DataField="agentCredit" ObjectProperty="GivenCredit" />
+      <Mapping DataField="agentUsedCredit" ObjectProperty="UsedCredit" />
+    </Setting>
+    <Setting Key="Age_Transfer_SelList_SAg" SpName="Age_Transfer_SelList_SAg" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0">
+      <Mapping DataField="yesterday_magentBalance" ObjectProperty="YesterdayBalance" />
+      <Mapping DataField="magentbalance" ObjectProperty="Balance" />
+      <Mapping DataField="yesterday_magentCashBalance" ObjectProperty="YesterdayCashBalance" />
+      <Mapping DataField="magentCashBalance" ObjectProperty="CashBalance" />
+      <Mapping DataField="magentOutstanding" ObjectProperty="Outstanding" />
+      <Mapping DataField="magentCredit" ObjectProperty="GivenCredit" />
+      <Mapping DataField="magentUsedCredit" ObjectProperty="UsedCredit" />
+    </Setting>
   </Function>
 </Functions>

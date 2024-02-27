@@ -56,7 +56,8 @@
                 State = message.State,
                 Schedule = message.DateSchedule,
                 SubAccId = message.SubAccId,
-                Old_TransferOption = message.Old_TransferOption
+                Old_TransferOption = message.Old_TransferOption,
+                AGIP = message.AGIP
             };
 
             var result = await service.UpdateAsync(param);
@@ -86,7 +87,8 @@
                 PageSize = message.PageSize,
                 PageIndex = message.PageIndex,
                 SortedBy = message.SortedBy,
-                Direction = message.Direction
+                Direction = message.Direction,
+                AGIP = message.AGIP
             };
 
             return await service.GetTodayTransfersAsync(param);
@@ -121,6 +123,7 @@
                 ViewStatus = message.ViewStatus,
                 Language = message.LanguageKey,
                 IP = message.IP,
+                AGIP = message.AGIP
             };
 
             return await service.CancelJobAsync(param);
@@ -133,6 +136,7 @@
                 FromCustId = message.UplineId,
                 Language = message.LanguageKey,
                 IP = message.IP,
+                AGIP = message.AGIP
             };
 
             var result = await service.CancelAllJobAsync(param);
@@ -156,7 +160,8 @@
                 SubAccId = message.SubAccId,
                 IP = message.IP,
                 Language = message.Language,
-                Old_TransferOption = message.Old_TransferOption
+                Old_TransferOption = message.Old_TransferOption,
+                AGIP = message.AGIP
             };
 
             var result = await service.UpdateScheduleAsync(param);
@@ -186,6 +191,7 @@
                 Old_TransferOption = message.Old_TransferOption,
                 OnNames = message.OnNames,
                 OffNames = message.OffNames,
+                AGIP = message.AGIP
             };
 
             return await service.UpdateMultipleAutoTransferAsync(param);

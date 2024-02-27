@@ -12,12 +12,14 @@
             SubAccId = user.SubAccId;
             IP = user.IP;
             Language = user.LanguageKey;
+            AGIP = user.AGIP;
         }
 
         public int UplineId { get; }
         public int SubAccId { get; }
         public string IP { get; }
         public string Language { get; }
+        public string AGIP { get; }
 
         public string OnIds { get; set; }
         public string OffIds { get; set; }

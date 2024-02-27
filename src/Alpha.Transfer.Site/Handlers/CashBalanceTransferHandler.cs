@@ -56,7 +56,8 @@
                 message.UplineName,
                 message.SubAccId,
                 message.IP,
-                message.LanguageKey);
+                message.LanguageKey,
+                message.AGIP);
         }
 
         public async Task<HintTransferViewModel> Handle(HintTransferQuery message)

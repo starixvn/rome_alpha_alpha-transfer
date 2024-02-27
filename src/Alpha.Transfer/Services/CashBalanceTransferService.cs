@@ -12,9 +12,6 @@
     using Fanex.Data.Repository;
     using Models;
     using Models.CashBalanceTransfer;
-    using Sunplus.Agent.Model.Transfer.Constants;
-    using Sunplus.Agent.Model.Transfer.Extensions;
-    using Sunplus.Agent.Model.Transfer.Models;
 
     public interface CashBalanceTransferService
     {
@@ -28,7 +25,8 @@
             string creatorName,
             int subAccId,
             string ip,
-            string languageKey);
+            string languageKey,
+            string agIP);
 
         Task<string> GetAllowTransfer(int custId);
 
@@ -39,6 +37,9 @@
 
     public class CashBalanceTransferServiceImpl : CashBalanceTransferService
     {
+        private const string AgentTransferMemberListCache = "AgentMultipleTransfer.{0}.{1}";
+        private const string ConcurrentSingleTransferResultMessage = "<span style=\"color: red\">The transfer has been proceeding by {0}<br/>";
+
         private readonly IDynamicRepository repository;
         private readonly ICacheService cacheService;
 
@@ -65,10 +66,11 @@
             string creatorName,
             int subAccId,
             string ip,
-            string languageKey)
+            string languageKey,
+            string agIP)
         {
-            string cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, AppSettings.SiteLabel, creator);
-            TransferCacheService transferCacheService = new TransferCacheServiceImplement(creator, creatorName, cacheService);
+            string cacheKey = string.Format(AgentTransferMemberListCache, AppSettings.SiteLabel, creator);
+            TransferCacheService transferCacheService = new TransferCacheServiceImpl(creator, creatorName, cacheService);
 
             var custIdCache = transferCacheService.Get(cacheKey) ?? new List<TransferCacheModel>();
             var concurrentTrasfer = transferCacheService.CacheContains(custIdCache, toCustId);
@@ -78,7 +80,7 @@
                 return new Result
                 {
                     Code = 105,
-                    Message = string.Format(TransferConstants.ConcurrentSingleTransferResultMessage, concurrentTrasfer.AdminName)
+                    Message = string.Format(ConcurrentSingleTransferResultMessage, concurrentTrasfer.AdminName)
                 };
             }
 
@@ -96,7 +98,7 @@
 
             try
             {
-                await repository.ExecuteAsync(criteria);
+                await repository.ExecuteAsync(criteria, agIP);
             }
             finally
             {

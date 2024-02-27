@@ -32,6 +32,8 @@
 
         public string Language => viewer.Language;
 
+        public string AGIP => viewer.AGIP;
+
         public virtual bool IsValid()
             => CustId > 0
             && !string.IsNullOrWhiteSpace(CustName)

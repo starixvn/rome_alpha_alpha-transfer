@@ -36,5 +36,7 @@
         bool IsSubAcc { get; }
 
         PageAccess SubPageAccess { get; }
+
+        string AGIP { get; }
     }
 }

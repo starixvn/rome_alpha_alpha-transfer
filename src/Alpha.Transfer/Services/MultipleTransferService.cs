@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Transfer.Services
 {
     using Criteria.MultipleTransfer;
-    using DataAccesses;
+    using Fanex.Data.Repository;
     using Models.MultipleTransfer;
     using Params.MultipleTransfer;
 
@@ -12,18 +12,17 @@
 
     public class MultipleTransferServiceImpl : MultipleTransferService
     {
-        private readonly MultipleTransferDataAccess multipleTransferDataAccess;
+        private readonly IDynamicRepository repository;
 
-        public MultipleTransferServiceImpl(MultipleTransferDataAccess multipleTransferDataAccess)
-        {
-            this.multipleTransferDataAccess = multipleTransferDataAccess;
-        }
+        public MultipleTransferServiceImpl(IDynamicRepository repository)
+            => this.repository = repository;
 
         public CustomerListModel GetCustomerList(GetCustomerListParam param)
         {
             var criteria = CreateCriteria(param);
-            var data = multipleTransferDataAccess.GetCustomerList(criteria);
-            return data;
+            var data = repository.Fetch<CustomerInformation>(criteria);
+
+            return new CustomerListModel(data, criteria.TotalPages);
         }
 
         private static GetCustomerListCriteria CreateCriteria(GetCustomerListParam param)

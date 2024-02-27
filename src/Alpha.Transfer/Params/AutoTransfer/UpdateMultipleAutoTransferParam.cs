@@ -17,5 +17,7 @@
 
         public string OffNames { get; set; }
         public string OnNames { get; set; }
+
+        public string AGIP { get; set; }
     }
 }

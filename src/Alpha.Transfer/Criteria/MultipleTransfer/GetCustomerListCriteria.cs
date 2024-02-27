@@ -80,7 +80,7 @@
 
         public int PageSize { get; }
 
-        public int TotalPages { get; }
+        public int TotalPages { get; set; }
 
         [SpParam(SqlParamName = "IsYesterdayBalance")]
         public bool AllYesterdayBalance { get; }

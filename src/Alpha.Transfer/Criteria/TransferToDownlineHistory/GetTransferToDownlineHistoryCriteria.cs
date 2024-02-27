@@ -33,6 +33,8 @@
 
         public int PageIndex { get; }
 
+        public int TotalRecords { get; set; }
+
         public override string GetSettingKey() => "Age_Rpt_Downline_Transfer_History";
 
         public override bool IsValid() => CustId > 0 && FromDate <= ToDate;

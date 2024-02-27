@@ -99,7 +99,8 @@
                 "Admin1",
                 0,
                 "127.0.0.1",
-                "E");
+                "E",
+                string.Empty);
 
             // Assert
             Assert.True(actualData.Code == expectedResult.Code &&
@@ -129,7 +130,8 @@
                 "Admin1",
                 criteria.SubAccId,
                 criteria.IP,
-                criteria.Language);
+                criteria.Language,
+                string.Empty);
 
             // Assert
             Assert.True(actualData.Code == expectedResult.Code);

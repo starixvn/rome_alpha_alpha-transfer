@@ -2,7 +2,7 @@
 <Functions SiteId="105" SiteName="Member Information">
   <!-- 107963 - Temporarily move 2 SPs to DBTXN to enhance transfer -->
   <Function Name="Multiple Transfer">
-    <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag_ForDBTrans" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0">
+    <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag_ForDBTrans" DbName="DBTXN.BODB02.wsv_alp" Plain="0">
       <Mapping DataField="yesterday_balance" ObjectProperty="YesterdayBalance" />
       <Mapping DataField="balance" ObjectProperty="Balance" />
       <Mapping DataField="outstanding" ObjectProperty="Outstanding" />

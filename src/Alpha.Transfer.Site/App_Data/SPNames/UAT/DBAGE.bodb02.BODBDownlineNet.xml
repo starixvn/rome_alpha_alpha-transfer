@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="Base Functions">
-    <Setting Key="Age_SelBalanceUpDay" SpName="Age_SelBalanceUpDay" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_SelBalanceUpDay" SpName="Age_SelBalanceUpDay" DbName="DBAGE.bodb02.wsv_alp" Plain="0" />
   </Function>
   <Function Name="Check Belonging">
-    <Setting Key="Age_CustomerSelCheckBelonging" SpName="Age_CustomerSelCheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" SpName="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerSelCheckBelonging_MultiCust" SpName="Age_CustomerSelCheckBelonging_MultiCust" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCheckBelonging" SpName="Age_CustomerSelCheckBelonging" DbName="DBAGE.bodb02.wsv_alp" Plain="0" />
+    <Setting Key="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" SpName="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" DbName="DBAGE.bodb02.wsv_alp" Plain="0" />
+    <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel" DbName="DBAGE.bodb02.wsv_alp" Plain="0" />
+    <Setting Key="Age_CustomerSelCheckBelonging_MultiCust" SpName="Age_CustomerSelCheckBelonging_MultiCust" DbName="DBAGE.bodb02.wsv_alp" Plain="0" />
   </Function>
   <Function Name="Cash Balance Transfer">
-    <Setting Key="Age_Transfer_CashBalance_Sel" SpName="Age_Transfer_CashBalance_Sel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_Transfer_CashBalance_Sel" SpName="Age_Transfer_CashBalance_Sel" DbName="DBAGE.bodb02.wsv_alp" Plain="0" />
   </Function>
   <Function Name="Transfer all and Clear Credit">
-    <Setting Key="Age_Transfer_Credit_All_Sel" SpName="Age_Transfer_Credit_All_Sel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="Age_Transfer_Credit_All_Sel" SpName="Age_Transfer_Credit_All_Sel" DbName="DBAGE.bodb02.wsv_alp" Plain="0">
       <Mapping DataField="RowId" ObjectProperty="Id" Class="TransferStep" />
       <Mapping DataField="MemberOutStanding" ObjectProperty="Outstanding" Class="TransferStep" />
       <Mapping DataField="RowId" ObjectProperty="Id" Class="ClearCreditStep" />
     </Setting>
-    <Setting Key="Age_Transfer_Credit_All_SelDownlineInfo" SpName="Age_Transfer_Credit_All_SelDownlineInfo" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_Transfer_Credit_All_SelDownlineInfo" SpName="Age_Transfer_Credit_All_SelDownlineInfo" DbName="DBAGE.bodb02.wsv_alp" Plain="0" />
   </Function>
   <Function Name="Transfer To Downline History">
-    <Setting Key="Age_Rpt_Downline_Transfer_History" SpName="Age_Transfer_DownlineHistorySel" DbName="DBACC.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="Age_Rpt_Downline_Transfer_History" SpName="Age_Transfer_DownlineHistorySel" DbName="DBACC.bodb02.wsv_alp" Plain="0">
       <Mapping DataField="TransDate" ObjectProperty="ActionDate" />
       <Mapping DataField="UserName" ObjectProperty="DownlineName" />
       <Mapping DataField="TransferAmt" ObjectProperty="TransferAmount" />
@@ -29,13 +29,13 @@
     </Setting>
   </Function>
   <Function Name="Multiple Transfer">
-    <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="Age_Transfer_SelList_Ag" SpName="Age_Transfer_SelList_Ag" DbName="DBAGE.bodb02.wsv_alp" Plain="0">
       <Mapping DataField="yesterday_balance" ObjectProperty="YesterdayBalance" />
       <Mapping DataField="balance" ObjectProperty="Balance" />
       <Mapping DataField="outstanding" ObjectProperty="Outstanding" />
       <Mapping DataField="credit" ObjectProperty="GivenCredit" />
     </Setting>
-    <Setting Key="Age_Transfer_SelList_MAg" SpName="Age_Transfer_SelList_MAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="Age_Transfer_SelList_MAg" SpName="Age_Transfer_SelList_MAg" DbName="DBAGE.bodb02.wsv_alp" Plain="0">
       <Mapping DataField="yesterday_agentBalance" ObjectProperty="YesterdayBalance" />
       <Mapping DataField="agentbalance" ObjectProperty="Balance" />
       <Mapping DataField="yesterday_agentCashBalance" ObjectProperty="YesterdayCashBalance" />
@@ -44,7 +44,7 @@
       <Mapping DataField="agentCredit" ObjectProperty="GivenCredit" />
       <Mapping DataField="agentUsedCredit" ObjectProperty="UsedCredit" />
     </Setting>
-    <Setting Key="Age_Transfer_SelList_SAg" SpName="Age_Transfer_SelList_SAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="Age_Transfer_SelList_SAg" SpName="Age_Transfer_SelList_SAg" DbName="DBAGE.bodb02.wsv_alp" Plain="0">
       <Mapping DataField="yesterday_magentBalance" ObjectProperty="YesterdayBalance" />
       <Mapping DataField="magentbalance" ObjectProperty="Balance" />
       <Mapping DataField="yesterday_magentCashBalance" ObjectProperty="YesterdayCashBalance" />

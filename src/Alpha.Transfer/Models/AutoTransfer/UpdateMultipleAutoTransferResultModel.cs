@@ -18,8 +18,6 @@ namespace Alpha.Transfer.Models.AutoTransfer
 
         public List<string> WarningCusts { get; set; } = new List<string>();
 
-        public List<string> ErrorCusts { get; set; } = new List<string>();
-
         public string StopMessage { get; set; }
 
         public string WarningMessage
@@ -45,21 +43,27 @@ namespace Alpha.Transfer.Models.AutoTransfer
         {
             get
             {
-                var names = ErrorCusts.ToSeparatedString();
-                if (ErrorCusts.Count > 1)
+                var result = new List<string>();
+
+                foreach (var err in ErrMessages)
                 {
-                    return $"{Resources.AutoTransfer_MultipleErrorProccessing}({names})";
+                    var custs = ErrCusts[err.Key];
+                    var suffix = custs.Count > 1 ? "Multiple" : "Single";
+                    var message = Resources.ResourceManager.GetString($"AutoTransfer_Error_{err.Key}_{suffix}");
+                    message = string.IsNullOrWhiteSpace(message) ? err.Value : message;
+
+                    var names = custs.ToSeparatedString();
+                    message += $"({names})";
+                    result.Add(message);
                 }
 
-                if (ErrorCusts.Count == 1)
-                {
-                    return $"{Resources.AutoTransfer_MultipleErrorProccessing_Single}({names})";
-                }
-
-                return string.Empty;
+                return string.Join("<br />", result);
             }
         }
 
         public string SuccessMessage => Resources.AutoTransfer_UpdateSuccess;
+
+        public Dictionary<string, string> ErrMessages { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, List<string>> ErrCusts { get; set; } = new Dictionary<string, List<string>>();
     }
 }

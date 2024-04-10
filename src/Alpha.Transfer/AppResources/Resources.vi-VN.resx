@@ -555,7 +555,7 @@
   <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
     <value>Sau khi tắt, lịch Chuyển Khoản Tự Động hiện tại sẽ bị xóa.</value>
   </data>
-  <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
+  <data name="AutoTransfer_Error_103_Multiple" xml:space="preserve">
     <value>Điều Kiện Chuyển Khoản của bạn đã được cấp trên thay đổi.  Vui lòng tải lại trang.</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
@@ -563,5 +563,17 @@
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
     <value>Chuyển Khoản Tự Động đã được bật cho các tài khoản này. Tuy nhiên, quá trình này đang diễn ra, do đó các tài khoản này sẽ được lên lịch để thực hiện Chuyển Khoản Tự Động vào lượt tiếp theo, dựa trên lịch Chuyển Khoản Tự Động của từng tài khoản.</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="AutoTransfer_HintPath_2" xml:space="preserve">
+    <value>Danh sách Member</value>
+  </data>
+  <data name="AutoTransfer_HintPath_3" xml:space="preserve">
+    <value>Danh sách Agent</value>
+  </data>
+  <data name="AutoTransfer_HintPath_4" xml:space="preserve">
+    <value>Danh sách Master</value>
   </data>
 </root>

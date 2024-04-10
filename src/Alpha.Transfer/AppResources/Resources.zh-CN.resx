@@ -436,10 +436,10 @@
     <value>您要为此客户取消自动转账流程吗？</value>
   </data>
   <data name="confirmTurnOnAutoTransfer" xml:space="preserve">
-    <value>您要为这些客户开启自动转账吗？</value>
+    <value>&lt;b&gt;您要为此客户开启自动转账吗: {0}?&lt;/b&gt;</value>
   </data>
   <data name="confirmTurnOffAutoTransfer" xml:space="preserve">
-    <value>您要为这些客戶禁用自动转账吗？</value>
+    <value>&lt;b&gt;您要为此客户禁用自动转账吗: {0}?&lt;/b&gt;</value>
   </data>
   <data name="UsernameOrFirstLastName" xml:space="preserve">
     <value>用户名或名/姓</value>
@@ -528,7 +528,7 @@
   <data name="AutoTransfer_MultipleAffectNextConditionWarning" xml:space="preserve">
     <value>这些账号已启用自动转账。 但是，转账过程正在进行，并且这些账号将根据其自动转账流程在队列中等他们下一个日程表的自动转账.</value>
   </data>
-  <data name="AutoTransfer_MultipleErrorProccessing" xml:space="preserve">
+  <data name="AutoTransfer_Error_103_Multiple" xml:space="preserve">
     <value>您无法禁用這些账号的自动转账功能，因为自动转账正在进行中。请等进行完毕之后再重试。</value>
   </data>
   <data name="AutoTransfer_UpdateSuccessOff" xml:space="preserve">
@@ -540,7 +540,7 @@
   <data name="Pending" xml:space="preserve">
     <value>等待中</value>
   </data>
-  <data name="AutoTransfer_MultipleErrorProccessing_Single" xml:space="preserve">
+  <data name="AutoTransfer_Error_103_Single" xml:space="preserve">
     <value>您无法禁用此账号的自动转账功能，因为自动转账正在进行中。请等进行完毕之后再重试。</value>
   </data>
   <data name="AutoTransfer_MultipleAffectNextConditionWarning_Single" xml:space="preserve">
@@ -623,5 +623,32 @@
   </data>
   <data name="AutoTransfer_UplineConditionChanged" xml:space="preserve">
     <value>您的转账设定已被上线更改。请刷新页面。</value>
+  </data>
+  <data name="AutoTransfer_UpdateTip" xml:space="preserve">
+    <value>提醒：您可以在「会员信息」中的「{0}」列表中，为多组账户启用自动转账功能，也能在「转账」中的「监视自动转账」确认转账进度。</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更改</value>
+  </data>
+  <data name="AutoTransfer_HintPath_2" xml:space="preserve">
+    <value>会员</value>
+  </data>
+  <data name="AutoTransfer_HintPath_3" xml:space="preserve">
+    <value>代理</value>
+  </data>
+  <data name="AutoTransfer_HintPath_4" xml:space="preserve">
+    <value>总代理名单</value>
+  </data>
+  <data name="AutoTransfer_Error_101_Single" xml:space="preserve">
+    <value>此账号不存在。</value>
+  </data>
+  <data name="AutoTransfer_Error_101_Multiple" xml:space="preserve">
+    <value>这些账号不存在</value>
+  </data>
+  <data name="AutoTransfer_Error_102_Single" xml:space="preserve">
+    <value>该账号不属于您的下线</value>
+  </data>
+  <data name="AutoTransfer_Error_102_Multiple" xml:space="preserve">
+    <value>这些账号不属于您的下线：</value>
   </data>
 </root>

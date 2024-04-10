@@ -81,7 +81,6 @@
                 SortedBy = param.SortedBy,
                 Direction = param.Direction,
 
-
                 TotalCancelAll = criteria.TotalCancelAll,
                 TotalPending = criteria.TotalPending,
                 TotalProcessing = criteria.TotalProcessing,
@@ -181,46 +180,34 @@
 
         public async Task<UpdateMultipleAutoTransferResultModel> UpdateMultipleAutoTransferAsync(UpdateMultipleAutoTransferParam param)
         {
-            var offResult = await UpdateMultipleAutoTransferToStatusAsync(param, param.OffStatus, param.OffIds, param.OffNames, param.OffSchedule);
+            var result = new UpdateMultipleAutoTransferResultModel();
+            await UpdateMultipleAutoTransferToStatusAsync(param, param.OffStatus, param.OffIds, param.OffNames, param.OffSchedule, result);
 
-            if (!string.IsNullOrWhiteSpace(offResult.StopMessage))
+            if (string.IsNullOrWhiteSpace(result.StopMessage))
             {
-                return offResult;
+                await UpdateMultipleAutoTransferToStatusAsync(param, param.OnStatus, param.OnIds, param.OnNames, param.OnSchedule, result);
             }
 
-            var onResult = await UpdateMultipleAutoTransferToStatusAsync(param, param.OnStatus, param.OnIds, param.OnNames, param.OnSchedule);
-            return new UpdateMultipleAutoTransferResultModel
-            {
-                Code = offResult.Code ?? onResult.Code,
-                StopMessage = offResult.StopMessage ?? onResult.StopMessage,
-                WarningCusts = offResult.WarningCusts.Concat(onResult.WarningCusts).ToList(),
-                ErrorCusts = offResult.ErrorCusts.Concat(onResult.ErrorCusts).ToList(),
-            };
+            return result;
         }
 
-        public async Task<UpdateMultipleAutoTransferResultModel> UpdateMultipleAutoTransferToStatusAsync(
+        public async Task UpdateMultipleAutoTransferToStatusAsync(
             UpdateMultipleAutoTransferParam param,
             string status,
             string pIds,
             string pNames,
-            string schedule)
+            string schedule,
+            UpdateMultipleAutoTransferResultModel result)
         {
             var stopCodes = new[] { 105, 108 };
-
             var ids = (pIds ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             var names = (pNames ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             var dates = (schedule ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-            var result = new UpdateMultipleAutoTransferResultModel
-            {
-                WarningCusts = new List<string>(),
-                ErrorCusts = new List<string>()
-            };
-
             for (var i = 0; i < ids.Length; i++)
             {
                 var id = ids[i];
-                var name = names[i];
+                var name = names[i].Trim();
 
                 var updateSingleParam = new UpdateSingleParam
                 {
@@ -237,26 +224,33 @@
 
                 var singleResult = await UpdateAsync(updateSingleParam);
 
+                if (singleResult.Code == 0)
+                {
+                    if (!string.IsNullOrWhiteSpace(singleResult.Message))
+                    {
+                        result.WarningCusts.Add(name);
+                    }
+
+                    continue;
+                }
+
                 if (stopCodes.Any(s => s == singleResult.Code))
                 {
                     result.Code = singleResult.Code;
                     result.StopMessage = singleResult.Message;
-                    return result;
+                    return;
                 }
 
-                if (singleResult.Code != 0)
+                var code = singleResult.Code.ToString();
+                if (result.ErrMessages.ContainsKey(code))
                 {
-                    result.ErrorCusts.Add(name);
+                    result.ErrCusts[code].Add(name);
                     continue;
                 }
 
-                if (singleResult.Code == 0 && !string.IsNullOrWhiteSpace(singleResult.Message))
-                {
-                    result.WarningCusts.Add(name);
-                }
+                result.ErrMessages.Add(code, singleResult.Message);
+                result.ErrCusts.Add(code, new List<string> { name });
             }
-
-            return result;
         }
     }
 }

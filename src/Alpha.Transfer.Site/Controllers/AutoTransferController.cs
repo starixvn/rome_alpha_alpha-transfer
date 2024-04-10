@@ -32,6 +32,17 @@
             this.transferService = transferService;
         }
 
+        [HttpGet]
+        public ViewResult UpdateSingleAutoTransfer(UpdateQuery message)
+        {
+            if (transferService.IsAllDayBalanceTransfer(userSession.CustId))
+            {
+                return View(InvalidTransferStatusViewPath);
+            }
+
+            return View(message);
+        }
+
         [HttpPost]
         public async Task<ActionResult> Update(UpdateQuery message)
         {

@@ -87,9 +87,11 @@ table.dataTable.display {
         }
     }
 }
+
 .tblRpt thead th, .tblRpt tbody td, .tblRpt tfoot td {
     white-space: normal;
 }
+
 #tbl-monitoring {
     [col-value="1"] {
         width: 3%;
@@ -115,6 +117,7 @@ table.dataTable.display {
         width: 15%;
     }
 }
+
 .pagination {
     table tbody {
         td {
@@ -208,11 +211,13 @@ table.dataTable.display {
         }
     }
 }
+
 .flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .icon-close-circle {
     color: #DD3333;
     font-size: 18px;

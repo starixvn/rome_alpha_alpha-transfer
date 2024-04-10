@@ -363,4 +363,13 @@
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="AutoTransfer_HintPath_2" xml:space="preserve">
+    <value>お客様リスト</value>
+  </data>
+  <data name="AutoTransfer_HintPath_3" xml:space="preserve">
+    <value>エージェントリスト</value>
+  </data>
+  <data name="AutoTransfer_HintPath_4" xml:space="preserve">
+    <value>Master Agent List</value>
+  </data>
 </root>

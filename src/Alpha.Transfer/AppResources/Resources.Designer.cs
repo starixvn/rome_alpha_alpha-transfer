@@ -160,6 +160,87 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to These accounts do not exist:.
+        /// </summary>
+        public static string AutoTransfer_Error_101_Multiple {
+            get {
+                return ResourceManager.GetString("AutoTransfer_Error_101_Multiple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This account does not exist..
+        /// </summary>
+        public static string AutoTransfer_Error_101_Single {
+            get {
+                return ResourceManager.GetString("AutoTransfer_Error_101_Single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to These accounts do not belong to your downline: .
+        /// </summary>
+        public static string AutoTransfer_Error_102_Multiple {
+            get {
+                return ResourceManager.GetString("AutoTransfer_Error_102_Multiple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This account does not belong to your downline.
+        /// </summary>
+        public static string AutoTransfer_Error_102_Single {
+            get {
+                return ResourceManager.GetString("AutoTransfer_Error_102_Single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot disable Auto Transfer for these accounts because the Auto Transfer process is in progress. Please try again after the process has been completed..
+        /// </summary>
+        public static string AutoTransfer_Error_103_Multiple {
+            get {
+                return ResourceManager.GetString("AutoTransfer_Error_103_Multiple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot disable Auto Transfer for this account because the Auto Transfer process is in progress. Please try again after the process has been completed..
+        /// </summary>
+        public static string AutoTransfer_Error_103_Single {
+            get {
+                return ResourceManager.GetString("AutoTransfer_Error_103_Single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member List.
+        /// </summary>
+        public static string AutoTransfer_HintPath_2 {
+            get {
+                return ResourceManager.GetString("AutoTransfer_HintPath_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agent List.
+        /// </summary>
+        public static string AutoTransfer_HintPath_3 {
+            get {
+                return ResourceManager.GetString("AutoTransfer_HintPath_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Master Agent List.
+        /// </summary>
+        public static string AutoTransfer_HintPath_4 {
+            get {
+                return ResourceManager.GetString("AutoTransfer_HintPath_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; based on your transfer condition &lt;b&gt;({0})&lt;/b&gt;..
         /// </summary>
         public static string AutoTransfer_InfoAffectTime {
@@ -223,24 +304,6 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You cannot disable Auto Transfer for these accounts because the Auto Transfer process is in progress. Please try again after the process has been completed..
-        /// </summary>
-        public static string AutoTransfer_MultipleErrorProccessing {
-            get {
-                return ResourceManager.GetString("AutoTransfer_MultipleErrorProccessing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You cannot disable Auto Transfer for this account because the Auto Transfer process is in progress. Please try again after the process has been completed..
-        /// </summary>
-        public static string AutoTransfer_MultipleErrorProccessing_Single {
-            get {
-                return ResourceManager.GetString("AutoTransfer_MultipleErrorProccessing_Single", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to There are no cancellable transactions..
         /// </summary>
         public static string AutoTransfer_NoCancellable {
@@ -300,6 +363,15 @@ namespace Alpha.Transfer.AppResources {
         public static string AutoTransfer_UpdateSuccessOn {
             get {
                 return ResourceManager.GetString("AutoTransfer_UpdateSuccessOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tip: you can enable/disable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {0}] or [Transfer &gt;&gt; Transfer] and monitor the progress on [Transfer &gt;&gt; Auto Transfer Monitor]..
+        /// </summary>
+        public static string AutoTransfer_UpdateTip {
+            get {
+                return ResourceManager.GetString("AutoTransfer_UpdateTip", resourceCulture);
             }
         }
         
@@ -601,7 +673,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for these accounts?.
+        ///   Looks up a localized string similar to &lt;b&gt;Would you like to disable Auto Transfer for this account: {0}?&lt;/b&gt;.
         /// </summary>
         public static string confirmTurnOffAutoTransfer {
             get {
@@ -610,7 +682,7 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for these accounts?.
+        ///   Looks up a localized string similar to &lt;b&gt;Would you like to enable Auto Transfer for this account: {0}?&lt;/b&gt;.
         /// </summary>
         public static string confirmTurnOnAutoTransfer {
             get {
@@ -1560,6 +1632,15 @@ namespace Alpha.Transfer.AppResources {
         public static string Tuesday {
             get {
                 return ResourceManager.GetString("Tuesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        public static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
             }
         }
         

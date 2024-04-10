@@ -1,5 +1,4 @@
-﻿using Fanex.Data;
-namespace Alpha.Transfer.Criteria.AutoTransfer
+﻿namespace Alpha.Transfer.Criteria.AutoTransfer
 {
     using Fanex.Data.Repository;
 

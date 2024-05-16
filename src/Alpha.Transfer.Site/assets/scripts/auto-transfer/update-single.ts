@@ -3,7 +3,8 @@
 interface Window {
     popupManager: {
         open: Function,
-        close: Function
+        close: Function,
+        closeAllPopup: Function
     };
 
     bootboxAlert(message: string): void;
@@ -43,8 +44,10 @@ class UpdateSingleAutoTransfer {
     };
 
     cancelUpdate = () => {
-        this.topWindow.popupManager.close();
-        this.topWindow.main.$("#product-popup").modal('hide');
+        this.topWindow.popupManager.closeAllPopup();
+
+        var productPopup = this.topWindow.main.$("#product-popup");
+        productPopup && productPopup.modal('hide');
     };
 
     acceptUpdate = () => {

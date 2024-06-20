@@ -9,6 +9,7 @@ interface Window {
 
     bootboxAlert(message: string): void;
     menu: any;
+    confirmPopupPopup: any;
 };
 
 class UpdateSingleAutoTransfer {
@@ -61,11 +62,12 @@ class UpdateSingleAutoTransfer {
             schedule.push(c.attributes['data-val'].value);
         }
 
+        var username = this.$("#CustName").val();
         self.$.ajax({
             method: "POST",
             data: {
                 CustId: this.$("#CustId").val(),
-                CustName: this.$("#CustName").val(),
+                CustName: username,
                 State: state,
                 Old_TransferOption: this.$("#Old_TransferOption").val(),
                 Schedule: state === "off" ? "" : schedule.join(",")
@@ -78,8 +80,12 @@ class UpdateSingleAutoTransfer {
 
                 if (!code || code == -1) {
                     this.topWindow.bootboxAlert(msg);
+
+                    if (this.topWindow.confirmPopupPopup) {
+                        this.topWindow.confirmPopupPopup.onClosing(username, true);
+                    }
+
                     this.topWindow.closePopupAndReloadMainFrameAfterUpdateSuccess(3000);
-                    this.topWindow.menu.location.reload();
                     return;
                 }
 

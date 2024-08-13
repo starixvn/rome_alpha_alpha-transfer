@@ -124,19 +124,19 @@
     <value>ยูเซอร์เนม หรือ ชื่อ/นามสุกล</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>ชื่อผู้ใช้ระบบ</value>
+    <value>ชื่อผู้ใช้</value>
   </data>
   <data name="Submit" xml:space="preserve">
-    <value>ตกลง</value>
+    <value>ส่ง</value>
   </data>
   <data name="MemberOutstanding" xml:space="preserve">
-    <value>การเดิมพันที่ยังไม่สิ้นสุดของ สมาชิก</value>
+    <value>เดิมพันที่ยังไม่สิ้นสุดของสมาชิก</value>
   </data>
   <data name="Level" xml:space="preserve">
     <value>ระดับ</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
-    <value>เครดิตทั้งหมด</value>
+    <value>เครดิตที่ได้รับ</value>
   </data>
   <data name="TransferSuccessfully" xml:space="preserve">
     <value>การโอนเงินเสร็จสมบูรณ์</value>
@@ -178,13 +178,13 @@
     <value>Amount to transfer must be between {0} and {1}.</value>
   </data>
   <data name="Super" xml:space="preserve">
-    <value>สูงสุด</value>
+    <value>ซุปเปอร์</value>
   </data>
   <data name="Master" xml:space="preserve">
-    <value>ตัวแทนหลัก</value>
+    <value>มาสเตอร์</value>
   </data>
   <data name="Agent" xml:space="preserve">
-    <value>ตัวแทน</value>
+    <value>เอเย่นต์</value>
   </data>
   <data name="Member" xml:space="preserve">
     <value>สมาชิก</value>
@@ -250,13 +250,13 @@
     <value>ตัวแทนหลัก ยอดคงเหลือ</value>
   </data>
   <data name="YesterdayCashBalance" xml:space="preserve">
-    <value>ยอดเงินสดคงเหลือของเมื่อวาน</value>
+    <value>ยอดเงินสดถึงเมื่อวาน</value>
   </data>
   <data name="MasterCash" xml:space="preserve">
     <value>ตัวแทนหลัก เงินสด</value>
   </data>
   <data name="Outstanding" xml:space="preserve">
-    <value>การเดิมพันที่ยังไม่สิ้นสุด</value>
+    <value>เดิมพันที่ยังไม่สิ้นสุด</value>
   </data>
   <data name="UsedCredit" xml:space="preserve">
     <value>เครดิตที่ใช้ไป</value>
@@ -274,7 +274,7 @@
     <value>คำนวณ</value>
   </data>
   <data name="TransferAllAndClearCreditNote" xml:space="preserve">
-    <value>โอนยอดทั้งหมด และการเคลียร์เครดิตคงเป็นไปตามกฎปัจจุบัน แต่จะแยกกรณีออกไปของแต่ละขั้น</value>
+    <value>โอนยอดทั้งหมด และเคลียร์เครดิต</value>
   </data>
   <data name="DataChangedWarning" xml:space="preserve">
     <value>ระบบมีการเปลี่ยนข้อมูลบางส่วนในระหว่างการคำนวณ. กรุณาตรวจสอบตัวเลขที่ได้ระบายสีไว้ให้ยังด้านล่างนี้</value>
@@ -286,16 +286,16 @@
     <value>จำนวนยอดที่สามารถโอนได้</value>
   </data>
   <data name="ClearableCredit" xml:space="preserve">
-    <value>เคลียร์เครดิต</value>
+    <value>เครดิตที่ล้างได้</value>
   </data>
   <data name="TransferStep_Super_Member" xml:space="preserve">
-    <value>สมาชิกไปยังเอเยนต์</value>
+    <value>สมาชิก ไปยัง เอเย่นต์</value>
   </data>
   <data name="TransferStep_Super_Agent" xml:space="preserve">
-    <value>เอเยนต์ ไปยัง {0}</value>
+    <value>เอเย่นต์ ไปยัง {0}</value>
   </data>
   <data name="TransferStep_Super_Master" xml:space="preserve">
-    <value>{0} ไปยัง บัญชีคุณ</value>
+    <value>{0} ไปยังบัญชีของคุณ</value>
   </data>
   <data name="ClearCreditStep_Super_Member" xml:space="preserve">
     <value>{0} สมาชิก</value>
@@ -313,7 +313,7 @@
     <value>เคลียเครดิตเรียบร้อยแล้ว</value>
   </data>
   <data name="TransferStep_Master_Agent" xml:space="preserve">
-    <value>{0} ไปยัง บัญชีคุณ</value>
+    <value>{0} ไปยังบัญชีของคุณ</value>
   </data>
   <data name="ClearCreditStep_Master_Member" xml:space="preserve">
     <value>สมาชิกทั้งหมด</value>
@@ -331,13 +331,13 @@
     <value>การโอนเครดิตทั้งหมดและล้างเครดิตไม่สำเร็จเนื่องจาก เหตุผลดังต่อไปนี้ (s):</value>
   </data>
   <data name="Transfer_all" xml:space="preserve">
-    <value>โอนทั้งหมด</value>
+    <value>โอนยอดทั้งหมด</value>
   </data>
   <data name="TransferAllUnsuccessfully" xml:space="preserve">
     <value>โอนเงินทั้งหมดไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</value>
   </data>
   <data name="TransferAll" xml:space="preserve">
-    <value>โอนทั้งหมด</value>
+    <value>โอนยอดทั้งหมด</value>
   </data>
   <data name="ClearCreditConfirm" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าต้องการโอนเครดิตทั้งหมดและล้างเครดิต？</value>
@@ -346,16 +346,16 @@
     <value>คุณแน่ใจหรือว่าต้องการโอนเครดิตทั้งหมด？</value>
   </data>
   <data name="ClearCredit" xml:space="preserve">
-    <value>ล้างเครดิต</value>
+    <value>เคลียร์เครดิต</value>
   </data>
   <data name="Clear_credit" xml:space="preserve">
-    <value>ล้างเครดิต</value>
+    <value>เคลียร์เครดิต</value>
   </data>
   <data name="ClearCreditUnsuccessfully" xml:space="preserve">
     <value>ล้างเครดิตไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</value>
   </data>
   <data name="TransferStep_Master_Member" xml:space="preserve">
-    <value>ไปสมาชิก {0}</value>
+    <value>สมาชิก ไปยัง {0}</value>
   </data>
   <data name="TransferToDownlineHistory" xml:space="preserve">
     <value>Transfer To Downline History</value>
@@ -628,13 +628,13 @@
     <value>เคล็ดลับ: คุณสามารถเปิดใช้งานระบบโอนอัตโนมัติสำหรับหลายบัญชีได้ใน [ข้อมูลสมาชิก &gt;&gt; รายการ {0} ] และติดตามความคืบหน้าของการดำเนินงานได้ใน [โอน &gt;&gt; การตรวจสอบการโอนอัตโนมัติ]</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>ล่าสุด</value>
+    <value>อัปเดต</value>
   </data>
   <data name="AutoTransfer_HintPath_2" xml:space="preserve">
-    <value>รายชื่อลูกค้า</value>
+    <value>รายชื่อสมาชิก</value>
   </data>
   <data name="AutoTransfer_HintPath_3" xml:space="preserve">
-    <value>รายชื่อ เอเจนต์</value>
+    <value>รายชื่อเอเย่นต์</value>
   </data>
   <data name="AutoTransfer_HintPath_4" xml:space="preserve">
     <value>รายชื่อตัวแทนหลัก</value>
@@ -650,5 +650,8 @@
   </data>
   <data name="AutoTransfer_Error_102_Multiple" xml:space="preserve">
     <value>บัญชีเหล่านี้ไม่ได้เป็นของดาวน์ไลน์ของคุณ:</value>
+  </data>
+  <data name="NoRefresh" xml:space="preserve">
+    <value>ไม่ใช่</value>
   </data>
 </root>

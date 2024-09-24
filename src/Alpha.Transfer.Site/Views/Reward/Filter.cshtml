@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+@model Alpha.Transfer.Site.ViewModels.Reward.RewardFilterViewModel
+<div class="form-inline filter" id="transfer-form">
+    @DateRangePickerJQuery.Render(Model.DateRangePicker)
+    <div class="form-group">
+        <label class="label-form-control">@Resources.Program</label>
+        <div>@Html.DropDownList("ddl-program", Model.Programs, new { data_label_search_text = Resources.SearchProgram })</div>
+    </div>
+    <div class="form-group">
+        <label class="label-form-control">@Resources.PaymentStatus</label>
+        <div>@Html.DropDownList("ddl-paymentStatus", Model.PaymentStatus)</div>
+    </div>
+    @UsernameAutoSuggestion.Render(Model.Username)
+    @if (Model.ShowColumns)
+    {
+        @VisibleColumnsDropdown.RenderNew()
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.ExcelAction))
+    {
+        <div class="form-group">
+            <label class="label-form-control">&nbsp;</label>
+            <a href="@Url.Action(Model.ExcelAction)"
+               id="icon-excel"
+               class="icon icon-excel icon-excel-new"
+               data-toggle="tooltip"
+               data-placement="top"
+               title="@Resources.ExportToExcel"></a>
+        </div>
+    }
+</div>
+<input type="hidden" id="hiddenUsernameAutoSuggestionUrl" value="@Url.Action("Get", "UsernameSuggestion")" />
+<input type="hidden" id="hiddenHideFilterText" value="@Resources.HideFilter" />
+<input type="hidden" id="hiddenShowFilterText" value="@Resources.ShowFilter" />

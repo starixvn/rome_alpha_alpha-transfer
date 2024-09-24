@@ -7,7 +7,8 @@ class SingleSelectionDropdownOption {
     constructor(
         public dropdownId = "dropdown-single",
         public inputId = "UserSelectedId",
-        public onChange: Function = null) {
+        public onChange: Function = null,
+        public enableFiltering = false) {
     }
 }
 
@@ -41,7 +42,9 @@ class SingleSelectionDropdownComponent {
             maxHeight: 300,
             numberDisplayed: 1,
             includeSelectAllOption: false,
-            onChange: this.onchange
+            onChange: this.onchange,
+            enableFiltering: this.options.enableFiltering,
+            filterPlaceholder: $dropdown.data("label-search-text"),
         });
     };
     getSelectedItem = () => {

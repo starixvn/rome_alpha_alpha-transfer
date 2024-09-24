@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -650,5 +650,92 @@
   </data>
   <data name="AutoTransfer_Error_102_Multiple" xml:space="preserve">
     <value>这些账号不属于您的下线：</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>专栏</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>日期范围</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>反馈</value>
+  </data>
+  <data name="HideFilter" xml:space="preserve">
+    <value>隐藏筛选</value>
+  </data>
+  <data name="Last3Months" xml:space="preserve">
+    <value>过去3个月</value>
+  </data>
+  <data name="SearchColumn" xml:space="preserve">
+    <value>搜索专栏</value>
+  </data>
+  <data name="ShowFilter" xml:space="preserve">
+    <value>显示筛选</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="NoColumnsFound" xml:space="preserve">
+    <value>无法找寻专栏</value>
+  </data>
+  <data name="RewardDetail" xml:space="preserve">
+    <value>奖励详情</value>
+  </data>
+  <data name="RewardPayment" xml:space="preserve">
+    <value>奖励支付</value>
+  </data>
+  <data name="UpdateAllRewardPaymentStatusSuccessfully" xml:space="preserve">
+    <value>所有付款已成功确认。</value>
+  </data>
+  <data name="UpdateManyRewardPaymentStatusSuccessfully" xml:space="preserve">
+    <value>除以下付款外，所有付款均已成功确认：</value>
+  </data>
+  <data name="UpdateRewardPaymentStatusConfirm" xml:space="preserve">
+    <value>您确定要确认所选账号的付款吗？</value>
+  </data>
+  <data name="UpdateRewardPaymentStatusSuccessfully" xml:space="preserve">
+    <value>此付款已成功确认。</value>
+  </data>
+  <data name="Program" xml:space="preserve">
+    <value>程序</value>
+  </data>
+  <data name="SearchProgram" xml:space="preserve">
+    <value>搜索程序</value>
+  </data>
+  <data name="PaymentStatus" xml:space="preserve">
+    <value>付款状态</value>
+  </data>
+  <data name="ConfirmPayment" xml:space="preserve">
+    <value>确认付款</value>
+  </data>
+  <data name="PaymentDate" xml:space="preserve">
+    <value>付款日期</value>
+  </data>
+  <data name="ShowAllErrorPayments" xml:space="preserve">
+    <value>查看所有未成功的付款。</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>新增日期</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>支付</value>
+  </data>
+  <data name="Unpaid" xml:space="preserve">
+    <value>未支付</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>已收到</value>
+  </data>
+  <data name="NotReceived" xml:space="preserve">
+    <value>未收到</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>总和</value>
   </data>
 </root>

@@ -25,7 +25,7 @@ class PagerComponent {
     pageIndex: number;
 
     pageList: number[] = [100, 200, 500, 1000];
-    // pageList: number[] = [2, 5, 10, 20, 500];
+    //pageList: number[] = [2, 5, 10, 20, 500];
 
     constructor($: JQueryStatic) {
         this.$ = $;
@@ -36,7 +36,7 @@ class PagerComponent {
         let pagerOption = <PagerOption>this.$.extend({}, this.options, options);
         let pager = this.$("#" + pagerOption.pagerId);
 
-        this.$reportForm = this.$("#" + this.options.formId);
+        this.$reportForm = this.$("#" + pagerOption.formId);
         this.totalRecords = pager.data("totalrecords");
         this.pageSize = pager.data("pagesize");
         this.pageIndex = pager.data("pageindex");

@@ -100,7 +100,11 @@ class AutoTransferMonitoring {
 
         var visibleColumnDropdownOption = new VisibleColumnDropdownOption(
             `Transfer_${this.ViewerId}_${this.SubAccId}:Columns`,
-            (col, isShow) => this.showHideColumn(col, isShow));
+            (visibleStatus) => {
+                for (const [key, value] of Object.entries(visibleStatus)) {
+                    this.showHideColumn(key, value);
+                }
+            });
         this.visibleColumnDropdownComponent.render(visibleColumnDropdownOption);
 
         this.$statusComponent.render(

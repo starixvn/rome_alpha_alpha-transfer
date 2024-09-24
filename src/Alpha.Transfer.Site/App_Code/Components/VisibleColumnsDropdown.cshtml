@@ -3,7 +3,7 @@
 
 @helper Render(IEnumerable<System.Web.Mvc.SelectListItem> columns)
 {
-    <div class="form-group column-multiselect-container">
+    <div class="form-group column-multiselect-container multiselect-container-control">
         <label>@Resources.Columns</label>
         <select id="dropdown-columns"
                 data-has-any-product-detail="@columns.Any()"
@@ -19,5 +19,21 @@
                 <option value="@column.Value">@column.Text</option>
             }
         </select>
+    </div>
+}
+
+@helper RenderNew()
+{
+    <div class="form-group">
+        <label class="label-form-control">@Resources.Columns</label>
+        <div class="select-multiple"
+             id="dropdown-column"
+             data-label-selectall="@Resources.SelectAll"
+             data-label-selected="@Resources.Selected"
+             data-label-noneselected="@Resources.SelectNone"
+             data-label-all="@Resources.All"
+             data-label-noitemfound="@Resources.NoColumnsFound"
+             data-label-filterplaceholder="@Resources.SearchColumn">
+        </div>
     </div>
 }

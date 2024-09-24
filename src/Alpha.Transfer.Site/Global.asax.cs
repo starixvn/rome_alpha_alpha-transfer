@@ -17,6 +17,7 @@
     using Fanex.Caching;
     using Fanex.Data;
     using Fanex.Logging.Extensions.Web;
+    using Fanex.RemotingRef;
     using ONEbook.UM;
     using ONEbook.UM.AspNetMVC.Filters;
     using ONEbook.UM.Configurations;
@@ -75,6 +76,9 @@
             GlobalFilters.Filters.Add(new ProtectedModeFilter());
 
             StaticResources.Init(GetBuildVersion());
+            RefDataTypeContainer
+                .ConnectTo(new Uri(AppSettings.RemoteRefURL))
+                .FromApplication("Alpha.Transfer.Site");
         }
 
         protected void Application_Error()

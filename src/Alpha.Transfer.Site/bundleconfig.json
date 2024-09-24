@@ -1,189 +1,222 @@
 ﻿[
-    {
-        "outputFileName": "assets/bundles/default.css",
-        "inputFiles": [
-            "assets/styles/site.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/transfer-all-clear-credit.css",
-        "inputFiles": [
-            "assets/styles/transfer-all-clear-credit.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/transfer-all-clear-credit/calculation.js",
-        "inputFiles": [
-            "assets/scripts/transfer-all-clear-credit/calculation.js"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/transfer-all-clear-credit/transfer-result.js",
-        "inputFiles": [
-            "assets/scripts/transfer-all-clear-credit/transfer-result.js"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/cash-balance-transfer/cash-balance.js",
-        "inputFiles": [
-            "assets/scripts/cash-balance-transfer/cash-balance.js"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/multiple-transfer/customer-list.js",
-        "inputFiles": [
-            "assets/scripts/components/single-selection-dropdown.js",
-            "assets/scripts/multiple-transfer/customer-list.js"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/transfer-to-downline-history/index.css",
-        "inputFiles": [
-            "assets/styles/transfer-to-downline-history/index.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/transfer-to-downline-history/index-mobile.css",
-        "inputFiles": [
-            "assets/styles/datepicker-mobile.css",
-            "assets/styles/site-mobile.css",
-            "assets/styles/transfer-to-downline-history/index-mobile.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/transfer-to-downline-history/index.js",
-        "inputFiles": [
-            "assets/scripts/components/daterangepicker.js",
-            "assets/scripts/transfer-to-downline-history/utils.js",
-            "assets/scripts/transfer-to-downline-history/transfer-report.js",
-            "assets/scripts/transfer-to-downline-history/index.js"
-        ],
-        "sourceMap": true
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/monitoring.css",
-        "inputFiles": [
-            "assets/styles/refresh-countdown.css",
-            "assets/styles/auto-transfer/monitoring.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/monitoring.js",
-        "inputFiles": [
-            "assets/scripts/core.js",
-            "assets/scripts/components/pager.js",
-            "assets/scripts/components/visible-columns-dropdown.js",
-            "assets/scripts/components/auto-refresh.js",
-            "assets/scripts/components/multiple-selection-dropdown.js",
-            "assets/scripts/auto-transfer/monitoring.js"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/history.js",
-        "inputFiles": [
-            "assets/scripts/core.js",
-            "assets/scripts/components/pager.js",
-            "assets/scripts/components/daterangepicker.js",
-            "assets/scripts/components/visible-columns-dropdown.js",
-            "assets/scripts/components/auto-refresh.js",
-            "assets/scripts/components/multiple-selection-dropdown.js",
-            "assets/scripts/auto-transfer/history.js"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/update-schedule.js",
-        "inputFiles": [
-            "assets/scripts/auto-transfer/update-schedule.js"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/update-multiple.js",
-        "inputFiles": [
-            "assets/scripts/auto-transfer/update-multiple.js"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/update-schedule.css",
-        "inputFiles": [
-            "assets/styles/auto-transfer/update-schedule.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/update-multiple.css",
-        "inputFiles": [
-            "assets/styles/auto-transfer/update-multiple.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/update-single.css",
-        "inputFiles": [
-            "assets/styles/auto-transfer/update-single.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/update-single.js",
-        "inputFiles": [
-            "assets/scripts/auto-transfer/update-single.js"
-        ]
-    },
-    /************************** Dark Mode ************************/
-    {
-        "outputFileName": "assets/bundles/default-dark.css",
-        "inputFiles": [
-            "assets/styles/site-dark.css"
-        ]
-    },
+  {
+    "outputFileName": "assets/bundles/default.css",
+    "inputFiles": [
+      "assets/styles/site.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-all-clear-credit.css",
+    "inputFiles": [
+      "assets/styles/transfer-all-clear-credit.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-all-clear-credit/calculation.js",
+    "inputFiles": [
+      "assets/scripts/transfer-all-clear-credit/calculation.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-all-clear-credit/transfer-result.js",
+    "inputFiles": [
+      "assets/scripts/transfer-all-clear-credit/transfer-result.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/cash-balance-transfer/cash-balance.js",
+    "inputFiles": [
+      "assets/scripts/cash-balance-transfer/cash-balance.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/multiple-transfer/customer-list.js",
+    "inputFiles": [
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/multiple-transfer/customer-list.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index.css",
+    "inputFiles": [
+      "assets/styles/transfer-to-downline-history/index.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index-mobile.css",
+    "inputFiles": [
+      "assets/styles/datepicker-mobile.css",
+      "assets/styles/site-mobile.css",
+      "assets/styles/transfer-to-downline-history/index-mobile.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index.js",
+    "inputFiles": [
+      "assets/scripts/components/daterangepicker.js",
+      "assets/scripts/transfer-to-downline-history/utils.js",
+      "assets/scripts/transfer-to-downline-history/transfer-report.js",
+      "assets/scripts/transfer-to-downline-history/index.js"
+    ],
+    "sourceMap": true
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/monitoring.css",
+    "inputFiles": [
+      "assets/styles/refresh-countdown.css",
+      "assets/styles/auto-transfer/monitoring.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/monitoring.js",
+    "inputFiles": [
+      "assets/scripts/core.js",
+      "assets/scripts/components/pager.js",
+      "assets/scripts/components/visible-columns-dropdown.js",
+      "assets/scripts/components/auto-refresh.js",
+      "assets/scripts/components/multiple-selection-dropdown.js",
+      "assets/scripts/auto-transfer/monitoring.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/history.js",
+    "inputFiles": [
+      "assets/scripts/core.js",
+      "assets/scripts/components/pager.js",
+      "assets/scripts/components/daterangepicker.js",
+      "assets/scripts/components/visible-columns-dropdown.js",
+      "assets/scripts/components/auto-refresh.js",
+      "assets/scripts/components/multiple-selection-dropdown.js",
+      "assets/scripts/auto-transfer/history.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/update-schedule.js",
+    "inputFiles": [
+      "assets/scripts/auto-transfer/update-schedule.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/update-multiple.js",
+    "inputFiles": [
+      "assets/scripts/auto-transfer/update-multiple.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/update-schedule.css",
+    "inputFiles": [
+      "assets/styles/auto-transfer/update-schedule.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/update-multiple.css",
+    "inputFiles": [
+      "assets/styles/auto-transfer/update-multiple.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/update-single.css",
+    "inputFiles": [
+      "assets/styles/auto-transfer/update-single.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/update-single.js",
+    "inputFiles": [
+      "assets/scripts/auto-transfer/update-single.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/reward/reward.css",
+    "inputFiles": [
+      "assets/styles/reward/reward.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/reward/reward-payment.js",
+    "inputFiles": [
+      "assets/scripts/core.js",
+      "assets/scripts/components/filter.js",
+      "assets/scripts/components/daterangepicker-jquery.js",
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/components/username-autosuggestion.js",
+      "assets/scripts/components/sort.js",
+      "assets/scripts/reward/reward-payment.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/reward/reward-detail.js",
+    "inputFiles": [
+      "assets/scripts/core.js",
+      "assets/scripts/components/filter.js",
+      "assets/scripts/components/daterangepicker-jquery.js",
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/components/username-autosuggestion.js",
+      "assets/scripts/components/visible-columns-dropdown-new.js",
+      "assets/scripts/components/sort.js",
+      "assets/scripts/components/pager.js",
+      "assets/scripts/components/copy-html.js",
+      "assets/scripts/reward/reward-detail.js"
+    ]
+  },
+  /************************** Dark Mode ************************/
+  {
+    "outputFileName": "assets/bundles/default-dark.css",
+    "inputFiles": [
+      "assets/styles/site-dark.css"
+    ]
+  },
 
-    {
-        "outputFileName": "assets/bundles/transfer-hint-dark.css",
-        "inputFiles": [
-            "assets/styles/transfer-hint-dark.css"
-        ]
-    },
+  {
+    "outputFileName": "assets/bundles/transfer-hint-dark.css",
+    "inputFiles": [
+      "assets/styles/transfer-hint-dark.css"
+    ]
+  },
 
-    {
-        "outputFileName": "assets/bundles/cash-balance-transfer-dark.css",
-        "inputFiles": [
-            "assets/styles/cash-balance-transfer-dark.css"
-        ]
-    },
+  {
+    "outputFileName": "assets/bundles/cash-balance-transfer-dark.css",
+    "inputFiles": [
+      "assets/styles/cash-balance-transfer-dark.css"
+    ]
+  },
 
-    {
-        "outputFileName": "assets/bundles/transfer-to-downline-history/index-dark.css",
-        "inputFiles": [
-            "assets/styles/transfer-to-downline-history/index-dark.css"
-        ]
-    },
+  {
+    "outputFileName": "assets/bundles/transfer-to-downline-history/index-dark.css",
+    "inputFiles": [
+      "assets/styles/transfer-to-downline-history/index-dark.css"
+    ]
+  },
 
-    {
-        "outputFileName": "assets/bundles/transfer-all-clear-credit-dark.css",
-        "inputFiles": [
-            "assets/styles/transfer-all-clear-credit-dark.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/monitoring-dark.css",
-        "inputFiles": [
-            "assets/styles/refresh-countdown-dark.css",
-            "assets/styles/auto-transfer/monitoring-dark.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/update-schedule-dark.css",
-        "inputFiles": [
-            "assets/styles/auto-transfer/update-schedule-dark.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/update-multiple-dark.css",
-        "inputFiles": [
-            "assets/styles/auto-transfer/update-multiple-dark.css"
-        ]
-    },
-    {
-        "outputFileName": "assets/bundles/auto-transfer/update-single-dark.css",
-        "inputFiles": [
-            "assets/styles/auto-transfer/update-single-dark.css"
-        ]
-    }
+  {
+    "outputFileName": "assets/bundles/transfer-all-clear-credit-dark.css",
+    "inputFiles": [
+      "assets/styles/transfer-all-clear-credit-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/monitoring-dark.css",
+    "inputFiles": [
+      "assets/styles/refresh-countdown-dark.css",
+      "assets/styles/auto-transfer/monitoring-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/update-schedule-dark.css",
+    "inputFiles": [
+      "assets/styles/auto-transfer/update-schedule-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/update-multiple-dark.css",
+    "inputFiles": [
+      "assets/styles/auto-transfer/update-multiple-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/auto-transfer/update-single-dark.css",
+    "inputFiles": [
+      "assets/styles/auto-transfer/update-single-dark.css"
+    ]
+  }
 ]

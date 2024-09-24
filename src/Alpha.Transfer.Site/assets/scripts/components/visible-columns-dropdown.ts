@@ -44,16 +44,15 @@ class VisibleColumnDropdownComponent {
                 ddlColumnOptions.each((_, c) => {
                     var v = this.$(c).val();
                     this.visibleStatus[v] = false;
-                    options.onChange(v, false);
                 });
 
                 var selecteds = ddlColumn.find('option:selected');
                 selecteds.each((_, c) => {
                     var v = this.$(c).val();
                     this.visibleStatus[v] = true;
-                    options.onChange(v, true);
                 });
 
+                options.onChange(this.visibleStatus);
                 this.updateStatus(options);
             },
             onSelectAll: (checked) => { },

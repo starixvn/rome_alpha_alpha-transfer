@@ -76,6 +76,7 @@
         line-height: 28px;
     }
 }
+
 .dropdown {
     display: inline-block;
 
@@ -86,7 +87,7 @@
     }
 
     .dropdown-menu {
-        min-width: 83px;
+        margin-top: 3px;
     }
 
     .dropdown-toggle {

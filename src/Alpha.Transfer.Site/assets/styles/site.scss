@@ -349,6 +349,12 @@ a.transfer-link {
 }
 
 .dropdown-menu {
+    li {
+        &:hover a{
+            background-color: #ddd!important;
+        }
+    }
+
     .active {
         a {
             background-color: #ddd;

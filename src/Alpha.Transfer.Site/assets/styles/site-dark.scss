@@ -371,6 +371,12 @@ a.transfer-link {
 }
 
 .dropdown-menu {
+    li {
+        &:hover a {
+            background-color: #3c3c3c !important;
+        }
+    }
+
     .active {
         a {
             background-color: #3c3c3c;

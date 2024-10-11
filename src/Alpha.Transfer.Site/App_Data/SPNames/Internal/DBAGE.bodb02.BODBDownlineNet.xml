@@ -3,6 +3,8 @@
   <Function Name="Base Functions">
     <Setting Key="Age_SelBalanceUpDay" SpName="Age_SelBalanceUpDay" DbName="DBAGE.bodb02.wsv_alpv" Plain="0" />
     <Setting Key="Age_CustomerSelUserSearch" SpName="Age_CustomerSelUserSearch" DbName="DBAGE.bodb02.wsv_alpv" />
+    <Setting Key="Acc_CustomerUpdUserSearch" SpName="Acc_CustomerUpdUserSearch" DbName="DBAGE.bodb02.wsv_alpv" />
+    <Setting Key="Age_Rpt_GetCustomerInfo" SpName="Age_Rpt_GetCustomerInfo" DbName="DBAGE.bodb02.wsv_alpv" />
   </Function>
   <Function Name="Check Belonging">
     <Setting Key="Age_CustomerSelCheckBelonging" SpName="Age_CustomerSelCheckBelonging" DbName="DBAGE.bodb02.wsv_alpv" Plain="0" />

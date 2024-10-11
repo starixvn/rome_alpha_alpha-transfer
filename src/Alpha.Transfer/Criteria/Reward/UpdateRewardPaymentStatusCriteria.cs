@@ -8,12 +8,14 @@
             string data,
             int creator,
             int subAccId,
+            string subAccName,
             string ip,
             string language)
         {
             Data = data;
             Creator = creator;
             SubAccId = subAccId;
+            SubAccName = subAccName;
             IP = ip;
             Language = language;
         }
@@ -23,6 +25,8 @@
         public int Creator { get; }
 
         public int SubAccId { get; }
+
+        public string SubAccName { get; }
 
         public string IP { get; }
 

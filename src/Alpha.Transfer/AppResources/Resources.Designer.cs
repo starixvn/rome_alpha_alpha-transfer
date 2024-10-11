@@ -115,6 +115,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Already Paid.
+        /// </summary>
+        public static string AlreadyPaid {
+            get {
+                return ResourceManager.GetString("AlreadyPaid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount.
         /// </summary>
         public static string Amount {
@@ -1038,6 +1047,24 @@ namespace Alpha.Transfer.AppResources {
         public static string MemberOutstanding {
             get {
                 return ResourceManager.GetString("MemberOutstanding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member Payment Status.
+        /// </summary>
+        public static string MemberPaymentStatus {
+            get {
+                return ResourceManager.GetString("MemberPaymentStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member Username.
+        /// </summary>
+        public static string MemberUsername {
+            get {
+                return ResourceManager.GetString("MemberUsername", resourceCulture);
             }
         }
         

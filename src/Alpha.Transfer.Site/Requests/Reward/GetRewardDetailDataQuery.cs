@@ -8,6 +8,9 @@ namespace Alpha.Transfer.Site.Requests.Reward
     {
         public GetRewardDetailDataQuery(IUser viewer) : base(viewer)
         {
+            IsInternal = viewer.IsInternal;
         }
+
+        public bool IsInternal { get; }
     }
 }

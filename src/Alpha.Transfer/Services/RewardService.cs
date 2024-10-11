@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Alpha.Transfer.AppResources;
 using Alpha.Transfer.Criteria.Reward;
 using Alpha.Transfer.Models;
 using Alpha.Transfer.Models.Reward;
@@ -77,7 +78,7 @@ namespace Alpha.Transfer.Services
 
                 if (result.IsFailed)
                 {
-                    errors.Add($"{cacheRefService.GetProgramName(item.ProgramId)} - {item.Username}: ${result.Message}");
+                    errors.Add($"{cacheRefService.GetProgramName(item.ProgramId)} - {item.Username}: {result.Message}");
                 }
             }
 
@@ -86,10 +87,20 @@ namespace Alpha.Transfer.Services
 
         private async Task<Result> UpdateRewardPaymentStatus(RewardPaymentStatus data, UpdateRewardPaymentStatusParam param)
         {
+            const int AlreadyPaidError = 101;
+            const string SqlDateFormat = "yyyy-MM-dd";
             var criteria = new UpdateRewardPaymentStatusCriteria(
-                JsonConvert.SerializeObject(data, Formatting.None),
+                JsonConvert.SerializeObject(new
+                {
+                    FromDate = param.FromDate.ToString(SqlDateFormat),
+                    ToDate = param.ToDate.ToString(SqlDateFormat),
+                    data.CustId,
+                    data.ProgramId,
+                    data.MaxTransId
+                }, Formatting.None),
                 param.ActorId,
                 param.SubAccId,
+                param.SubAccName,
                 param.IP,
                 param.Language);
             await repository.ExecuteAsync(criteria);
@@ -97,21 +108,25 @@ namespace Alpha.Transfer.Services
 
             if (result.IsSuccessful)
             {
-                //await LogRewardPaymentStatus();
+                await LogRewardPaymentStatus(criteria.PaymentLog);
+            }
+            else if (result.Code == AlreadyPaidError)
+            {
+                result.Message = Resources.AlreadyPaid;
             }
 
             return result;
         }
         
-        private async Task LogRewardPaymentStatus()
+        private Task LogRewardPaymentStatus(string paymentLog)
         {
             try
             {
-                await repository.ExecuteAsync(new RewardConfirmPaymentLogCriteria());
+                return repository.ExecuteAsync(new RewardConfirmPaymentLogCriteria(paymentLog));
             }
             catch (Exception ex)
             {
-                await ExceptionHandler.HandleAsync(ex);
+                return ExceptionHandler.HandleAsync(ex);
             }
         }
 

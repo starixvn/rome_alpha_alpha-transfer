@@ -5,8 +5,7 @@ interface VisibleColumnDropdownNewOption {
     onDropdownHidden?: Function,
     selectorId?: string,
     minWidth?: number,
-    localStorageKey?: string,
-    visibleColumns?: string
+    localStorageKey: string
 }
 
 class VisibleColumnDropdownNewComponent {
@@ -17,18 +16,18 @@ class VisibleColumnDropdownNewComponent {
         const dropdown = $(`#${options.selectorId || "dropdown-column"}`);
 
         const visibleColumnObject = {};
-        let visibleColumns = options.localStorageKey
-            ? alphaTransfer.localStorage.get(options.localStorageKey)
-            : options.visibleColumns;
-        if (visibleColumns) {
-            const visibleColumnArray = visibleColumns.split(",");
+        const visibleColumnValue = alphaTransfer.localStorage.get(options.localStorageKey);
+        if (typeof visibleColumnValue === "undefined") {
+            isCheckAll = true;
+        } else if (visibleColumnValue.length) {
+            const visibleColumnArray = visibleColumnValue.split(",");
             visibleColumnArray.forEach(function (item) {
                 visibleColumnObject[item] = true;
             });
             isCheckAll = options.listColumn.length === visibleColumnArray.length;
         } else {
             options.listColumn.forEach(function (item) {
-                if (item.checked !== false) {
+                if (item.checked) {
                     visibleColumnObject[item.value] = true;
                 }
             });

@@ -143,22 +143,19 @@ class RewardDetailView {
         this.sorter.tableSorter({ tableElement: $tblTransfer });
 
         this.showHideColumns($tblTransfer);
+    }
+
+    private showHideColumns($tblTransfer: JQuery, visibleColumn = undefined) {
+        visibleColumn = visibleColumn || this.visibleColumn.getColumns();
+        this.showHideGroupColumn($tblTransfer, visibleColumn, $tblTransfer.find('#groupMember'), ['3', '4', '5', '6'], 1);
+        this.showHideGroupColumn($tblTransfer, visibleColumn, $tblTransfer.find('#groupAgent'), ['7', '8', '9']);
+        this.showHideGroupColumn($tblTransfer, visibleColumn, $tblTransfer.find('#groupMaster'), ['10', '11', '12']);
 
         $tblTransfer.stickyTableHeaders('destroy');
         $tblTransfer.stickyTableHeaders();
     }
 
-    private showHideColumns($tblTransfer: JQuery, visibleColumn = undefined) {
-        visibleColumn = visibleColumn || this.visibleColumn.getColumns();
-        this.showHideSpecificColumn($tblTransfer, visibleColumn, '0');
-        this.showHideSpecificColumn($tblTransfer, visibleColumn, '1');
-        this.showHideGroupColumn($tblTransfer, visibleColumn, $tblTransfer.find('#groupMember'), ['2', '3', '4', '5', '6']);
-        this.showHideGroupColumn($tblTransfer, visibleColumn, $tblTransfer.find('#groupAgent'), ['7', '8', '9']);
-        this.showHideGroupColumn($tblTransfer, visibleColumn, $tblTransfer.find('#groupMaster'), ['10', '11', '12']);
-    }
-
-    private showHideGroupColumn($tblTransfer: JQuery, visibleColumn, $groupColumn: JQuery, columnIndexes: string[]) {
-        let colspan = 0;
+    private showHideGroupColumn($tblTransfer: JQuery, visibleColumn, $groupColumn: JQuery, columnIndexes: string[], colspan = 0) {
         columnIndexes.forEach((item) => {
             if (this.showHideSpecificColumn($tblTransfer, visibleColumn, item)) {
                 colspan++;

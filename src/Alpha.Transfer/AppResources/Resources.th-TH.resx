@@ -741,4 +741,13 @@
   <data name="Total" xml:space="preserve">
     <value>ยอดรวม</value>
   </data>
+  <data name="MemberPaymentStatus" xml:space="preserve">
+    <value>สถานะการชำระเงินของสมาชิก</value>
+  </data>
+  <data name="MemberUsername" xml:space="preserve">
+    <value>ชื่อผู้ใช้สมาชิก</value>
+  </data>
+  <data name="AlreadyPaid" xml:space="preserve">
+    <value>ชำระเงินแล้ว</value>
+  </data>
 </root>

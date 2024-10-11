@@ -225,7 +225,9 @@
     <Compile Include="Criteria\CashBalanceTransfer\AddCashBalanceTransferCriteria.cs" />
     <Compile Include="Criteria\CashBalanceTransfer\GetCashBalanceTransferCriteria.cs" />
     <Compile Include="Criteria\CheckMultipleCustomesBelongingCriteria.cs" />
+    <Compile Include="Criteria\Customer\GetCustomerLevelCriteria.cs" />
     <Compile Include="Criteria\Customer\GetUsernameSuggestionCriteria.cs" />
+    <Compile Include="Criteria\Customer\UpdateUserSearchCriteria.cs" />
     <Compile Include="Criteria\GetIsAllDayBalTransferCriteria.cs" />
     <Compile Include="Criteria\GetTransferOptionCriteria.cs" />
     <Compile Include="Criteria\MultipleTransfer\GetCustomerListCriteria.cs" />
@@ -252,6 +254,7 @@
     <Compile Include="Models\AutoTransfer\AutoTransferMonitoringModel.cs" />
     <Compile Include="Models\AutoTransfer\AutoTransferMonitoringPageModel.cs" />
     <Compile Include="Models\CashBalanceTransfer\CashBalanceTransfer.cs" />
+    <Compile Include="Models\Customer\CustomerLevel.cs" />
     <Compile Include="Models\Customer\UsernameSuggestion.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\IdNameModel.cs" />

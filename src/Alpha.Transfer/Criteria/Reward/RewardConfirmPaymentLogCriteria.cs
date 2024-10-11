@@ -4,12 +4,13 @@ namespace Alpha.Transfer.Criteria.Reward
 {
     internal class RewardConfirmPaymentLogCriteria : NonQueryCommand
     {
-        public RewardConfirmPaymentLogCriteria()
-        {
-        }
+        public RewardConfirmPaymentLogCriteria(string paymentLog)
+            => PaymentLog = paymentLog;
 
-        public override string GetSettingKey() => "";
+        public string PaymentLog { get; }
 
-        public override bool IsValid() => true;
+        public override string GetSettingKey() => "WriteLog_UserLog_RunSP_RewardPayment";
+
+        public override bool IsValid() => !string.IsNullOrWhiteSpace(PaymentLog);
     }
 }

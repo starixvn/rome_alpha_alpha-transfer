@@ -663,4 +663,13 @@
   <data name="Total" xml:space="preserve">
     <value>Tổng cộng</value>
   </data>
+  <data name="MemberPaymentStatus" xml:space="preserve">
+    <value>Trạng thái thanh toán của Member</value>
+  </data>
+  <data name="MemberUsername" xml:space="preserve">
+    <value>Tên đăng nhập Member</value>
+  </data>
+  <data name="AlreadyPaid" xml:space="preserve">
+    <value>Đã thanh toán trước đó</value>
+  </data>
 </root>

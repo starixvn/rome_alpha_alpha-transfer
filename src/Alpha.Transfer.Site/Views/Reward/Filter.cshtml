@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    var isRewardDetailTab = Model.ShowColumns;
 }
 @model Alpha.Transfer.Site.ViewModels.Reward.RewardFilterViewModel
 <div class="form-inline filter" id="transfer-form">
@@ -9,10 +10,10 @@
         <div>@Html.DropDownList("ddl-program", Model.Programs, new { data_label_search_text = Resources.SearchProgram })</div>
     </div>
     <div class="form-group">
-        <label class="label-form-control">@Resources.PaymentStatus</label>
+        <label class="label-form-control">@(isRewardDetailTab ? Resources.MemberPaymentStatus : Resources.PaymentStatus)</label>
         <div>@Html.DropDownList("ddl-paymentStatus", Model.PaymentStatus)</div>
     </div>
-    @UsernameAutoSuggestion.Render(Model.Username)
+    @UsernameAutoSuggestion.Render(Model.Username, isRewardDetailTab ? Resources.MemberUsername : Resources.Username)
     @if (Model.ShowColumns)
     {
         @VisibleColumnsDropdown.RenderNew()

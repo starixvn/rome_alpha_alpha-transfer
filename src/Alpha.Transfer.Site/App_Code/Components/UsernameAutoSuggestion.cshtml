@@ -1,9 +1,9 @@
 ﻿@using Alpha.Transfer.AppResources;
 
-@helper Render(string username)
+@helper Render(string username, string label = null)
 {
     <div class="form-group">
-        <label class="label-form-control">@Resources.Username</label>
+        <label class="label-form-control">@(label ?? Resources.Username)</label>
         <div>
             <input type="text" id="txt-username" placeholder="@Resources.UsernameOrFirstLastName" autocomplete="off" value="@username" />
         </div>

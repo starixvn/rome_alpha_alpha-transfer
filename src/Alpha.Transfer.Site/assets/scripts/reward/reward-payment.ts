@@ -142,10 +142,10 @@ class RewardPaymentView {
 
                 if (data.length) {
                     const confirmMsg = $('#hiddenUpdateRewardPaymentStatusConfirm').val();
-                    const formData = {
+                    const formData = $.extend({}, {
                         __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
                         data: data
-                    };
+                    }, this.dateRangePicker.getDateRangeValues());
 
                     if (window.top.bootboxConfirm) {
                         window.top.bootboxConfirm(
@@ -185,7 +185,14 @@ class RewardPaymentView {
 
             setTimeout(() => this.getRewardReport(), 2000);
             this.showUpdatePaymentStatusResult(result);
-        }, 'json').always($.unblockUI);
+        }, 'json')
+            .fail((jqXHR) => {
+                if (jqXHR.status === 500) {
+                    const mainRootPath = window.top.alpha ? window.top.alpha.urls.mainRootPath : '/site-main/'
+                    window.location.href = `${mainRootPath}error`;
+                }
+            })
+            .always($.unblockUI);
     }
 
     private showUpdatePaymentStatusResult(result) {
@@ -219,7 +226,7 @@ class RewardPaymentView {
                 ? $('#hiddenUpdateRewardPaymentStatusSuccessfully').val()
                 : $('#hiddenUpdateAllRewardPaymentStatusSuccessfully').val());
         }
-        
+
         modal.find('#modal-body-content').html(html.join(''));
         modal.modal({ backdrop: false });
     }

@@ -738,4 +738,13 @@
   <data name="Total" xml:space="preserve">
     <value>总和</value>
   </data>
+  <data name="MemberPaymentStatus" xml:space="preserve">
+    <value>会员付款状况</value>
+  </data>
+  <data name="MemberUsername" xml:space="preserve">
+    <value>会员用户名</value>
+  </data>
+  <data name="AlreadyPaid" xml:space="preserve">
+    <value>已支付</value>
+  </data>
 </root>

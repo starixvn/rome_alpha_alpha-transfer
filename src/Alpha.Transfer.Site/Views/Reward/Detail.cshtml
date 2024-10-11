@@ -11,9 +11,6 @@
 @section Scripts {
     <script type="text/javascript">
         var columnList = [
-            { value: "0", text: '@Resources.CreatedDate' },
-            { value: "1", text: '@Resources.Program' },
-            { value: "2", text: '@string.Format("{0} - {1}", Resources.Member, Resources.Username)' },
             { value: "3", text: '@string.Format("{0} - {1}", Resources.Member, Resources.Amount)' },
             { value: "4", text: '@string.Format("{0} - {1}", Resources.Member, Resources.PaymentStatus)' },
             { value: "5", text: '@string.Format("{0} - {1}", Resources.Member, Resources.PaymentDate)' },
@@ -28,7 +25,7 @@
             {
                 @:{ value: "10", text: '@string.Format("{0} - {1}", Resources.Master, Resources.Username)' },
                 @:{ value: "11", text: '@string.Format("{0} - {1}", Resources.Master, Resources.PaymentStatus)' },
-                @:{ value: "12", text: '@string.Format("{0} - {1}", Resources.Master, Resources.PaymentDate)' },
+                @:{ value: "12", text: '@string.Format("{0} - {1}", Resources.Master, Resources.PaymentDate)' }
             }
         ];
     </script>

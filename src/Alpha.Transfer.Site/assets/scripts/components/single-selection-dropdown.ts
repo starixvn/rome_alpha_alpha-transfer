@@ -8,7 +8,8 @@ class SingleSelectionDropdownOption {
         public dropdownId = "dropdown-single",
         public inputId = "UserSelectedId",
         public onChange: Function = null,
-        public enableFiltering = false) {
+        public enableFiltering = false,
+        public enableCaseInsensitiveFiltering = true) {
     }
 }
 
@@ -44,6 +45,7 @@ class SingleSelectionDropdownComponent {
             includeSelectAllOption: false,
             onChange: this.onchange,
             enableFiltering: this.options.enableFiltering,
+            enableCaseInsensitiveFiltering: this.options.enableCaseInsensitiveFiltering,
             filterPlaceholder: $dropdown.data("label-search-text"),
         });
     };

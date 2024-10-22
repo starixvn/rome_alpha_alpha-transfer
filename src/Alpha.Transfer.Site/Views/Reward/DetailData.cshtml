@@ -5,9 +5,9 @@
     var totalColumns = isSuper ? 13 : isMasterOrSuper ? 10 : 7;
 }
 @model Alpha.Transfer.Site.ViewModels.Reward.RewardDetailDataViewModel
-<table class="tblRpt tblRpt-bordered tablesorter tblRpt-hover tblRpt-striped width-100per" id="tbl-transfer" data-cansort="@Model.ReportData.MoreThanOne">
+<table class="tb tb-bordered tb-hover tb-freeze-header w-full" id="tbl-transfer" data-cansort="@Model.ReportData.MoreThanOne">
     <thead>
-        <tr>
+        <tr class="thead-row1">
             <th class="sorting" data-colindex="0" rowspan="2">@Resources.CreatedDate</th>
             <th class="sorting" data-colindex="1" rowspan="2">@Resources.Program</th>
             <th colspan="5" id="groupMember">@Resources.Member</th>

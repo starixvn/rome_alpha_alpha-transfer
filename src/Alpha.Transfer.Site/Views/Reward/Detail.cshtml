@@ -6,6 +6,8 @@
 @section Styles {
     @StaticResources.AssetStyles.RenderCommonWithDarkMode($"/bundles/site-reports/tab-{level}")
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-transfer/filter")
+    @StaticResources.AssetStyles.Render("/bundles-v2/common/common")
+    @StaticResources.AssetStyles.Render("/bundles-v2/site-transfer/reward")
     @StaticResources.RenderStyles("~/assets/bundles/reward/reward")
 }
 @section Scripts {
@@ -53,7 +55,7 @@
             <div></div>
             <div class="list-icon">
                 <ul>
-                    <li><span id="icon-copy" class="icon icon-content-copy" data-toggle="tooltip" data-placement="top" title="@Resources.Copy"></span></li>
+                    <li><span id="icon-copy" class="ic-copy" data-toggle="tooltip" data-placement="top" title="@Resources.Copy"></span></li>
                     <li>
                         <a href="@Url.Action("DetailExcel")" id="icon-excel" class="icon icon-excel icon-excel-new" data-toggle="tooltip" data-placement="top" title="@Resources.ExportToExcel"></a>
                     </li>

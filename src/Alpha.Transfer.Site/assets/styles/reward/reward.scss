@@ -98,7 +98,10 @@ $reward-payment-width: 860px;
         }
     }
 }
-
+.page-title{
+    margin-bottom: 12px;
+    padding: 0;
+}
 .filter {
     .multiselect-container {
         width: 100%;
@@ -106,6 +109,19 @@ $reward-payment-width: 860px;
 
     .column-multiselect-container .multiselect-container {
         width: auto;
+    }
+}
+.breadcrumb-table {
+    .ic-copy {
+        background: var(--filter-bg-ic);
+        width: 28px;
+        height: 28px;
+        display: block;
+        text-align: center;
+        border-radius: 3px;
+        padding: 2px;
+        cursor: pointer;
+        font-size: 24px;
     }
 }
 

@@ -98,10 +98,12 @@ $reward-payment-width: 860px;
         }
     }
 }
-.page-title{
+
+.page-title {
     margin-bottom: 12px;
     padding: 0;
 }
+
 .filter {
     .multiselect-container {
         width: 100%;
@@ -111,6 +113,7 @@ $reward-payment-width: 860px;
         width: auto;
     }
 }
+
 .breadcrumb-table {
     .ic-copy {
         background: var(--filter-bg-ic);

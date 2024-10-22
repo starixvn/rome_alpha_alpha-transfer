@@ -688,7 +688,7 @@
     <value>ไม่พบคอลัมน์</value>
   </data>
   <data name="RewardDetail" xml:space="preserve">
-    <value>รายละเอียดรางวัล</value>
+    <value>รายละเอียดเงินรางวัล</value>
   </data>
   <data name="RewardPayment" xml:space="preserve">
     <value>การจ่ายเงินรางวัล</value>

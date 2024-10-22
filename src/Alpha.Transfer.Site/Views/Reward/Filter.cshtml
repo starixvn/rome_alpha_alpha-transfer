@@ -13,7 +13,7 @@
         <label class="label-form-control">@(isRewardDetailTab ? Resources.MemberPaymentStatus : Resources.PaymentStatus)</label>
         <div>@Html.DropDownList("ddl-paymentStatus", Model.PaymentStatus)</div>
     </div>
-    @UsernameAutoSuggestion.Render(Model.Username, isRewardDetailTab ? Resources.MemberUsername : Resources.Username)
+    @UsernameAutoSuggestion.Render(Model.Username)
     @if (Model.ShowColumns)
     {
         @VisibleColumnsDropdown.RenderNew()

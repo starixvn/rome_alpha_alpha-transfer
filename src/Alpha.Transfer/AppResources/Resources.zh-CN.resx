@@ -685,10 +685,10 @@
     <value>无法找寻专栏</value>
   </data>
   <data name="RewardDetail" xml:space="preserve">
-    <value>奖励详情</value>
+    <value>奖金详情</value>
   </data>
   <data name="RewardPayment" xml:space="preserve">
-    <value>奖励支付</value>
+    <value>奖金支付</value>
   </data>
   <data name="UpdateAllRewardPaymentStatusSuccessfully" xml:space="preserve">
     <value>所有付款已成功确认。</value>

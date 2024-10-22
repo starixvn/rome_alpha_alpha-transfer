@@ -10,14 +10,12 @@
             <th class="sorting" data-colindex="2" data-sorttype="digit">@Resources.Amount</th>
             <th class="sorting" data-colindex="3">@Resources.PaymentDate</th>
             <th class="col-payment-status disabledsort" data-colindex="4">
-                <span class="first-name">
-                    @if (Model.Any)
-                    {
-                        <button type="button" class="btn-submit" id="btn-confirmPayment" disabled>@Resources.ConfirmPayment</button>
-                        <input type="checkbox" class="pull-left" id="chk-allPaymentStatus" />
-                    }
-                    <label for="chk-allPaymentStatus">@Resources.PaymentStatus</label>
-                </span>
+                @if (Model.Any)
+                {
+                    <button type="button" class="btn-submit" id="btn-confirmPayment" disabled>@Resources.ConfirmPayment</button>
+                    <input type="checkbox" class="pull-left" id="chk-allPaymentStatus" />
+                }
+                <label for="chk-allPaymentStatus">@Resources.PaymentStatus</label>
             </th>
         </tr>
     </thead>

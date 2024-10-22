@@ -136,6 +136,13 @@ $reward-payment-width: 860px;
         font-weight: normal;
     }
 
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        position: relative;
+        top: 0px;
+    }
+
     .col-payment-status {
         position: relative !important;
 

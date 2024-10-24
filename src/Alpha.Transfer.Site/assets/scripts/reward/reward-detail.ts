@@ -6,7 +6,7 @@ interface Window {
 class RewardDetailView {
     private filter: FilterComponent;
     private dateRangePicker: DateRangePickerJQueryComponent;
-    private programDropdown: SingleSelectionDropdownComponent;
+    private programDropdown: FanexMultiSelectComponent;
     private paymentStatusDropdown: SingleSelectionDropdownComponent;
     private usernameAutoSuggestion: UsernameAutoSuggestionComponent;
     private visibleColumn: VisibleColumnDropdownNewComponent;
@@ -18,7 +18,7 @@ class RewardDetailView {
     constructor(
         filter: FilterComponent,
         dateRangePicker: DateRangePickerJQueryComponent,
-        programDropdown: SingleSelectionDropdownComponent,
+        programDropdown: FanexMultiSelectComponent,
         paymentStatusDropdown: SingleSelectionDropdownComponent,
         usernameAutoSuggestion: UsernameAutoSuggestionComponent,
         visibleColumn: VisibleColumnDropdownNewComponent,
@@ -56,7 +56,7 @@ class RewardDetailView {
             language: top.$('#language').data('currentlanguage')
         });
 
-        this.programDropdown.render(new SingleSelectionDropdownOption('ddl-program', undefined, () => this.getRewardReport(), true));
+        this.programDropdown.render({ selectorId: 'ddl-program', showFilter: true, onDropdownHidden: () => this.getRewardReport() });
         this.paymentStatusDropdown.render(new SingleSelectionDropdownOption('ddl-paymentStatus', undefined, () => this.getRewardReport()));
 
         this.usernameAutoSuggestion.init({
@@ -90,7 +90,7 @@ class RewardDetailView {
         $.blockUI();
         const queryString = $.param(this.getSearchData(pageIndex, pageSize || this.pageSize));
         $.get(`GetDetail?${queryString}`, (html) => {
-            $('#tbl-transfer-container').html(html);
+            $('#tbl-transfer-container').empty().html(html);
             this.bindTableEvents();
             alphaTransfer.updateCurrentUrl(queryString);
         }).always($.unblockUI);
@@ -104,11 +104,14 @@ class RewardDetailView {
             searchData.username = username;
         }
 
-        const programId = this.programDropdown.getSelectedItem();
-        if (programId !== '0') {
-            searchData.programId = programId;
+        const programIds = this.programDropdown.getCheckedValues();
+        const isValidProgramIds = programIds.length > 0;
+        this.programDropdown.toogleError(!isValidProgramIds);
+        if (!isValidProgramIds) {
+            return;
         }
 
+        searchData.programIds = programIds;
         const paymentStatus = this.paymentStatusDropdown.getSelectedItem();
         if (paymentStatus !== '0') {
             searchData.paymentStatus = paymentStatus;
@@ -179,7 +182,7 @@ $(function () {
     new RewardDetailView(
         new FilterComponent(),
         new DateRangePickerJQueryComponent(),
-        new SingleSelectionDropdownComponent($),
+        new FanexMultiSelectComponent(),
         new SingleSelectionDropdownComponent($),
         new UsernameAutoSuggestionComponent(),
         new VisibleColumnDropdownNewComponent(),

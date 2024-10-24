@@ -12,7 +12,7 @@ namespace Alpha.Transfer.Criteria.Reward
             UserLevel custLevel,
             DateTime fromDate,
             DateTime toDate,
-            int? programId,
+            string programIds,
             bool? paymentStatus,
             string username)
         {
@@ -20,7 +20,7 @@ namespace Alpha.Transfer.Criteria.Reward
             CustLevel = custLevel;
             FromDate = fromDate;
             ToDate = toDate;
-            ProgramId = programId;
+            ProgramIds = programIds;
             PaymentStatus = paymentStatus;
             Username = username;
         }
@@ -34,12 +34,12 @@ namespace Alpha.Transfer.Criteria.Reward
 
         public DateTime ToDate { get; }
 
-        public int? ProgramId { get; }
+        public string ProgramIds { get; }
 
         public bool? PaymentStatus { get; }
 
         public string Username { get; }
 
-        public override bool IsValid() => CustId > 0 && FromDate <= ToDate;
+        public override bool IsValid() => CustId > 0 && FromDate <= ToDate && !string.IsNullOrWhiteSpace(ProgramIds);
     }
 }

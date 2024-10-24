@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using Alpha.Transfer.AppResources;
+using Alpha.Transfer.Extensions;
 using Alpha.Transfer.Models.Reward;
 using Alpha.Transfer.Site.Requests.Reward;
 using Alpha.Transfer.Site.ViewModels.Components;
@@ -14,7 +15,6 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
         public RewardFilterViewModel(
             RewardBaseQuery message,
             IEnumerable<RewardProgram> programs,
-            string excelAction = null,
             bool showColumns = false)
         {
             DateRangePicker = new DateRangePickerJQueryViewModel(
@@ -22,10 +22,9 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
                 message.ToDate,
                 message.MinDate,
                 SystemTime.Today.AddDays(1));
-            Programs = GetPrograms(programs, message.ProgramId);
+            Programs = GetPrograms(programs, message.ProgramIds);
             PaymentStatus = GetPaymentStatus(message.PaymentStatus);
             Username = message.Username;
-            ExcelAction = excelAction;
             ShowColumns = showColumns;
         }
 
@@ -37,20 +36,19 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
 
         public string Username { get; }
 
-        public string ExcelAction { get; }
-
         public bool ShowColumns { get; }
 
-        private static IEnumerable<SelectListItem> GetPrograms(IEnumerable<RewardProgram> programs, int? selectedProgramIds)
-            => new[]
-            {
-                new SelectListItem { Text = Resources.All, Value = "0", Selected = selectedProgramIds == null }
-            }.Concat(programs.Select(p => new SelectListItem
+        private static IEnumerable<SelectListItem> GetPrograms(IEnumerable<RewardProgram> programs, string selectedProgramIds)
+        {
+            var programIds = selectedProgramIds.ToListInt().ToList();
+
+            return programs.Select(p => new SelectListItem
             {
                 Text = p.Name,
                 Value = p.ResourceId.ToString(),
-                Selected = p.ResourceId == selectedProgramIds
-            }));
+                Selected = programIds.Contains(p.ResourceId)
+            });
+        }
 
         private static IEnumerable<SelectListItem> GetPaymentStatus(bool? selectedPaymentStatus)
             => new[]

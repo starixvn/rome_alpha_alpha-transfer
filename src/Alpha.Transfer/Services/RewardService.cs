@@ -55,7 +55,7 @@ namespace Alpha.Transfer.Services
                 param.CustLevel,
                 param.FromDate,
                 param.ToDate,
-                param.ProgramId,
+                param.ProgramIds,
                 param.PaymentStatus,
                 param.Username));
 
@@ -118,15 +118,15 @@ namespace Alpha.Transfer.Services
             return result;
         }
         
-        private Task LogRewardPaymentStatus(string paymentLog)
+        private async Task LogRewardPaymentStatus(string paymentLog)
         {
             try
             {
-                return repository.ExecuteAsync(new RewardConfirmPaymentLogCriteria(paymentLog));
+                await repository.ExecuteAsync(new RewardConfirmPaymentLogCriteria(paymentLog));
             }
             catch (Exception ex)
             {
-                return ExceptionHandler.HandleAsync(ex);
+                await ExceptionHandler.HandleAsync(ex);
             }
         }
 
@@ -137,7 +137,7 @@ namespace Alpha.Transfer.Services
                 param.CustLevel,
                 param.FromDate,
                 param.ToDate,
-                param.ProgramId,
+                param.ProgramIds,
                 param.PaymentStatus,
                 param.Username,
                 param.PageIndex,

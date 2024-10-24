@@ -13,7 +13,7 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
             RewardPayment reportData)
         {
             ActorLevel = message.ActorLevel;
-            Filter = new RewardFilterViewModel(message, programs, excelAction: "PaymentExcel");
+            Filter = new RewardFilterViewModel(message, programs);
             ReportData = reportData;
         }
 

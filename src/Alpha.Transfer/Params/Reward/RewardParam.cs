@@ -10,7 +10,7 @@ namespace Alpha.Transfer.Params.Reward
             UserLevel custLevel,
             DateTime fromDate,
             DateTime toDate,
-            int? programId,
+            string programIds,
             bool? paymentStatus,
             string username,
             int pageIndex = 0,
@@ -20,7 +20,7 @@ namespace Alpha.Transfer.Params.Reward
             CustLevel = custLevel;
             FromDate = fromDate;
             ToDate = toDate;
-            ProgramId = programId;
+            ProgramIds = programIds;
             PaymentStatus = paymentStatus;
             Username = username;
             PageIndex = pageIndex;
@@ -35,7 +35,7 @@ namespace Alpha.Transfer.Params.Reward
 
         public DateTime ToDate { get; }
 
-        public int? ProgramId { get; }
+        public string ProgramIds { get; }
 
         public bool? PaymentStatus { get; }
 

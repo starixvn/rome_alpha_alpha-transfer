@@ -7,7 +7,14 @@
     @DateRangePickerJQuery.Render(Model.DateRangePicker)
     <div class="form-group">
         <label class="label-form-control">@Resources.Program</label>
-        <div>@Html.DropDownList("ddl-program", Model.Programs, new { data_label_search_text = Resources.SearchProgram })</div>
+        <div>@Html.DropDownList("ddl-program", Model.Programs, new {
+            data_label_selectall = Resources.SelectAll,
+            data_label_selected = Resources.Selected,
+            data_label_noneselected = Resources.SelectNone,
+            data_label_all = Resources.All,
+            data_label_noitemfound = "No program found",
+            data_label_filterplaceholder = Resources.SearchProgram
+        })</div>
     </div>
     <div class="form-group">
         <label class="label-form-control">@(isRewardDetailTab ? Resources.MemberPaymentStatus : Resources.PaymentStatus)</label>
@@ -17,18 +24,6 @@
     @if (Model.ShowColumns)
     {
         @VisibleColumnsDropdown.RenderNew()
-    }
-    @if (!string.IsNullOrWhiteSpace(Model.ExcelAction))
-    {
-        <div class="form-group">
-            <label class="label-form-control">&nbsp;</label>
-            <a href="@Url.Action(Model.ExcelAction)"
-               id="icon-excel"
-               class="ic-excel"
-               data-toggle="tooltip"
-               data-placement="top"
-               title="@Resources.ExportToExcel"></a>
-        </div>
     }
 </div>
 <input type="hidden" id="hiddenUsernameAutoSuggestionUrl" value="@Url.Action("Get", "UsernameSuggestion")" />

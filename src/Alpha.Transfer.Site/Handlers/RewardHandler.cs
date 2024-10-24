@@ -37,11 +37,15 @@ namespace Alpha.Transfer.Site.Handlers
         #region Reward Payment
         public async Task<RewardPaymentViewModel> Handle(RewardPaymentQuery message)
         {
-            var programsTask = rewardService.GetRewardPrograms();
-            var reportDataTask = rewardService.GetRewardPayments(GetRewardParam(message));
-            await Task.WhenAll(programsTask, reportDataTask);
+            var programs = await rewardService.GetRewardPrograms();
+            if (string.IsNullOrWhiteSpace(message.ProgramIds))
+            {
+                message.ProgramIds = string.Join(",", programs.Select(p => p.ResourceId));
+            }
 
-            return new RewardPaymentViewModel(message, await programsTask, await reportDataTask);
+            var reportData = await rewardService.GetRewardPayments(GetRewardParam(message));
+
+            return new RewardPaymentViewModel(message, programs, reportData);
         }
 
         public Task<RewardPayment> Handle(GetRewardPaymentDataQuery message)
@@ -98,11 +102,15 @@ namespace Alpha.Transfer.Site.Handlers
         #region Reward Detail
         public async Task<RewardDetailViewModel> Handle(RewardDetailQuery message)
         {
-            var programsTask = rewardService.GetRewardPrograms();
-            var reportDataTask = rewardService.GetRewardDetails(GetRewardParam(message));
-            await Task.WhenAll(programsTask, reportDataTask);
+            var programs = await rewardService.GetRewardPrograms();
+            if (string.IsNullOrWhiteSpace(message.ProgramIds))
+            {
+                message.ProgramIds = string.Join(",", programs.Select(p => p.ResourceId));
+            }
 
-            return new RewardDetailViewModel(message, await programsTask, await reportDataTask);
+            var reportData = await rewardService.GetRewardDetails(GetRewardParam(message));
+
+            return new RewardDetailViewModel(message, programs, reportData);
         }
 
         public async Task<RewardDetailDataViewModel> Handle(GetRewardDetailDataQuery message)
@@ -144,7 +152,7 @@ namespace Alpha.Transfer.Site.Handlers
                 message.ActorLevel,
                 message.FromDate.GetGreaterDate(message.LimitedDateToShowInfo),
                 message.ToDate,
-                message.ProgramId,
+                message.ProgramIds,
                 message.PaymentStatus,
                 message.Username,
                 message.PageIndex,

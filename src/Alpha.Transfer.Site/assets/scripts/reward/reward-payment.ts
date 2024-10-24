@@ -3,7 +3,7 @@
 class RewardPaymentView {
     private filter: FilterComponent;
     private dateRangePicker: DateRangePickerJQueryComponent;
-    private programDropdown: SingleSelectionDropdownComponent;
+    private programDropdown: FanexMultiSelectComponent;
     private paymentStatusDropdown: SingleSelectionDropdownComponent;
     private usernameAutoSuggestion: UsernameAutoSuggestionComponent;
     private sorter: SortComponent;
@@ -12,7 +12,7 @@ class RewardPaymentView {
     constructor(
         filter: FilterComponent,
         dateRangePicker: DateRangePickerJQueryComponent,
-        programDropdown: SingleSelectionDropdownComponent,
+        programDropdown: FanexMultiSelectComponent,
         paymentStatusDropdown: SingleSelectionDropdownComponent,
         usernameAutoSuggestion: UsernameAutoSuggestionComponent,
         sorter: SortComponent) {
@@ -31,10 +31,14 @@ class RewardPaymentView {
         const $iconExcel = $('#icon-excel').tooltip();
         const excelUrl = $iconExcel.attr('href');
         $iconExcel.click(() => {
-            $iconExcel.attr('href', `${excelUrl}?${$.param(this.getSearchData())}`);
-            setTimeout(function () {
-                $iconExcel.attr('href', 'javascript:;');
-            }, 1000);
+            const searchData = this.getSearchData();
+
+            if (searchData) {
+                $iconExcel.attr('href', `${excelUrl}?${$.param(searchData)}`);
+                setTimeout(function () {
+                    $iconExcel.attr('href', 'javascript:;');
+                }, 1000);
+            }
         }).attr('href', 'javascript:;');
 
         this.bindTableEvents();
@@ -44,19 +48,7 @@ class RewardPaymentView {
     private initComponents() {
         this.filter.initShowHide({
             hideText: $('#hiddenHideFilterText').val(),
-            showText: $('#hiddenShowFilterText').val(),
-            callback: (isHideFilter) => {
-                const hasConfirmPayment = $('#btn-confirmPayment').length !== 0;
-                if (isHideFilter) {
-                    hasConfirmPayment
-                        ? this.tableContainer.css('margin-top', '40px')
-                        : this.tableContainer.css('margin-top', '0')
-                } else {
-                    hasConfirmPayment
-                        ? this.tableContainer.css('margin-top', '25px')
-                        : this.tableContainer.css('margin-top', '0')
-                }
-            }
+            showText: $('#hiddenShowFilterText').val()
         });
 
         this.dateRangePicker.render({
@@ -64,7 +56,7 @@ class RewardPaymentView {
             language: top.$('#language').data('currentlanguage')
         });
 
-        this.programDropdown.render(new SingleSelectionDropdownOption('ddl-program', undefined, () => this.getRewardReport(), true));
+        this.programDropdown.render({ selectorId: 'ddl-program', showFilter: true, onDropdownHidden: () => this.getRewardReport() });
         this.paymentStatusDropdown.render(new SingleSelectionDropdownOption('ddl-paymentStatus', undefined, () => this.getRewardReport()));
 
         this.usernameAutoSuggestion.init({
@@ -75,13 +67,17 @@ class RewardPaymentView {
     }
 
     private getRewardReport() {
-        $.blockUI();
-        const queryString = $.param(this.getSearchData());
-        $.get(`GetPayment?${queryString}`, (html) => {
-            this.tableContainer.html(html);
-            this.bindTableEvents();
-            alphaTransfer.updateCurrentUrl(queryString);
-        }).always($.unblockUI);
+        const searchData = this.getSearchData();
+
+        if (searchData) {
+            $.blockUI();
+            const queryString = $.param(searchData);
+            $.get(`GetPayment?${queryString}`, (html) => {
+                this.tableContainer.empty().html(html);
+                this.bindTableEvents();
+                alphaTransfer.updateCurrentUrl(queryString);
+            }).always($.unblockUI);
+        }
     }
 
     private getSearchData() {
@@ -92,11 +88,14 @@ class RewardPaymentView {
             searchData.username = username;
         }
 
-        const programId = this.programDropdown.getSelectedItem();
-        if (programId !== '0') {
-            searchData.programId = programId;
+        const programIds = this.programDropdown.getCheckedValues();
+        const isValidProgramIds = programIds.length > 0;
+        this.programDropdown.toogleError(!isValidProgramIds);
+        if (!isValidProgramIds) {
+            return;
         }
 
+        searchData.programIds = programIds;
         const paymentStatus = this.paymentStatusDropdown.getSelectedItem();
         if (paymentStatus !== '0') {
             searchData.paymentStatus = paymentStatus;
@@ -107,21 +106,19 @@ class RewardPaymentView {
 
     private bindTableEvents() {
         const $chkAllPaymentStatus = $('#chk-allPaymentStatus');
-        const $checkboxPaymentStatus = $('.checkbox-payment-status');
+        const $checkboxUnpaid = $('.checkbox-unpaid');
         const $btnConfirmPayment = $('#btn-confirmPayment');
 
-        if ($checkboxPaymentStatus.length) {
-            this.tableContainer.css('margin-top', '25px');
-
+        if ($checkboxUnpaid.length) {
             $chkAllPaymentStatus.off().change(function () {
                 const checked = this.checked;
-                $checkboxPaymentStatus.prop('checked', checked);
+                $checkboxUnpaid.prop('checked', checked);
                 $btnConfirmPayment.prop('disabled', !checked)
             });
 
-            $checkboxPaymentStatus.off().change(function () {
-                const allCheckboxesLength = $checkboxPaymentStatus.length;
-                const checkedCheckboxesLength = $checkboxPaymentStatus.filter(':checked').length;
+            $checkboxUnpaid.off().change(function () {
+                const allCheckboxesLength = $checkboxUnpaid.length;
+                const checkedCheckboxesLength = $checkboxUnpaid.filter(':checked').length;
                 const isSelectAll = checkedCheckboxesLength > 0 && checkedCheckboxesLength === allCheckboxesLength;
                 const isIndeterminate = !isSelectAll && checkedCheckboxesLength > 0;
                 $chkAllPaymentStatus.prop({
@@ -133,40 +130,50 @@ class RewardPaymentView {
 
             $btnConfirmPayment.off().click(() => {
                 const data = [];
-                $checkboxPaymentStatus.filter(':checked').each(function () {
-                    const array = $(this).attr('id').split('-');
+                $checkboxUnpaid.filter(':checked').each(function () {
+                    const array = $(this).data('unpaid').split('-');
                     if (array.length === 4) {
                         data.push({ custId: array[0], username: array[1], programId: array[2], maxTransId: array[3] })
                     }
                 });
 
-                if (data.length) {
-                    const confirmMsg = $('#hiddenUpdateRewardPaymentStatusConfirm').val();
-                    const formData = $.extend({}, {
-                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
-                        data: data
-                    }, this.dateRangePicker.getDateRangeValues());
+                data.length && this.confirmAndHandleUpdatePaymentStatus(data);
+            });
 
-                    if (window.top.bootboxConfirm) {
-                        window.top.bootboxConfirm(
-                            confirmMsg,
-                            undefined,
-                            () => this.handleUpdatePaymentStatus(formData));
-                    } else if (confirm(confirmMsg)) {
-                        this.handleUpdatePaymentStatus(formData);
-                    }
+            $('.btn-unpaid').off().click((e) => {
+                const $this = $(e.target);
+                const array = $this.data('unpaid').split('-');
+                if (array.length === 4) {
+                    const unpaidData = { custId: array[0], username: array[1], programId: array[2], maxTransId: array[3] }
+                    this.confirmAndHandleUpdatePaymentStatus([unpaidData]);
                 }
             });
         } else {
-            this.tableContainer.css('margin-top', '0')
-            $chkAllPaymentStatus.remove();
-            $btnConfirmPayment.remove();
+            $chkAllPaymentStatus.prop('disabled', true);
+            $btnConfirmPayment.prop('disabled', true);
         }
 
         const $tblTransfer = $('#tbl-transfer');
         this.sorter.tableSorter({ tableElement: $tblTransfer })
         $tblTransfer.stickyTableHeaders('destroy');
         $tblTransfer.stickyTableHeaders();
+    }
+
+    private confirmAndHandleUpdatePaymentStatus(data) {
+        const confirmMsg = $('#hiddenUpdateRewardPaymentStatusConfirm').val();
+        const formData = $.extend({}, {
+            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+            data: data
+        }, this.dateRangePicker.getDateRangeValues());
+
+        if (window.top.bootboxConfirm) {
+            window.top.bootboxConfirm(
+                confirmMsg,
+                undefined,
+                () => this.handleUpdatePaymentStatus(formData));
+        } else if (confirm(confirmMsg)) {
+            this.handleUpdatePaymentStatus(formData);
+        }
     }
 
     private handleUpdatePaymentStatus(formData) {
@@ -236,7 +243,7 @@ $(function () {
     new RewardPaymentView(
         new FilterComponent(),
         new DateRangePickerJQueryComponent(),
-        new SingleSelectionDropdownComponent($),
+        new FanexMultiSelectComponent(),
         new SingleSelectionDropdownComponent($),
         new UsernameAutoSuggestionComponent(),
         new SortComponent()).init();

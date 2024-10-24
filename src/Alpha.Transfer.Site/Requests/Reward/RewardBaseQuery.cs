@@ -18,7 +18,7 @@ namespace Alpha.Transfer.Site.Requests.Reward
 
         public DateTime ToDate { get; set; } = SystemTime.Today;
 
-        public int? ProgramId { get; set; }
+        public string ProgramIds { get; set; }
 
         public bool? PaymentStatus { get; set; }
 

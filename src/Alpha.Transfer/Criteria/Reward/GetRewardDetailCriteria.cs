@@ -10,11 +10,11 @@ namespace Alpha.Transfer.Criteria.Reward
             UserLevel custLevel,
             DateTime fromDate,
             DateTime toDate,
-            int? programId,
+            string programIds,
             bool? paymentStatus,
             string username,
             int pageIndex, 
-            int pageSize) : base(custId, custLevel, fromDate, toDate, programId, paymentStatus, username)
+            int pageSize) : base(custId, custLevel, fromDate, toDate, programIds, paymentStatus, username)
         {
             PageIndex = pageIndex;
             PageSize = pageSize;

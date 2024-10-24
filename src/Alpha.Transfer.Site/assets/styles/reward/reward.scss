@@ -114,6 +114,17 @@ $reward-payment-width: 860px;
     }
 }
 
+.reward-payment {
+    max-width: $reward-payment-width;
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        position: relative;
+        top: 0px;
+    }
+}
+
 .breadcrumb-table {
     .ic-copy {
         background: var(--filter-bg-ic);
@@ -125,37 +136,6 @@ $reward-payment-width: 860px;
         padding: 2px;
         cursor: pointer;
         font-size: 24px;
-    }
-}
-
-.tbl-reward-payment {
-    max-width: $reward-payment-width;
-
-    label {
-        margin-bottom: 0;
-    }
-
-    tbody label {
-        font-weight: normal;
-    }
-
-    input[type="checkbox"] {
-        width: 18px;
-        height: 18px;
-        position: relative;
-        top: 0px;
-    }
-
-    .col-payment-status {
-        position: relative !important;
-
-        .btn-submit {
-            margin: 0;
-            position: absolute;
-            top: -31px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
     }
 }
 

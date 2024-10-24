@@ -359,7 +359,9 @@
     <Content Include="App_Data\SPNames\Internal\DBSIC.bodb02.wsv_alpv.xml" />
     <Content Include="App_Data\SPNames\Internal\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\SiteDB.BODB02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Local\DBLOG.bodb_CustomerLog.wsv_alp.xml" />
+    <Content Include="App_Data\SPNames\Local\DBLOG.bodb_CustomerLog.wsv_alp.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\SPNames\Local\DBSIC.bodb02.wsv_alp.xml" />
     <Content Include="App_Data\SPNames\Local\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBAGE.bodb02.BODBDownlineNet.xml">
@@ -524,6 +526,7 @@
     <Content Include="assets\bundles\transfer-to-downline-history\index.min.js.map">
       <DependentUpon>index.min.js</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="assets\scripts\components\fanexMultiSelect-dropdown.ts" />
     <Content Include="assets\scripts\tests\libs\autocomplete.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\datetimepicker.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />

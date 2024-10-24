@@ -10,9 +10,9 @@ namespace Alpha.Transfer.Criteria.Reward
             UserLevel custLevel,
             DateTime fromDate,
             DateTime toDate,
-            int? programId,
+            string programIds,
             bool? paymentStatus,
-            string username) : base(custId, custLevel, fromDate, toDate, programId, paymentStatus, username)
+            string username) : base(custId, custLevel, fromDate, toDate, programIds, paymentStatus, username)
         {
         }
 

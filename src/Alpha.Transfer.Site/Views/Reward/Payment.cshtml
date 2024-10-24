@@ -3,8 +3,7 @@
     ViewBag.Title = Resources.RewardPayment;
     var level = Model.ActorLevel.DisplayName.ToLowerInvariant();
 }
-@section Styles {
-   
+@section Styles {   
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-transfer/filter")
     @StaticResources.AssetStyles.Render("/bundles-v2/common/common")
     @StaticResources.AssetStyles.Render("/bundles-v2/site-transfer/reward")
@@ -30,13 +29,13 @@
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="rewardPayment">
         @{ Html.RenderPartial("Filter", Model.Filter); }
-        <div class="breadcrumb-table reward-payment">
+        <div class="downline-table reward-payment">
             <div></div>
             <div class="list-icon">
                 <ul>
-                    <li><button type="button" class="btn-submit" id="btn-confirmPayment" disabled>@Resources.ConfirmPayment</button></li>
+                    <li><button type="button" class="button-apply" id="btn-confirmPayment" disabled>@Resources.ConfirmPayment</button></li>
                     <li>
-                        <a href="@Url.Action("PaymentExcel")" id="icon-excel" class="icon icon-excel icon-excel-new" data-toggle="tooltip" data-placement="top" title="@Resources.ExportToExcel"></a>
+                        <a href="@Url.Action("PaymentExcel")" id="icon-excel" class="ic-excel" data-toggle="tooltip" data-placement="top" title="@Resources.ExportToExcel"></a>
                     </li>
                 </ul>
             </div>

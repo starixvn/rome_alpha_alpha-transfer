@@ -2,7 +2,7 @@
     Layout = null;
 }
 @model Alpha.Transfer.Models.Reward.RewardPayment
-<table class="tb tb-bordered tb-hover tb-freeze-header w-full reward-payment" id="tbl-transfer" data-cansort="@Model.MoreThanOne">
+<table class="tb tb-bordered tb-alternative tb-hover tb-freeze-header w-full reward-payment" id="tbl-transfer" data-cansort="@Model.MoreThanOne">
     <thead>
         <tr>
             <th class="sorting" data-colindex="0">@Resources.Program</th>
@@ -42,7 +42,7 @@
                         }
                         else
                         {
-                            <button type="button" class="btn-unpaid" data-unpaid="@item.CustId-@item.Username-@item.ProgramId-@item.MaxTransId">@Resources.Unpaid</button>
+                            <button type="button" class="button-unpaid" data-unpaid="@item.CustId-@item.Username-@item.ProgramId-@item.MaxTransId">@Resources.Unpaid</button>
                         }
                     </td>
                 </tr>

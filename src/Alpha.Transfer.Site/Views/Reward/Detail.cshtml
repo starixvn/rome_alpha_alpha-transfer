@@ -3,8 +3,7 @@
     ViewBag.Title = Resources.RewardDetail;
     var level = Model.ActorLevel.DisplayName.ToLowerInvariant();
 }
-@section Styles {
-    
+@section Styles {    
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-transfer/filter")
     @StaticResources.AssetStyles.Render("/bundles-v2/common/common")
     @StaticResources.AssetStyles.Render("/bundles-v2/site-transfer/reward")

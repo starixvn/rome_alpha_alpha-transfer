@@ -4,7 +4,7 @@
     var level = Model.ActorLevel.DisplayName.ToLowerInvariant();
 }
 @section Styles {
-    @StaticResources.AssetStyles.RenderCommonWithDarkMode($"/bundles/site-reports/tab-{level}")
+   
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-transfer/filter")
     @StaticResources.AssetStyles.Render("/bundles-v2/common/common")
     @StaticResources.AssetStyles.Render("/bundles-v2/site-transfer/reward")
@@ -14,7 +14,7 @@
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/filter")
     @StaticResources.RenderScripts("~/assets/bundles/reward/reward-payment")
 }
-<div class="page-title tabs">
+<div class="page-title tabs @level">
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active">
             <a href="#rewardPayment" aria-controls="home" role="tab" data-toggle="tab">@Resources.RewardPayment</a>
@@ -30,6 +30,18 @@
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="rewardPayment">
         @{ Html.RenderPartial("Filter", Model.Filter); }
+        <div class="downline-table @level">
+            <div class="list-downline">
+            </div>
+            <div class="list-icon">
+                <ul>
+                    <li><button type="button" class="btn-submit" id="btn-confirmPayment" disabled>@Resources.ConfirmPayment</button></li>
+                    <li>
+                        <a href="@Url.Action("DetailExcel")" id="icon-excel" class="ic-excel" data-toggle="tooltip" data-placement="top" title="@Resources.ExportToExcel"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div id="tbl-transfer-container">@{ Html.RenderPartial("PaymentData", Model.ReportData); }</div>
     </div>
 </div>

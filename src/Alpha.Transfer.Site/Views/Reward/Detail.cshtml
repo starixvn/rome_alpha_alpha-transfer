@@ -4,7 +4,7 @@
     var level = Model.ActorLevel.DisplayName.ToLowerInvariant();
 }
 @section Styles {
-    @StaticResources.AssetStyles.RenderCommonWithDarkMode($"/bundles/site-reports/tab-{level}")
+    
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-transfer/filter")
     @StaticResources.AssetStyles.Render("/bundles-v2/common/common")
     @StaticResources.AssetStyles.Render("/bundles-v2/site-transfer/reward")
@@ -35,7 +35,7 @@
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/pagination")
     @StaticResources.RenderScripts("~/assets/bundles/reward/reward-detail")
 }
-<div class="page-title tabs">
+<div class="page-title tabs @level">
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation">
             @Html.ActionLink(Resources.RewardPayment, "Payment", "Reward")
@@ -51,13 +51,14 @@
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="rewardDetail" style="visibility: hidden">
         @{ Html.RenderPartial("Filter", Model.Filter); }
-        <div class="breadcrumb-table @level">
-            <div></div>
+        <div class="downline-table @level">
+            <div class="list-downline">                
+            </div>
             <div class="list-icon">
                 <ul>
                     <li><span id="icon-copy" class="ic-copy" data-toggle="tooltip" data-placement="top" title="@Resources.Copy"></span></li>
                     <li>
-                        <a href="@Url.Action("DetailExcel")" id="icon-excel" class="icon icon-excel icon-excel-new" data-toggle="tooltip" data-placement="top" title="@Resources.ExportToExcel"></a>
+                        <a href="@Url.Action("DetailExcel")" id="icon-excel" class="ic-excel" data-toggle="tooltip" data-placement="top" title="@Resources.ExportToExcel"></a>
                     </li>
                 </ul>
             </div>

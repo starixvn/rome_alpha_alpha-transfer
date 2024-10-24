@@ -2,18 +2,24 @@
     Layout = null;
 }
 @model Alpha.Transfer.Models.Reward.RewardPayment
-<table class="tbl-reward-payment tb tb-bordered tb-hover tb-freeze-header w-full" id="tbl-transfer" data-cansort="@Model.MoreThanOne">
+<table class="tbl-reward-payment tb tb-bordered tb-alternative tb-hover tb-freeze-header w-full" id="tbl-transfer" data-cansort="@Model.MoreThanOne">
     <thead>
         <tr>
             <th class="sorting" data-colindex="0">@Resources.Program</th>
             <th class="sorting" data-colindex="1">@Resources.Username</th>
             <th class="sorting" data-colindex="2" data-sorttype="digit">@Resources.Amount</th>
             <th class="sorting" data-colindex="3">@Resources.PaymentDate</th>
+            <th class="sorting" data-colindex="4">
+                 @if (Model.Any)
+                 {                    
+                    <input type="checkbox"    id="chk-allPaymentStatus" />
+                 }
+            </th>
             <th class="col-payment-status disabledsort" data-colindex="4">
                 @if (Model.Any)
                 {
                     <button type="button" class="btn-submit" id="btn-confirmPayment" disabled>@Resources.ConfirmPayment</button>
-                    <input type="checkbox" class="pull-left" id="chk-allPaymentStatus" />
+                   
                 }
                 <label for="chk-allPaymentStatus">@Resources.PaymentStatus</label>
             </th>
@@ -25,36 +31,42 @@
             @foreach (var item in Model.RewardPayments)
             {
                 var paymentDateHasValue = item.PaymentDate.HasValue;
-                <tr>
-                    <td>@item.ProgramName</td>
-                    <td>@item.Username</td>
-                    <td class="text-right">@HtmlHelpers.FormatNumber(item.Amount)</td>
-                    <td class="text-center" data-sortedvalue="@(paymentDateHasValue ? item.PaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
-                        @if (paymentDateHasValue)
-                        {
-                            @:@item.PaymentDate.Value.ToShortDateWithSlash()
-                        }
-                    </td>
-                    <td class="text-center">
-                        @if (item.PaymentStatus)
-                        {
-                            @:@Resources.Paid
-                        }
-                        else
-                        {
-                            var id = $"{item.CustId}-{item.Username}-{item.ProgramId}-{item.MaxTransId}";
-                            <input type="checkbox" class="checkbox-payment-status pull-left" id="@id" />
-                            <label for="@id">@Resources.Unpaid</label>
-                        }
-                    </td>
-                </tr>
+            <tr>
+                <td>@item.ProgramName</td>
+                <td>@item.Username</td>
+                <td class="text-right">@HtmlHelpers.FormatNumber(item.Amount)</td>
+                <td class="text-center" data-sortedvalue="@(paymentDateHasValue ? item.PaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
+                    @if (paymentDateHasValue)
+                    {
+                        @:@item.PaymentDate.Value.ToShortDateWithSlash()
+                    }
+                </td>
+                <td class="text-center">
+                    @if (!item.PaymentStatus)
+                    {
+                        var id = $"{item.CustId}-{item.Username}-{item.ProgramId}-{item.MaxTransId}";
+                        <input type="checkbox" class="checkbox-payment-status" id="@id" />
+                    }                    
+                </td>
+                <td class="text-center">
+                    @if (item.PaymentStatus)
+                    {
+                        @:@Resources.Paid
+                    }
+                    else
+                    {
+                        var id = $"{item.CustId}-{item.Username}-{item.ProgramId}-{item.MaxTransId}";                      
+                        <label for="@id">@Resources.Unpaid</label>
+                    }
+                </td>
+            </tr>
             }
         </tbody>
         <tfoot>
             <tr class="tbl-footer">
                 <td class="text-right" colspan="2">@Resources.Total</td>
                 <td class="text-right">@HtmlHelpers.FormatNumber(Model.Total.Amount)</td>
-                <td colspan="2"></td>
+                <td colspan="3"></td>
             </tr>
         </tfoot>
     }
@@ -62,7 +74,7 @@
     {
         <tbody>
             <tr>
-                <td colspan="5" class="text-center">@Resources.NoInformationIsAvailable</td>
+                <td colspan="6" class="text-center">@Resources.NoInformationIsAvailable</td>
             </tr>
         </tbody>
     }

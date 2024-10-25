@@ -24,6 +24,14 @@
     @if (Model.ShowColumns)
     {
         @VisibleColumnsDropdown.RenderNew()
+        <div class="form-group">
+            <label class="label-form-control">&nbsp;</label>
+            <div><span id="icon-copy" class="ic-copy" data-toggle="tooltip" data-placement="top" title="@Resources.Copy"></span></div>
+        </div>
+        <div class="form-group">
+            <label class="label-form-control">&nbsp;</label>
+            <div><a href="@Url.Action("DetailExcel")" id="icon-excel" class="ic-excel" data-toggle="tooltip" data-placement="top" title="@Resources.ExportToExcel"></a></div>
+        </div>
     }
 </div>
 <input type="hidden" id="hiddenUsernameAutoSuggestionUrl" value="@Url.Action("Get", "UsernameSuggestion")" />

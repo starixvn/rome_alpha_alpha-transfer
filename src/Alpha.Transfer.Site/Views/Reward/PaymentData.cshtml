@@ -10,7 +10,7 @@
             <th class="sorting" data-colindex="2" data-sorttype="digit">@Resources.Amount</th>
             <th class="sorting" data-colindex="3">@Resources.PaymentDate</th>
             <th class="disabledsort" data-colindex="4"><input type="checkbox" id="chk-allPaymentStatus" /></th>
-            <th class="sorting" data-colindex="5">@Resources.PaymentStatus</th>
+            <th class="sorting" data-colindex="5" data-sorttype="digit">@Resources.PaymentStatus</th>
         </tr>
     </thead>
     @if (Model.Any)
@@ -35,7 +35,7 @@
                             <input type="checkbox" class="checkbox-unpaid" data-unpaid="@item.CustId-@item.Username-@item.ProgramId-@item.MaxTransId" />
                         }
                     </td>
-                    <td class="text-center">
+                    <td class="text-center" data-sortedvalue="@(item.PaymentStatus ? "1" : "0")">
                         @if (item.PaymentStatus)
                         {
                             <span class="text-green">@Resources.Paid</span>

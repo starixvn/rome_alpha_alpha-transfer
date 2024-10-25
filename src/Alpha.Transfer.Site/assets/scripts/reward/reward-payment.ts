@@ -140,7 +140,7 @@ class RewardPaymentView {
                 data.length && this.confirmAndHandleUpdatePaymentStatus(data);
             });
 
-            $('.btn-unpaid').off().click((e) => {
+            $('.button-unpaid').off().click((e) => {
                 const $this = $(e.target);
                 const array = $this.data('unpaid').split('-');
                 if (array.length === 4) {

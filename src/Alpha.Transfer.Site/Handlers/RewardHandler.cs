@@ -117,7 +117,7 @@ namespace Alpha.Transfer.Site.Handlers
         {
             if (!string.IsNullOrWhiteSpace(message.Username) && !message.IsInternal)
             {
-                UpdateUserSearchInRewardDetailTab(message.Username, message.ViewerId);
+                UpdateUserSearchInRewardDetailTab(message.Username, message.ViewerId, message.ActorLevel);
             }
 
             var reportData = await rewardService.GetRewardDetails(GetRewardParam(message));
@@ -125,7 +125,7 @@ namespace Alpha.Transfer.Site.Handlers
             return new RewardDetailDataViewModel(message.ActorLevel, reportData);
         }
 
-        private void UpdateUserSearchInRewardDetailTab(string username, int viewerId)
+        private void UpdateUserSearchInRewardDetailTab(string username, int viewerId, UserLevel actorLevel)
         {
             Task.Run(async () =>
             {
@@ -133,9 +133,12 @@ namespace Alpha.Transfer.Site.Handlers
                 {
                     var custInfo = await customerService.GetCustomerLevel(username, viewerId);
 
-                    if (custInfo != null && custInfo.RoleId == UserLevel.Member.Value)
+                    if (custInfo != null)
                     {
-                        await customerService.UpdateUserSearch(viewerId, custInfo.Username, custInfo.FirstName, custInfo.LastName, custInfo.Username2);
+                        var nickname = actorLevel.IsDirectUplineOf(custInfo.RoleId)
+                            ? custInfo.Username2
+                            : string.Empty;
+                        await customerService.UpdateUserSearch(viewerId, custInfo.Username, custInfo.FirstName, custInfo.LastName, nickname);
                     }
                 }
                 catch (Exception ex)

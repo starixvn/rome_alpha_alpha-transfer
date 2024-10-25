@@ -79,21 +79,29 @@ class RewardDetailView {
         const $iconExcel = $('#icon-excel').tooltip();
         const excelUrl = $iconExcel.attr('href');
         $iconExcel.click(() => {
-            $iconExcel.attr('href', `${excelUrl}?${$.param(this.getSearchData())}`);
-            setTimeout(function () {
-                $iconExcel.attr('href', 'javascript:;');
-            }, 1000);
+            const searchData = this.getSearchData();
+
+            if (searchData) {
+                $iconExcel.attr('href', `${excelUrl}?${$.param(searchData)}`);
+                setTimeout(function () {
+                    $iconExcel.attr('href', 'javascript:;');
+                }, 1000);
+            }
         }).attr('href', 'javascript:;');
     }
 
     private getRewardReport(pageIndex: number = undefined, pageSize: number = undefined) {
-        $.blockUI();
-        const queryString = $.param(this.getSearchData(pageIndex, pageSize || this.pageSize));
-        $.get(`GetDetail?${queryString}`, (html) => {
-            $('#tbl-transfer-container').empty().html(html);
-            this.bindTableEvents();
-            alphaTransfer.updateCurrentUrl(queryString);
-        }).always($.unblockUI);
+        const searchData = this.getSearchData(pageIndex, pageSize || this.pageSize);
+
+        if (searchData) {
+            $.blockUI();
+            const queryString = $.param(searchData);
+            $.get(`GetDetail?${queryString}`, (html) => {
+                $('#tbl-transfer-container').empty().html(html);
+                this.bindTableEvents();
+                alphaTransfer.updateCurrentUrl(queryString);
+            }).always($.unblockUI);
+        }
     }
 
     private getSearchData(pageIndex: number = undefined, pageSize: number = undefined) {

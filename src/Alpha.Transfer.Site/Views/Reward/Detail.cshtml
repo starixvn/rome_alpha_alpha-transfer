@@ -50,18 +50,6 @@
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="rewardDetail" style="visibility: hidden">
         @{ Html.RenderPartial("Filter", Model.Filter); }
-        <div class="downline-table @level">
-            <div class="list-downline">                
-            </div>
-            <div class="list-icon">
-                <ul>
-                    <li><span id="icon-copy" class="ic-copy" data-toggle="tooltip" data-placement="top" title="@Resources.Copy"></span></li>
-                    <li>
-                        <a href="@Url.Action("DetailExcel")" id="icon-excel" class="ic-excel" data-toggle="tooltip" data-placement="top" title="@Resources.ExportToExcel"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="@level" id="tbl-transfer-container">
             @{ Html.RenderPartial("DetailData", Model); }
         </div>

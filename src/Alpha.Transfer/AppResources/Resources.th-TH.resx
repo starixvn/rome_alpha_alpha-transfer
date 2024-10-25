@@ -750,4 +750,7 @@
   <data name="AlreadyPaid" xml:space="preserve">
     <value>ชำระเงินแล้ว</value>
   </data>
+  <data name="NoProgramFound" xml:space="preserve">
+    <value>No program found</value>
+  </data>
 </root>

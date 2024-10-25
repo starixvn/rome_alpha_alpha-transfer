@@ -1141,6 +1141,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No program found.
+        /// </summary>
+        public static string NoProgramFound {
+            get {
+                return ResourceManager.GetString("NoProgramFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string NoRefresh {

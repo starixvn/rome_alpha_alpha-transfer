@@ -672,4 +672,7 @@
   <data name="AlreadyPaid" xml:space="preserve">
     <value>Đã thanh toán trước đó</value>
   </data>
+  <data name="NoProgramFound" xml:space="preserve">
+    <value>No program found</value>
+  </data>
 </root>

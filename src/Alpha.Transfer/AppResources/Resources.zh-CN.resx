@@ -747,4 +747,7 @@
   <data name="AlreadyPaid" xml:space="preserve">
     <value>已支付</value>
   </data>
+  <data name="NoProgramFound" xml:space="preserve">
+    <value>No program found</value>
+  </data>
 </root>

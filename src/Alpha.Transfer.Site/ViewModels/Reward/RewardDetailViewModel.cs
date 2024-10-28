@@ -11,7 +11,7 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
             IEnumerable<RewardProgram> programs,
             RewardDetail reportData) : base(message.ActorLevel, reportData)
         {
-            Filter = new RewardFilterViewModel(message, programs, showColumns: true);
+            Filter = new RewardFilterViewModel(message, programs, excelAction: "DetailExcel", showColumns: true);
             VisibleColumnKey = $"RewardDetail_{message.ViewerId}_{message.SubAccId}:Columns";
         }
 

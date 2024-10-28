@@ -15,6 +15,7 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
         public RewardFilterViewModel(
             RewardBaseQuery message,
             IEnumerable<RewardProgram> programs,
+            string excelAction,
             bool showColumns = false)
         {
             DateRangePicker = new DateRangePickerJQueryViewModel(
@@ -25,6 +26,7 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
             Programs = GetPrograms(programs, message.ProgramIds);
             PaymentStatus = GetPaymentStatus(message.PaymentStatus);
             Username = message.Username;
+            ExcelAction = excelAction;
             ShowColumns = showColumns;
         }
 
@@ -37,6 +39,8 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
         public string Username { get; }
 
         public bool ShowColumns { get; }
+
+        public string ExcelAction { get; }
 
         private static IEnumerable<SelectListItem> GetPrograms(IEnumerable<RewardProgram> programs, string selectedProgramIds)
         {

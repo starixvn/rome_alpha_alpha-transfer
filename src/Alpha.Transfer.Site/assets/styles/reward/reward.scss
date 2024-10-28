@@ -114,6 +114,11 @@ $reward-payment-width: 860px;
     }
 }
 
+.msg.msg-success {
+    margin-top: 0;
+    max-width: $reward-payment-width;
+}
+
 .reward-payment {
     max-width: $reward-payment-width;
 
@@ -125,7 +130,7 @@ $reward-payment-width: 860px;
         margin: 0;
     }
 
-    .button-unpaid{
+    .button-unpaid {
         height: 22px;
         line-height: 22px;
     }

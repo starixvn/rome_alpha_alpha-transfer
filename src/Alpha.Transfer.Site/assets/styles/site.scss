@@ -378,8 +378,12 @@ a.transfer-link {
     }
 }
 
-.text-red {
-    color: $red-color;
+.text-error {
+    color: $error-color;
+}
+
+.text-success {
+    color: $success-color;
 }
 
 @media only screen and (max-width: 768px) {

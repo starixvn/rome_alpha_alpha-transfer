@@ -203,39 +203,43 @@ class RewardPaymentView {
     }
 
     private showUpdatePaymentStatusResult(result) {
-        const modal = $('#modal-confirmPayment');
-        const contentShowMore = modal.find('#modal-body-showMore').hide();
-
-        const html = [];
-        const maxErrorDisplay = 5;
         const errorLength = result.Errors ? result.Errors.length : 0;
 
         if (errorLength) {
+            const $modal = $('#modal-confirmPayment');
+            const $contentShowMore = $modal.find('#modal-body-showMore').hide();
+            const html = [];
+            const maxErrorDisplay = 5;
+
             if (result.TotalRecords !== errorLength) {
-                html.push('<p>', $('#hiddenUpdateManyRewardPaymentStatusSuccessfully').val(), '</p>')
+                html.push('<p class="text-success">', $('#hiddenUpdateManyRewardPaymentStatusSuccessfully').val(), '</p>')
             }
 
             result.Errors.forEach(function (item, index) {
-                html.push('<p class="text-red"', index >= maxErrorDisplay ? ' style="display:none"' : '', '>', item, '</p>')
+                html.push('<p class="text-error"', index >= maxErrorDisplay ? ' style="display:none"' : '', '>', item, '</p>')
             });
 
             if (errorLength >= maxErrorDisplay) {
-                contentShowMore.show();
-                contentShowMore.find('#link-showMore')
+                $contentShowMore.show();
+                $contentShowMore.find('#link-showMore')
                     .off()
                     .click(function () {
-                        modal.find('#modal-body-content .text-red:hidden').show();
-                        contentShowMore.hide();
+                        $modal.find('#modal-body-content .text-error:hidden').show();
+                        $contentShowMore.hide();
                     });
             }
-        } else {
-            html.push(result.TotalRecords === 1
-                ? $('#hiddenUpdateRewardPaymentStatusSuccessfully').val()
-                : $('#hiddenUpdateAllRewardPaymentStatusSuccessfully').val());
-        }
 
-        modal.find('#modal-body-content').html(html.join(''));
-        modal.modal({ backdrop: false });
+            $modal.find('#modal-body-content').html(html.join(''));
+            $modal.modal({ backdrop: false });
+        } else {
+            const $msgSuccess = $('.msg.msg-success');
+            $msgSuccess
+                .html(result.TotalRecords === 1
+                    ? $('#hiddenUpdateRewardPaymentStatusSuccessfully').val()
+                    : $('#hiddenUpdateAllRewardPaymentStatusSuccessfully').val())
+                .show();
+            setTimeout(() => $msgSuccess.hide().empty(), 3000);
+        }
     }
 }
 

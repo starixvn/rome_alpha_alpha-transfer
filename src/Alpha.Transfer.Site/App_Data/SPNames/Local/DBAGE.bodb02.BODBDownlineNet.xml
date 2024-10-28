@@ -54,29 +54,29 @@
     </Setting>
   </Function>
   <Function Name="Reward">
-    <Setting Key="Age_Rpt_GetProgramList" SpName="Age_Rpt_GetProgramList" DbName="DBAGE.bodb02.wsv_alp" />
-    <Setting Key="Age_RewardPayment_Master" SpName="Age_RewardPayment_Master" DbName="DBAGE.bodb02.wsv_alp">
+    <Setting Key="Age_Rpt_GetProgramList" SpName="Age_Rpt_GetProgramList_xtest" DbName="DBAGE.bodb02.wsv_alp" />
+    <Setting Key="Age_RewardPayment_Master" SpName="Age_RewardPayment_Master_xtest" DbName="DBAGE.bodb02.wsv_alp">
       <Mapping DataField="Mrecommend" ObjectProperty="CustId" />
       <Mapping DataField="MasterUserName" ObjectProperty="Username" />
       <Mapping DataField="MasterAmount" ObjectProperty="Amount" />
       <Mapping DataField="MasterPaymentStatus" ObjectProperty="PaymentStatus" />
       <Mapping DataField="MasterPaymentDate" ObjectProperty="PaymentDate" />
     </Setting>
-    <Setting Key="Age_RewardPayment_Agent" SpName="Age_RewardPayment_Agent" DbName="DBAGE.bodb02.wsv_alp">
+    <Setting Key="Age_RewardPayment_Agent" SpName="Age_RewardPayment_Agent_xtest" DbName="DBAGE.bodb02.wsv_alp">
       <Mapping DataField="Recommend" ObjectProperty="CustId" />
       <Mapping DataField="AgentUserName" ObjectProperty="Username" />
       <Mapping DataField="AgentAmount" ObjectProperty="Amount" />
       <Mapping DataField="AgentPaymentStatus" ObjectProperty="PaymentStatus" />
       <Mapping DataField="AgentPaymentDate" ObjectProperty="PaymentDate" />
     </Setting>
-    <Setting Key="Age_RewardPayment_Member" SpName="Age_RewardPayment_Member" DbName="DBAGE.bodb02.wsv_alp">
+    <Setting Key="Age_RewardPayment_Member" SpName="Age_RewardPayment_Member_xtest" DbName="DBAGE.bodb02.wsv_alp">
       <Mapping DataField="MemberUserName" ObjectProperty="Username" />
       <Mapping DataField="MemberAmount" ObjectProperty="Amount" />
       <Mapping DataField="MemberPaymentStatus" ObjectProperty="PaymentStatus" />
       <Mapping DataField="MemberPaymentDate" ObjectProperty="PaymentDate" />
     </Setting>
-    <Setting Key="Age_Rpt_RewardDetail_Master" SpName="Age_Rpt_RewardDetail_Master" DbName="DBAGE.bodb02.wsv_alp" />
-    <Setting Key="Age_Rpt_RewardDetail_Agent" SpName="Age_Rpt_RewardDetail_Agent" DbName="DBAGE.bodb02.wsv_alp" />
-    <Setting Key="Age_Rpt_RewardDetail_Member" SpName="Age_Rpt_RewardDetail_Member" DbName="DBAGE.bodb02.wsv_alp" />
+    <Setting Key="Age_Rpt_RewardDetail_Master" SpName="Age_Rpt_RewardDetail_Master_xtest" DbName="DBAGE.bodb02.wsv_alp" />
+    <Setting Key="Age_Rpt_RewardDetail_Agent" SpName="Age_Rpt_RewardDetail_Agent_xtest" DbName="DBAGE.bodb02.wsv_alp" />
+    <Setting Key="Age_Rpt_RewardDetail_Member" SpName="Age_Rpt_RewardDetail_Member_xtest" DbName="DBAGE.bodb02.wsv_alp" />
   </Function>
 </Functions>

@@ -69,5 +69,28 @@
         public static bool EnableTransferLogInfo => GetConfigValue("EnableTransferLogInfo") == "1";
 
         public static string TransferLogCategory => GetConfigValue("TransferLogCategory");
+
+        public static bool SupportedNewHandbook
+        {
+            get
+            {
+                var marketsSupportedNewHandbook = GetConfigValue("MarketsSupportedNewHandbook");
+                if (string.IsNullOrWhiteSpace(marketsSupportedNewHandbook))
+                {
+                    return false;
+                }
+
+                if (string.Equals("*", marketsSupportedNewHandbook, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+
+                var label = GetConfigValue("SiteLabel");
+
+                return marketsSupportedNewHandbook
+                    .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Any(s => string.Equals(s, label, StringComparison.OrdinalIgnoreCase));
+            }
+        }
     }
 }

@@ -49,8 +49,19 @@ namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
                 new SelectListItem { Text = Resources.CompletedTime, Value = "7" },
             };
 
-        public string UserGuideLink => AppSettings.IsMBCSite
-            ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=184099")
-            : MicroSites.MessageUrl("~/StaticMessage/Guide?id=184099");
+        public string UserGuideLink
+        {
+            get
+            {
+                if (AppSettings.SupportedNewHandbook)
+                {
+                    return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug=auto-transfer");
+                }
+
+                return AppSettings.IsMBCSite
+                    ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=184099")
+                    : MicroSites.MessageUrl("~/StaticMessage/Guide?id=184099");
+            }
+        }
     }
 }

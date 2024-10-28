@@ -1,6 +1,6 @@
 ﻿@import "../_variables.scss";
 $reward-payment-width: 860px;
-
+/**
 :root,
 :root [data-theme='light'] {
     --report-tooltip-border: #ccc;
@@ -19,7 +19,7 @@ $reward-payment-width: 860px;
 .tooltip {
     background-color: transparent;
     border-color: transparent;
-
+    pointer-events: none;
     &.in {
         opacity: 1;
     }
@@ -98,7 +98,7 @@ $reward-payment-width: 860px;
         }
     }
 }
-
+**/
 .page-title {
     margin-bottom: 12px;
     padding: 0;

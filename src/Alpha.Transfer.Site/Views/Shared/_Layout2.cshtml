@@ -1,0 +1,25 @@
+﻿@{ var darkModeName = AlphaPlus.User.Models.UserSession.Current.DarkModeName; }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@(ViewBag.Title ?? "Alpha - Sites")</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles-v2/common/common")
+    @StaticResources.AssetStyles.RenderWithDarkMode("/bundles-v2/site-transfer/default")
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/default")
+    @RenderSection("Styles", required: false)
+</head>
+<body data-theme="@(string.IsNullOrWhiteSpace(darkModeName) ? "light" : "dark")">
+    @RenderBody()
+    @Html.Hidden("NoInformationIsAvailable", @Resources.NoInformationIsAvailable)
+    @Html.Hidden("of", @Resources.of)
+    @Html.Hidden("Page", @Resources.Page)
+    @Html.Hidden("PageSize", @Resources.PageSize)
+    @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
+    @StaticResources.AssetScripts.Render("/bundles/site-transfer/default")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

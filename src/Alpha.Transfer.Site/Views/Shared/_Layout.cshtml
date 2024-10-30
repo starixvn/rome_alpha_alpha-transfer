@@ -1,5 +1,4 @@
-﻿@{ var darkModeName = AlphaPlus.User.Models.UserSession.Current.DarkModeName; }
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -12,7 +11,7 @@
     @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/default")
     @RenderSection("Styles", required: false)
 </head>
-<body data-theme="@(string.IsNullOrWhiteSpace(darkModeName) ? "light" : "dark")">
+<body>
     @RenderBody()
     @Html.Hidden("NoInformationIsAvailable", @Resources.NoInformationIsAvailable)
     @Html.Hidden("of", @Resources.of)

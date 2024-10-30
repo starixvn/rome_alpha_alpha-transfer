@@ -232,6 +232,12 @@ class RewardPaymentView {
             $modal.find('#modal-body-content').html(html.join(''));
             $modal.modal({ backdrop: false });
         } else {
+            if ($('.tableFloatingHeaderOriginal').css('position') === 'fixed') {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $('#rewardPayment').offset().top
+                }, 10);
+            }
+            
             const $msgSuccess = $('.msg.msg-success');
             $msgSuccess
                 .html(result.TotalRecords === 1

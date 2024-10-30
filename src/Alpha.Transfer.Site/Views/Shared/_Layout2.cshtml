@@ -7,9 +7,8 @@
     <title>@(ViewBag.Title ?? "Alpha - Sites")</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
-    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles-v2/common/common")
-    @StaticResources.AssetStyles.RenderWithDarkMode("/bundles-v2/site-transfer/default")
-    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/default")
+    @StaticResources.AssetStyles.Render("/bundles-v2/common/common")
+    
     @RenderSection("Styles", required: false)
 </head>
 <body data-theme="@(string.IsNullOrWhiteSpace(darkModeName) ? "light" : "dark")">

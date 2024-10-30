@@ -4,11 +4,10 @@
     ViewBag.Title = Resources.RewardPayment;
     var level = Model.ActorLevel.DisplayName.ToLowerInvariant();
 }
-@section Styles {   
-    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-transfer/filter")
-    @StaticResources.AssetStyles.Render("/bundles-v2/common/common")
+@section Styles {
+
     @StaticResources.AssetStyles.Render("/bundles-v2/site-transfer/reward")
-    @StaticResources.RenderStyles("~/assets/bundles/reward/reward")
+    @StaticResources.RenderStyles("~/assets/bundles-v2/reward/reward")
 }
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/filter")

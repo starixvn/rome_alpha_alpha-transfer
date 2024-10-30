@@ -127,7 +127,7 @@
     ]
   },
   {
-    "outputFileName": "assets/bundles/reward/reward.css",
+    "outputFileName": "assets/bundles-v2/reward/reward.css",
     "inputFiles": [
       "assets/styles/reward/reward.css"
     ]

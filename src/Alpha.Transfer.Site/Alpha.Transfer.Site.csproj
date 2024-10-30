@@ -399,6 +399,10 @@
     <Content Include="App_Data\SPNames\UAT\DBSIC.bodb02.wsv_alp.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\SiteDB.BODB02.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles-v2\reward\reward.css" />
+    <Content Include="assets\bundles-v2\reward\reward.min.css">
+      <DependentUpon>reward.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\auto-transfer\history.js" />
     <Content Include="assets\bundles\auto-transfer\history.min.js">
       <DependentUpon>history.js</DependentUpon>
@@ -480,10 +484,6 @@
     <Content Include="assets\bundles\reward\reward-payment.js" />
     <Content Include="assets\bundles\reward\reward-payment.min.js">
       <DependentUpon>reward-payment.js</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\reward\reward.css" />
-    <Content Include="assets\bundles\reward\reward.min.css">
-      <DependentUpon>reward.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\transfer-all-clear-credit-dark.css" />
     <Content Include="assets\bundles\transfer-all-clear-credit-dark.min.css">

@@ -32,7 +32,7 @@
                     <td class="text-center">
                         @if (!item.PaymentStatus)
                         {
-                            <input type="checkbox" class="checkbox-unpaid" data-unpaid="@item.CustId-@item.Username-@item.ProgramId-@item.MaxTransId" />
+                            <input type="checkbox" class="checkbox-unpaid" data-custid="@item.CustId" data-custname="@item.Username" data-programid="@item.ProgramId" data-maxtransid="@item.MaxTransId" />
                         }
                     </td>
                     <td class="text-center" data-sortedvalue="@(item.PaymentStatus ? "1" : "0")">
@@ -42,7 +42,7 @@
                         }
                         else
                         {
-                            <button type="button" class="button-unpaid" data-unpaid="@item.CustId-@item.Username-@item.ProgramId-@item.MaxTransId">@Resources.Unpaid</button>
+                            <button type="button" class="button-unpaid" data-custid="@item.CustId" data-custname="@item.Username" data-programid="@item.ProgramId" data-maxtransid="@item.MaxTransId">@Resources.Unpaid</button>
                         }
                     </td>
                 </tr>

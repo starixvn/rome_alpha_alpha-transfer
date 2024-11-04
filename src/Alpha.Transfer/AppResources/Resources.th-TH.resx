@@ -751,6 +751,6 @@
     <value>ชำระเงินแล้ว</value>
   </data>
   <data name="NoProgramFound" xml:space="preserve">
-    <value>No program found</value>
+    <value>ไม่พบโปรแกรมรางวัลเงินสด</value>
   </data>
 </root>

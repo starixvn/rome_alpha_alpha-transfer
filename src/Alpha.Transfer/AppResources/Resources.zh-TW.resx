@@ -748,6 +748,6 @@
     <value>已支付</value>
   </data>
   <data name="NoProgramFound" xml:space="preserve">
-    <value>No program found</value>
+    <value>找不到獎金程序</value>
   </data>
 </root>

@@ -130,23 +130,14 @@ class RewardPaymentView {
 
             $btnConfirmPayment.off().click(() => {
                 const data = [];
-                $checkboxUnpaid.filter(':checked').each(function () {
-                    const array = $(this).data('unpaid').split('-');
-                    if (array.length === 4) {
-                        data.push({ custId: array[0], username: array[1], programId: array[2], maxTransId: array[3] })
-                    }
-                });
+                $checkboxUnpaid.filter(':checked').each((i, item) => data.push(this.getUnpaidData($(item))));
 
                 data.length && this.confirmAndHandleUpdatePaymentStatus(data);
             });
 
             $('.button-unpaid').off().click((e) => {
-                const $this = $(e.target);
-                const array = $this.data('unpaid').split('-');
-                if (array.length === 4) {
-                    const unpaidData = { custId: array[0], username: array[1], programId: array[2], maxTransId: array[3] }
-                    this.confirmAndHandleUpdatePaymentStatus([unpaidData]);
-                }
+                const unpaidData = this.getUnpaidData($(e.target));
+                this.confirmAndHandleUpdatePaymentStatus([unpaidData]);
             });
         } else {
             $chkAllPaymentStatus.prop('disabled', true);
@@ -157,6 +148,15 @@ class RewardPaymentView {
         this.sorter.tableSorter({ tableElement: $tblTransfer })
         $tblTransfer.stickyTableHeaders('destroy');
         $tblTransfer.stickyTableHeaders();
+    }
+
+    private getUnpaidData($element: JQuery) {
+        return {
+            custId: $element.data('custid'),
+            username: $element.data('custname'),
+            programId: $element.data('programid'),
+            maxTransId: $element.data('maxtransid'),
+        }
     }
 
     private confirmAndHandleUpdatePaymentStatus(data) {

@@ -205,7 +205,7 @@
     <value>Giao dịch chưa xử lý</value>
   </data>
   <data name="Amount" xml:space="preserve">
-    <value>Số lượng</value>
+    <value>Số tiền</value>
   </data>
   <data name="ConfirmTransfer" xml:space="preserve">
     <value>Bạn có chắc muốn chuyển khoản?</value>
@@ -673,6 +673,6 @@
     <value>Đã thanh toán trước đó</value>
   </data>
   <data name="NoProgramFound" xml:space="preserve">
-    <value>No program found</value>
+    <value>Không tìm thấy chương trình tiền thưởng nào</value>
   </data>
 </root>

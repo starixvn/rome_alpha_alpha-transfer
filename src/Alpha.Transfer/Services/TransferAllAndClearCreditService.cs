@@ -34,13 +34,12 @@
                 param.CustId, 
                 param.Username, 
                 param.Language, 
-                param.AllowedTotalBalanceTransferSuperIds, 
                 param.IsAllDayBalanceTransfer,
                 BuildDownlineNetPositionXml(netPositionModels),
                 getDownlineCriteria.DownlineCustId);
 
             var (conditionSteps, transferSteps, clearCreditSteps)
-                = repository.FetchMultiple<ConditionStep, TransferStep, ClearCreditStep>(criteria);
+                = repository.FetchMultiple<ConditionStep, TransferStep, ClearCreditStep>(criteria, param.AGIP);
 
             return new TransferResult(transferSteps, clearCreditSteps, conditionSteps.Select(c => c.Content));
         }
@@ -73,7 +72,6 @@
                     param.UserId,
                     param.SubAccId,
                     param.Username,
-                    param.AllowedTotalBalanceTransferSuperIds,
                     param.IP,
                     param.Language,
                     param.IsAllDayBalanceTransfer);

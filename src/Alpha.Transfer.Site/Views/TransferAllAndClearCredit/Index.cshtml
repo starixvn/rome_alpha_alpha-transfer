@@ -13,7 +13,7 @@
     <form id="transfer-clear-credit-form" class="form-inline demo-form-inline filter" role="form" action="Index">
         <div class="form-group">
             <label class="lbl-username">@Model.DirectDownlineText</label>
-            <input type="text" id="txt-username" name="Username" placeholder="@Resources.UsernamePlaceHolder" value="@Model.Username" class="@(string.IsNullOrWhiteSpace(Model.Username) ? "text-italic" : "")" />
+            <input type="text" id="txt-username" name="Username" placeholder="@Resources.UsernamePlaceHolder" value="@Model.Username" @(string.IsNullOrWhiteSpace(Model.Username) ? "class=text-italic" : string.Empty) />
         </div>
         <div class="form-group">
             <button type="submit" class="btn-submit">@Resources.Calculate</button>
@@ -55,7 +55,7 @@
 
                 foreach (var step in Model.TransferSteps)
                 {
-                    <tr class="@(index%2==0 ? "even-row" : "")">
+                    <tr @(index%2==0 ? "class=even-row" : string.Empty)>
                         <td class="align-center">@index</td>
                         <td>@Model.GetTransferStepName(step)</td>
                         <td class="align-right">@HtmlHelpers.FormatNumber(step.TransferableAmount)</td>
@@ -71,7 +71,7 @@
             }
             <tr class="title-clear-credit">
                 <td colspan="4">
-                    <input id="chk-clear-credit" type="checkbox" @(Model.CanClearCredit() ? string.Empty : "disabled=\"disabled\"") />
+                    <input id="chk-clear-credit" type="checkbox" @(Model.CanClearCredit() ? string.Empty : "disabled=disabled") />
                     <label for="chk-clear-credit">@Resources.ClearCredit</label>
                 </td>
             </tr>
@@ -87,7 +87,7 @@
 
                 foreach (var step in Model.ClearCreditSteps)
                 {
-                    <tr class="@(index%2==0 ? "even-row" : "")">
+                    <tr @(index%2==0 ? "class=even-row" : string.Empty)>
                         <td class="align-center">@index</td>
                         <td>@Model.GetClearCreditStepName(step)</td>
                         <td class="align-right">@HtmlHelpers.FormatNumber(step.GivenCredit)</td>
@@ -110,7 +110,7 @@
                 @Html.Hidden("TransferSteps", Model.TransferStepsJson)
                 @Html.Hidden("ClearCreditSteps", Model.ClearCreditStepsJson)
             </form>
-            <input id="btn-submit" type="button" class="btn-submit" value="@Resources.Submit" @(Model.CanTransfer() ? string.Empty : "disabled=\"disabled\"") />
+            <input id="btn-submit" type="button" class="btn-submit" value="@Resources.Submit" @(Model.CanTransfer() ? string.Empty : "disabled=disabled") />
         </div>
         <div class="note">
             <span class="star">*</span>@Resources.TransferAllAndClearCreditNote

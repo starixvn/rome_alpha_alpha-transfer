@@ -1,54 +1,36 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Alpha.Transfer.AppResources;
-using Alpha.Transfer.Configurations;
 using Alpha.Transfer.Site.Requests.AutoTransfer;
-using Alpha.Web.Helpers;
 using AlphaPlus.User.Models;
 
 namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
 {
-    public class MonitoringViewModel
+    public class MonitoringViewModel : AutoTransferViewModel
     {
-        public MonitoringViewModel(IUserSession userSession, MonitoringQuery message)
+        public MonitoringViewModel(IUserSession userSession, MonitoringQuery message) : base(userSession)
         {
-            ViewerId = userSession.CustId;
-            SubAccId = userSession.SubAccId;
             IsProtectedMode = userSession.IsProtectedMode;
             Status = message.Status;
+            Columns = GetColumns();
         }
 
-        public bool IsProtectedMode { get; set; }
+        public bool IsProtectedMode { get; }
 
-        public int ViewerId { get; set; }
+        public string Status { get; }
 
-        public int SubAccId { get; set; }
-
-        public string Status { get; set; }
-
-        public IEnumerable<SelectListItem> Columns
-            => new[] {
-                new SelectListItem { Text = Resources.First_LastName, Value = "3" },
-                new SelectListItem { Text = Resources.TransferAmount, Value = "4" },
-                new SelectListItem { Text = Resources.Status, Value = "5" },
-                new SelectListItem { Text = Resources.Reason, Value = "6" },
-                new SelectListItem { Text = Resources.CompletedTime, Value = "7" },
-                new SelectListItem { Text = Resources.Cancel, Value = "8" },
-            };
-
-        public string UserGuideLink
+        private IEnumerable<SelectListItem> GetColumns()
         {
-            get
+            if (IsShowLevelColumn)
             {
-                if (AppSettings.SupportedNewHandbook)
-                {
-                    return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug=auto-transfer");
-                }
-
-                return AppSettings.IsMBCSite
-                    ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=184099")
-                    : MicroSites.MessageUrl("~/StaticMessage/Guide?id=184099");
+                yield return new SelectListItem { Text = Resources.Level, Value = "8" };
             }
+
+            yield return new SelectListItem { Text = Resources.First_LastName, Value = "3" };
+            yield return new SelectListItem { Text = Resources.TransferAmount, Value = "4" };
+            yield return new SelectListItem { Text = Resources.Status, Value = "5" };
+            yield return new SelectListItem { Text = Resources.Reason, Value = "6" };
+            yield return new SelectListItem { Text = Resources.CompletedTime, Value = "7" };
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     using Alpha.Transfer.AppResources;
     using Alpha.Transfer.Extensions;
+    using Alpha.Transfer.Models;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Params.TransferToDownlineHistory;
     using Alpha.Transfer.Services;
@@ -10,6 +11,7 @@
     using ONEbook.SpreadSheets;
     using Requests.TransferToDownlineHistory;
     using ViewModels;
+    using static ONEbook.SpreadSheets.Column;
 
     public class TransferToDownlineHistoryExcelHandler : TransferToDownlineHistoryBaseHandler, IRequestHandler<TransferToDownlineHistoryExcelQuery, ExcelFileViewModel>
     {
@@ -30,27 +32,46 @@
                 message.UserName,
                 message.FromDate.GetGreaterDate(message.LimitedDateToShowInfo),
                 message.ToDate,
+                message.LevelType,
                 0,
                 0);
             var content = workbook
                 .UseTemplate(GetTemplateInfo(message))
                 .Title(GetSheetTitle(param))
                 .Header(Resources.ResourceManager.GetString)
-                .Body(GetTransferToDownlineHistory(param).Item1, GetBodyMapper)
+                .Body(GetTransferToDownlineHistory(param).Item1, GetBodyMapper(message.CustLevel))
                 .ExportToBytes();
 
             return new ExcelFileViewModel(GetExcelFileName(), content);
         }
 
-        protected internal Mapper<TransferToDownlineHistoryModel> GetBodyMapper
-            => new Mapper<TransferToDownlineHistoryModel>()
-            .Map(Column.A, m => m.FormattedActionDate)
-            .Map(Column.B, m => m.DownlineName)
-            .Map(Column.C, m => m.TransferTypeName)
-            .Map(Column.D, m => m.FormattedTransferAmount)
-            .Map(Column.E, m => m.FormattedOldBalance)
-            .Map(Column.F, m => m.FormattedNewBalance)
-            .Map(Column.G, m => m.Description);
+        protected internal Mapper<TransferToDownlineHistoryModel> GetBodyMapper(UserLevel custLevel)
+        {
+            var mapper = new Mapper<TransferToDownlineHistoryModel>()
+                .Map(A, m => m.FormattedActionDate)
+                .Map(B, m => m.DownlineName);
+            if (custLevel.IsAgentLevel())
+            {
+                mapper
+                    .Map(C, m => m.TransferTypeName)
+                    .Map(D, m => m.FormattedTransferAmount)
+                    .Map(E, m => m.FormattedOldBalance)
+                    .Map(F, m => m.FormattedNewBalance)
+                    .Map(G, m => m.Description);
+            }
+            else
+            {
+                mapper
+                    .Map(C, m => m.IsDirectMember ? Resources.DirectMember : (custLevel.IsSuperLevel() ? Resources.MasterAgent : Resources.Agent))
+                    .Map(D, m => m.TransferTypeName)
+                    .Map(E, m => m.FormattedTransferAmount)
+                    .Map(F, m => m.FormattedOldBalance)
+                    .Map(G, m => m.FormattedNewBalance)
+                    .Map(H, m => m.Description);
+            }
+
+            return mapper;
+        }
 
         private TemplateInfo GetTemplateInfo(TransferToDownlineHistoryExcelQuery message)
             => new TemplateInfo(
@@ -61,7 +82,7 @@
         {
             string userName = string.IsNullOrWhiteSpace(param.UserName)
                 ? string.Empty
-                : string.Format(" - Username: {0}", param.UserName);
+                : $" - {Resources.Username}: {param.UserName}";
 
             return $"{Resources.TransferToDownlineHistory} {param.FromDate.ToShortDateWithSlash()} -> {param.ToDate.ToShortDateWithSlash()}{userName}";
         }

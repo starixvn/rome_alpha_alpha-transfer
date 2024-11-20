@@ -19,7 +19,7 @@
         {
             // Arrange
             var custId = 1;
-            var param = new TransferToDownlineHistoryParam(custId, string.Empty, new DateTime(), new DateTime());
+            var param = new TransferToDownlineHistoryParam(custId, string.Empty, new DateTime(), new DateTime(), 0);
 
             // Act
             var actualCustId = param.CustId;
@@ -33,7 +33,7 @@
         {
             // Arrange
             var userName = "username";
-            var param = new TransferToDownlineHistoryParam(0, userName, new DateTime(), new DateTime());
+            var param = new TransferToDownlineHistoryParam(0, userName, new DateTime(), new DateTime(), 0);
 
             // Act
             var actualUserName = param.UserName;
@@ -46,7 +46,7 @@
         public void FromDate_MinValue_ReturnsSystemTimeTody()
         {
             // Arrange
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, DateTime.MinValue, new DateTime());
+            var param = new TransferToDownlineHistoryParam(0, string.Empty, DateTime.MinValue, new DateTime(), 0);
 
             // Act
             var actualFromDate = param.FromDate;
@@ -60,7 +60,7 @@
         {
             // Arrange
             var fromDate = DefaultVariablesTest.CurrentDate;
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, fromDate, new DateTime());
+            var param = new TransferToDownlineHistoryParam(0, string.Empty, fromDate, new DateTime(), 0);
 
             // Act
             var actualFromDate = param.FromDate;
@@ -73,7 +73,7 @@
         public void ToDate_MinValue_ReturnsSystemTimeTody()
         {
             // Arrange
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), DateTime.MinValue);
+            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), DateTime.MinValue, 0);
 
             // Act
             var actualToDate = param.ToDate;
@@ -87,7 +87,7 @@
         {
             // Arrange
             var toDate = DefaultVariablesTest.CurrentDate;
-            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), toDate);
+            var param = new TransferToDownlineHistoryParam(0, string.Empty, new DateTime(), toDate, 0);
 
             // Act
             var actualToDate = param.ToDate;

@@ -21,7 +21,7 @@
         public void TransferTypeName_Always_ReturnsCorrectValue(byte transferType, string expectedValue)
         {
             // Arrange
-            var model = new TransferToDownlineHistoryModel(new DateTime(), string.Empty, transferType, 0, 0, 0, string.Empty);
+            var model = new TransferToDownlineHistoryModel(new DateTime(), string.Empty, transferType, 0, 0, 0, string.Empty, false);
 
             // Act
             var actualValue = model.TransferTypeName;
@@ -54,7 +54,7 @@
         {
             // Arrange
             var dateTime = new DateTime(2016, 11, 24, hour, minute, second);
-            var model = new TransferToDownlineHistoryModel(dateTime, string.Empty, 0, 0, 0, 0, string.Empty);
+            var model = new TransferToDownlineHistoryModel(dateTime, string.Empty, 0, 0, 0, 0, string.Empty, false);
 
             // Act
             var actualValue = model.FormattedActionDate;
@@ -77,7 +77,7 @@
         public void FormattedTransferAmount_Always_ReturnCorrectValue(decimal transferAmmount, string expectedValue)
         {
             // Arrange
-            var model = new TransferToDownlineHistoryModel(new DateTime(), string.Empty, 0, transferAmmount, 0, 0, string.Empty);
+            var model = new TransferToDownlineHistoryModel(new DateTime(), string.Empty, 0, transferAmmount, 0, 0, string.Empty, false);
 
             // Assert
             var actualValue = model.FormattedTransferAmount;
@@ -100,7 +100,7 @@
         public void FormattedOldBalance_Always_ReturnCorrectValue(decimal oldBalance, string expectedValue)
         {
             // Arrange
-            var model = new TransferToDownlineHistoryModel(new DateTime(), string.Empty, 0, 0, oldBalance, 0, string.Empty);
+            var model = new TransferToDownlineHistoryModel(new DateTime(), string.Empty, 0, 0, oldBalance, 0, string.Empty, false);
 
             // Assert
             var actualValue = model.FormattedOldBalance;
@@ -123,7 +123,7 @@
         public void FormattedNewBalance_Always_ReturnCorrectValue(decimal newBalance, string expectedValue)
         {
             // Arrange
-            var model = new TransferToDownlineHistoryModel(new DateTime(), string.Empty, 0, 0, 0, newBalance, string.Empty);
+            var model = new TransferToDownlineHistoryModel(new DateTime(), string.Empty, 0, 0, 0, newBalance, string.Empty, false);
 
             // Assert
             var actualValue = model.FormattedNewBalance;

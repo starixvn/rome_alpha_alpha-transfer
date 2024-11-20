@@ -53,9 +53,10 @@
                 cashBalanceTransfer.CashBalance,
                 cashBalanceTransfer.Outstanding,
                 cashBalanceTransfer.GivenCredit,
-                cashBalanceTransfer.PendingTransfer3rd);
+                cashBalanceTransfer.PendingTransfer3rd,
+                false);
 
-            cashBalanceTransferService.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            cashBalanceTransferService.GetCashBalanceTransferAsync(custId, false, string.Empty).Returns(cashBalanceTransfer);
             transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             // Act
@@ -83,7 +84,7 @@
 
             var hintFromResource = Resources.HintNotAvailableToTransfer;
 
-            cashBalanceTransferService.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            cashBalanceTransferService.GetCashBalanceTransferAsync(custId, false, string.Empty).Returns(cashBalanceTransfer);
             transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             // Act
@@ -111,7 +112,7 @@
 
             var levelName = Resources.Member;
 
-            cashBalanceTransferService.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            cashBalanceTransferService.GetCashBalanceTransferAsync(custId, false, string.Empty).Returns(cashBalanceTransfer);
             transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             // Act
@@ -139,7 +140,7 @@
 
             var levelName = Resources.Agent;
 
-            cashBalanceTransferService.GetCashBalanceTransferAsync(custId).Returns(cashBalanceTransfer);
+            cashBalanceTransferService.GetCashBalanceTransferAsync(custId, false, string.Empty).Returns(cashBalanceTransfer);
             transferService.IsAllDayBalanceTransfer(Arg.Any<int>()).Returns(true);
 
             // Act

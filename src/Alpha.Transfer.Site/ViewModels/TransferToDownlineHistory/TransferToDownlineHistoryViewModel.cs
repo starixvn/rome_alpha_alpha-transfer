@@ -21,6 +21,7 @@
             this.message = message;
             this.param = param;
             CustLevel = message.CustLevel;
+            ShowLevelType = CustLevel.IsNotAgentLevel();
         }
 
         public UserLevel CustLevel { get; }
@@ -43,6 +44,10 @@
         public TransferToDownlineHistoryFilterViewModel FilterViewModel => new TransferToDownlineHistoryFilterViewModel(
             UserName,
             new DateRangePickerViewModel(MinDate, MaxDate, FromDate, ToDate, UserSelectedDateRangeOption),
-            MinDate);
+            MinDate,
+            CustLevel,
+            param.LevelType);
+
+        public bool ShowLevelType { get; }
     }
 }

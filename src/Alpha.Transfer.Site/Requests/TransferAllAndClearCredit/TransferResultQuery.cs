@@ -26,8 +26,6 @@
         [AllowHtml]
         public string Username { get; set; }
 
-        public string AllowedTotalBalanceTransferSuperIds => AppSettings.AllowedTotalBalanceTransferSuperIds;
-
         public string IP { get; set; }
 
         public string TransferSteps { get; set; }

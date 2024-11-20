@@ -23,6 +23,8 @@
 
         public string Status { get; set; }
 
+        public byte LevelType { get; set; }
+
         public int SortedBy { get; set; }
 
         public int Direction { get; set; }

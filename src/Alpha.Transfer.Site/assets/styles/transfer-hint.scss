@@ -26,6 +26,16 @@ body {
     color: #045ace;
 }
 
-.auto-transfer.hint {
+.auto-transfer {
     margin-top: 10px;
+
+    ul {
+        list-style: initial;
+        margin: 0;
+        padding-left: 18px;
+
+        li {
+            line-height: 1.8;
+        }
+    }
 }

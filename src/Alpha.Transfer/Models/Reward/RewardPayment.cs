@@ -5,14 +5,17 @@ namespace Alpha.Transfer.Models.Reward
 {
     public class RewardPayment
     {
-        public RewardPayment(IEnumerable<RewardPaymentEntity> rewardPayments, RewardPaymentEntity total)
+        public RewardPayment(UserLevel actorLevel, IEnumerable<RewardPaymentEntity> rewardPayments, RewardPaymentEntity total)
         {
+            ActorLevel = actorLevel;
             RewardPayments = rewardPayments;
             Total = total;
             var totalItems = rewardPayments.Count();
             Any = totalItems > 0;
             MoreThanOne = totalItems > 1;
         }
+
+        public UserLevel ActorLevel { get; }
 
         public IEnumerable<RewardPaymentEntity> RewardPayments { get; }
 

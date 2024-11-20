@@ -15,7 +15,7 @@
 
     public interface CashBalanceTransferService
     {
-        Task<CashBalanceTransfer> GetCashBalanceTransferAsync(int custId);
+        Task<CashBalanceTransfer> GetCashBalanceTransferAsync(int custId, bool isDirectMember, string agIP);
 
         Task<Result> AddCashBalanceTransferAsync(
             int fromCustId,
@@ -26,7 +26,8 @@
             int subAccId,
             string ip,
             string languageKey,
-            string agIP);
+            string agIP,
+            bool isDirectMember);
 
         Task<string> GetAllowTransfer(int custId);
 
@@ -51,11 +52,11 @@
             this.cacheService = cacheService;
         }
 
-        public async Task<CashBalanceTransfer> GetCashBalanceTransferAsync(int custId)
+        public async Task<CashBalanceTransfer> GetCashBalanceTransferAsync(int custId, bool isDirectMember, string agIP)
         {
-            ICriteria criteria = new GetCashBalanceTransferCriteria(custId);
+            ICriteria criteria = new GetCashBalanceTransferCriteria(custId, isDirectMember);
 
-            return await repository.GetAsync<CashBalanceTransfer>(criteria);
+            return await repository.GetAsync<CashBalanceTransfer>(criteria, agIP);
         }
 
         public async Task<Result> AddCashBalanceTransferAsync(
@@ -67,7 +68,8 @@
             int subAccId,
             string ip,
             string languageKey,
-            string agIP)
+            string agIP,
+            bool isDirectMember)
         {
             string cacheKey = string.Format(AgentTransferMemberListCache, AppSettings.SiteLabel, creator);
             TransferCacheService transferCacheService = new TransferCacheServiceImpl(creator, creatorName, cacheService);
@@ -94,7 +96,8 @@
                 creator,
                 subAccId,
                 ip,
-                languageKey);
+                languageKey,
+                isDirectMember);
 
             try
             {

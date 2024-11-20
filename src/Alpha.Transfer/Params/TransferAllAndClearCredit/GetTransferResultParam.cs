@@ -13,7 +13,6 @@
             int subAccId,
             bool isClearCredit,
             string username,
-            string allowedTotalBalanceTransferSuperIds,
             string ip,
             string language,
             string transferSteps,
@@ -26,7 +25,6 @@
             SubAccId = subAccId;
             IsClearCredit = isClearCredit;
             Username = username;
-            AllowedTotalBalanceTransferSuperIds = allowedTotalBalanceTransferSuperIds;
             IP = ip;
             Language = language;
             IsClearCredit = isClearCredit;

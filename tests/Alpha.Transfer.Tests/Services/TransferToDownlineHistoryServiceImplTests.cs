@@ -32,7 +32,7 @@
             var result = Tuple.Create(new List<TransferToDownlineHistoryModel>(), 0);
             //repository.GetTransferToDownlineHistory(Arg.Any<GetTransferToDownlineHistoryCriteria>()).Returns(result);
 
-            var param = new TransferToDownlineHistoryPagingParam(1, string.Empty, new DateTime(), new DateTime(), 500, 1);
+            var param = new TransferToDownlineHistoryPagingParam(1, string.Empty, new DateTime(), new DateTime(), 0, 500, 1);
 
             // Act
             var actualResult = serviceImpl.GetTransferToDownlineHistory(param);
@@ -55,7 +55,8 @@
                     20,
                     10,
                     10,
-                    "To SUPERTESTTE010A"),
+                    "To SUPERTESTTE010A",
+                    false),
                 new TransferToDownlineHistoryModel(
                     new DateTime(2021, 1, 5, 3, 25, 33, 197),
                     "SUPERTESTTE010B",
@@ -63,12 +64,13 @@
                     20,
                     10,
                     10,
-                    "To SUPERTESTTE010B")
+                    "To SUPERTESTTE010B",
+                    false)
             }, 2);
 
             //repository.GetTransferToDownlineHistory(Arg.Any<GetTransferToDownlineHistoryCriteria>()).Returns(result);
 
-            var param = new TransferToDownlineHistoryPagingParam(1, string.Empty, new DateTime(), new DateTime(), 500, 1);
+            var param = new TransferToDownlineHistoryPagingParam(1, string.Empty, new DateTime(), new DateTime(), 0, 500, 1);
 
             // Act
             var actualResult = serviceImpl.GetTransferToDownlineHistory(param);

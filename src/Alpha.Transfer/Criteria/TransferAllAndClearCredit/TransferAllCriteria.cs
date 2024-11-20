@@ -10,7 +10,6 @@
             int userId,
             int subAccId,
             string username,
-            string allowedTotalBalanceTransferSuperIds,
             string ip,
             string language,
             bool isAllDayBalanceTransfer)
@@ -19,7 +18,6 @@
             UserId = userId;
             SubAccId = subAccId;
             Username = username;
-            AllowedTotalBalanceTransferSuperIds = allowedTotalBalanceTransferSuperIds;
             IP = ip;
             Language = language;
             IsAllDayBalanceTransfer = isAllDayBalanceTransfer;
@@ -33,9 +31,6 @@
 
         [SpParam(SqlParamName = "DownlineUsername")]
         public string Username { get; set; }
-
-        [SpParam(SqlParamName = "SuperIDsTransferTotal")]
-        public string AllowedTotalBalanceTransferSuperIds { get; set; }
 
         [SpParam(SqlParamName = "IsAllDayTransfer")]
         public bool IsAllDayBalanceTransfer { get; set; }

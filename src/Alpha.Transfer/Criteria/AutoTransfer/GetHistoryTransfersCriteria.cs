@@ -13,6 +13,8 @@ namespace Alpha.Transfer.Criteria.AutoTransfer
 
         public string ViewStatus { get; set; }
 
+        public byte LevelType { get; set; }
+
         public int SortBy { get; set; }
 
         public int SortType { get; set; }

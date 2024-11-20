@@ -3,7 +3,7 @@ using Alpha.Transfer.Models;
 
 namespace Alpha.Transfer.Criteria.Reward
 {
-    internal class GetRewardDetailCriteria : GetRewardPaymentCriteria
+    internal class GetRewardDetailCriteria : GetRewardCriteria
     {
         public GetRewardDetailCriteria(
             int custId,

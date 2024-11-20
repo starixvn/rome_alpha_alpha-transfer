@@ -750,4 +750,16 @@
   <data name="NoProgramFound" xml:space="preserve">
     <value>找不到奖金程序</value>
   </data>
+  <data name="DirectMember" xml:space="preserve">
+    <value>直系会员</value>
+  </data>
+  <data name="MasterAgent" xml:space="preserve">
+    <value>总代理</value>
+  </data>
+  <data name="TransferStep_Super_DirectMember" xml:space="preserve">
+    <value>直系会员至 {0}</value>
+  </data>
+  <data name="ClearCreditStep_Super_DirectMember" xml:space="preserve">
+    <value>{0} 的直系成员</value>
+  </data>
 </root>

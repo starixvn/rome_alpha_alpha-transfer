@@ -3,6 +3,7 @@
     public class AutoTransferMonitoringModel
     {
         public string Username { get; set; }
+        public bool IsDirectMember { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public decimal? TransferAmount { get; set; }

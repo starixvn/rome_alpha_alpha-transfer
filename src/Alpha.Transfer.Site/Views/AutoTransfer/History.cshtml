@@ -51,7 +51,7 @@
                         <option value="Ignored" selected="selected">@Resources.Ignored</option>
                     </select>
                 </div>
-
+                @LevelTypeDropdown.Render(Model.ViewerLevel)
                 @VisibleColumnsDropdown.Render(Model.Columns)
                 @DateRangePicker.Render(Model.DateRangePickerViewModel)
                 <div class="form-group">
@@ -65,6 +65,10 @@
                     <tr role="row">
                         <th col-value="1"></th>
                         <th col-value="2"></th>
+                        @if (Model.IsShowLevelColumn)
+                        {
+                            <th col-value="8"></th>
+                        }
                         <th col-value="3"></th>
                         <th col-value="4"></th>
                         <th col-value="5"></th>
@@ -74,6 +78,10 @@
                     <tr class="RptHeader">
                         <th col-value="1">@Resources.No</th>
                         <th col-value="2" class="sorting" data-sort="1">@Resources.Username</th>
+                        @if (Model.IsShowLevelColumn)
+                        {
+                            <th col-value="8" class="sorting" data-sort="5">@Resources.Level</th>
+                        }
                         <th col-value="3">@Resources.First_LastName</th>
                         <th col-value="4" class="sorting" data-sort="3">@Resources.TransferAmount</th>
                         <th col-value="5" class="sorting" data-sort="2">@Resources.Status</th>
@@ -84,7 +92,7 @@
                 <tbody></tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="7">
+                        <td colspan="@(Model.IsShowLevelColumn ? 8 : 7)">
                             <div id="report-pager"
                                  class="hide"
                                  data-labelpage="@Resources.Page"
@@ -113,6 +121,11 @@
 @Html.Hidden("Failed", Resources.Failed)
 @Html.Hidden("Cancelled", Resources.Cancelled)
 @Html.Hidden("Ignored", Resources.Ignored)
+@if (Model.IsShowLevelColumn)
+{
+    @Html.Hidden("DirectMemberText", Resources.DirectMember)
+    @Html.Hidden("MasterAgentText", Model.ViewerLevel.IsSuperLevel() ? Resources.MasterAgent : Resources.Agent)
+}
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/pagination")

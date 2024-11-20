@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Alpha.Transfer.AppResources;
 using Alpha.Transfer.Extensions;
+using Alpha.Transfer.Models;
 using Alpha.Transfer.Models.Reward;
 using Alpha.Transfer.Services;
 using Alpha.Transfer.Site.Requests.Reward;
@@ -24,22 +25,26 @@ namespace Alpha.Transfer.Site.Handlers
 
         public async Task<ExcelFileViewModel> Handle(RewardPaymentExcelQuery message)
         {
-            var reportData = await rewardService.GetRewardPayments(RewardHandler.GetRewardParam(message));
+            var isMasterOrSuper = message.ActorLevel.IsMasterOrSuperLevel();
+            var levelTypeValue = message.ActorLevel.IsSuperLevel() ? Resources.MasterAgent : Resources.Agent;
+            var bodyRowMapper = isMasterOrSuper ? GetMasterAgentRowMapper(levelTypeValue, false) : GetMemberRowMapper(false);
+            var totalRowMapper = isMasterOrSuper ? GetMasterAgentRowMapper(levelTypeValue, true) : GetMemberRowMapper(true);
 
+            var reportData = await rewardService.GetRewardPayments(RewardHandler.GetRewardParam(message));
             var content = workbook
-                .UseTemplate(GetTemplateInfo())
+                .UseTemplate(GetTemplateInfo(message.ActorLevel))
                 .Title(GetReportTitle(message))
                 .Header(Resources.ResourceManager.GetString)
-                .Body(reportData.RewardPayments, GetRowMapper(false))
-                .Footer(reportData.Total, GetRowMapper(true))
+                .Body(reportData.RewardPayments, bodyRowMapper)
+                .Footer(reportData.Total, totalRowMapper)
                 .ExportToBytes();
 
             return new ExcelFileViewModel(GetExcelFileName(message), content);
         }
 
-        private TemplateInfo GetTemplateInfo()
+        private TemplateInfo GetTemplateInfo(UserLevel actorLevel)
             => new TemplateInfo(
-                GetExcelTemplatePath("Reward/RewardPayment"),
+                GetExcelTemplatePath($"Reward/RewardPayment{(actorLevel.IsMasterOrSuperLevel() ? string.Empty : "Member")}"),
                 Resources.NoInformationIsAvailable,
                 bodyStartIndex: 3,
                 bodyEndIndex: 4);
@@ -47,7 +52,39 @@ namespace Alpha.Transfer.Site.Handlers
         private static string GetReportTitle(RewardPaymentExcelQuery message)
             => $"{Resources.RewardPayment} {message.FromDate.ToShortDateWithSlash()} --> {message.ToDate.ToShortDateWithSlash()}";
 
-        internal static Mapper<RewardPaymentEntity> GetRowMapper(bool isTotal)
+        internal static Mapper<RewardPaymentEntity> GetMasterAgentRowMapper(string levelTypeValue, bool isTotal)
+        {
+            var mapper = new Mapper<RewardPaymentEntity>();
+
+            if (isTotal)
+            {
+                mapper
+                    .Map(A, rp => Resources.Total)
+                    .Map(D, rp => rp.Amount);
+            }
+            else
+            {
+                mapper
+                    .Map(A, rp => rp.ProgramName)
+                    .Map(B, rp => rp.Username)
+                    .Map(C, rp => rp.IsDirectMember ? Resources.DirectMember : levelTypeValue)
+                    .Map(D, rp => rp.Amount)
+                    .Map(E, rp =>
+                    {
+                        if (rp.PaymentDate.HasValue)
+                        {
+                            return rp.PaymentDate.Value;
+                        }
+
+                        return string.Empty;
+                    })
+                    .Map(F, rp => rp.PaymentStatus ? Resources.Paid : Resources.Unpaid);
+            }
+
+            return mapper;
+        }
+
+        internal static Mapper<RewardPaymentEntity> GetMemberRowMapper(bool isTotal)
         {
             var mapper = new Mapper<RewardPaymentEntity>();
 

@@ -55,7 +55,7 @@
             var compareLogic = new CompareLogic();
 
             // Act
-            var actualData = await serviceImpl.GetCashBalanceTransferAsync(custId);
+            var actualData = await serviceImpl.GetCashBalanceTransferAsync(custId, false, string.Empty);
 
             // Assert
             var result = compareLogic.Compare(cashBalanceTransfer, actualData);
@@ -69,13 +69,13 @@
         public void GetCashBalanceTransferAsync_InValidCustId_ThrowInvalidOperationException(int custId)
         {
             // Arrange
-            dynamicRepository.GetAsync<CashBalanceTransfer>(new GetCashBalanceTransferCriteria(custId))
+            dynamicRepository.GetAsync<CashBalanceTransfer>(new GetCashBalanceTransferCriteria(custId, false))
                 .Throws(new InvalidOperationException());
 
             var cashBalanceTransferService = new CashBalanceTransferServiceImpl(dynamicRepository, cacheService);
 
             // Act & Assert
-            Assert.ThrowsAsync<InvalidOperationException>(async () => await cashBalanceTransferService.GetCashBalanceTransferAsync(custId));
+            Assert.ThrowsAsync<InvalidOperationException>(async () => await cashBalanceTransferService.GetCashBalanceTransferAsync(custId, false, string.Empty));
         }
 
         [Fact]
@@ -100,7 +100,8 @@
                 0,
                 "127.0.0.1",
                 "E",
-                string.Empty);
+                string.Empty,
+                false);
 
             // Assert
             Assert.True(actualData.Code == expectedResult.Code &&
@@ -116,7 +117,7 @@
             // Arrange
             var expectedResult = new Result();
 
-            var criteria = new AddCashBalanceTransferCriteria(uplineId, custId, 0, uplineId, 0, ip, "E");
+            var criteria = new AddCashBalanceTransferCriteria(uplineId, custId, 0, uplineId, 0, ip, "E", false);
 
             dynamicRepository.ExecuteAsync(criteria)
                 .Returns(Task.CompletedTask);
@@ -131,7 +132,8 @@
                 criteria.SubAccId,
                 criteria.IP,
                 criteria.Language,
-                string.Empty);
+                string.Empty,
+                false);
 
             // Assert
             Assert.True(actualData.Code == expectedResult.Code);

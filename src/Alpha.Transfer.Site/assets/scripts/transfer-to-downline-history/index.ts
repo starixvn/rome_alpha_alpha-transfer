@@ -13,18 +13,29 @@ class TransferToDownlineHistory extends TransferReport {
     $toDate: JQuery;
 
     dateRangePickerComponent: DateRangePickerComponent;
+    levelComponent: SingleSelectionDropdownComponent
+    showLevelType: boolean;
+    directMemberText: string;
+    masterAgentText: string;
 
     constructor(
         $: JQueryStatic,
-        dateRangePickerComponent: DateRangePickerComponent
-    ) {
+        dateRangePickerComponent: DateRangePickerComponent,
+        levelComponent: SingleSelectionDropdownComponent) {
         super($);
-
         this.$ = $;
         this.dateRangePickerComponent = dateRangePickerComponent;
+        this.levelComponent = levelComponent;
     }
 
     public init(): void {
+        this.showLevelType = this.$("#ddl-levelType").length > 0;
+        if (this.showLevelType) {
+            this.directMemberText = this.$("#DirectMemberText").val();
+            this.masterAgentText = this.$("#MasterAgentText").val();
+            this.levelComponent.render(new SingleSelectionDropdownOption("ddl-levelType", "levelType"));
+        }
+        
         super.init();
 
         this.initUsernameSuggestion();
@@ -35,7 +46,7 @@ class TransferToDownlineHistory extends TransferReport {
         super.initDataTable({
             serverSide: true,
             ajax: (data, callback) => {
-                const params = {
+                const params: any = {
                     UserName: this.$("#UserName").val(),
                     FromDate: this.$("#FromDate").val(),
                     ToDate: this.$("#ToDate").val(),
@@ -43,6 +54,9 @@ class TransferToDownlineHistory extends TransferReport {
                     PageIndex: (data.start / data.length) + 1,
                     PageSize: data.length,
                 };
+                if (this.showLevelType) {
+                    params.LevelType = this.levelComponent.getSelectedItem();
+                }
 
                 this.getTransferDownlineHistoryData(params, callback);
             },
@@ -77,15 +91,28 @@ class TransferToDownlineHistory extends TransferReport {
     }
 
     private buildDataTableColumns = () => {
-        return [
+        const columns: any = [
             { className: "col-date", data: "FormattedActionDate" },
-            { className: "col-text", data: "DownlineName" },
+            { className: "col-text", data: "DownlineName" }
+        ];
+
+        if (this.showLevelType) {
+            columns.push({
+                className: "col-text",
+                data: null,
+                render: item => item.IsDirectMember ? this.directMemberText : this.masterAgentText
+            });
+        }
+
+        columns.push(
             { className: "col-text", data: "TransferTypeName" },
             { className: "col-number", data: "FormattedTransferAmount" },
             { className: "col-number", data: "FormattedOldBalance" },
             { className: "col-number", data: "FormattedNewBalance" },
-            { data: "Description" },
-        ];
+            { data: "Description" }
+        );
+
+        return columns;
     };
 
     public initUsernameSuggestion(): void {
@@ -133,6 +160,7 @@ class TransferToDownlineHistory extends TransferReport {
 $(() => {
     const transferToDownlineHistory = new TransferToDownlineHistory(
         $,
-        new DateRangePickerComponent($));
+        new DateRangePickerComponent($),
+        new SingleSelectionDropdownComponent($));
     transferToDownlineHistory.init();
 });

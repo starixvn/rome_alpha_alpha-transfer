@@ -9,12 +9,14 @@
             int custId,
             string userName,
             DateTime fromDate,
-            DateTime toDate)
+            DateTime toDate,
+            byte levelType)
         {
             CustId = custId;
             UserName = userName;
             FromDate = fromDate == DateTime.MinValue ? SystemTime.Today : fromDate;
             ToDate = toDate == DateTime.MinValue ? SystemTime.Today : toDate;
+            LevelType = levelType;
         }
 
         public int CustId { get; }
@@ -24,5 +26,7 @@
         public DateTime FromDate { get; }
 
         public DateTime ToDate { get; }
+
+        public byte LevelType { get; }
     }
 }

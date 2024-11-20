@@ -54,6 +54,7 @@
     "outputFileName": "assets/bundles/transfer-to-downline-history/index.js",
     "inputFiles": [
       "assets/scripts/components/daterangepicker.js",
+      "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/transfer-to-downline-history/utils.js",
       "assets/scripts/transfer-to-downline-history/transfer-report.js",
       "assets/scripts/transfer-to-downline-history/index.js"
@@ -75,6 +76,7 @@
       "assets/scripts/components/visible-columns-dropdown.js",
       "assets/scripts/components/auto-refresh.js",
       "assets/scripts/components/multiple-selection-dropdown.js",
+            "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/auto-transfer/monitoring.js"
     ]
   },
@@ -87,6 +89,7 @@
       "assets/scripts/components/visible-columns-dropdown.js",
       "assets/scripts/components/auto-refresh.js",
       "assets/scripts/components/multiple-selection-dropdown.js",
+            "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/auto-transfer/history.js"
     ]
   },

@@ -23,7 +23,8 @@
                 message.CustId,
                 message.UserName,
                 message.FromDate,
-                message.ToDate));
+                message.ToDate,
+                message.LevelType));
         }
 
         public TransferToDownlineHistoryPagingViewModel Handle(TransferToDownlineHistoryPagingQuery message)
@@ -33,6 +34,7 @@
                 message.UserName,
                 message.FromDate.GetGreaterDate(message.LimitedDateToShowInfo),
                 message.ToDate,
+                message.LevelType,
                 message.PageSize,
                 message.PageIndex));
 

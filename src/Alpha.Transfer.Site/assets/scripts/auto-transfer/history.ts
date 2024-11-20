@@ -27,6 +27,10 @@ class AutoTransferHistory {
     visibleColumnDropdownComponent: VisibleColumnDropdownComponent;
     autoRefreshComponent: AutoRefreshComponent;
     $statusComponent: MultipleSelectionDropdownComponent;
+    levelComponent: SingleSelectionDropdownComponent
+    directMemberText: string;
+    masterAgentText: string;
+    isShowLevelColumn: boolean;
     amountFormat = "0,0.[00]";
 
     sortDirection = {
@@ -44,7 +48,8 @@ class AutoTransferHistory {
         dateRangePickerComponent: DateRangePickerComponent,
         visibleColumnDropdownComponent: VisibleColumnDropdownComponent,
         autoRefreshComponent: AutoRefreshComponent,
-        statusComponent: MultipleSelectionDropdownComponent) {
+        statusComponent: MultipleSelectionDropdownComponent,
+        levelComponent: SingleSelectionDropdownComponent) {
         this.$ = $;
         this.topWindow = topWindow;
         this.numeral = numeral;
@@ -53,12 +58,14 @@ class AutoTransferHistory {
         this.visibleColumnDropdownComponent = visibleColumnDropdownComponent;
         this.autoRefreshComponent = autoRefreshComponent;
         this.$statusComponent = statusComponent;
+        this.levelComponent = levelComponent;
     }
 
     init = () => {
         this.cacheDOMElements();
         this.registerEvents();
     };
+
     cacheDOMElements = () => {
         this.$tabMonitoring = this.$("#tab-monitoring");
         this.virtualDirectory = this.$("#VirtualDirectory").val();
@@ -72,20 +79,28 @@ class AutoTransferHistory {
         this.ViewerId = this.$("#ViewerId").val();
         this.SubAccId = this.$("#SubAccId").val();
         this.$navTabs = this.$("#nav-tabs");
+
+        this.directMemberText = this.$("#DirectMemberText").val();
+        this.masterAgentText = this.$("#MasterAgentText").val();
+        this.isShowLevelColumn = typeof this.directMemberText !== "undefined" && typeof this.masterAgentText !== "undefined";
     };
+
     registerEvents = () => {
         this.$tabMonitoring.click(() => this.viewMonitoring());
         this.$('.icon-information-outline').click(() => this.viewInfo());
 
-        var self = this;
+        const self = this;
         this.$('.sorting').click(function () {
             self.sort(this);
         });
 
         this.dateRangePickerComponent.render();
-        this.$('#report-form').submit(() => { this.viewTransfers(); return false; });
+        this.$('#report-form').submit((e) => {
+            e.preventDefault();
+            this.viewTransfers();
+        });
 
-        var visibleColumnDropdownOption = new VisibleColumnDropdownOption(
+        const visibleColumnDropdownOption = new VisibleColumnDropdownOption(
             `TransferHistory_${this.ViewerId}_${this.SubAccId}:Columns`,
             (visibleStatus) => {
                 for (const [key, value] of Object.entries(visibleStatus)) {
@@ -96,15 +111,15 @@ class AutoTransferHistory {
 
         this.$statusComponent.render(
             new MultipleSelectionDropdownOption("ddl-status", "Status", this.changeStatus));
+        this.isShowLevelColumn && this.levelComponent.render(
+            new SingleSelectionDropdownOption("ddl-levelType", "levelType"));
     };
 
-    viewMonitoring = () => {
-        location.href = this.$tabMonitoring.attr("data-tablink");
-    };
+    viewMonitoring = () => location.href = this.$tabMonitoring.attr("data-tablink");
 
     viewInfo = () => {
-        var url = "/" + this.virtualDirectory + "autotransfer/hint";
-        this.topWindow.popupManager.open(url, "", 500, 520);
+        const url = "/" + this.virtualDirectory + "autotransfer/hint";
+        this.topWindow.popupManager.open(url, "", 500, 250);
     };
 
     viewTransfers = () => {
@@ -120,16 +135,18 @@ class AutoTransferHistory {
             FromDate: this.$("#from-date").val(),
             ToDate: this.$("#to-date").val(),
         };
-
         this.updatePager(alphaTransfer.pager.pageIndex, alphaTransfer.pager.pageSize);
+        if (this.isShowLevelColumn) {
+            this.reportParam.LevelType = this.levelComponent.getSelectedItem();
+        }
+
         self.$.ajax({
             method: "POST",
             data: this.reportParam,
             dataType: 'json',
             url: "GetHistoryTransfers",
-            success: results => { this.showTransfers(results); },
-            error: (e) => { },
-            complete: () => { this.$.unblockUI(); }
+            success: results => this.showTransfers(results),
+            complete: this.$.unblockUI
         });
     };
 
@@ -139,34 +156,35 @@ class AutoTransferHistory {
             return;
         }
 
-        var html = '';
+        const html = [];
 
         if (results.Transfers.length === 0) {
-            html = '<tr><td colspan="7" class="text-center">' + this.noInformationIsAvailable + '</td></tr>';
+            html.push('<tr><td colspan="', this.isShowLevelColumn ? 8 : 7, '" class="text-center">', this.noInformationIsAvailable, '</td></tr>');
         } else {
-            for (var i = 0; i < results.Transfers.length; i++) {
-                var t = results.Transfers[i];
-                var amount = t.HasTransferAmount ? this.numeral(t.TransferAmount).format(this.amountFormat) : '';
-                var ino = i + 1 + results.PageSize * (results.PageIndex - 1);
-                var amountClass = (t.TransferAmount || 0) < 0 ? " format-negative" : "";
-                var status = t.Status.toLowerCase() === 'waiting' ? 'Processing' : t.Status;
+            for (let i = 0; i < results.Transfers.length; i++) {
+                const t = results.Transfers[i];
+                const amount = t.HasTransferAmount ? this.numeral(t.TransferAmount).format(this.amountFormat) : '';
+                const ino = i + 1 + results.PageSize * (results.PageIndex - 1);
+                const amountClass = (t.TransferAmount || 0) < 0 ? " format-negative" : "";
+                const status = t.Status.toLowerCase() === 'waiting' ? 'Processing' : t.Status;
 
-                html += '<tr>' +
-                    '<td col-value="1" class="text-center">' + ino + '</td>' +
-                    '<td col-value="2" class="text-left">' + t.Username + '</td>' +
-                    '<td col-value="3" class="text-left">' + t.FirstLastName + '</td>' +
-                    '<td col-value="4" class="text-right' + amountClass + '">' + amount + '</td>' +
-                    '<td col-value="5" class="text-left col-status ' + status.toLowerCase() + '">' + this.$('#' + status).val() + '</td>' +
-                    '<td col-value="6" class="text-left">' + (t.Reason || '') + '</td>' +
-                    '<td col-value="7" class="text-center">' + (t.CompletedTime || '') + '</td>' +
-                    '</tr>';
+                html.push('<tr>',
+                    '<td col-value="1" class="text-center">', ino, '</td>',
+                    '<td col-value="2" class="text-left">', t.Username, '</td>',
+                    this.isShowLevelColumn ? `<td col-value="8" class="text-center">${t.IsDirectMember ? this.directMemberText : this.masterAgentText}</td>` : '',
+                    '<td col-value="3" class="text-left">', t.FirstLastName, '</td>',
+                    '<td col-value="4" class="text-right', amountClass, '">', amount, '</td>',
+                    '<td col-value="5" class="text-left col-status ', status.toLowerCase(), '">', this.$('#' + status).val(), '</td>',
+                    '<td col-value="6" class="text-left">', (t.Reason || ''), '</td>',
+                    '<td col-value="7" class="text-center">', (t.CompletedTime || ''), '</td>',
+                    '</tr>');
             }
         }
 
-        this.$tblMonitoring.find('tbody').empty().html(html);
+        this.$tblMonitoring.find('tbody').empty().html(html.join(""));
         this.$sorters.removeClass("sorting_asc sorting_desc");
 
-        var selectedSort = this.$tblMonitoring.find('.sorting[data-sort="' + results.SortedBy + '"]');
+        const selectedSort = this.$tblMonitoring.find('.sorting[data-sort="' + results.SortedBy + '"]');
         selectedSort.addClass('sorting_' + (results.Direction === this.sortDirection.asc ? 'asc' : 'desc'));
 
         this.$pager.data('pageindex', results.PageIndex);
@@ -176,13 +194,13 @@ class AutoTransferHistory {
         this.pagerComponent.reset();
         this.pagerComponent.render(new PagerOption(
             () => {
-                var pageIndex = parseInt(this.$('#PageIndex').val(), 0);
-                var pageSize = parseInt(this.$('#PageSize').val(), 0);
+                const pageIndex = parseInt(this.$('#PageIndex').val(), 0);
+                const pageSize = parseInt(this.$('#PageSize').val(), 0);
 
                 this.pagingTransfers(pageIndex, pageSize);
             }));
 
-        var visibleStatus = this.visibleColumnDropdownComponent.getVisibleStatus();
+        const visibleStatus = this.visibleColumnDropdownComponent.getVisibleStatus();
 
         for (const [key, value] of Object.entries(visibleStatus)) {
             this.showHideColumn(key, value);
@@ -194,12 +212,12 @@ class AutoTransferHistory {
             fixedOffset: this.$navTabs
         });
     };
-    sort = (elm) => {
-        var $elm = this.$(elm);
 
-        var sortedBy = $elm.data('sort');
-        var direction = $elm.hasClass('sorting_asc')
-            ? this.sortDirection.desc : this.sortDirection.asc;
+    sort = (elm) => {
+        const $elm = this.$(elm);
+
+        const sortedBy = $elm.data('sort');
+        const direction = $elm.hasClass('sorting_asc') ? this.sortDirection.desc : this.sortDirection.asc;
         this.$.blockUI();
 
         this.updatePager(alphaTransfer.pager.pageIndex, alphaTransfer.pager.pageSize);
@@ -211,9 +229,8 @@ class AutoTransferHistory {
             data: this.reportParam,
             dataType: 'json',
             url: "GetHistoryTransfers",
-            success: results => { this.showTransfers(results); },
-            error: (e) => { },
-            complete: () => { this.$.unblockUI(); }
+            success: results => this.showTransfers(results),
+            complete: this.$.unblockUI
         });
     };
 
@@ -226,9 +243,8 @@ class AutoTransferHistory {
             data: this.reportParam,
             dataType: 'json',
             url: "GetHistoryTransfers",
-            success: results => { this.showTransfers(results); },
-            error: (e) => { },
-            complete: () => { this.$.unblockUI(); }
+            success: results => this.showTransfers(results),
+            complete: this.$.unblockUI
         });
     };
 
@@ -243,9 +259,8 @@ class AutoTransferHistory {
         }
     };
 
-    changeStatus = () => {
-        this.$statusComponent.updateSelectedValue();
-    };
+    changeStatus = () => this.$statusComponent.updateSelectedValue();
+
     updatePager = (pageIndex, pageSize) => {
         this.$pager.data('pageindex', pageIndex);
         this.$pager.data('pagesize', pageSize);
@@ -264,6 +279,7 @@ $(() => {
         new DateRangePickerComponent($),
         new VisibleColumnDropdownComponent($),
         new AutoRefreshComponent($),
-        new MultipleSelectionDropdownComponent($));
+        new MultipleSelectionDropdownComponent($),
+        new SingleSelectionDropdownComponent($));
     handler.init();
 });

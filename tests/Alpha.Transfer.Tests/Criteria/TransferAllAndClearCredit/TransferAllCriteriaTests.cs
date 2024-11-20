@@ -11,7 +11,7 @@
         {
             // Arrange
             var expectedSettingKey = "SiteDB_Age_Transfer_All_Ins";
-            var criteria = new TransferAllCriteria(1, 1, 1, string.Empty, string.Empty, string.Empty, string.Empty, false);
+            var criteria = new TransferAllCriteria(1, 1, 1, string.Empty, string.Empty, string.Empty, false);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -29,7 +29,7 @@
         public void IsValid_CustId_ReturnsTrue(string username, bool expectedValue)
         {
             // Arrange
-            var criteria = new TransferAllCriteria(1, 1, 1, username, string.Empty, string.Empty, string.Empty, false);
+            var criteria = new TransferAllCriteria(1, 1, 1, username, string.Empty, string.Empty, false);
 
             // Act
             var actualValue = criteria.IsValid();

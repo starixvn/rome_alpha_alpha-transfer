@@ -42,7 +42,8 @@
     beforeEach(() => {
         transferToDownlineHistory = new TransferToDownlineHistory(
             jqueryFake,
-            new DateRangePickerComponent(jqueryFake)
+            new DateRangePickerComponent(jqueryFake),
+            new SingleSelectionDropdownComponent(jqueryFake)
         );
     });
 

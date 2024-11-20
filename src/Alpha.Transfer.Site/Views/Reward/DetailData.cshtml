@@ -49,7 +49,15 @@
                 <tr>
                     <td data-colindex="0" class="text-center" data-sortedvalue="@item.CreatedDate.ToLongDate24HFormat()">@item.CreatedDate.ToLongDateWithSlash()</td>
                     <td data-colindex="1">@item.ProgramName</td>
-                    <td data-colindex="2">@item.MemberUsername</td>
+                    <td data-colindex="2">
+                        <div class="text-icon">
+                            <div>@item.MemberUsername</div>
+                            @if (item.IsDirectMember)
+                            {
+                                <span class="ic-directmember" style="float: right" title="@Resources.DirectMember"></span>
+                            }
+                        </div>
+                    </td>
                     <td data-colindex="3" class="text-right">@HtmlHelpers.FormatNumber(item.MemberAmount)</td>
                     <td data-colindex="4" class="text-center @(item.MemberPaymentStatus ? "text-green" : "text-red")">@(item.MemberPaymentStatus ? Resources.Paid : Resources.Unpaid)</td>
                     <td data-colindex="5" class="text-center" data-sortedvalue="@(memberPaymentDateHasValue ? item.MemberPaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
@@ -61,27 +69,45 @@
                     <td data-colindex="6" class="text-center @(item.MemberFeedback == 0 ? string.Empty : "text-red")">@item.MemberFeedbackText</td>
                     @if (isMasterOrSuper)
                     {
-                        var agentPaymentDateHasValue = item.AgentPaymentDate.HasValue;
-                        <td data-colindex="7">@item.AgentUsername</td>
-                        <td data-colindex="8" class="text-center @(item.AgentPaymentStatus ? "text-green" : "text-red")">@(item.AgentPaymentStatus ? Resources.Paid : Resources.Unpaid)</td>
-                        <td data-colindex="9" class="text-center" data-sortedvalue="@(agentPaymentDateHasValue ? item.AgentPaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
-                            @if (agentPaymentDateHasValue)
-                            {
-                                @:@item.AgentPaymentDate.Value.ToShortDateWithSlash()
-                            }
-                        </td>
+                        if (item.IsDirectMember || string.IsNullOrWhiteSpace(item.AgentUsername))
+                        {
+                            <td data-colindex="7"></td>
+                            <td data-colindex="8"></td>
+                            <td data-colindex="9"></td>
+                        }
+                        else
+                        {
+                            var agentPaymentDateHasValue = item.AgentPaymentDate.HasValue;
+                            <td data-colindex="7">@item.AgentUsername</td>
+                            <td data-colindex="8" class="text-center @(item.AgentPaymentStatus ? "text-green" : "text-red")">@(item.AgentPaymentStatus ? Resources.Paid : Resources.Unpaid)</td>
+                            <td data-colindex="9" class="text-center" data-sortedvalue="@(agentPaymentDateHasValue ? item.AgentPaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
+                                @if (agentPaymentDateHasValue)
+                                {
+                                    @:@item.AgentPaymentDate.Value.ToShortDateWithSlash()
+                                }
+                            </td>
+                        }
                     }
                     @if (isSuper)
                     {
-                        var masterPaymentDateHasValue = item.MasterPaymentDate.HasValue;
-                        <td data-colindex="10">@item.MasterUsername</td>
-                        <td data-colindex="11" class="text-center @(item.MasterPaymentStatus ? "text-green" : "text-red")">@(item.MasterPaymentStatus ? Resources.Paid : Resources.Unpaid)</td>
-                        <td data-colindex="12" class="text-center" data-sortedvalue="@(masterPaymentDateHasValue ? item.MasterPaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
-                            @if (masterPaymentDateHasValue)
-                            {
-                                @:@item.MasterPaymentDate.Value.ToShortDateWithSlash()
-                            }
-                        </td>
+                        if (item.IsDirectMember)
+                        {
+                            <td data-colindex="10"></td>
+                            <td data-colindex="11"></td>
+                            <td data-colindex="12"></td>
+                        }
+                        else
+                        {
+                            var masterPaymentDateHasValue = item.MasterPaymentDate.HasValue;
+                            <td data-colindex="10">@item.MasterUsername</td>
+                            <td data-colindex="11" class="text-center @(item.MasterPaymentStatus ? "text-green" : "text-red")">@(item.MasterPaymentStatus ? Resources.Paid : Resources.Unpaid)</td>
+                            <td data-colindex="12" class="text-center" data-sortedvalue="@(masterPaymentDateHasValue ? item.MasterPaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
+                                @if (masterPaymentDateHasValue)
+                                {
+                                    @:@item.MasterPaymentDate.Value.ToShortDateWithSlash()
+                                }
+                            </td>
+                        }
                     }
                 </tr>
             }

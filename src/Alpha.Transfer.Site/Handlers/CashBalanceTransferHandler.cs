@@ -2,12 +2,12 @@
 {
     using System.Threading.Tasks;
     using Alpha.Transfer.AppResources;
+    using Alpha.Transfer.Configurations;
     using MediatR;
     using Requests.CashBalanceTransfer;
     using Services;
     using Transfer.Models;
     using ViewModels.CashBalanceTransfer;
-    using Alpha.Transfer.Configurations;
 
     public class CashBalanceTransferHandler :
         IAsyncRequestHandler<CashBalanceTransferQuery, CashBalanceTransferViewModel>,
@@ -27,9 +27,10 @@
 
         public async Task<CashBalanceTransferViewModel> Handle(CashBalanceTransferQuery message)
         {
-            var model = await cashBalanceTransferService.GetCashBalanceTransferAsync(message.CustId);
+            var model = await cashBalanceTransferService.GetCashBalanceTransferAsync(message.CustId, message.IsDirectMember, message.AGIP);
 
             return new CashBalanceTransferViewModel(
+                message.ActorLevel,
                 model.UplineCashBalance,
                 model.CustId,
                 model.UserName,
@@ -37,7 +38,8 @@
                 model.CashBalance,
                 model.Outstanding,
                 model.GivenCredit,
-                model.PendingTransfer3rd);
+                model.PendingTransfer3rd,
+                message.IsDirectMember);
         }
 
         public async Task<Result> Handle(CashBalanceTransferCommand message)
@@ -57,7 +59,8 @@
                 message.SubAccId,
                 message.IP,
                 message.LanguageKey,
-                message.AGIP);
+                message.AGIP,
+                message.IsDirectMember);
         }
 
         public async Task<HintTransferViewModel> Handle(HintTransferQuery message)

@@ -19,6 +19,7 @@
                 new DateTime(),
                 new DateTime(),
                 0,
+                0,
                 0);
 
             // Act
@@ -41,6 +42,7 @@
                 new DateTime(),
                 new DateTime(),
                 0,
+                0,
                 0);
 
             // Act
@@ -60,6 +62,7 @@
                 new DateTime(2021, 3, 12),
                 new DateTime(2021, 3, 11),
                 0,
+                0,
                 0);
 
             // Act
@@ -76,7 +79,7 @@
         public void CustId_Always_ReturnsCustIdSetByCtor(int custId, int expectedCustId)
         {
             // Arrange
-            var criteria = new GetTransferToDownlineHistoryCriteria(custId, string.Empty, new DateTime(), new DateTime(), 0, 0);
+            var criteria = new GetTransferToDownlineHistoryCriteria(custId, string.Empty, new DateTime(), new DateTime(), 0, 0, 0);
 
             // Act
             var actualCustId = criteria.CustId;
@@ -92,7 +95,7 @@
         public void UserName_Always_ReturnUserNameSetByCtor(string userName, string expectedUserName)
         {
             // Arrange
-            var criteria = new GetTransferToDownlineHistoryCriteria(0, userName, new DateTime(), new DateTime(), 0, 0);
+            var criteria = new GetTransferToDownlineHistoryCriteria(0, userName, new DateTime(), new DateTime(), 0, 0, 0);
 
             // Act
             var actualUserName = criteria.UserName;
@@ -106,7 +109,7 @@
         {
             // Arrange
             var expectedFromDate = DefaultVariablesTest.CurrentDate;
-            var criteria = new GetTransferToDownlineHistoryCriteria(0, string.Empty, expectedFromDate, new DateTime(), 0, 0);
+            var criteria = new GetTransferToDownlineHistoryCriteria(0, string.Empty, expectedFromDate, new DateTime(), 0, 0, 0);
 
             // Act
             var actualFromDate = criteria.FromDate;
@@ -120,7 +123,7 @@
         {
             // Arrange
             var expectedToDate = DefaultVariablesTest.CurrentDate;
-            var criteria = new GetTransferToDownlineHistoryCriteria(0, string.Empty, new DateTime(), expectedToDate, 0, 0);
+            var criteria = new GetTransferToDownlineHistoryCriteria(0, string.Empty, new DateTime(), expectedToDate, 0, 0, 0);
 
             // Act
             var actualToDate = criteria.ToDate;
@@ -134,7 +137,7 @@
         {
             // Arrange
             var expectedPageSize = DefaultVariablesTest.PageSize;
-            var criteria = new GetTransferToDownlineHistoryCriteria(0, string.Empty, new DateTime(), new DateTime(), expectedPageSize, 0);
+            var criteria = new GetTransferToDownlineHistoryCriteria(0, string.Empty, new DateTime(), new DateTime(), 0, expectedPageSize, 0);
 
             // Act
             var actualPageSize = criteria.PageSize;
@@ -148,7 +151,7 @@
         {
             // Arrange
             var expectedPageIndex = DefaultVariablesTest.PageIndex;
-            var criteria = new GetTransferToDownlineHistoryCriteria(0, string.Empty, new DateTime(), new DateTime(), 0, expectedPageIndex);
+            var criteria = new GetTransferToDownlineHistoryCriteria(0, string.Empty, new DateTime(), new DateTime(), 0, expectedPageIndex, 0);
 
             // Act
             var actualPageIndex = criteria.PageIndex;

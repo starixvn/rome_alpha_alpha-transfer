@@ -6,6 +6,7 @@
     public class CashBalanceTransferViewModel
     {
         public CashBalanceTransferViewModel(
+            UserLevel actorLevel,
             decimal uplineCashBalance,
             int custId,
             string userName,
@@ -13,8 +14,10 @@
             decimal cashBalance,
             decimal outstanding,
             decimal givenCredit,
-            decimal pendingTransfer3rd)
+            decimal pendingTransfer3rd,
+            bool isDirectMember)
         {
+            UplineLevelName = GetUserLevelDisplayName(actorLevel);
             UplineCashBalance = uplineCashBalance;
             CustId = custId;
             UserName = userName;
@@ -22,6 +25,7 @@
             CashBalance = cashBalance;
             Outstanding = outstanding;
             PendingTransfer3rd = pendingTransfer3rd;
+            IsDirectMember = isDirectMember;
             GivenCredit = givenCredit;
 
             TransferAmountFrom = CashBalance - Outstanding - pendingTransfer3rd;
@@ -44,13 +48,7 @@
             }
         }
 
-        public string UplineLevelName
-        {
-            get
-            {
-                return GetUserLevelDisplayName(CustUserLevel.GetDirectUplineLevel());
-            }
-        }
+        public string UplineLevelName { get; }
 
         public decimal UplineCashBalance { get; }
 
@@ -73,6 +71,8 @@
         public decimal Outstanding { get; }
 
         public decimal PendingTransfer3rd { get; }
+
+        public bool IsDirectMember { get; }
 
         public decimal GivenCredit { get; }
 

@@ -13,5 +13,9 @@
         public string LastName { get; set; }
 
         public string Username2 { get; set; }
+
+        public int? AgentId { get; set; }
+
+        public int? MasterId { get; set; }
     }
 }

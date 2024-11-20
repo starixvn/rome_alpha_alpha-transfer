@@ -5,6 +5,7 @@
     using System.Globalization;
     using System.Linq;
     using System.Threading;
+    using Alpha.Transfer.Models;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Params.TransferToDownlineHistory;
     using Alpha.Transfer.Services;
@@ -126,10 +127,10 @@
         public void GetBodyMapper_Always_ReturnsCorrectMapper()
         {
             // Arrange
-            var viewModel = new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", 0, 1, 2, 3, "Desc 1");
+            var viewModel = new TransferToDownlineHistoryModel(new DateTime(2021, 1, 11), "Agent", 0, 1, 2, 3, "Desc 1", false);
 
             // Act
-            var actualMapper = handler.GetBodyMapper;
+            var actualMapper = handler.GetBodyMapper(UserLevel.Agent);
 
             // Assert
             Assert.True(

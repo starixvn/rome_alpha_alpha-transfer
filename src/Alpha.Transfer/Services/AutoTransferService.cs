@@ -64,6 +64,7 @@
                 Language = param.Language,
                 Searchname = param.Username,
                 ViewStatus = param.Status,
+                LevelType = param.LevelType,
                 SortBy = param.SortedBy,
                 SortType = param.Direction,
                 PageSize = param.PageSize,
@@ -96,6 +97,7 @@
                 Language = param.Language,
                 Searchname = param.Username,
                 ViewStatus = param.Status,
+                LevelType = param.LevelType,
                 SortBy = param.SortedBy,
                 SortType = param.Direction,
                 PageSize = param.PageSize,
@@ -133,7 +135,7 @@
 
         public async Task<Result> CancelAllJobAsync(CancelAllJobParam param)
         {
-            var criteria = new CancelAllJobCriteria(param);
+            var criteria = new CancelAllJobCriteria(param.FromCustId, param.Language, param.IP);
             await repository.ExecuteAsync(criteria, param.AGIP);
 
             return new Result

@@ -5,6 +5,7 @@ class RewardPaymentView {
     private dateRangePicker: DateRangePickerJQueryComponent;
     private programDropdown: FanexMultiSelectComponent;
     private paymentStatusDropdown: SingleSelectionDropdownComponent;
+    private levelTypeDropdown: SingleSelectionDropdownComponent;
     private usernameAutoSuggestion: UsernameAutoSuggestionComponent;
     private sorter: SortComponent;
     private tableContainer: JQuery;
@@ -14,12 +15,14 @@ class RewardPaymentView {
         dateRangePicker: DateRangePickerJQueryComponent,
         programDropdown: FanexMultiSelectComponent,
         paymentStatusDropdown: SingleSelectionDropdownComponent,
+        levelTypeDropdown: SingleSelectionDropdownComponent,
         usernameAutoSuggestion: UsernameAutoSuggestionComponent,
         sorter: SortComponent) {
         this.filter = filter;
         this.dateRangePicker = dateRangePicker;
         this.programDropdown = programDropdown;
         this.paymentStatusDropdown = paymentStatusDropdown;
+        this.levelTypeDropdown = levelTypeDropdown;
         this.usernameAutoSuggestion = usernameAutoSuggestion;
         this.sorter = sorter;
     }
@@ -58,7 +61,7 @@ class RewardPaymentView {
 
         this.programDropdown.render({ selectorId: 'ddl-program', showFilter: true, onDropdownHidden: () => this.getRewardReport() });
         this.paymentStatusDropdown.render(new SingleSelectionDropdownOption('ddl-paymentStatus', undefined, () => this.getRewardReport()));
-
+        this.levelTypeDropdown.render(new SingleSelectionDropdownOption('ddl-levelType', undefined, () => this.getRewardReport()));
         this.usernameAutoSuggestion.init({
             url: $("#hiddenUsernameAutoSuggestionUrl").val(),
             directDownlines: true,
@@ -99,6 +102,10 @@ class RewardPaymentView {
         const paymentStatus = this.paymentStatusDropdown.getSelectedItem();
         if (paymentStatus !== '0') {
             searchData.paymentStatus = paymentStatus;
+        }
+
+        if (this.levelTypeDropdown.$dropdown.length) {
+            searchData.levelType = this.levelTypeDropdown.getSelectedItem();
         }
 
         return searchData;
@@ -156,6 +163,7 @@ class RewardPaymentView {
             username: $element.data('custname'),
             programId: $element.data('programid'),
             maxTransId: $element.data('maxtransid'),
+            isDirectMember: $element.data('isdirectmember') === 1
         }
     }
 
@@ -254,6 +262,7 @@ $(function () {
         new FilterComponent(),
         new DateRangePickerJQueryComponent(),
         new FanexMultiSelectComponent(),
+        new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new UsernameAutoSuggestionComponent(),
         new SortComponent()).init();

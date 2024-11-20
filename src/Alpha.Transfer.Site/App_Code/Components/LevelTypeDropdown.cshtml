@@ -1,0 +1,33 @@
+﻿@using Alpha.Transfer.AppResources;
+@using Alpha.Transfer.Models;
+
+@helper Render(UserLevel viewerLevel, byte selected = 0)
+{
+    if (viewerLevel.IsMasterOrSuperLevel())
+    {
+        <div class="form-group level-multiselect-container">
+            <label>@Resources.Level</label>
+            @LevelTypeDropdown.BuildLevelTypeSelect(viewerLevel, selected)
+        </div>
+    }
+}
+
+@helper RenderNewUI(UserLevel viewerLevel, byte selected = 0)
+{
+    if (viewerLevel.IsMasterOrSuperLevel())
+    {
+        <div class="form-group">
+            <label class="label-form-control">@Resources.Level</label>
+            <div>@LevelTypeDropdown.BuildLevelTypeSelect(viewerLevel, selected)</div>
+        </div>
+    }
+}
+
+@helper BuildLevelTypeSelect(UserLevel viewerLevel, byte selected)
+{
+    <select id="ddl-levelType" name="levelType">
+        <option value="0" @(0 == selected ? "selected" : string.Empty)>@Resources.All</option>
+        <option value="1" @(1 == selected ? "selected" : string.Empty)>@(viewerLevel.IsSuperLevel() ? Resources.MasterAgent : Resources.Agent)</option>
+        <option value="2" @(2 == selected ? "selected" : string.Empty)>@Resources.DirectMember</option>
+    </select>
+}

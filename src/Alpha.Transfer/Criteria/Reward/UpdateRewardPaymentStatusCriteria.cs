@@ -38,7 +38,7 @@
 
         public string PaymentLog { get; set; }
 
-        public override string GetSettingKey() => "Acc_RewardPayment_Confirm";
+        public override string GetSettingKey() => "SiteDB_Acc_RewardPayment_Confirm";
 
         public override bool IsValid() => !string.IsNullOrWhiteSpace(Data) && Creator > 0;
     }

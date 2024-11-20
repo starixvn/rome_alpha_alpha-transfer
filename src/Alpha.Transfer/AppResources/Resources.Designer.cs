@@ -19,7 +19,7 @@ namespace Alpha.Transfer.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -583,6 +583,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}&apos;s Direct Members.
+        /// </summary>
+        public static string ClearCreditStep_Super_DirectMember {
+            get {
+                return ResourceManager.GetString("ClearCreditStep_Super_DirectMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}.
         /// </summary>
         public static string ClearCreditStep_Super_Master {
@@ -799,6 +808,15 @@ namespace Alpha.Transfer.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Direct Member.
+        /// </summary>
+        public static string DirectMember {
+            get {
+                return ResourceManager.GetString("DirectMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your upline has disallowed you to use All Day Balance Transfer. The page will be automatically refreshed..
         /// </summary>
         public static string DisallowedAllDayBalanceTransferError {
@@ -1011,6 +1029,15 @@ namespace Alpha.Transfer.AppResources {
         public static string Master {
             get {
                 return ResourceManager.GetString("Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Master Agent.
+        /// </summary>
+        public static string MasterAgent {
+            get {
+                return ResourceManager.GetString("MasterAgent", resourceCulture);
             }
         }
         
@@ -1803,6 +1830,15 @@ namespace Alpha.Transfer.AppResources {
         public static string TransferStep_Super_Agent {
             get {
                 return ResourceManager.GetString("TransferStep_Super_Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direct Member to {0}.
+        /// </summary>
+        public static string TransferStep_Super_DirectMember {
+            get {
+                return ResourceManager.GetString("TransferStep_Super_DirectMember", resourceCulture);
             }
         }
         

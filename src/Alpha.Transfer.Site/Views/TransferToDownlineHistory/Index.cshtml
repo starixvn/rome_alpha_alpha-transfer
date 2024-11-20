@@ -35,7 +35,11 @@
             <tr></tr>
             <tr>
                 <th class="all w-15" data-priority="7">@Resources.ActionDate</th>
-                <th class="all" data-priority="6">@Model.DirectDownlineText</th>
+                <th class="all" data-priority="6">@Resources.Username</th>
+                @if (Model.ShowLevelType)
+                {
+                    <th class="min-tablet-l" data-priority="8">@Resources.Level</th>
+                }
                 <th class="min-tablet-l" data-priority="5">@Resources.TransferType</th>
                 <th class="min-tablet-l" data-priority="4">@Resources.TransferAmount</th>
                 <th class="min-tablet-l" data-priority="3">@Resources.OldBalance</th>
@@ -52,6 +56,10 @@
         @Html.HiddenFor(model => model.UserName)
         @Html.HiddenFor(model => model.FromDate)
         @Html.HiddenFor(model => model.ToDate)
+        @if (Model.ShowLevelType)
+        {
+            @Html.Hidden("LevelType", Model.FilterViewModel.LevelType)
+        }
     </form>
 
     <div class="shadow" id="shadow"></div>
@@ -63,6 +71,11 @@
     @Html.Hidden("ToDate", Model.ToDate.ToShortDateWithSlash())
     @Html.Hidden("UserSelectedDateRangeOption", Model.UserSelectedDateRangeOption)
     @Html.Hidden("usernameAutoSuggestionPath", TransferAllAndClearCreditViewModel.UsernameAutoSuggestionPath)
+    @Html.Hidden("DirectMemberText", Resources.DirectMember)
+    @if (Model.ShowLevelType)
+    {
+        @Html.Hidden("MasterAgentText", Model.CustLevel.IsSuperLevel() ? Resources.MasterAgent : Resources.Agent)
+    }
 </div>
 
 @section Scripts {

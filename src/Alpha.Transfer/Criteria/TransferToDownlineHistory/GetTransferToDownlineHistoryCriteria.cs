@@ -10,6 +10,7 @@
             string userName,
             DateTime fromDate,
             DateTime toDate,
+            byte levelType,
             int pageSize,
             int pageIndex)
         {
@@ -17,6 +18,7 @@
             UserName = userName;
             FromDate = fromDate;
             ToDate = toDate;
+            LevelType = levelType;
             PageSize = pageSize;
             PageIndex = pageIndex;
         }
@@ -28,6 +30,8 @@
         public DateTime FromDate { get; }
 
         public DateTime ToDate { get; }
+
+        public byte LevelType { get; }
 
         public int PageSize { get; }
 

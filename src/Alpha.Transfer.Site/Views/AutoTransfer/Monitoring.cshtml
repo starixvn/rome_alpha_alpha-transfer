@@ -56,6 +56,7 @@
                         <option value="Ignored" @(Model.Status == "Failed" ? string.Empty : "selected=\"selected\"")>@Resources.Ignored</option>
                     </select>
                 </div>
+                @LevelTypeDropdown.Render(Model.ViewerLevel)
                 @VisibleColumnsDropdown.Render(Model.Columns)
                 @RefreshCountDown.Render(new[] { 15, 30, 45, 60, 75 })
                 <div class="form-group submit-box">
@@ -90,6 +91,10 @@
                     <tr role="row">
                         <th col-value="1"></th>
                         <th col-value="2"></th>
+                        @if (Model.IsShowLevelColumn)
+                        {
+                            <th col-value="8"></th>
+                        }
                         <th col-value="3"></th>
                         <th col-value="4"></th>
                         <th col-value="5"></th>
@@ -99,6 +104,10 @@
                     <tr class="RptHeader">
                         <th col-value="1">@Resources.No</th>
                         <th col-value="2" class="sorting" data-sort="1">@Resources.Username</th>
+                        @if (Model.IsShowLevelColumn)
+                        {
+                            <th col-value="8" class="sorting" data-sort="5">@Resources.Level</th>
+                        }
                         <th col-value="3">@Resources.First_LastName</th>
                         <th col-value="4" class="sorting" data-sort="3">@Resources.TransferAmount</th>
                         <th col-value="5" class="sorting" data-sort="2">@Resources.Status</th>
@@ -109,7 +118,7 @@
                 <tbody></tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="7">
+                        <td colspan="@(Model.IsShowLevelColumn ? 8 : 7)">
                             <div id="report-pager"
                                  class="hide"
                                  data-labelpage="@Resources.Page"
@@ -142,8 +151,12 @@
 @Html.Hidden("confirmCancelJob", Resources.confirmCancelJob)
 @Html.Hidden("CancelAllAutoTransferJobsConfirm", Resources.CancelAllAutoTransferJobsConfirm)
 @Html.Hidden("AutoTransfer_NoCancellable", Resources.AutoTransfer_NoCancellable)
-
 @Html.Hidden("status", Model.Status)
+@if (Model.IsShowLevelColumn)
+{
+    @Html.Hidden("DirectMemberText", Resources.DirectMember)
+    @Html.Hidden("MasterAgentText", Model.ViewerLevel.IsSuperLevel() ? Resources.MasterAgent : Resources.Agent)
+}
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/pagination")

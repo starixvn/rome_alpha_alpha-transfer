@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Alpha.Transfer.AppResources;
 using Alpha.Transfer.Extensions;
+using Alpha.Transfer.Models;
 using Alpha.Transfer.Models.Reward;
 using Alpha.Transfer.Site.Requests.Reward;
 using Alpha.Transfer.Site.ViewModels.Components;
@@ -16,8 +17,10 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
             RewardBaseQuery message,
             IEnumerable<RewardProgram> programs,
             string excelAction,
-            bool showColumns = false)
+            bool showColumns = false,
+            bool showLevelType = false)
         {
+            ActorLevel = message.ActorLevel;
             DateRangePicker = new DateRangePickerJQueryViewModel(
                 message.FromDate,
                 message.ToDate,
@@ -28,7 +31,11 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
             Username = message.Username;
             ExcelAction = excelAction;
             ShowColumns = showColumns;
+            ShowLevelType = showLevelType;
+            LevelType = message.LevelType;
         }
+
+        public UserLevel ActorLevel { get; }
 
         public DateRangePickerJQueryViewModel DateRangePicker { get; }
 
@@ -39,6 +46,10 @@ namespace Alpha.Transfer.Site.ViewModels.Reward
         public string Username { get; }
 
         public bool ShowColumns { get; }
+
+        public byte LevelType { get; }
+
+        public bool ShowLevelType { get; }
 
         public string ExcelAction { get; }
 

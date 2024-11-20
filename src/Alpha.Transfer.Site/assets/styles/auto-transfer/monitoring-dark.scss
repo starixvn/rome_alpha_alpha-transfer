@@ -7,6 +7,24 @@
     }
 }
 
+.filter .level-multiselect-container {
+    .btn-group {
+        float: none;
+    }
+
+    .dropdown-toggle {
+        width: 130px;
+    }
+
+    .dropdown-menu {
+        min-width: 130px;
+
+        label {
+            display: block;
+        }
+    }
+}
+
 .filter .form-group #txt-username {
     width: 200px;
     background-color: #171717;

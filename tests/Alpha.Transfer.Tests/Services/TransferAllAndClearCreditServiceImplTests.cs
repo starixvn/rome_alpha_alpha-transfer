@@ -42,7 +42,7 @@
             repository.FetchMultiple<ConditionStep, TransferStep, ClearCreditStep>(Arg.Any<GetCalculateResultCriteria>()).Returns(transferResult);
 
             // Act
-            var actualData = serviceImpl.GetCalculateResult(new GetCalculationResultParam(1, string.Empty, string.Empty, string.Empty, false, string.Empty));
+            var actualData = serviceImpl.GetCalculateResult(new GetCalculationResultParam(1, string.Empty, string.Empty, false, string.Empty));
 
             // Assert
             Assert.True(compareLogic.Compare(transferResult, actualData).AreEqual);
@@ -57,7 +57,7 @@
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty, Enumerable.Empty<string>());
 
             var transferSteps = "[{'Id': 1, 'TransferableAmount': 2, 'Outstanding': 3}]";
-            var param = new GetTransferResultParam(1, 2, 3, false, string.Empty, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false, string.Empty);
+            var param = new GetTransferResultParam(1, 2, 3, false, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false, string.Empty);
             var expectedValue = new TransferResult(transferAllResult, clearCreditResult, false);
 
             // Act
@@ -76,7 +76,7 @@
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 1, string.Empty, Enumerable.Empty<string>());
 
             var transferSteps = "[{'Id': 1, 'TransferableAmount': 2, 'Outstanding': 3}]";
-            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false, string.Empty);
+            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false, string.Empty);
             var expectedValue = new TransferResult(transferAllResult, clearCreditResult, false);
 
             // Act
@@ -97,7 +97,7 @@
             //repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
             var transferSteps = "[{'Id': 1, 'TransferableAmount': 2, 'Outstanding': 3}]";
-            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false, string.Empty);
+            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false, string.Empty);
             var expectedValue = new TransferResult(transferAllResult, clearCreditResult, false);
 
             // Act
@@ -117,7 +117,7 @@
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty, Enumerable.Empty<string>());
             //repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
-            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false, string.Empty);
+            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false, string.Empty);
             var expectedValue = new TransferResult(transferAllResult, clearCreditResult, false);
 
             // Act
@@ -137,7 +137,7 @@
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty, Enumerable.Empty<string>());
             //repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
-            var param = new GetTransferResultParam(4, 5, 6, false, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false, string.Empty);
+            var param = new GetTransferResultParam(4, 5, 6, false, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false, string.Empty);
             var expectedValue = new TransferResult(transferAllResult, clearCreditResult, false);
 
             // Act
@@ -154,7 +154,7 @@
             var clearCreditResult = new ClearCreditResult(Enumerable.Empty<ClearCreditStep>(), 3, string.Empty, Enumerable.Empty<string>());
             //repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
-            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false, string.Empty);
+            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false, string.Empty);
 
             // Act
             serviceImpl.GetTransferResult(param);
@@ -174,7 +174,7 @@
             //repository.ClearCredit(Arg.Any<ClearCreditCriteria>()).Returns(clearCreditResult);
 
             var transferSteps = "[{'Id': 1, 'TransferableAmount': 2, 'Outstanding': 3}]";
-            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false, string.Empty);
+            var param = new GetTransferResultParam(4, 5, 6, true, string.Empty, string.Empty, string.Empty, transferSteps, string.Empty, false, string.Empty);
 
             // Act
             serviceImpl.GetTransferResult(param);

@@ -28,6 +28,7 @@
                 param.UserName,
                 param.FromDate,
                 param.ToDate,
+                param.LevelType,
                 param.PageSize,
                 param.PageIndex);
             var transferToDownlines = repository.Fetch<TransferToDownlineHistoryModel>(criteria);

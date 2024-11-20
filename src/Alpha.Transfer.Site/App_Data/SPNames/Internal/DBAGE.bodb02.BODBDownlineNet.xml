@@ -11,15 +11,7 @@
     <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel" DbName="DBAGE.bodb02.wsv_alpv" Plain="0" />
     <Setting Key="Age_CustomerSelCheckBelonging_MultiCust" SpName="Age_CustomerSelCheckBelonging_MultiCust" DbName="DBAGE.bodb02.wsv_alpv" Plain="0" />
   </Function>
-  <Function Name="Cash Balance Transfer">
-    <Setting Key="Age_Transfer_CashBalance_Sel" SpName="Age_Transfer_CashBalance_Sel" DbName="DBAGE.bodb02.wsv_alpv" Plain="0" />
-  </Function>
   <Function Name="Transfer all and Clear Credit">
-    <Setting Key="Age_Transfer_Credit_All_Sel" SpName="Age_Transfer_Credit_All_Sel" DbName="DBAGE.bodb02.wsv_alpv" Plain="0">
-      <Mapping DataField="RowId" ObjectProperty="Id" Class="TransferStep" />
-      <Mapping DataField="MemberOutStanding" ObjectProperty="Outstanding" Class="TransferStep" />
-      <Mapping DataField="RowId" ObjectProperty="Id" Class="ClearCreditStep" />
-    </Setting>
     <Setting Key="Age_Transfer_Credit_All_SelDownlineInfo" SpName="Age_Transfer_Credit_All_SelDownlineInfo" DbName="DBAGE.bodb02.wsv_alpv" Plain="0" />
   </Function>
   <Function Name="Transfer To Downline History">

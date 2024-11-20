@@ -10,8 +10,9 @@
             string userName,
             DateTime fromDate,
             DateTime toDate,
+            byte levelType,
             int pageSize,
-            int pageIndex) : base(custId, userName, fromDate, toDate)
+            int pageIndex) : base(custId, userName, fromDate, toDate, levelType)
         {
             PageSize = pageSize < 0 ? PagerConstant.DefaultPageSize : pageSize;
             PageIndex = pageIndex < 0 ? PagerConstant.DefaultPageIndex : pageIndex;

@@ -15,7 +15,7 @@
         public void PageSize_Always_ReturnPageSizeSetByCtor(int pageSize, int expectedValue)
         {
             // Arrange
-            var param = new TransferToDownlineHistoryPagingParam(0, string.Empty, new DateTime(), new DateTime(), pageSize, 0);
+            var param = new TransferToDownlineHistoryPagingParam(0, string.Empty, new DateTime(), new DateTime(), 0, pageSize, 0);
 
             // Act
             var actualValue = param.PageSize;
@@ -31,7 +31,7 @@
         public void PageIndex_Always_ReturnPageIndexSetByCtor(int pageIndex, int expectedValue)
         {
             // Arrange
-            var param = new TransferToDownlineHistoryPagingParam(0, string.Empty, new DateTime(), new DateTime(), 0, pageIndex);
+            var param = new TransferToDownlineHistoryPagingParam(0, string.Empty, new DateTime(), new DateTime(), 0, 0, pageIndex);
 
             // Act
             var actualValue = param.PageIndex;

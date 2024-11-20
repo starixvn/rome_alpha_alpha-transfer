@@ -67,27 +67,27 @@ namespace Alpha.Transfer.Site.Handlers
             if (actorLevel.IsMasterOrSuperLevel())
             {
                 mapper
-                    .Map(H, rp => rp.AgentUsername)
-                    .Map(I, rp => rp.AgentPaymentStatus ? Resources.Paid : Resources.Unpaid)
+                    .Map(H, rp => rp.IsDirectMember || string.IsNullOrWhiteSpace(rp.AgentUsername) ? string.Empty : rp.AgentUsername)
+                    .Map(I, rp => rp.IsDirectMember || string.IsNullOrWhiteSpace(rp.AgentUsername) ? string.Empty : (rp.AgentPaymentStatus ? Resources.Paid : Resources.Unpaid))
                     .Map(J, rp =>
                     {
-                        if (rp.AgentPaymentDate.HasValue)
+                        if (rp.IsDirectMember || string.IsNullOrWhiteSpace(rp.AgentUsername) || !rp.AgentPaymentDate.HasValue)
                         {
-                            return rp.AgentPaymentDate.Value;
+                            return string.Empty;
                         }
 
-                        return string.Empty;
+                        return rp.AgentPaymentDate.Value;
                     });
             }
 
             if (actorLevel.IsSuperLevel())
             {
                 mapper
-                    .Map(K, rp => rp.MasterUsername)
-                    .Map(L, rp => rp.MasterPaymentStatus ? Resources.Paid : Resources.Unpaid)
+                    .Map(K, rp => rp.IsDirectMember ? string.Empty : rp.MasterUsername)
+                    .Map(L, rp => rp.IsDirectMember ? string.Empty : (rp.MasterPaymentStatus ? Resources.Paid : Resources.Unpaid))
                     .Map(M, rp =>
                     {
-                        if (rp.MasterPaymentDate.HasValue)
+                        if (!rp.IsDirectMember && rp.MasterPaymentDate.HasValue)
                         {
                             return rp.MasterPaymentDate.Value;
                         }

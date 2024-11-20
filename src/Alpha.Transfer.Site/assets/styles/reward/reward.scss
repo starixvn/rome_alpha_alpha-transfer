@@ -1,5 +1,5 @@
 ﻿@import "../_variables.scss";
-$reward-payment-width: 860px;
+$reward-payment-width: 960px;
 
 .page-title {
     margin-bottom: 12px;
@@ -15,6 +15,7 @@ $reward-payment-width: 860px;
         width: auto;
     }
 }
+
 #rewardDetail {
     .filter {
         .form-group {
@@ -24,6 +25,7 @@ $reward-payment-width: 860px;
         }
     }
 }
+
 #rewardPayment {
     .filter {
         .form-group {
@@ -33,6 +35,7 @@ $reward-payment-width: 860px;
         }
     }
 }
+
 .msg.msg-success {
     margin-top: 0;
     max-width: $reward-payment-width;

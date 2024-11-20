@@ -146,3 +146,14 @@ table.tblRpt {
         }
     }
 }
+
+.filter .level-multiselect-container {
+    .btn-group, .btn-default {
+        float: none;
+        width: 130px;
+    }
+
+    .dropdown-menu {
+        min-width: 130px;
+    }
+}

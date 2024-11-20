@@ -3,9 +3,9 @@ using Alpha.Transfer.Models;
 
 namespace Alpha.Transfer.Criteria.Reward
 {
-    internal class GetRewardPaymentCriteria : GetRewardCriteria
+    internal class GetRewardPaymentMemberCriteria : GetRewardCriteria
     {
-        public GetRewardPaymentCriteria(
+        public GetRewardPaymentMemberCriteria(
             int custId,
             UserLevel custLevel,
             DateTime fromDate,
@@ -16,11 +16,6 @@ namespace Alpha.Transfer.Criteria.Reward
         {
         }
 
-        public override string GetSettingKey()
-            => CustLevel.IsSuperLevel()
-            ? "Age_RewardPayment_Master"
-            : CustLevel.IsMasterLevel()
-                ? "Age_RewardPayment_Agent"
-                : "Age_RewardPayment_Member";
+        public override string GetSettingKey() => "Age_RewardPayment_Member";
     }
 }

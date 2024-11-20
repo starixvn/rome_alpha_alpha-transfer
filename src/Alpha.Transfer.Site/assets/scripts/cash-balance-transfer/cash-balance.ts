@@ -263,11 +263,14 @@ class CashBalance {
             return;
         }
 
-        const postParams = {
+        const postParams: any = {
             __RequestVerificationToken: this.$token.val(),
             custId: this.$custId.val(),
             amount: validationObject.Amount
         };
+        if (this.$("#isDirectMember").val() === "1") {
+            postParams.isDirectMember = true;
+        }
 
         const this$ = this.$;
 

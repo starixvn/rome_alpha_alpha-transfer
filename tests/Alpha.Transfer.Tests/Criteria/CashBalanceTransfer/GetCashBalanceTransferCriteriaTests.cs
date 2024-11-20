@@ -10,8 +10,8 @@
         public void GetCashBalanceTransferCriteria_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Age_Transfer_CashBalance_Sel";
-            var criteria = new GetCashBalanceTransferCriteria(1176083);
+            var expectedSettingKey = "SiteDB_Age_Transfer_CashBalance_Sel";
+            var criteria = new GetCashBalanceTransferCriteria(1176083, false);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -24,7 +24,7 @@
         public void IsValid_CustId_ReturnsTrue()
         {
             // Arrange
-            var criteria = new GetCashBalanceTransferCriteria(1176083);
+            var criteria = new GetCashBalanceTransferCriteria(1176083, false);
             bool expectedResult = true;
 
             // Act
@@ -40,7 +40,7 @@
         public void IsInvalid_CustId_ReturnsFalse(int custId, bool expectedResult)
         {
             // Arrange
-            var criteria = new GetCashBalanceTransferCriteria(custId);
+            var criteria = new GetCashBalanceTransferCriteria(custId, false);
 
             // Act
             var actualIsValid = criteria.IsValid();

@@ -20,6 +20,10 @@
         <label class="label-form-control">@(isRewardDetailTab ? Resources.MemberPaymentStatus : Resources.PaymentStatus)</label>
         <div>@Html.DropDownList("ddl-paymentStatus", Model.PaymentStatus)</div>
     </div>
+    @if (Model.ShowLevelType)
+    {
+        @LevelTypeDropdown.RenderNewUI(Model.ActorLevel, Model.LevelType)
+    }
     @UsernameAutoSuggestion.Render(Model.Username)
     @if (Model.ShowColumns)
     {

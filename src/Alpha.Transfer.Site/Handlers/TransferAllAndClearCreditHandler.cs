@@ -24,16 +24,23 @@
 
         public CalculationViewModel Handle(CalculationQuery message)
         {
-            var isAllDayBalanceTransfer = transferService.IsAllDayBalanceTransfer(message.ViewerId);
-            var param = new GetCalculationResultParam(
-                message.CustId,
-                message.Username,
-                message.LanguageKey,
-                message.AllowedTotalBalanceTransferSuperIds,
-                isAllDayBalanceTransfer,
-                message.AGIP);
+            TransferResult calculationResult;
 
-            var calculationResult = string.IsNullOrWhiteSpace(message.Username) ? new TransferResult() : transferAllAndClearCreditService.GetCalculateResult(param);
+            if (string.IsNullOrWhiteSpace(message.Username))
+            {
+                calculationResult = new TransferResult();
+            }
+            else
+            {
+                var isAllDayBalanceTransfer = transferService.IsAllDayBalanceTransfer(message.ViewerId);
+                var param = new GetCalculationResultParam(
+                    message.CustId,
+                    message.Username,
+                    message.LanguageKey,
+                    isAllDayBalanceTransfer,
+                    message.AGIP);
+                calculationResult = transferAllAndClearCreditService.GetCalculateResult(param);
+            }
 
             return new CalculationViewModel(message, calculationResult);
         }
@@ -47,7 +54,6 @@
                 message.SubAccId,
                 message.IsClearCredit,
                 message.Username,
-                message.AllowedTotalBalanceTransferSuperIds,
                 message.IP,
                 message.LanguageKey,
                 message.TransferSteps,

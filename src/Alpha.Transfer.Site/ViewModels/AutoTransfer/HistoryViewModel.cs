@@ -5,63 +5,44 @@ using System.Web.Mvc;
 using Alpha.Transfer.AppResources;
 using Alpha.Transfer.Site.ViewModels.Components;
 using Alpha.Transfer.Utils;
-using Alpha.Web.Helpers;
-using Alpha.Transfer.Configurations;
 using AlphaPlus.User.Models;
 
 namespace Alpha.Transfer.Site.ViewModels.AutoTransfer
 {
-    public class HistoryViewModel
+    public class HistoryViewModel : AutoTransferViewModel
     {
         private const int reportMonth = -3;
 
-        public HistoryViewModel(IUserSession userSession)
+        public HistoryViewModel(IUserSession userSession) : base(userSession)
         {
-            var minDate = SystemTime.Today.AddDays(-1).AddMonths(reportMonth);
-            MinDate = minDate;
+            MinDate = SystemTime.Today.AddDays(-1).AddMonths(reportMonth);
             DateRangePickerViewModel = new DateRangePickerViewModel(MinDate, MaxDate, FromDate, ToDate, 1);
             DateRangePickerViewModel.RangeOptions = DateRangePickerViewModel.RangeOptions.Where(x => x.Value != "0");
-
-            ViewerId = userSession.CustId;
-            SubAccId = userSession.SubAccId;
+            Columns = GetColumns();
         }
 
         public DateTime FromDate => SystemTime.Today.AddDays(-1);
 
         public DateTime ToDate => SystemTime.Today.AddDays(-1);
 
-        public static DateTime MinDate { get; set; }
+        public static DateTime MinDate { get; private set; }
 
         public static DateTime MaxDate => SystemTime.Today.AddDays(-1);
 
         public DateRangePickerViewModel DateRangePickerViewModel { get; }
 
-        public int ViewerId { get; set; }
-
-        public int SubAccId { get; set; }
-
-        public IEnumerable<SelectListItem> Columns
-            => new[] {
-                new SelectListItem { Text = Resources.First_LastName, Value = "3" },
-                new SelectListItem { Text = Resources.TransferAmount, Value = "4" },
-                new SelectListItem { Text = Resources.Status, Value = "5" },
-                new SelectListItem { Text = Resources.Reason, Value = "6" },
-                new SelectListItem { Text = Resources.CompletedTime, Value = "7" },
-            };
-
-        public string UserGuideLink
+        private IEnumerable<SelectListItem> GetColumns()
         {
-            get
+            if (IsShowLevelColumn)
             {
-                if (AppSettings.SupportedNewHandbook)
-                {
-                    return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug=auto-transfer");
-                }
-
-                return AppSettings.IsMBCSite
-                    ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=184099")
-                    : MicroSites.MessageUrl("~/StaticMessage/Guide?id=184099");
+                yield return new SelectListItem { Text = Resources.Level, Value = "8" };
             }
+
+            yield return new SelectListItem { Text = Resources.First_LastName, Value = "3" };
+            yield return new SelectListItem { Text = Resources.TransferAmount, Value = "4" };
+            yield return new SelectListItem { Text = Resources.Status, Value = "5" };
+            yield return new SelectListItem { Text = Resources.Reason, Value = "6" };
+            yield return new SelectListItem { Text = Resources.CompletedTime, Value = "7" };
         }
     }
 }

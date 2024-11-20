@@ -12,6 +12,7 @@ namespace Alpha.Transfer.Params.Reward
             DateTime toDate,
             string programIds,
             bool? paymentStatus,
+            byte levelType,
             string username,
             int pageIndex = 0,
             int pageSize = 0)
@@ -22,6 +23,7 @@ namespace Alpha.Transfer.Params.Reward
             ToDate = toDate;
             ProgramIds = programIds;
             PaymentStatus = paymentStatus;
+            LevelType = levelType;
             Username = username;
             PageIndex = pageIndex;
             PageSize = pageSize;
@@ -38,6 +40,8 @@ namespace Alpha.Transfer.Params.Reward
         public string ProgramIds { get; }
 
         public bool? PaymentStatus { get; }
+
+        public byte LevelType { get; }
 
         public string Username { get; }
 

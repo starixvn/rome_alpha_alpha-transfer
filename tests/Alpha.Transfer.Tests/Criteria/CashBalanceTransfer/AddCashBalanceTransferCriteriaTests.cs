@@ -11,7 +11,7 @@
         {
             // Arrange
             var expectedSettingKey = "SiteDB_Age_Transfer_CashBalance_Ins";
-            var criteria = new AddCashBalanceTransferCriteria(1176070, 1176083, 1101240.32M, 1176070, 0, "127.0.0.1", "E");
+            var criteria = new AddCashBalanceTransferCriteria(1176070, 1176083, 1101240.32M, 1176070, 0, "127.0.0.1", "E", false);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -24,7 +24,7 @@
         public void IsValid_Always_ReturnsTrue()
         {
             // Arrange
-            var criteria = new AddCashBalanceTransferCriteria(1176070, 1176083, 1101240.32M, 1176070, 0, "127.0.0.1", "E");
+            var criteria = new AddCashBalanceTransferCriteria(1176070, 1176083, 1101240.32M, 1176070, 0, "127.0.0.1", "E", false);
             bool expectedResult = true;
 
             // Act
@@ -42,7 +42,7 @@
         public void IsInvalid_Always_ReturnsFalse(int uplineId, int custId, decimal amount, string ip, bool expectedResult)
         {
             // Arrange
-            var criteria = new AddCashBalanceTransferCriteria(uplineId, custId, amount, uplineId, 0, ip, "E");
+            var criteria = new AddCashBalanceTransferCriteria(uplineId, custId, amount, uplineId, 0, ip, "E", false);
 
             // Act
             var actualIsValid = criteria.IsValid();

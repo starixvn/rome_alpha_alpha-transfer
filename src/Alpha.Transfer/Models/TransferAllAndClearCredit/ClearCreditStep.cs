@@ -9,14 +9,14 @@
         {
         }
 
-        public ClearCreditStep(byte id, decimal givenCredit, decimal clearableCredit)
+        public ClearCreditStep(int id, decimal givenCredit, decimal clearableCredit)
         {
             Id = id;
             GivenCredit = givenCredit;
             ClearableCredit = clearableCredit;
         }
 
-        public byte Id { get; set; }
+        public int Id { get; set; }
 
         public decimal GivenCredit { get; set; }
 

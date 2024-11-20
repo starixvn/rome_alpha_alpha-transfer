@@ -20,6 +20,8 @@ namespace Alpha.Transfer.Models.Reward
 
         public DateTime? PaymentDate { get; set; }
 
+        public bool IsDirectMember { get; set; }
+
         public static RewardPaymentEntity operator +(RewardPaymentEntity model1, RewardPaymentEntity model2)
         {
             model1.Amount += model2.Amount;

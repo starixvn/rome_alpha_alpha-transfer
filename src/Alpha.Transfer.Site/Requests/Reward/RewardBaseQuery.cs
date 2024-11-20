@@ -22,6 +22,8 @@ namespace Alpha.Transfer.Site.Requests.Reward
 
         public bool? PaymentStatus { get; set; }
 
+        public byte LevelType { get; set; }
+
         public string Username { get; set; }
 
         public int PageIndex { get; set; } = 1;

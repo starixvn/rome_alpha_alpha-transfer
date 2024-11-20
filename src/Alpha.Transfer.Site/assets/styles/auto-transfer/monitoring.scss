@@ -7,6 +7,24 @@
     }
 }
 
+.filter .level-multiselect-container {
+    .btn-group {
+        float: none;
+    }
+
+    .dropdown-toggle {
+        width: 130px;
+    }
+
+    .dropdown-menu {
+        min-width: 130px;
+
+        label {
+            display: block;
+        }
+    }
+}
+
 .page-auto-transfer {
     padding: 0;
 }

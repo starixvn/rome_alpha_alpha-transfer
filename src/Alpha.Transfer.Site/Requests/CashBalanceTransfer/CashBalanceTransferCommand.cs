@@ -19,6 +19,8 @@
 
         public decimal Amount { get; set; }
 
+        public bool IsDirectMember { get; set; }
+
         public int UplineId { get; }
 
         public string UplineName { get; }

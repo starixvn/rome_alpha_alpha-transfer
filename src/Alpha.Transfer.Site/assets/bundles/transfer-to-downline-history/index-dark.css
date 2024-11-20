@@ -96,3 +96,10 @@ table.tblRpt {
       display: inline-block; }
   .dataTables_wrapper .dataTables_paginate .last:before {
     content: "\e951"; }
+
+.filter .level-multiselect-container .btn-group, .filter .level-multiselect-container .btn-default {
+  float: none;
+  width: 130px; }
+
+.filter .level-multiselect-container .dropdown-menu {
+  min-width: 130px; }

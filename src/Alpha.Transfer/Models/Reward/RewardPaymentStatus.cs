@@ -9,5 +9,7 @@
         public int ProgramId { get; set; }
 
         public long MaxTransId { get; set; }
+
+        public bool IsDirectMember { get; set; }
     }
 }

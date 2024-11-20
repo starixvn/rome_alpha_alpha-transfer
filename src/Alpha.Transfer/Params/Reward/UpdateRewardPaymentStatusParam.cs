@@ -13,7 +13,8 @@ namespace Alpha.Transfer.Params.Reward
             int subAccId,
             string subAccName,
             string ip,
-            string language)
+            string language,
+            string agIP)
         {
             FromDate = fromDate;
             ToDate = toDate;
@@ -23,6 +24,7 @@ namespace Alpha.Transfer.Params.Reward
             SubAccName = subAccName;
             IP = ip;
             Language = language;
+            AGIP = agIP;
         }
 
         public DateTime FromDate { get; }
@@ -40,5 +42,7 @@ namespace Alpha.Transfer.Params.Reward
         public string IP { get; }
 
         public string Language { get; }
+
+        public string AGIP { get; }
     }
 }

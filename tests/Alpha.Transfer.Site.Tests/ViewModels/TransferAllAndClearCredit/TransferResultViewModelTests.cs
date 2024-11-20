@@ -26,7 +26,7 @@
                 Username = "username"
             };
 
-            param = new GetTransferResultParam(1, 2, 3, false, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false, string.Empty);
+            param = new GetTransferResultParam(1, 2, 3, false, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, false, string.Empty);
         }
 
         [Theory]

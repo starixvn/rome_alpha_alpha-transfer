@@ -9,14 +9,14 @@
         {
         }
 
-        public TransferStep(byte id, decimal transferableAmount, decimal? outstanding)
+        public TransferStep(int id, decimal transferableAmount, decimal? outstanding)
         {
             Id = id;
             TransferableAmount = transferableAmount;
             Outstanding = outstanding;
         }
 
-        public byte Id { get; set; }
+        public int Id { get; set; }
 
         public decimal TransferableAmount { get; set; }
 

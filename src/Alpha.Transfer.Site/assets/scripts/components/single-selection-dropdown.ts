@@ -45,7 +45,7 @@ class SingleSelectionDropdownComponent {
             includeSelectAllOption: false,
             onChange: this.onchange,
             enableFiltering: this.options.enableFiltering,
-            enableCaseInsensitiveFiltering: this.options.enableCaseInsensitiveFiltering,
+            enableCaseInsensitiveFiltering: this.options.enableFiltering && this.options.enableCaseInsensitiveFiltering,
             filterPlaceholder: $dropdown.data("label-search-text"),
         });
     };

@@ -17,7 +17,8 @@
             decimal transferAmount,
             decimal oldBalance,
             decimal newBalance,
-            string description)
+            string description,
+            bool isDirectMember)
         {
             ActionDate = actionDate;
             DownlineName = downlineName;
@@ -26,6 +27,7 @@
             OldBalance = oldBalance;
             NewBalance = newBalance;
             Description = description;
+            IsDirectMember = isDirectMember;
         }
 
         public DateTime ActionDate { get; set; }
@@ -59,5 +61,7 @@
             => TransferAmount != 0 && OldBalance == 0 && NewBalance == 0
             ? "N/A"
             : balance.FormatWithCommasAlwaysWithDecimalPoint();
+
+        public bool IsDirectMember { get; set; }
     }
 }

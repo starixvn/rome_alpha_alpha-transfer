@@ -24,6 +24,8 @@
 
         public int UserSelectedDateRangeOption { get; set; }
 
+        public byte LevelType { get; set; }
+
         public string Site { get; }
 
         public override bool IsValid()

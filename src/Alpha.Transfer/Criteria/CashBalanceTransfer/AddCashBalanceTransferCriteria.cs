@@ -1,5 +1,6 @@
 ﻿namespace Alpha.Transfer.Criteria.CashBalanceTransfer
 {
+    using Fanex.Data;
     using Fanex.Data.Repository;
 
     public class AddCashBalanceTransferCriteria : NonQueryCommand
@@ -11,7 +12,8 @@
             int creator,
             int subAccId,
             string ip,
-            string languageKey)
+            string languageKey,
+            bool isDirectMember)
         {
             FromCustId = fromCustId;
             ToCustId = toCustId;
@@ -22,6 +24,7 @@
             Language = languageKey;
             ErrCode = 0;
             ErrMsg = string.Empty;
+            IsDirectMember = isDirectMember;
         }
 
         public int FromCustId { get; }
@@ -42,7 +45,11 @@
 
         public string ErrMsg { get; set; }
 
-        public override string GetSettingKey() => "SiteDB_Age_Transfer_CashBalance_Ins";
+        [SpParam(Ignored = true)]
+        public bool IsDirectMember { get; }
+
+        public override string GetSettingKey()
+            => IsDirectMember ? "SiteDB_Age_Transfer_CashBalance_DirectMember_Ins" : "SiteDB_Age_Transfer_CashBalance_Ins";
 
         public override bool IsValid() =>
             FromCustId > 0 &&

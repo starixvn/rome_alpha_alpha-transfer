@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions SiteId="105" SiteName="Transfer">
   <Function Name="Auto Transfer">
-    <Setting Key="Age_ClearBalanceCust_ProcessHistorySel" SpName="Age_ClearBalanceCust_ProcessHistorySel" DbName="DBLOG.bodb_CustomerLog.wsv_alp" Plain="0" >
+    <Setting Key="Age_ClearBalanceCust_ProcessHistorySel" SpName="Age_ClearBalanceCust_ProcessHistorySel_uat2" DbName="DBLOG.bodb_CustomerLog.wsv_alp" Plain="0" >
       <Mapping DataField="Amount" ObjectProperty="TransferAmount" />
     </Setting>
   </Function>

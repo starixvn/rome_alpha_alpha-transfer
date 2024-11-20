@@ -41,5 +41,7 @@ namespace Alpha.Transfer.Models.Reward
         public bool MasterPaymentStatus { get; set; }
 
         public DateTime? MasterPaymentDate { get; set; }
+
+        public bool IsDirectMember { get; set; }
     }
 }

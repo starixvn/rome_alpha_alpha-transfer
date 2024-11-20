@@ -231,7 +231,9 @@
     <Compile Include="Criteria\GetTransferOptionCriteria.cs" />
     <Compile Include="Criteria\MultipleTransfer\GetCustomerListCriteria.cs" />
     <Compile Include="Criteria\Reward\GetRewardDetailCriteria.cs" />
-    <Compile Include="Criteria\Reward\GetRewardPaymentCriteria.cs" />
+    <Compile Include="Criteria\Reward\GetRewardPaymentAgentCriteria.cs" />
+    <Compile Include="Criteria\Reward\GetRewardPaymentMemberCriteria.cs" />
+    <Compile Include="Criteria\Reward\GetRewardPaymentMasterCriteria.cs" />
     <Compile Include="Criteria\Reward\GetRewardCriteria.cs" />
     <Compile Include="Criteria\Reward\GetRewardProgramsCriteria.cs" />
     <Compile Include="Criteria\Reward\RewardConfirmPaymentLogCriteria.cs" />

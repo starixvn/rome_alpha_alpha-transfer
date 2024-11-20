@@ -5,11 +5,20 @@
     <Setting Key="SiteDB_Age_GetCustomerNetPosition" SpName="Age_GetCustomerNetPosition" DbName="SiteDB.BODB02.wsv_alp" Plain="0" />
     <Setting Key="SiteDB_Age_Transfer_All_Ins" SpName="Age_Transfer_All_Ins" DbName="SiteDB.BODB02.wsv_alp" Plain="0">
       <Mapping DataField="RowId" ObjectProperty="Id" Class="TransferStep" />
-      <Mapping DataField="Outstanding" ObjectProperty="MemberOutStanding" Class="TransferStep" />
+      <Mapping DataField="TransferredAmount" ObjectProperty="TransferableAmount" Class="TransferStep" />
+      <Mapping DataField="MemberOutStanding" ObjectProperty="Outstanding" Class="TransferStep" />
+    </Setting>
+    <Setting Key="SiteDB_Age_Transfer_Credit_All_Sel" SpName="Age_Transfer_Credit_All_Sel" DbName="SiteDB.BODB02.wsv_alp" Plain="0">
+      <Mapping DataField="RowId" ObjectProperty="Id" Class="TransferStep" />
+      <Mapping DataField="MemberOutStanding" ObjectProperty="Outstanding" Class="TransferStep" />
+      <Mapping DataField="RowId" ObjectProperty="Id" Class="ClearCreditStep" />
     </Setting>
   </Function>
   <Function Name="Cash Balance Transfer">
+    <Setting Key="SiteDB_Age_Transfer_CashBalance_Sel" SpName="Age_Transfer_CashBalance_Sel" DbName="SiteDB.BODB02.wsv_alp" Plain="0" />
     <Setting Key="SiteDB_Age_Transfer_CashBalance_Ins" SpName="Age_Transfer_CashBalance_Ins" DbName="SiteDB.BODB02.wsv_alp" Plain="0" />
+    <Setting Key="SiteDB_Age_Transfer_CashBalance_DirectMember_Sel" SpName="Age_Transfer_CashBalance_DirectMember_Sel" DbName="SiteDB.BODB02.wsv_alp" Plain="0" />
+    <Setting Key="SiteDB_Age_Transfer_CashBalance_DirectMember_Ins" SpName="Age_Transfer_CashBalance_DirectMember_Ins" DbName="SiteDB.BODB02.wsv_alp" Plain="0" />
   </Function>
   <Function Name="Auto Transfer">
     <Setting Key="SiteDB_Age_ClearBalanceCust_ProcessSel" SpName="Age_ClearBalanceCust_ProcessSel" DbName="SiteDB.BODB02.wsv_alp" Plain="0">
@@ -18,5 +27,8 @@
     <Setting Key="SiteDB_Age_ClearBalanceCust_Job_StatusCheck" SpName="Age_ClearBalanceCust_Job_StatusCheck" DbName="SiteDB.BODB02.wsv_alp" Plain="0" />
     <Setting Key="SiteDB_Age_ClearBalanceCust_ProcessCancel" SpName="Age_ClearBalanceCust_ProcessCancel" DbName="SiteDB.BODB02.wsv_alp" Plain="0" />
     <Setting Key="SiteDB_Age_ClearBalanceCust_ProcessCancel_All" SpName="Age_ClearBalanceCust_ProcessCancel_All" DbName="SiteDB.BODB02.wsv_alp" Plain="0" />
+  </Function>
+  <Function Name="Reward">
+    <Setting Key="SiteDB_Acc_RewardPayment_Confirm" SpName="Acc_RewardPayment_Confirm" DbName="SiteDB.BODB02.wsv_alp" />
   </Function>
 </Functions>

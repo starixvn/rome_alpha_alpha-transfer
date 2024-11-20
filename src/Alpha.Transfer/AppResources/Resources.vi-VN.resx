@@ -675,4 +675,13 @@
   <data name="NoProgramFound" xml:space="preserve">
     <value>Không tìm thấy chương trình tiền thưởng nào</value>
   </data>
+  <data name="DirectMember" xml:space="preserve">
+    <value>Member Trực Tiếp</value>
+  </data>
+  <data name="TransferStep_Super_DirectMember" xml:space="preserve">
+    <value>Từ Member Trực Tiếp Tới {0}</value>
+  </data>
+  <data name="ClearCreditStep_Super_DirectMember" xml:space="preserve">
+    <value>Member Trực Tiếp của {0}</value>
+  </data>
 </root>

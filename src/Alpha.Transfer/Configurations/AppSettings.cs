@@ -70,6 +70,8 @@
 
         public static string TransferLogCategory => GetConfigValue("TransferLogCategory");
 
+        public static string RemoteRefURL => GetConfigValue("RemoteRefURL");
+        
         public static bool SupportedNewHandbook
         {
             get

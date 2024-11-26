@@ -1,0 +1,108 @@
+﻿@{
+    Layout = null;
+    var isMasterOrSuper = Model.ActorLevel.IsMasterOrSuperLevel();
+    var isSuper = Model.ActorLevel.IsSuperLevel();
+    var totalColumns = isSuper ? 13 : isMasterOrSuper ? 10 : 7;
+}
+@model Alpha.Transfer.Site.ViewModels.Reward.RewardDetailDataViewModel
+<table class="tb tb-bordered tb-hover tb-freeze-header w-full" id="tbl-transfer" data-cansort="@Model.ReportData.MoreThanOne">
+    <thead>
+        <tr class="thead-row1">
+            <th class="sorting" data-colindex="0" rowspan="2">@Resources.CreatedDate</th>
+            <th class="sorting" data-colindex="1" rowspan="2">@Resources.Program</th>
+            <th colspan="5" id="groupMember">@Resources.Member</th>
+            @if (isMasterOrSuper)
+            {
+                <th colspan="3" id="groupAgent">@Resources.Agent</th>
+            }
+            @if (isSuper)
+            {
+                <th colspan="3" id="groupMaster">@Resources.Master</th>
+            }
+        </tr>
+        <tr class="thead-row2">
+            <th class="sorting" data-colindex="2">@Resources.Username</th>
+            <th class="sorting" data-colindex="3" data-sorttype="digit">@Resources.Amount</th>
+            <th class="sorting" data-colindex="4">@Resources.PaymentStatus</th>
+            <th class="sorting" data-colindex="5">@Resources.PaymentDate</th>
+            <th class="sorting" data-colindex="6">@Resources.Feedback</th>
+            @if (isMasterOrSuper)
+            {
+                <th class="sorting" data-colindex="7">@Resources.Username</th>
+                <th class="sorting" data-colindex="8">@Resources.PaymentStatus</th>
+                <th class="sorting" data-colindex="9">@Resources.PaymentDate</th>
+            }
+            @if (isSuper)
+            {
+                <th class="sorting" data-colindex="10">@Resources.Username</th>
+                <th class="sorting" data-colindex="11">@Resources.PaymentStatus</th>
+                <th class="sorting" data-colindex="12">@Resources.PaymentDate</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.ReportData.Any)
+        {
+            foreach (var item in Model.ReportData.RewardDetails)
+            {
+                var memberPaymentDateHasValue = item.MemberPaymentDate.HasValue;
+                <tr>
+                    <td data-colindex="0" class="text-center" data-sortedvalue="@item.CreatedDate.ToLongDate24HFormat()">@item.CreatedDate.ToLongDateWithSlash()</td>
+                    <td data-colindex="1">@item.ProgramName</td>
+                    <td data-colindex="2">@item.MemberUsername</td>
+                    <td data-colindex="3" class="text-right">@HtmlHelpers.FormatNumber(item.MemberAmount)</td>
+                    <td data-colindex="4" class="text-center @(item.MemberPaymentStatus ? "text-green" : "text-red")">@(item.MemberPaymentStatus ? Resources.Paid : Resources.Unpaid)</td>
+                    <td data-colindex="5" class="text-center" data-sortedvalue="@(memberPaymentDateHasValue ? item.MemberPaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
+                        @if (memberPaymentDateHasValue)
+                        {
+                            @:@item.MemberPaymentDate.Value.ToShortDateWithSlash()
+                        }
+                    </td>
+                    <td data-colindex="6" class="text-center @(item.MemberFeedback == 0 ? string.Empty : "text-red")">@item.MemberFeedbackText</td>
+                    @if (isMasterOrSuper)
+                    {
+                        var agentPaymentDateHasValue = item.AgentPaymentDate.HasValue;
+                        <td data-colindex="7">@item.AgentUsername</td>
+                        <td data-colindex="8" class="text-center @(item.AgentPaymentStatus ? "text-green" : "text-red")">@(item.AgentPaymentStatus ? Resources.Paid : Resources.Unpaid)</td>
+                        <td data-colindex="9" class="text-center" data-sortedvalue="@(agentPaymentDateHasValue ? item.AgentPaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
+                            @if (agentPaymentDateHasValue)
+                            {
+                                @:@item.AgentPaymentDate.Value.ToShortDateWithSlash()
+                            }
+                        </td>
+                    }
+                    @if (isSuper)
+                    {
+                        var masterPaymentDateHasValue = item.MasterPaymentDate.HasValue;
+                        <td data-colindex="10">@item.MasterUsername</td>
+                        <td data-colindex="11" class="text-center @(item.MasterPaymentStatus ? "text-green" : "text-red")">@(item.MasterPaymentStatus ? Resources.Paid : Resources.Unpaid)</td>
+                        <td data-colindex="12" class="text-center" data-sortedvalue="@(masterPaymentDateHasValue ? item.MasterPaymentDate.Value.ToLongDate24HFormat() : string.Empty)">
+                            @if (masterPaymentDateHasValue)
+                            {
+                                @:@item.MasterPaymentDate.Value.ToShortDateWithSlash()
+                            }
+                        </td>
+                    }
+                </tr>
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td colspan="@totalColumns" class="text-center">@Resources.NoInformationIsAvailable</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.ReportData.Any)
+{
+    <div id="transfer-pager"
+         class="hide control-pager"
+         data-labelpage="@Resources.Page"
+         data-labelof="@Resources.of"
+         data-labeldisplayitems="@Resources.Pager_DisplayItems"
+         data-pageindex="@Model.ReportData.PageIndex"
+         data-pagesize="@Model.ReportData.PageSize"
+         data-totalrecords="@Model.ReportData.TotalRecords"></div>
+}

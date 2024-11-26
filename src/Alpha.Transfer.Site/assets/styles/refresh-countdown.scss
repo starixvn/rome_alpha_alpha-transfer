@@ -30,6 +30,7 @@
         &:after {
             display: none;
         }
+
         &:before {
             content: '\e933';
             font-family: 'Iconalpha';
@@ -72,8 +73,10 @@
         line-height: 28px;
     }
 }
+
 .dropdown {
     display: inline-block;
+
     .caret {
         top: 13px;
         right: 12px;
@@ -81,7 +84,7 @@
     }
 
     .dropdown-menu {
-        min-width: 83px;
+        margin-top: 3px;
     }
 
     .dropdown-toggle {

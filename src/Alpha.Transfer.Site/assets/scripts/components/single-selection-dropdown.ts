@@ -7,7 +7,9 @@ class SingleSelectionDropdownOption {
     constructor(
         public dropdownId = "dropdown-single",
         public inputId = "UserSelectedId",
-        public onChange: Function = null) {
+        public onChange: Function = null,
+        public enableFiltering = false,
+        public enableCaseInsensitiveFiltering = true) {
     }
 }
 
@@ -41,7 +43,10 @@ class SingleSelectionDropdownComponent {
             maxHeight: 300,
             numberDisplayed: 1,
             includeSelectAllOption: false,
-            onChange: this.onchange
+            onChange: this.onchange,
+            enableFiltering: this.options.enableFiltering,
+            enableCaseInsensitiveFiltering: this.options.enableCaseInsensitiveFiltering,
+            filterPlaceholder: $dropdown.data("label-search-text"),
         });
     };
     getSelectedItem = () => {

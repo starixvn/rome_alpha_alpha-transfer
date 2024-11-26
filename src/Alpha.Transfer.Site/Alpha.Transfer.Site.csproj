@@ -117,6 +117,9 @@
     <Reference Include="Fanex.Logging.Sentry.RavenClient, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Logging.Sentry.RavenClient.1.0.1\lib\net461\Fanex.Logging.Sentry.RavenClient.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.RemotingRef, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.RemotingRef.1.5.4\lib\net461\Fanex.RemotingRef.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -124,8 +127,14 @@
       <HintPath>..\..\packages\MediatR.2.1.0\lib\net45\MediatR.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
+    <Reference Include="MessagePack, Version=2.4.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MessagePack.2.4.35\lib\netstandard2.0\MessagePack.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack.Annotations, Version=2.4.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MessagePack.Annotations.2.4.35\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -134,6 +143,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.NET.StringTools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.NET.StringTools.17.6.3\lib\netstandard2.0\Microsoft.NET.StringTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.NET.StringTools.net35, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.NET.StringTools.1.0.0\lib\net35\Microsoft.NET.StringTools.net35.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Web.RedisSessionStateProvider, Version=2.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -214,8 +229,11 @@
     <Reference Include="Sunplus.Agent.Utilities, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.4.0.0\lib\net461\Sunplus.Agent.Utilities.dll</HintPath>
     </Reference>
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
@@ -229,18 +247,22 @@
     <Reference Include="System.IO.Pipelines, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.IO.Pipelines.4.5.1\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
     </Reference>
-    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Net" />
-    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Caching" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
@@ -249,6 +271,26 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Security.Permissions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Security.Permissions.5.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
@@ -260,8 +302,8 @@
     <Reference Include="System.Threading.Channels, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Threading.Channels.4.5.0\lib\netstandard2.0\System.Threading.Channels.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -312,11 +354,19 @@
     <Content Include="App_Data\SPNames\Internal\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBLOG.bodb_CustomerLog.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBCust.CustDB.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBLOG.bodb_CustomerLog.wsv_alpv.xml" />
     <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBSIC.bodb02.wsv_alpv.xml" />
     <Content Include="App_Data\SPNames\Internal\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\SiteDB.BODB02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Local\DBLOG.bodb_CustomerLog.wsv_alp.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\SPNames\Local\DBSIC.bodb02.wsv_alp.xml" />
     <Content Include="App_Data\SPNames\Local\DBACC.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Local\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Local\DBAGE.bodb02.BODBDownlineNet.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\SPNames\Local\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\SiteDB.BODB02.BODBDownlineNet.xml" />
@@ -326,23 +376,33 @@
     <Content Include="App_Data\SPNames\Pro\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBLOG.bodb_CustomerLog.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Pro\DBLOG.bodb_CustomerLog.wsv_alp.xml" />
     <Content Include="App_Data\SPNames\Pro\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Pro\DBSIC.bodb02.wsv_alp.xml" />
     <Content Include="App_Data\SPNames\Pro\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\SiteDB.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBLOG.bodb_CustomerLog.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\SIT\DBLOG.bodb_CustomerLog.wsv_alp.xml" />
     <Content Include="App_Data\SPNames\SIT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\SIT\DBSIC.bodb02.wsv_alp.xml" />
     <Content Include="App_Data\SPNames\SIT\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\SiteDB.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBLOG.bodb_CustomerLog.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\UAT\DBLOG.bodb_CustomerLog.wsv_alp.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\UAT\DBSIC.bodb02.wsv_alp.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\SiteDB.BODB02.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles-v2\reward\reward.css" />
+    <Content Include="assets\bundles-v2\reward\reward.min.css">
+      <DependentUpon>reward.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\auto-transfer\history.js" />
     <Content Include="assets\bundles\auto-transfer\history.min.js">
       <DependentUpon>history.js</DependentUpon>
@@ -417,6 +477,14 @@
     <Content Include="assets\bundles\multiple-transfer\customer-list.min.js">
       <DependentUpon>customer-list.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\reward\reward-detail.js" />
+    <Content Include="assets\bundles\reward\reward-detail.min.js">
+      <DependentUpon>reward-detail.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\reward\reward-payment.js" />
+    <Content Include="assets\bundles\reward\reward-payment.min.js">
+      <DependentUpon>reward-payment.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\transfer-all-clear-credit-dark.css" />
     <Content Include="assets\bundles\transfer-all-clear-credit-dark.min.css">
       <DependentUpon>transfer-all-clear-credit-dark.css</DependentUpon>
@@ -458,6 +526,7 @@
     <Content Include="assets\bundles\transfer-to-downline-history\index.min.js.map">
       <DependentUpon>index.min.js</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="assets\scripts\components\fanexMultiSelect-dropdown.ts" />
     <Content Include="assets\scripts\tests\libs\autocomplete.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\datetimepicker.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
@@ -543,6 +612,12 @@
     </Content>
     <Content Include="assets\styles\refresh-countdown.min.css">
       <DependentUpon>refresh-countdown.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\reward\reward.css">
+      <DependentUpon>reward.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\reward\reward.min.css">
+      <DependentUpon>reward.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\site-dark.css">
       <DependentUpon>site-dark.scss</DependentUpon>
@@ -653,11 +728,13 @@
     </Compile>
     <Compile Include="Controllers\AutoTransferController.cs" />
     <Compile Include="Controllers\MultipleTransferController.cs" />
+    <Compile Include="Controllers\RewardController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\TransferAllAndClearCreditController.cs" />
     <Compile Include="Controllers\CashBalanceTransferController.cs" />
     <Compile Include="Controllers\TransferAllClearCreditControllerBase.cs" />
     <Compile Include="Controllers\TransferToDownlineHistoryController.cs" />
+    <Compile Include="Controllers\UsernameSuggestionController.cs" />
     <Compile Include="Global.asax.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
       <DependentUpon>Global.asax</DependentUpon>
@@ -665,11 +742,16 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\AutoTransferHandler.cs" />
     <Compile Include="Handlers\CashBalanceTransferHandler.cs" />
+    <Compile Include="Handlers\ExcelBaseHandler.cs" />
     <Compile Include="Handlers\MultipleTransferHandler.cs" />
+    <Compile Include="Handlers\RewardDetailExcelHandler.cs" />
+    <Compile Include="Handlers\RewardHandler.cs" />
+    <Compile Include="Handlers\RewardPaymentExcelHandler.cs" />
     <Compile Include="Handlers\TransferAllAndClearCreditHandler.cs" />
     <Compile Include="Handlers\TransferToDownlineHistoryBaseHandler.cs" />
     <Compile Include="Handlers\TransferToDownlineHistoryExcelHandler.cs" />
     <Compile Include="Handlers\TransferToDownlineHistoryHandler.cs" />
+    <Compile Include="Handlers\UsernameSuggestionHandler.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\AutoTransfer\CancelAllJobsQuery.cs" />
@@ -688,6 +770,14 @@
     <Compile Include="Requests\CashBalanceTransfer\HintTransferQuery.cs" />
     <Compile Include="Requests\MultipleTransfer\CustomerListQuery.cs" />
     <Compile Include="Requests\QueryEntityModelBinder.cs" />
+    <Compile Include="Requests\Reward\GetRewardDetailDataQuery.cs" />
+    <Compile Include="Requests\Reward\GetRewardPaymentDataQuery.cs" />
+    <Compile Include="Requests\Reward\RewardBaseQuery.cs" />
+    <Compile Include="Requests\Reward\RewardDetailExcelQuery.cs" />
+    <Compile Include="Requests\Reward\RewardDetailQuery.cs" />
+    <Compile Include="Requests\Reward\RewardPaymentExcelQuery.cs" />
+    <Compile Include="Requests\Reward\RewardPaymentQuery.cs" />
+    <Compile Include="Requests\Reward\UpdateRewardPaymentStatusCommand.cs" />
     <Compile Include="Requests\TransferAllAndClearCredit\CalculationQuery.cs" />
     <Compile Include="Requests\TransferAllAndClearCredit\TransferResultQuery.cs" />
     <Compile Include="Requests\TransferBaseQuery.cs" />
@@ -695,14 +785,20 @@
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryExcelQuery.cs" />
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryQuery.cs" />
     <Compile Include="Requests\TransferToDownlineHistory\TransferToDownlineHistoryPagingQuery.cs" />
+    <Compile Include="Requests\UsernameSuggestionQuery.cs" />
     <Compile Include="ViewModels\AutoTransfer\HistoryViewModel.cs" />
     <Compile Include="ViewModels\AutoTransfer\MonitoringViewModel.cs" />
     <Compile Include="ViewModels\AutoTransfer\GetTransferConditionViewModel.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\CashBalanceTransferViewModel.cs" />
     <Compile Include="ViewModels\CashBalanceTransfer\HintTransferViewModel.cs" />
+    <Compile Include="ViewModels\Components\DateRangePickerJQueryViewModel.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
     <Compile Include="ViewModels\ExcelFileViewModel.cs" />
     <Compile Include="ViewModels\MultipleTransfer\CustomerListViewModel.cs" />
+    <Compile Include="ViewModels\Reward\RewardFilterViewModel.cs" />
+    <Compile Include="ViewModels\Reward\RewardDetailDataViewModel.cs" />
+    <Compile Include="ViewModels\Reward\RewardDetailViewModel.cs" />
+    <Compile Include="ViewModels\Reward\RewardPaymentViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\CalculationViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferAllAndClearCreditViewModel.cs" />
     <Compile Include="ViewModels\TransferAllAndClearCredit\TransferResultViewModel.cs" />
@@ -774,6 +870,13 @@
     <Content Include="assets\styles\auto-transfer\update-multiple-dark.scss" />
     <Content Include="assets\styles\auto-transfer\update-single.scss" />
     <Content Include="assets\styles\auto-transfer\update-single-dark.scss" />
+    <Content Include="App_Code\Components\DateRangePickerJQuery.cshtml" />
+    <Content Include="App_Data\ExcelTemplates\Reward\RewardPayment.xls" />
+    <Content Include="App_Data\ExcelTemplates\Reward\RewardDetailMaster.xls" />
+    <Content Include="App_Data\ExcelTemplates\Reward\RewardDetailAgent.xls" />
+    <Content Include="App_Data\ExcelTemplates\Reward\RewardDetailMember.xls" />
+    <Content Include="assets\styles\reward\reward.scss" />
+    <Content Include="App_Code\Components\UsernameAutoSuggestion.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -829,6 +932,12 @@
     <Content Include="Web.ConnectionStrings.drinternal.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
     </Content>
+    <Content Include="Views\Reward\Payment.cshtml" />
+    <Content Include="Views\Reward\PaymentData.cshtml" />
+    <Content Include="Views\Reward\Filter.cshtml" />
+    <Content Include="Views\Reward\DetailData.cshtml" />
+    <Content Include="Views\Reward\Detail.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -878,7 +987,13 @@
     <TypeScriptCompile Include="assets\scripts\auto-transfer\update-single.ts" />
     <TypeScriptCompile Include="assets\scripts\auto-transfer\update-schedule.ts" />
     <TypeScriptCompile Include="assets\scripts\components\auto-refresh.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\copy-html.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\daterangepicker-jquery.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\filter.ts" />
     <TypeScriptCompile Include="assets\scripts\components\multiple-selection-dropdown.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\sort.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\username-autosuggestion.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\visible-columns-dropdown-new.ts" />
     <TypeScriptCompile Include="assets\scripts\components\visible-columns-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\components\pager.ts" />
     <TypeScriptCompile Include="assets\scripts\components\daterangepicker.ts">
@@ -891,6 +1006,8 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>
     <TypeScriptCompile Include="assets\scripts\core.ts" />
+    <TypeScriptCompile Include="assets\scripts\reward\reward-detail.ts" />
+    <TypeScriptCompile Include="assets\scripts\reward\reward-payment.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\cash-balance-transfer\cash-balance-tests.ts">
       <SonarQubeExclude>true</SonarQubeExclude>
     </TypeScriptCompile>

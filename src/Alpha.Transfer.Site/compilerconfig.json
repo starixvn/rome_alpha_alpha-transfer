@@ -90,5 +90,9 @@
   {
     "outputFile": "assets/styles/auto-transfer/update-single.css",
     "inputFile": "assets/styles/auto-transfer/update-single.scss"
+  },
+  {
+    "outputFile": "assets/styles/reward/reward.css",
+    "inputFile": "assets/styles/reward/reward.scss"
   }
 ]

@@ -1,0 +1,97 @@
+﻿@import "../_variables.scss";
+$reward-payment-width: 860px;
+
+.page-title {
+    margin-bottom: 12px;
+    padding: 0;
+}
+
+.filter {
+    .multiselect-container {
+        width: 100%;
+    }
+
+    .column-multiselect-container .multiselect-container {
+        width: auto;
+    }
+}
+#rewardDetail {
+    .filter {
+        .form-group {
+            &:nth-child(5), &:nth-child(6) {
+                margin-right: 12px;
+            }
+        }
+    }
+}
+#rewardPayment {
+    .filter {
+        .form-group {
+            &:nth-child(4) {
+                margin-right: 12px;
+            }
+        }
+    }
+}
+.msg.msg-success {
+    margin-top: 0;
+    max-width: $reward-payment-width;
+}
+
+.reward-payment {
+    max-width: $reward-payment-width;
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        position: relative;
+        top: 2px;
+        margin: 0;
+    }
+
+    .button-unpaid {
+        height: 22px;
+        line-height: 22px;
+    }
+}
+
+.downline-table .list-icon li {
+    .button-apply {
+        line-height: 24px;
+        height: 24px;
+    }
+}
+
+#tbl-transfer-container.agent {
+    max-width: 1200px;
+}
+
+.pagination-page-list, .pagination-info {
+    margin: 0;
+}
+
+.bootbox {
+    margin-top: 10px;
+
+    .modal-content .modal-header .modal-title {
+        cursor: default;
+    }
+
+    .modal-dialog {
+        width: auto;
+        min-width: 500px;
+    }
+
+    .modal-body {
+        max-height: 200px;
+        overflow-y: auto;
+
+        p.text-red {
+            margin-bottom: 5px;
+        }
+
+        a:hover, a:focus {
+            text-decoration: none;
+        }
+    }
+}

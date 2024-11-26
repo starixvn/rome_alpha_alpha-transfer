@@ -1,0 +1,59 @@
+﻿@model Alpha.Transfer.Site.ViewModels.Reward.RewardDetailViewModel
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = Resources.RewardDetail;
+    var level = Model.ActorLevel.DisplayName.ToLowerInvariant();
+}
+@section Styles {
+    @StaticResources.AssetStyles.Render("/bundles-v2/site-transfer/reward")
+    @StaticResources.RenderStyles("~/assets/bundles-v2/reward/reward")
+}
+@section Scripts {
+    <script type="text/javascript">
+        var columnList = [
+            { value: "3", text: '@string.Format("{0} - {1}", Resources.Member, Resources.Amount)' },
+            { value: "4", text: '@string.Format("{0} - {1}", Resources.Member, Resources.PaymentStatus)' },
+            { value: "5", text: '@string.Format("{0} - {1}", Resources.Member, Resources.PaymentDate)' },
+            { value: "6", text: '@string.Format("{0} - {1}", Resources.Member, Resources.Feedback)' },
+            @if (Model.ActorLevel.IsMasterOrSuperLevel())
+            {
+                @:{ value: "7", text: '@string.Format("{0} - {1}", Resources.Agent, Resources.Username)' },
+                @:{ value: "8", text: '@string.Format("{0} - {1}", Resources.Agent, Resources.PaymentStatus)' },
+                @:{ value: "9", text: '@string.Format("{0} - {1}", Resources.Agent, Resources.PaymentDate)' },
+            }
+            @if (Model.ActorLevel.IsSuperLevel())
+            {
+                @:{ value: "10", text: '@string.Format("{0} - {1}", Resources.Master, Resources.Username)' },
+                @:{ value: "11", text: '@string.Format("{0} - {1}", Resources.Master, Resources.PaymentStatus)' },
+                @:{ value: "12", text: '@string.Format("{0} - {1}", Resources.Master, Resources.PaymentDate)' }
+            }
+        ];
+    </script>
+    @StaticResources.AssetScripts.Render("/bundles/site-transfer/filter")
+    @StaticResources.AssetScripts.Render("/bundles/site-transfer/pagination")
+    @StaticResources.RenderScripts("~/assets/bundles/reward/reward-detail")
+}
+<div class="page-title tabs @level">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation">
+            @Html.ActionLink(Resources.RewardPayment, "Payment", "Reward")
+        </li>
+        <li role="presentation" class="active">
+            <a href="#rewardDetail" aria-controls="home" role="tab" data-toggle="tab">@Resources.RewardDetail</a>
+        </li>
+    </ul>
+    <div class="list-icon">
+        <ul><li><span class="ic-arrow-up-circle ripple" id="icon-filter" title="@Resources.HideFilter" data-toggle="tooltip" data-placement="bottom"></span></li></ul>
+    </div>
+</div>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="rewardDetail" style="visibility: hidden">
+        @{ Html.RenderPartial("Filter", Model.Filter); }
+        <div class="@level" id="tbl-transfer-container">
+            @{ Html.RenderPartial("DetailData", Model); }
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hiddenCopyText" value="@Resources.Copy" />
+<input type="hidden" id="hiddenCopiedText" value="@Resources.Copied" />
+<input type="hidden" id="hiddenVisibleColumnKey" value="@Model.VisibleColumnKey" />

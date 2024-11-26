@@ -1,4 +1,7 @@
 ﻿<Functions SiteId="105" SiteName="Member Information">
+  <Function Name="Account Info">
+    <Setting Key="Acc_CustomerUpdUserSearch" SpName="Acc_CustomerUpdUserSearch" DbName="DBCUST.CustDB.wsv_alp" />
+  </Function>
   <Function Name="Transfer">
     <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />
     <Setting Key="Age_GetIsAllDayBalTransfer" SpName="Age_GetIsAllDayBalTransfer" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />

@@ -1,0 +1,33 @@
+﻿@using Alpha.Transfer.AppResources;
+@using Alpha.Transfer.Extensions;
+@using Alpha.Transfer.Site.ViewModels.Components;
+
+@helper Render(DateRangePickerJQueryViewModel model, string label = null)
+{
+    <div class="form-group daterangepicker-container">
+        <label class="label-form-control">@(label ?? Resources.DateRange)</label>
+        <div class="input-group date datepicker">
+            <input type="text"
+                   class="form-control"
+                   id="daterange-picker"
+                   autocomplete="off"
+                   readonly
+                   data-mindate="@model.MinDate.ToShortDateWithSlash()"
+                   data-maxdate="@model.MaxDate.ToShortDateWithSlash()"
+                   data-fromdate="@model.FromDate.ToShortDateWithSlash()"
+                   data-todate="@model.ToDate.ToShortDateWithSlash()"
+                   data-today="@model.Today.ToShortDateWithSlash()"
+                   data-label-today="@Resources.Today"
+                   data-label-yesterday="@Resources.Yesterday"
+                   data-label-thisweek="@Resources.ThisWeek"
+                   data-label-lastweek="@Resources.LastWeek"
+                   data-label-thismonth="@Resources.ThisMonth"
+                   data-label-lastmonth="@Resources.LastMonth"
+                   data-label-sincelastmonth="@Resources.SinceLastMonth"
+                   data-label-last3months="@Resources.Last3Months" />
+            <label class="input-group-addon" for="daterange-picker">
+                <span class="icon-calendar"></span>
+            </label>
+        </div>
+    </div>
+}

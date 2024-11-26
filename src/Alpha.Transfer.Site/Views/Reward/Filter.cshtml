@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+    var isRewardDetailTab = Model.ShowColumns;
+}
+@model Alpha.Transfer.Site.ViewModels.Reward.RewardFilterViewModel
+<div class="form-inline filter" id="transfer-form">
+    @DateRangePickerJQuery.Render(Model.DateRangePicker)
+    <div class="form-group">
+        <label class="label-form-control">@Resources.Program</label>
+        <div>@Html.DropDownList("ddl-program", Model.Programs, new {
+            data_label_selectall = Resources.SelectAll,
+            data_label_selected = Resources.Selected,
+            data_label_noneselected = Resources.SelectNone,
+            data_label_all = Resources.All,
+            data_label_noitemfound = Resources.NoProgramFound,
+            data_label_filterplaceholder = Resources.SearchProgram
+        })</div>
+    </div>
+    <div class="form-group">
+        <label class="label-form-control">@(isRewardDetailTab ? Resources.MemberPaymentStatus : Resources.PaymentStatus)</label>
+        <div>@Html.DropDownList("ddl-paymentStatus", Model.PaymentStatus)</div>
+    </div>
+    @UsernameAutoSuggestion.Render(Model.Username)
+    @if (Model.ShowColumns)
+    {
+        @VisibleColumnsDropdown.RenderNew()
+        <div class="form-group">
+            <label class="label-form-control">&nbsp;</label>
+            <div><span id="icon-copy" class="ic-copy" data-toggle="tooltip" data-placement="top" title="@Resources.Copy"></span></div>
+        </div>
+    }
+    <div class="form-group">
+        <label class="label-form-control">&nbsp;</label>
+        <div><a href="@Url.Action(Model.ExcelAction)" id="icon-excel" class="ic-excel" data-toggle="tooltip" data-placement="top" title="@Resources.ExportToExcel"></a></div>
+    </div>
+</div>
+<input type="hidden" id="hiddenUsernameAutoSuggestionUrl" value="@Url.Action("Get", "UsernameSuggestion")" />
+<input type="hidden" id="hiddenHideFilterText" value="@Resources.HideFilter" />
+<input type="hidden" id="hiddenShowFilterText" value="@Resources.ShowFilter" />

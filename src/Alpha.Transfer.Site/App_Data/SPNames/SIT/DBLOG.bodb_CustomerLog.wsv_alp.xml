@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Functions>
+  <Function Name="Write Log">
+    <Setting Key="WriteLog_UserLog_RunSP_RewardPayment" SpName="WriteLog_UserLog_RunSP_RewardPayment" DbName="DBLOG.bodb_CustomerLog.wsv_alp" />
+  </Function>
+</Functions>

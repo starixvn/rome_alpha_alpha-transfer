@@ -2,27 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
-    using System.Web;
     using Alpha.Transfer.Models.TransferToDownlineHistory;
     using Alpha.Transfer.Params.TransferToDownlineHistory;
     using Alpha.Transfer.Services;
 
-    public class TransferToDownlineHistoryBaseHandler
+    public class TransferToDownlineHistoryBaseHandler : ExcelBaseHandler
     {
         private readonly TransferToDownlineHistoryService transferToDownlineHistoryService;
-
-        private const string ExcelTemplateDir = "~/App_Data/ExcelTemplates/TransferToDownlineHistory/{0}.{1}";
-
-        private Func<string, string> mapPath;
-
-        protected internal Func<string, string> MapPath
-        {
-            get { return mapPath ?? HttpContext.Current.Server.MapPath; }
-            set { mapPath = value; }
-        }
-
-        protected internal Func<string, bool> IsFileExist { get; set; } = File.Exists;
 
         public TransferToDownlineHistoryBaseHandler(TransferToDownlineHistoryService transferToDownlineHistoryService)
         {
@@ -31,24 +17,5 @@
 
         protected internal Tuple<IEnumerable<TransferToDownlineHistoryModel>, int> GetTransferToDownlineHistory(TransferToDownlineHistoryPagingParam param)
             => transferToDownlineHistoryService.GetTransferToDownlineHistory(param);
-
-        protected internal virtual string GetExcelTemplatePath(string templateName, string fileExtension = "xls")
-        {
-            if (string.IsNullOrWhiteSpace(templateName))
-            {
-                throw new ArgumentNullException(nameof(templateName), "Template Name cannot be null or empty!");
-            }
-
-            var relativePath = string.Format(ExcelTemplateDir, templateName, fileExtension);
-
-            var absolutePath = MapPath(relativePath);
-
-            if (IsFileExist(absolutePath))
-            {
-                return absolutePath;
-            }
-
-            throw new FileNotFoundException($"Template {absolutePath} does not exist!");
-        }
     }
 }

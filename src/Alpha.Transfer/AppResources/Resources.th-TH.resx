@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -653,5 +653,104 @@
   </data>
   <data name="NoRefresh" xml:space="preserve">
     <value>ไม่ใช่</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>คอลัมน์</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>คัดลอก</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>สำเนา</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>ช่วงของข้อมูล</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>ข้อเสนอแนะ</value>
+  </data>
+  <data name="HideFilter" xml:space="preserve">
+    <value>ซ่อนตัวกรอง</value>
+  </data>
+  <data name="Last3Months" xml:space="preserve">
+    <value>3 เดือนที่ผ่านมา</value>
+  </data>
+  <data name="SearchColumn" xml:space="preserve">
+    <value>ค้นหาคอลัมน์</value>
+  </data>
+  <data name="ShowFilter" xml:space="preserve">
+    <value>แสดงผลตัวกรอง</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="NoColumnsFound" xml:space="preserve">
+    <value>ไม่พบคอลัมน์</value>
+  </data>
+  <data name="RewardDetail" xml:space="preserve">
+    <value>รายละเอียดเงินรางวัล</value>
+  </data>
+  <data name="RewardPayment" xml:space="preserve">
+    <value>การจ่ายเงินรางวัล</value>
+  </data>
+  <data name="UpdateAllRewardPaymentStatusSuccessfully" xml:space="preserve">
+    <value>การชำระเงินทั้งหมดได้รับการยืนยันเรียบร้อยแล้ว</value>
+  </data>
+  <data name="UpdateManyRewardPaymentStatusSuccessfully" xml:space="preserve">
+    <value>การชำระเงินทั้งหมดได้รับการยืนยันเรียบร้อยแล้ว ยกเว้นการชำระเงินต่อไปนี้:</value>
+  </data>
+  <data name="UpdateRewardPaymentStatusConfirm" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการยืนยันการชำระเงินสำหรับบัญชีที่เลือก</value>
+  </data>
+  <data name="UpdateRewardPaymentStatusSuccessfully" xml:space="preserve">
+    <value>การชำระเงินนี้ได้รับการยืนยันเรียบร้อยแล้ว</value>
+  </data>
+  <data name="Program" xml:space="preserve">
+    <value>โปรแกรม</value>
+  </data>
+  <data name="SearchProgram" xml:space="preserve">
+    <value>ค้นหาโปรแกรม</value>
+  </data>
+  <data name="PaymentStatus" xml:space="preserve">
+    <value>สถานะการจ่ายเงิน</value>
+  </data>
+  <data name="ConfirmPayment" xml:space="preserve">
+    <value>ยืนยันการจ่ายเงิน</value>
+  </data>
+  <data name="PaymentDate" xml:space="preserve">
+    <value>วันที่ชำระเงิน</value>
+  </data>
+  <data name="ShowAllErrorPayments" xml:space="preserve">
+    <value>ดูการชำระเงินที่ไม่สำเร็จทั้งหมด</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>สร้างขึ้นเมื่อ</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>ชำระแล้ว</value>
+  </data>
+  <data name="Unpaid" xml:space="preserve">
+    <value>ยังไม่ได้ชำระ</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>ได้รับแล้ว</value>
+  </data>
+  <data name="NotReceived" xml:space="preserve">
+    <value>ไม่ได้รับ</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>ยอดรวม</value>
+  </data>
+  <data name="MemberPaymentStatus" xml:space="preserve">
+    <value>สถานะการชำระเงินของสมาชิก</value>
+  </data>
+  <data name="MemberUsername" xml:space="preserve">
+    <value>ชื่อผู้ใช้สมาชิก</value>
+  </data>
+  <data name="AlreadyPaid" xml:space="preserve">
+    <value>ชำระเงินแล้ว</value>
+  </data>
+  <data name="NoProgramFound" xml:space="preserve">
+    <value>ไม่พบโปรแกรมรางวัลเงินสด</value>
   </data>
 </root>

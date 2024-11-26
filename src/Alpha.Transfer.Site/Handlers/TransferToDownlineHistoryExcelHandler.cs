@@ -54,7 +54,7 @@
 
         private TemplateInfo GetTemplateInfo(TransferToDownlineHistoryExcelQuery message)
             => new TemplateInfo(
-                GetExcelTemplatePath(message.CustLevel.GetDirectDownLineLevel().DisplayName),
+                GetExcelTemplatePath($"TransferToDownlineHistory/{message.CustLevel.GetDirectDownLineLevel().DisplayName}"),
                 Resources.NoInformationIsAvailable);
 
         private string GetSheetTitle(TransferToDownlineHistoryParam param)

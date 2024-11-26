@@ -1,5 +1,9 @@
 ﻿"use strict";
 
+interface Window {
+    alpha: any
+}
+
 class AlphaTransfer {
     $: JQueryStatic;
     store: StoreJSStatic;
@@ -34,11 +38,25 @@ class AlphaTransfer {
             return cookieExpire;
         }
     };
+
     isIe = () => {
         var ua = window.navigator.userAgent;
         var msie = ua.indexOf("MSIE ");
 
         return msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./);
+    };
+
+    updateCurrentUrl = (queryString: string) => {
+        try {
+            window.top.indexManager.updateCurrentUrl(queryString);
+        } catch (e) {
+        }
+    };
+
+    showFeedback = (id: number) => {
+        setTimeout(function () {
+            window.top.indexManager && window.top.indexManager.initFeedbackFunction(id);
+        }, 1000);
     };
 }
 

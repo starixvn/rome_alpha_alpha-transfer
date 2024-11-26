@@ -9,6 +9,7 @@
     using Fanex.Caching;
     using Fanex.Caching.Redis;
     using Fanex.Data.Repository;
+    using Fanex.RemotingRef;
     using MediatR;
     using Models;
     using ONEbook.SpreadSheets;
@@ -76,6 +77,11 @@
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
 
+            container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
+            container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
+            container.RegisterSingleton<CustomerService, CustomerServiceImpl>();
+            container.RegisterSingleton<BelongingService, BelongingServiceImpl>();
+
             container.RegisterSingleton<TransferAllAndClearCreditService, TransferAllAndClearCreditServiceImpl>();
             container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
             container.RegisterPerWebRequest<MultipleTransferService, MultipleTransferServiceImpl>();
@@ -84,6 +90,7 @@
 
             container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
             container.RegisterPerWebRequest<AutoTransferService, AutoTransferServiceImpl>();
+            container.RegisterPerWebRequest<RewardService, RewardServiceImpl>();
         }
 
         private static RedisCache InitRedisCache()

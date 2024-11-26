@@ -6,7 +6,6 @@
     <title>@(ViewBag.Title ?? "Alpha - Sites")</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
-
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/common/common")
     @StaticResources.AssetStyles.RenderWithDarkMode("/bundles/site-transfer/default")
     @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/default")
@@ -14,12 +13,10 @@
 </head>
 <body>
     @RenderBody()
-
     @Html.Hidden("NoInformationIsAvailable", @Resources.NoInformationIsAvailable)
     @Html.Hidden("of", @Resources.of)
     @Html.Hidden("Page", @Resources.Page)
     @Html.Hidden("PageSize", @Resources.PageSize)
-
     @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
     @StaticResources.AssetScripts.Render("/bundles/site-transfer/default")
     @RenderSection("Scripts", required: false)

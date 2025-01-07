@@ -32,13 +32,13 @@
             </div>
             <div class="section">
                 <div class="row">
-                    <div class="col-xs-5 col-sm-3 col-lg-2 ex-text">@Model.UplineLevelName @Resources.CashBalance:</div>
+                    <div class="col-xs-5 col-sm-3 col-lg-2 ex-text">@Resources.ResourceManager.GetString(Model.UplineLevelName + "CashBalance"):</div>
                     <div class="col-xs-7 col-sm-9 col-lg-10">@HtmlHelpers.FormatNumber(Model.UplineCashBalance)</div>
                 </div>
             </div>
             <div class="section">
                 <div class="row">
-                    <div class="col-xs-12 ex-text">@Model.CustLevelName @Resources.Information:</div>
+                    <div class="col-xs-12 ex-text">@Resources.ResourceManager.GetString(Model.CustLevelName + "Information"):</div>
                 </div>
                 <div class="row">
                     <div class="col-xs-5 col-sm-3 col-lg-2">@Resources.Username</div>

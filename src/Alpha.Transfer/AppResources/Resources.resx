@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -514,7 +514,7 @@
     <value>Select none</value>
   </data>
   <data name="SearchColumn" xml:space="preserve">
-    <value>Search columns</value>
+    <value>Search column</value>
   </data>
   <data name="AutoTransfer_InfoAffectTime2" xml:space="preserve">
     <value>If you ENABLE Auto Transfer during its runtime, the Auto Transfer process will take effect at the next scheduled time according to your transfer condition.</value>
@@ -678,97 +678,46 @@
   <data name="AutoTransfer_Error_102_Single" xml:space="preserve">
     <value>This account does not belong to your downline</value>
   </data>
-  <data name="DateRange" xml:space="preserve">
-    <value>Date Range</value>
+  <data name="MasterInformation" xml:space="preserve">
+    <value>Master Information</value>
   </data>
-  <data name="Last3Months" xml:space="preserve">
-    <value>Last 3 Months</value>
+  <data name="AgentInformation" xml:space="preserve">
+    <value>Agent Information</value>
   </data>
-  <data name="HideFilter" xml:space="preserve">
-    <value>Hide filters</value>
+  <data name="MemberInformation" xml:space="preserve">
+    <value>Member Information</value>
   </data>
-  <data name="ShowFilter" xml:space="preserve">
-    <value>Show filters</value>
+  <data name="AgentCashBalance" xml:space="preserve">
+    <value>Agent Cash</value>
   </data>
-  <data name="Paid" xml:space="preserve">
-    <value>Paid</value>
+  <data name="MasterCashBalance" xml:space="preserve">
+    <value>Master Cash</value>
   </data>
-  <data name="Unpaid" xml:space="preserve">
-    <value>Unpaid</value>
-  </data>
-  <data name="NotReceived" xml:space="preserve">
-    <value>Not Received</value>
-  </data>
-  <data name="ConfirmPayment" xml:space="preserve">
-    <value>Confirm Payment</value>
-  </data>
-  <data name="Total" xml:space="preserve">
-    <value>Total</value>
-  </data>
-  <data name="RewardPayment" xml:space="preserve">
-    <value>Reward Payment</value>
-  </data>
-  <data name="Program" xml:space="preserve">
-    <value>Program</value>
-  </data>
-  <data name="PaymentStatus" xml:space="preserve">
-    <value>Payment Status</value>
-  </data>
-  <data name="PaymentDate" xml:space="preserve">
-    <value>Payment Date</value>
-  </data>
-  <data name="RewardDetail" xml:space="preserve">
-    <value>Reward Detail</value>
-  </data>
-  <data name="CreatedDate" xml:space="preserve">
-    <value>Created Date</value>
-  </data>
-  <data name="Feedback" xml:space="preserve">
-    <value>Feedback</value>
-  </data>
-  <data name="Copied" xml:space="preserve">
-    <value>Copied</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="UpdateRewardPaymentStatusConfirm" xml:space="preserve">
-    <value>Are you sure you want to confirm payment for the selected account(s)?</value>
-  </data>
-  <data name="SearchProgram" xml:space="preserve">
-    <value>Search program</value>
+  <data name="SuperCashBalance" xml:space="preserve">
+    <value>Super Cash</value>
   </data>
   <data name="Received" xml:space="preserve">
     <value>Received</value>
   </data>
-  <data name="UpdateAllRewardPaymentStatusSuccessfully" xml:space="preserve">
-    <value>All payments have been successfully confirmed.</value>
-  </data>
-  <data name="UpdateManyRewardPaymentStatusSuccessfully" xml:space="preserve">
-    <value>All payments have been successfully confirmed except the following payments:</value>
-  </data>
-  <data name="UpdateRewardPaymentStatusSuccessfully" xml:space="preserve">
-    <value>This payment has been successfully confirmed.</value>
-  </data>
-  <data name="Close" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="ShowAllErrorPayments" xml:space="preserve">
-    <value>View all unsuccessful payments.</value>
-  </data>
-  <data name="NoColumnsFound" xml:space="preserve">
-    <value>No Columns Found</value>
-  </data>
-  <data name="MemberPaymentStatus" xml:space="preserve">
-    <value>Member Payment Status</value>
-  </data>
-  <data name="MemberUsername" xml:space="preserve">
-    <value>Member Username</value>
+  <data name="NotReceived" xml:space="preserve">
+    <value>Not Received</value>
   </data>
   <data name="AlreadyPaid" xml:space="preserve">
     <value>Already Paid</value>
   </data>
-  <data name="NoProgramFound" xml:space="preserve">
-    <value>No program found</value>
+  <data name="RewardDetail" xml:space="preserve">
+    <value>Reward Detail</value>
+  </data>
+  <data name="RewardPayment" xml:space="preserve">
+    <value>Reward Payment</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Unpaid" xml:space="preserve">
+    <value>Unpaid</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>Paid</value>
   </data>
 </root>

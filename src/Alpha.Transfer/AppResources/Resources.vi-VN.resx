@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NoInformationIsAvailable" xml:space="preserve">
-    <value>Không có dữ liệu</value>
+    <value>Thông tin chưa được cập nhật</value>
   </data>
   <data name="UsernamePlaceHolder" xml:space="preserve">
     <value>Tên đăng nhập hoặc Tên/Họ</value>
@@ -205,7 +205,7 @@
     <value>Giao dịch chưa xử lý</value>
   </data>
   <data name="Amount" xml:space="preserve">
-    <value>Số tiền</value>
+    <value>Số lượng</value>
   </data>
   <data name="ConfirmTransfer" xml:space="preserve">
     <value>Bạn có chắc muốn chuyển khoản?</value>
@@ -576,83 +576,23 @@
   <data name="AutoTransfer_HintPath_4" xml:space="preserve">
     <value>Danh sách Master</value>
   </data>
-  <data name="Columns" xml:space="preserve">
-    <value>Cột hiển thị</value>
+  <data name="MasterInformation" xml:space="preserve">
+    <value>Thông tin Master</value>
   </data>
-  <data name="Copied" xml:space="preserve">
-    <value>Đã sao chép</value>
+  <data name="AgentInformation" xml:space="preserve">
+    <value>Thông tin Agent</value>
   </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Sao chép</value>
+  <data name="MemberInformation" xml:space="preserve">
+    <value>Thông tin Member</value>
   </data>
-  <data name="DateRange" xml:space="preserve">
-    <value>Thời gian báo cáo</value>
+  <data name="AgentCashBalance" xml:space="preserve">
+    <value>Tiền khả dụng của Agent</value>
   </data>
-  <data name="Feedback" xml:space="preserve">
-    <value>Góp ý</value>
+  <data name="MasterCashBalance" xml:space="preserve">
+    <value>Tiền khả dụng của Master</value>
   </data>
-  <data name="HideFilter" xml:space="preserve">
-    <value>Ẩn bộ lọc dữ liệu</value>
-  </data>
-  <data name="Last3Months" xml:space="preserve">
-    <value>3 tháng trước</value>
-  </data>
-  <data name="SearchColumn" xml:space="preserve">
-    <value>Tìm cột</value>
-  </data>
-  <data name="ShowFilter" xml:space="preserve">
-    <value>Hiện bộ lọc dữ liệu</value>
-  </data>
-  <data name="Close" xml:space="preserve">
-    <value>Đóng</value>
-  </data>
-  <data name="NoColumnsFound" xml:space="preserve">
-    <value>Không tìm thấy Cột nào</value>
-  </data>
-  <data name="RewardDetail" xml:space="preserve">
-    <value>Chi tiết tiền thưởng</value>
-  </data>
-  <data name="RewardPayment" xml:space="preserve">
-    <value>Thanh toán tiền thưởng</value>
-  </data>
-  <data name="UpdateAllRewardPaymentStatusSuccessfully" xml:space="preserve">
-    <value>Tất cả các khoản thanh toán đã được xác nhận thành công.</value>
-  </data>
-  <data name="UpdateManyRewardPaymentStatusSuccessfully" xml:space="preserve">
-    <value>Tất cả các khoản thanh toán đã được xác nhận thành công, ngoại trừ các khoản sau:</value>
-  </data>
-  <data name="UpdateRewardPaymentStatusConfirm" xml:space="preserve">
-    <value>Bạn có chắc chắn muốn xác nhận thanh toán cho (các) tài khoản đã chọn?</value>
-  </data>
-  <data name="UpdateRewardPaymentStatusSuccessfully" xml:space="preserve">
-    <value>Thanh toán này đã được xác nhận thành công.</value>
-  </data>
-  <data name="Program" xml:space="preserve">
-    <value>Chương trình</value>
-  </data>
-  <data name="SearchProgram" xml:space="preserve">
-    <value>Tìm chương trình</value>
-  </data>
-  <data name="PaymentStatus" xml:space="preserve">
-    <value>Trạng thái thanh toán</value>
-  </data>
-  <data name="ConfirmPayment" xml:space="preserve">
-    <value>Xác nhận thanh toán</value>
-  </data>
-  <data name="PaymentDate" xml:space="preserve">
-    <value>Ngày thanh toán</value>
-  </data>
-  <data name="ShowAllErrorPayments" xml:space="preserve">
-    <value>Xem tất cả các thanh toán không thành công.</value>
-  </data>
-  <data name="CreatedDate" xml:space="preserve">
-    <value>Ngày tạo</value>
-  </data>
-  <data name="Paid" xml:space="preserve">
-    <value>Đã thanh toán</value>
-  </data>
-  <data name="Unpaid" xml:space="preserve">
-    <value>Chưa thanh toán</value>
+  <data name="SuperCashBalance" xml:space="preserve">
+    <value>Tiền khả dụng của Super</value>
   </data>
   <data name="Received" xml:space="preserve">
     <value>Đã nhận</value>
@@ -660,19 +600,22 @@
   <data name="NotReceived" xml:space="preserve">
     <value>Chưa nhận</value>
   </data>
-  <data name="Total" xml:space="preserve">
-    <value>Tổng cộng</value>
-  </data>
-  <data name="MemberPaymentStatus" xml:space="preserve">
-    <value>Trạng thái thanh toán của Member</value>
-  </data>
-  <data name="MemberUsername" xml:space="preserve">
-    <value>Tên đăng nhập Member</value>
-  </data>
   <data name="AlreadyPaid" xml:space="preserve">
     <value>Đã thanh toán trước đó</value>
   </data>
-  <data name="NoProgramFound" xml:space="preserve">
-    <value>Không tìm thấy chương trình tiền thưởng nào</value>
+  <data name="RewardDetail" xml:space="preserve">
+    <value>Chi tiết tiền thưởng</value>
+  </data>
+  <data name="RewardPayment" xml:space="preserve">
+    <value>Thanh toán tiền thưởng</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Tổng cộng</value>
+  </data>
+  <data name="Unpaid" xml:space="preserve">
+    <value>Chưa thanh toán</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>Đã thanh toán</value>
   </data>
 </root>
